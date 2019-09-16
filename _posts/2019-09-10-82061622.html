@@ -1,0 +1,406 @@
+---
+layout: post
+title: "오픈소스컨설팅 Agile 조직 실험기"
+description: " " 
+author: brian
+date: 2019-09-10
+tags: ['조직문화', '조직구조', 'hr', '인사', '실험', '연구', 'agile']
+category: 
+image: /assets/images/82061622/0.svg 
+---
+<p>
+ <div class="toc-macro client-side-toc-macro conf-macro output-block" data-hasbody="false" data-headerelements="H1,H2,H3,H4,H5,H6,H7" data-macro-name="toc">
+ </div>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이번에는 오픈소스컨설팅의 'Agile 조직실험'에 대한 이야기를 해보려고 합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/82061622/0.application/octet-stream; charset=UTF-8"/>
+  <img class="confluence-embedded-image confluence-external-resource" data-image-src="http://www.ndsl.kr/ndsl/commons/util/imgFileView.do?fileNm=B20170428094426781_thum.jpg&amp;folderNm=201704&amp;gubun=issue" height="400" src="http://www.ndsl.kr/ndsl/commons/util/imgFileView.do?fileNm=B20170428094426781_thum.jpg&amp;folderNm=201704&amp;gubun=issue"/>
+ </span>
+</p>
+<p>
+ (늘 연구하는 오픈소스컨설팅
+ <img src="/assets/images/82061622/0.svg"/>
+ , 출처: 구글링 )
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 오픈소스컨설팅은 IT기술을 배우고 전파하는 것 뿐만아니라, 우리 스스로도 더 좋은 조직으로 성장하기 위해 여러가지 시도를 하고 있습니다.
+</p>
+<p>
+ 조직구조에 따라 업무스타일도 바뀌고, 반대로 사업 성격에 따라 조직구조가 바뀌어야 하는 경우도 있습니다.
+</p>
+<p>
+ 어떤 조직이 우리가 하는 사업에 잘 맞을까?를 고민하고 그에 맞추어 조직을 구성하고 운영하면서 최고의 조합을 찾아가려는 거죠.
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="id-오픈소스컨설팅Agile조직실험기-기능조직(활동조직)">
+ 기능조직 (활동조직)
+</h2>
+<p>
+ <br/>
+</p>
+<p>
+ 가장 보편적으로 회사에서는 기능으로 나누어 조직을 구분합니다. 예를들면 이런거죠
+</p>
+<p>
+ <span class="gliffy-container conf-macro output-inline" data-ceoid="82061622" data-edit="/plugins/gliffy/editor.action?inline=false&amp;pageId=82061622&amp;name=%EA%B8%B0%EB%8A%A5%EC%A1%B0%EC%A7%81&amp;attachmentId=82061623&amp;ceoid=82061622&amp;key=CIS&amp;lastPage=%2Fpages%2Fviewpage.action%3FpageId%3D82061622&amp;attachmentVersion=1" data-filename="기능조직" data-full="/plugins/gliffy/viewer.action?inline=false&amp;pageId=82061622&amp;attachmentId=82061623&amp;name=%EA%B8%B0%EB%8A%A5%EC%A1%B0%EC%A7%81&amp;version=1&amp;ceoid=82061622&amp;key=CIS&amp;lastPage=%2Fpages%2Fviewpage.action%3FpageId%3D82061622&amp;imageUrl=%2Fdownload%2Fattachments%2F82061622%2F%25EA%25B8%25B0%25EB%258A%25A5%25EC%25A1%25B0%25EC%25A7%2581.png%3Fversion%3D1%26modificationDate%3D1568103546759%26api%3Dv2&amp;gonUrl=%2Fdownload%2Fattachments%2F82061622%2F%25EA%25B8%25B0%25EB%258A%25A5%25EC%25A1%25B0%25EC%25A7%2581%3Fapi%3Dv2%26version%3D1" data-fullwidth="836" data-hasbody="false" data-macro-name="gliffy" data-pageid="82061622" id="gliffy-container-82061623-7930">
+  <map id="gliffy-map-82061623-7945" name="gliffy-map-82061623-7945">
+  </map>
+  <img src="/assets/images/82061622/1.png"/>
+  <map class="gliffy-dynamic" id="gliffy-dynamic-map-82061623-7930" name="gliffy-dynamic-map-82061623-7930">
+  </map>
+ </span>
+</p>
+<p>
+ 같은 기능으로 인원을 모으고 팀으로 묶는 형태 입니다.
+</p>
+<p>
+ 익숙하시죠? 이런 형태의 조직. 이게 진짜 오래된 조직 구조 방식 중 하나인데요, F.W.테일러가 과학적관리법에서 이야기한 조직구조 방식이니까, 한 1900년대 초부터 나온 구조죠. (약간 사골 느낌?)
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이런 기능조직의 장점은 같은 일을 하는 사람들이 모여 있기 때문에 업무 전문화, 기능활동의 표준화, 조직효율성 증대 등이 있고 대표적으로 애플이 이런 구조로 운영을 한다고 합니다.
+</p>
+<p>
+ 하지만 단점도 명확합니다. 사업목표의 공유가 어려워요. 올해 회사 매출 목표가 100원이라고 하면, 영업팀은 그 목표를 굉장히 체감하고 실적을 챙기게 되지만, 개발팀과 디자인팀은 내가 매출에 얼마나 기여하는지
+</p>
+<p>
+ 인지하기 어렵습니다. 따라서 영업팀과 개발, 운영팀간의 불협화음이 발생하기도 하죠.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 전문화된 기술과 역량을 발전시켜서 사업을 진행해 온 오픈소스컨설팅에도 이런 기능조직이 잘 맞았습니다. 분야별로 전문성이 다르고, 업무 성향도 달라서 기능별로 구성하는 것이 훨씬 효율적이었죠.
+</p>
+<p>
+ 하지만, 새로운 사업이 추가되면서 다른 형태의 조직을 구성하게 되었습니다.
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="id-오픈소스컨설팅Agile조직실험기-CrossFunctional(기능횡단)조직">
+ Cross Functional(기능횡단) 조직
+</h2>
+<p>
+ <br/>
+</p>
+<p>
+ 아틀라시안 비지니스는 기존의 오픈소스컨설팅의 비지니스와는 약간 차이가 있었어요. 일단, 오픈소스가 아니었고..ㅋㅋ
+</p>
+<p>
+ 기존에는 Linux 관련 사업, 미들웨어사업 등등 사업 수요 자체가 기능적으로 각기 발생 한데 비해
+</p>
+<p>
+ 아틀라시안 비지니스는 기술지원, 개발, 영업 등 다양한 기능의 업무가 동시다발적으로 발생하고, 함께 협업을 해야하는 일들이 많았습니다.
+</p>
+<p>
+ 즉, 그동안 해왔던 기능조직으로 구성하려면 인원이 너무 많이 필요해지고, Cross Functional 하게 수행해야하는 고객요구사항 대응에 있어서
+</p>
+<p>
+ 반응력이 떨어질수 밖에 없었습니다.
+</p>
+<p>
+ <br/>
+</p>
+<h3 id="id-오픈소스컨설팅Agile조직실험기-기능횡단조직=매트릭스조직??">
+ <strong>
+  기능횡단조직 = 매트릭스조직??
+ </strong>
+</h3>
+<p>
+ 매트릭스 조직이라는 말, 많이 들어보셨죠? 매트릭스 조직이 꽤 유행도 하고 지금도 활용하는 회사가 많기도 합니다.
+</p>
+<p>
+ 매트릭스 조직은 기능횡단 조직과는 다르게, 각자가 기능으로 속한 조직이 있고 또 그와 별도로 프로젝트 조직에도 속하게 됩니다.
+</p>
+<p>
+ <span class="gliffy-container conf-macro output-inline" data-ceoid="82061622" data-edit="/plugins/gliffy/editor.action?inline=false&amp;pageId=82061622&amp;name=%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4%20%EC%A1%B0%EC%A7%81&amp;attachmentId=82062489&amp;ceoid=82061622&amp;key=CIS&amp;lastPage=%2Fpages%2Fviewpage.action%3FpageId%3D82061622&amp;attachmentVersion=1" data-filename="매트릭스 조직" data-full="/plugins/gliffy/viewer.action?inline=false&amp;pageId=82061622&amp;attachmentId=82062489&amp;name=%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4%20%EC%A1%B0%EC%A7%81&amp;version=1&amp;ceoid=82061622&amp;key=CIS&amp;lastPage=%2Fpages%2Fviewpage.action%3FpageId%3D82061622&amp;imageUrl=%2Fdownload%2Fattachments%2F82061622%2F%25EB%25A7%25A4%25ED%258A%25B8%25EB%25A6%25AD%25EC%258A%25A4%2520%25EC%25A1%25B0%25EC%25A7%2581.png%3Fversion%3D1%26modificationDate%3D1568609188194%26api%3Dv2&amp;gonUrl=%2Fdownload%2Fattachments%2F82061622%2F%25EB%25A7%25A4%25ED%258A%25B8%25EB%25A6%25AD%25EC%258A%25A4%2520%25EC%25A1%25B0%25EC%25A7%2581%3Fapi%3Dv2%26version%3D1" data-fullwidth="665" data-hasbody="false" data-macro-name="gliffy" data-pageid="82061622" id="gliffy-container-82062489-7433">
+  <map id="gliffy-map-82062489-953" name="gliffy-map-82062489-953">
+  </map>
+  <img src="/assets/images/82061622/2.png"/>
+  <map class="gliffy-dynamic" id="gliffy-dynamic-map-82062489-7433" name="gliffy-dynamic-map-82062489-7433">
+  </map>
+ </span>
+</p>
+<p>
+ 즉, 앞서 언급한
+ <u>
+  <span style="color: rgb(0,51,102);">
+   기능조직과 기능횡단조직 사이에 있는 형태
+  </span>
+ </u>
+ 인데요, 아틀라시안 팀은 매트릭스 조직으로 구성하기에는 구성인원이 너무 부족하기도 했고,
+</p>
+<p>
+ 나름의 전문 지식과 연속성이 필요한 상황이어서 매트릭스 조직으로는 어려움이 있었죠. 게다가 매트릭스 조직은 생각보다 효율적으로 운영하기가 쉽지 않습니다.
+</p>
+<p>
+ 전체조직을 아우르는 강력한 리더십도 필요하고, 그러다보면 기능리더와 프로젝트리더의 역할이 모호해져서 개념이 나온 이후 여전히 인기는 많았으나 실제 도입 후 효과를 본 경우가 많지 않아요.
+</p>
+<p>
+ (혹시 매트릭스 조직으로 효과를 보신 분들 있으시면 알려주세요. 가서 배워보고 싶습니다)
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 그래서 공동창업자이신 대표님과 부대표님은 아틀라시안 비지니스에는 기존조직과는 다른 기능횡단조직으로 조직구조를 가져가기로 결심했습니다.
+</p>
+<p>
+ <span class="gliffy-container conf-macro output-inline" data-ceoid="82061622" data-edit="/plugins/gliffy/editor.action?inline=false&amp;pageId=82061622&amp;name=atlassian&amp;attachmentId=82061638&amp;ceoid=82061622&amp;key=CIS&amp;lastPage=%2Fpages%2Fviewpage.action%3FpageId%3D82061622&amp;attachmentVersion=1" data-filename="atlassian" data-full="/plugins/gliffy/viewer.action?inline=false&amp;pageId=82061622&amp;attachmentId=82061638&amp;name=atlassian&amp;version=1&amp;ceoid=82061622&amp;key=CIS&amp;lastPage=%2Fpages%2Fviewpage.action%3FpageId%3D82061622&amp;imageUrl=%2Fdownload%2Fattachments%2F82061622%2Fatlassian.png%3Fversion%3D1%26modificationDate%3D1568105402093%26api%3Dv2&amp;gonUrl=%2Fdownload%2Fattachments%2F82061622%2Fatlassian%3Fapi%3Dv2%26version%3D1" data-fullwidth="235" data-hasbody="false" data-macro-name="gliffy" data-pageid="82061622" id="gliffy-container-82061638-6096">
+  <map id="gliffy-map-82061638-6450" name="gliffy-map-82061638-6450">
+  </map>
+  <img src="/assets/images/82061622/3.png"/>
+  <map class="gliffy-dynamic" id="gliffy-dynamic-map-82061638-6096" name="gliffy-dynamic-map-82061638-6096">
+  </map>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이러한 기능횡단 조직의 장점은,
+ <strong>
+  명확한 사업 목표를 공유
+ </strong>
+ 할 수 있고
+ <strong>
+  협업이 빨라지고
+ </strong>
+ ,
+ <strong>
+  업무의 Hand-off가 줄어들게
+ </strong>
+ 됩니다.
+</p>
+<p>
+ 소위 말하는 Agile 한 조직으로 바뀌는 거죠. 한 조직내에 개발/인프라/데브옵스엔지니어, 영업, 컨설턴트가 모두 있기 때문에 다양한 업무를 복합적으로 수행할 수 있으며
+</p>
+<p>
+ 인력 운영의 효율도 굉장히 높아지게 됩니다.
+</p>
+<p>
+ 또한 상호 다른 기능에 대한 학습이 이루어지고, 반응성이 빨라집니다....는 이론적인거고,
+</p>
+<p>
+ 실제로는 어떨까요?
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/82061622/4.jpeg"/>
+ </span>
+</p>
+<p>
+ (현실과 이상은 다르다, 출처 : 구글링)
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="id-오픈소스컨설팅Agile조직실험기-고군분투실험기">
+ 고군분투 실험기
+</h2>
+<p>
+ <br/>
+</p>
+<p>
+ 일단, 애자일조직으로 구성된 아틀라시안팀 부터 살펴보겠습니다.
+</p>
+<p>
+ 애자일 조직은 아틀라시안 비지니스에 확실히 잘 맞기는 합니다. 일단, 각각의 기능이 수시로 영역을 넘나들면서 수행되야 하는 경우가 워낙 많습니다.
+</p>
+<p>
+ 시스템쪽 기술지원을 하다가 필요에의해 개발이 투입되어야 할때도 있고, 개발을 하다가 시스템이 다운되서 인프라 엔지니어가 투업되어야 하는 경우도 있습니다.
+</p>
+<p>
+ 영업업무도 기술적으로 계속 엔지니어와 함께 수행되어야 하는 경우도 많구요.
+</p>
+<p>
+ 그래서 이 아틀라시안팀에 애자일 조직을 적용한 실험은 도입면에서는 10점만점에 10점을 줄수 있습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 그럼 실제 데일리 업무에서는 어떨까요?
+</p>
+<p>
+ <br/>
+</p>
+<h3 id="id-오픈소스컨설팅Agile조직실험기-단점:영역이흐릿해지다">
+ 단점 : 영역이 흐릿해지다
+</h3>
+<p>
+ 단점부터 꼽아보자면, 개발자가 시스템을 보기도 하고, 인프라 엔지니어가 개발 이슈를 챙겨야 하는 요상한 상황이 많이 생깁니다.
+</p>
+<p>
+ 그러다 보니 엔지니어와 개발자의 피로도와 부담감이 생각보다 증가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/82061622/5.jpeg"/>
+ </span>
+</p>
+<p>
+ (난 누군가, 또 여긴 어딘가.., 출처 : 구글링)
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이러다보니 다시 엄격한 영역 구분이 필요해집니다. 업무의 80%이상은 본인의 고유영역업무를 수행하고 20%정도는 다른업무를 크로스하게 수행 하면서
+</p>
+<p>
+ 서로간에 다른 기술에 대한 역량을 높이는 시간이 필요하더라구요.
+</p>
+<p>
+ 결국 DevOps의 문화처럼 서로의 주특기는 유지하되, 상호간의 부족한 부분을 채워가는 시간을 회사가 보장해 주어야 합니다.
+</p>
+<p>
+ 하지만, 이러한 부분이 잘 조율되고 매니저와 구성원들의 노력이 스며든다면 반면에 큰 장점으로 작용합니다.
+</p>
+<p>
+ <br/>
+</p>
+<h3 id="id-오픈소스컨설팅Agile조직실험기-장점:전원공격전원수비→TotalSoccer?">
+ 장점 : 전원공격 전원수비 → Total Soccer?
+</h3>
+<p>
+ 난 개발자니까, 난 엔지니어니까, 난 바쁘니까, 내 고객아니니까 등과 같이 Silo는 정말 많이 줄어들었습니다.
+</p>
+<p>
+ 협업이라는 말을 강조하지 않아도 서로간의 빈 영역을 채워주고, 함께 일하는 문화가 정착되었어요.
+</p>
+<p>
+ 왜 그런거 아시죠? 축구에서 모든 선수가 필요시 공격에 가담하고, 또 반대로 전원 수비에 가담하는 Total Soccer? 저희 팀이 일하는 모습이 그런 느낌입니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/82061622/6.jpeg"/>
+ </span>
+</p>
+<p>
+ (든든한 팀문화!!
+ <s>
+  사례는 축구를 들고, 사진은 배구를 올리는 패기
+ </s>
+ , 출처 : 구글링)
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이러한 장점속에서 Agile 조직 도입은 점점 진화해 나가고 있습니다.
+</p>
+<p>
+ <br/>
+</p>
+<h3 id="id-오픈소스컨설팅Agile조직실험기-그렇다면,아틀라시안팀을제외한다른사업은어떨까요?">
+ 그렇다면, 아틀라시안팀을 제외한 다른 사업은 어떨까요?
+</h3>
+<p>
+ <br/>
+</p>
+<p>
+ Cloud와 Infra, Middlware, Openstack 을 담당하는 조직인데요, 이 조직들은 앞서 언급한 기능조직을 유지하고 있습니다.
+</p>
+<p>
+ 이것은 사업성격 및 엔지니어의 특성을 반영한 결과이기도 한데요, 하지만 이러한 기능조직을 효과적으로 유지하기 위한 Key Recipe 가 있습니다.
+</p>
+<p>
+ 일단 조직구조를 먼저 보시죠.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/82061622/7.png"/>
+ </span>
+</p>
+<p>
+ 보시다시피, 아틀라시안 팀을 제외하면, 모두 기능으로 묶여 있습니다.
+</p>
+<p>
+ 하지만, 이러한 기능을 끈끈하게 묶어줄 리베로 (자세한 설명은 나무위키 참조 :
+ <a class="external-link" href="https://namu.wiki/w/%EB%A6%AC%EB%B2%A0%EB%A1%9C" rel="nofollow">
+  https://namu.wiki/w/%EB%A6%AC%EB%B2%A0%EB%A1%9C
+ </a>
+ ) 로서 프리세일즈팀과 컨설팅팀이 존재합니다.
+</p>
+<p>
+ 영업과 엔지니어 사이에서 고객 및 제품 / 기술을 이어주면서, 사업목표를 공유하는 역할을 하게 됩니다.
+</p>
+<p>
+ 또한 엔지니어 영역은 세부적으로 기능을 나누지 않고, 크게 오픈인프라팀과 개발을 담당하는 솔루션 개발팀으로만 구분하여 엔지니어의 기술적 확장이 가능하도록 구성, 운영 중입니다.
+</p>
+<p>
+ 사실 프로젝트가 다양하게 발생하면 그에 맞게 인원을 구성하곤 하기 때문에
+ <strong>
+  부분적 매트릭스 조직
+ </strong>
+ 으로 운영된다고 보는게 맞겠습니다.
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="id-오픈소스컨설팅Agile조직실험기-마무으리~">
+ 마무으리~
+</h2>
+<p>
+ 같은 회사에서 여러가지 조직 구조를 도입하는 것은 꽤 일반적인 일이 되었습니다.
+</p>
+<p>
+ 한 회사에서도 다양한 사업이 진행되고, 또 그 특성에 맞게 조직을 구성하는 것이 더 나은 조직문화와 사업결과를 가져 올 수 있기 때문이죠.
+</p>
+<p>
+ 저희도 작은 회사지만 다양한 시도를 통해 더 나은 조직문화 및 개인의 발전, 조직의 성장을 꿈꾸고 있습니다.
+</p>
+<p>
+ 조직구조는 뭐가 좋다 나쁘다가 아니라, 사업 형태에 어떤 구조가 더 어울리냐? 라고 보는게 맞을 듯 합니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 아래는 인터넷에 많이 돌아다니는 회사 특성을 보여주는 조직구조 짤입니다 ㅋㅋ
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/82061622/8.jpeg"/>
+ </span>
+</p>
+<p>
+ (애플은 잡스옹이 돌아가신 후, 아마도 아마존처럼 바뀌었을듯..)
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 우리 회사에 어떤 조직이 맞느냐는 회사 문화, 사업, 조직구성원들에 대한 면밀한 이해가 필요합니다.
+</p>
+<p>
+ 지금도 오픈소스컨설팅은 계속 진화 중이니, 올해말 또는 내년에는 어떻게 조직을 운영하고 있을지 저도 궁금하네요.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이상으로 오픈소스컨설팅의 현재진행형 조직실험기였습니다!
+</p>
+<p>
+ <br/>
+</p>
