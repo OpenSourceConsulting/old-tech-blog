@@ -1,0 +1,221 @@
+---
+layout: post
+title: "Spinnaker에서 Judgement를 활용한 Rollback 사용해보기"
+description: " " 
+author: jacobbaek
+date: 2019-12-06
+tags: ['spinnaker', 'rollback', 'kubernetes', 'judgement', 'stage']
+category: 
+image: /assets/images/86030002/0.png 
+---
+<p class="auto-cursor-target">
+ Spinnaker에서 Judgement stage를 활용하여 Rollback 하였던 내용에 대하여 알아보도록 하겠습니다.
+</p>
+<p class="auto-cursor-target">
+ 우선 기존 deploy 방식에 대하여 간단히 알아보겠습니다.
+</p>
+<p class="auto-cursor-target">
+ Application 배포는 다음과 같은 Deploy(Manifest) stage 구성으로 진행됩니다.
+</p>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/0.png"/>
+ </span>
+</p>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/1.png"/>
+ </span>
+</p>
+<p class="auto-cursor-target">
+ 배포 전략은 Red/Black 방식을 사용하여 새로운 Replicaset이 배포되면 기존 Replicaset은 disable 되도록 하였습니다.
+</p>
+<p class="auto-cursor-target">
+ 위 배포가 진행된 이후 Rollback과 Rollout 선택을 통해 배포를 그대로 진행할지 결정하도록 하였고 그에 따라 Rollback 후 delete가 될지
+</p>
+<p class="auto-cursor-target">
+ Rollout 그대로 진행후 오래된 ReplicaSet을 disable 할지 결정하게 됩니다.
+</p>
+<h2 id="Spinnaker에서Judgement를활용한Rollback사용해보기-Judgementstage를사용하여분기시키기">
+ Judgement stage 를 사용하여 분기시키기
+</h2>
+<h2 id='Spinnaker에서Judgement를활용한Rollback사용해보기-앞서설명하였던"ManualJudgement"stage를사용한분기방식에대하여알아보도록하겠습니다.'>
+ <span style="color: rgb(23,43,77);font-size: 14.0px;letter-spacing: 0.0px;">
+  앞서 설명하였던 "Manual Judgement" stage를 사용한 분기 방식에 대하여 알아보도록 하겠습니다.
+ </span>
+</h2>
+<p>
+ 먼저 Manual Judgement stage를 아래와 같이 Approval 이라는 이름과 함께 Option에 "rollout", "rollback"을 추가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/2.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이후 다음 Enable(Manifest) Stage로 선택하여 아래와 같은 Execution Options을 추가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/3.png"/>
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/4.png"/>
+ </span>
+</p>
+<p>
+ 실제 조건은 다음과 같습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">${ #judgement( 'Approval' } == 'rollback' }</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 이후 Delete (Manifest) Stage를 선택하여 아래와 같은 Execution Options을 추가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/5.png"/>
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/6.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 실제 조건은 다음과 같습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">${ #judgement( 'Approval' } == 'rollout' }</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 여기까지는 설정방법이고 실제 동작결과에 대하여 알아보도록 하겠습니다.
+</p>
+<h3 id="Spinnaker에서Judgement를활용한Rollback사용해보기-Rollback">
+ Rollback
+</h3>
+<p>
+ 위 설정에 기반한 Rollback 에 대하여 실제 적용한 결과를 확인해보면 deploy가 실행되고 실제 Application은 다음과 같은 배포가 이루어집니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/7.png"/>
+ </span>
+</p>
+<p>
+ 배포가 되면서 기존 Replicaset은 disable 되고 새로운 Replicaset이 동작하게 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/8.png"/>
+ </span>
+</p>
+<p>
+ Judgement 에서 rollback 을 선택하면
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/9.png"/>
+ </span>
+</p>
+<p>
+ 아래와 같이 Delete(Manifest)는 제외된 상태로 진행이 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/10.png"/>
+ </span>
+</p>
+<p>
+ Cluster를 확인해보면 다음과 같이 새로운 Replicaset이 아닌 기존 동작중이던 Replicaset으로 rollback 되었음을 확인할 수 있습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/11.png"/>
+ </span>
+</p>
+<h3 id="Spinnaker에서Judgement를활용한Rollback사용해보기-NormalRollout">
+ Normal Rollout
+</h3>
+<p>
+ 이번에는 정상적으로 Rollout 된 상황에 대하여 알아보도록 하겠습니다.
+</p>
+<p>
+ deploy가 실행되면 실제 Replicaset은 다음과 같이 배포가 이루어집니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/12.png"/>
+ </span>
+</p>
+<p>
+ Judgement 에서 rollout을 선택하면
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/13.png"/>
+ </span>
+</p>
+<p>
+ 아래와 같이 Delete(Manifest)만 실행되고 나머지는 제외된 상태로 진행이 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/14.png"/>
+ </span>
+</p>
+<p>
+ Cluster를 확인해보면 다음과 같이 새로운 Replicaset이 동작중이고 가장 오래된 Replicaset이 삭제되었음을 확인할 수 있습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/15.png"/>
+ </span>
+</p>
+<h1 id="Spinnaker에서Judgement를활용한Rollback사용해보기-참고사이트">
+ 참고사이트
+</h1>
+<ul>
+ <li>
+  <a class="external-link" href="https://www.spinnaker.io/guides/user/pipeline/expressions/#use-preconditions-to-choose-pipeline-paths" rel="nofollow">
+   https://www.spinnaker.io/guides/user/pipeline/expressions/#use-preconditions-to-choose-pipeline-paths
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://www.spinnaker.io/guides/user/kubernetes-v2/automated-rollbacks/#parameterized-rollbacks" rel="nofollow">
+   https://www.spinnaker.io/guides/user/kubernetes-v2/automated-rollbacks/#parameterized-rollbacks
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://www.spinnaker.io/guides/user/kubernetes-v2/automated-rollbacks/#configure-automated-rollbacks-in-the-kubernetes-provider-v2" rel="nofollow">
+   https://www.spinnaker.io/guides/user/kubernetes-v2/automated-rollbacks/#configure-automated-rollbacks-in-the-kubernetes-provider-v2
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
