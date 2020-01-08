@@ -53,7 +53,7 @@ image: /assets/images/86033468/0.svg
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Midnight" data-theme="Midnight">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket --&gt;
+  <pre class="highlight" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Midnight" data-theme="Midnight">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket --&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;org.springframework&lt;/groupId&gt;
     &lt;artifactId&gt;spring-websocket&lt;/artifactId&gt;
@@ -82,7 +82,7 @@ image: /assets/images/86033468/0.svg
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">@Configuration
+  <pre class="highlight" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">@Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
@@ -134,7 +134,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">... (생략)
+  <pre class="highlight" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">... (생략)
 .antMatchers("/websocket/**").permitAll()
 ... (생략)</pre>
  </div>
@@ -169,7 +169,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">public class HttpHandshakeInterceptor implements HandshakeInterceptor {
+  <pre class="highlight" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">public class HttpHandshakeInterceptor implements HandshakeInterceptor {
 
     /**
      * Before handshake boolean.
@@ -223,7 +223,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">@Component
+  <pre class="highlight" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">@Component
 public class EventListener {
 
     private static final Logger logger = LoggerFactory.getLogger(EventListener.class);
@@ -338,7 +338,7 @@ public class EventListener {
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">@Component
+  <pre class="highlight" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">@Component
 public class SessionHandler extends StompSessionHandlerAdapter {
 
     /**
@@ -429,7 +429,7 @@ public class SessionHandler extends StompSessionHandlerAdapter {
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">@Controller
+  <pre class="highlight" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">@Controller
 public class WebSocketController {
 
     /**
@@ -563,7 +563,7 @@ public class WebSocketController {
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">public class WebSocketClient {
+  <pre class="highlight" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">public class WebSocketClient {
 
     private static final String URL = "ws://localhost:8080/websocket";
 
@@ -597,7 +597,7 @@ public class WebSocketController {
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">public void sendAlarmToMember(Member member) {
+  <pre class="highlight" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Midnight" data-theme="Midnight">public void sendAlarmToMember(Member member) {
 		List&lt;String&gt; sessionList = sessionListener.findSessionIdsByMemberId(member.getId());
 
 		for (String sessionId : sessionList) {
@@ -645,7 +645,7 @@ public class WebSocketController {
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">npm install stompjs</pre>
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">npm install stompjs</pre>
  </div>
 </div>
 <p class="auto-cursor-target">
@@ -658,7 +658,7 @@ public class WebSocketController {
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight">import stompjs from 'stompjs';</pre>
+  <pre class="highlight" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight">import stompjs from 'stompjs';</pre>
  </div>
 </div>
 <p class="auto-cursor-target">
@@ -666,7 +666,7 @@ public class WebSocketController {
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight">//Subscribe destination
+  <pre class="highlight" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight">//Subscribe destination
 const WEBSOCKLOGIN = '/app/login';
 const USERREPLY = '/user/queue/reply';
 const HEARTBEAT = 'app/heartbeat';
@@ -728,7 +728,7 @@ openSocket = endpoint =&gt; {
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight"> componentDidMount() {
+  <pre class="highlight" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight"> componentDidMount() {
     this.endpoint = '';
     if (window.location.protocol === 'https:') {
       this.endpoint = apiUrl.replace('https:', 'wss:');
@@ -746,7 +746,7 @@ openSocket = endpoint =&gt; {
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight">closeSocket = () =&gt; {
+  <pre class="highlight" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight">closeSocket = () =&gt; {
     window.clearInterval(this.timer);
     if(this.sock){  
       const subscriptions = this.sock.subscriptions;
@@ -767,7 +767,7 @@ openSocket = endpoint =&gt; {
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight">  componentWillUnmount() {
+  <pre class="highlight" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Midnight" data-theme="Midnight">  componentWillUnmount() {
     this.closeSocket();
   }</pre>
  </div>

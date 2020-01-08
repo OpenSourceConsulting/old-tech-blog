@@ -85,7 +85,7 @@ image: /assets/images/86027123/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ wget https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.gz
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ wget https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.gz
 $ tar xvzf helm-v2.16.1-linux-amd64.tar.gz
 $ mv  linux-amd64/helm  /usr/local/bin/helm
 $ helm version
@@ -101,7 +101,7 @@ Error: could not find tiller</pre>
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$  cat rbac-config.yaml
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$  cat rbac-config.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -137,7 +137,7 @@ subjects:
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$   helm init --service-account tiller --history-max 200
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$   helm init --service-account tiller --history-max 200
 Creating /root/.helm
 Creating /root/.helm/repository
 Creating /root/.helm/repository/cache
@@ -170,7 +170,7 @@ For more information on securing your installation see: https://docs.helm.sh/usi
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$   helm repo list
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$   helm repo list
 NAME  	URL
 stable	https://kubernetes-charts.storage.googleapis.com
 local 	http://127.0.0.1:8879/charts
@@ -185,7 +185,7 @@ local 	http://127.0.0.1:8879/charts
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$  helm repo update
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$  helm repo update
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
@@ -200,7 +200,7 @@ Update Complete.</pre>
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm repo add dev https://example.com/dev-charts
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm repo add dev https://example.com/dev-charts
 
 $  helm repo list
 NAME  	URL
@@ -219,7 +219,7 @@ dev	https://example.com/dev-charts
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$  helm search mariadb
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$  helm search mariadb
 NAME                   	CHART VERSION	APP VERSION	DESCRIPTION
 bitnami/mariadb        	7.0.1        	10.3.20    	Fast, reliable, scalable, and easy to use open-source rel...
 bitnami/mariadb-cluster	1.0.1        	10.2.14    	Chart to create a Highly available MariaDB cluster
@@ -238,7 +238,7 @@ stable/mariadb         	7.0.1        	10.3.20    	Fast, reliable, scalable, and 
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$    helm install stable/mariadb
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$    helm install stable/mariadb
 NAME:   wishing-garfish
 LAST DEPLOYED: Tue Nov 19 17:17:21 2019
 NAMESPACE: default
@@ -279,7 +279,7 @@ To upgrade this helm chart:
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm ls
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm ls
 NAME           	REVISION	UPDATED                 	STATUS  	CHART           	APP VERSION	NAMESPACE
 wishing-garfish	1       	Tue Nov 19 17:17:21 2019	DEPLOYED	mariadb-7.0.1   	10.3.20    	default√</pre>
  </div>
@@ -296,7 +296,7 @@ wishing-garfish	1       	Tue Nov 19 17:17:21 2019	DEPLOYED	mariadb-7.0.1   	10.3
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ kubectl  get pod
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ kubectl  get pod
 NAME                                         READY   STATUS              RESTARTS   AGE
 wishing-garfish-mariadb-master-0             1/1     Running             0          85s
 wishing-garfish-mariadb-slave-0              0/1     Running             0          86s</pre>
@@ -312,7 +312,7 @@ wishing-garfish-mariadb-slave-0              0/1     Running             0      
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm delete  wishing-garfish
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm delete  wishing-garfish
 release "wishing-garfish" deleted</pre>
  </div>
 </div>
@@ -329,7 +329,7 @@ release "wishing-garfish" deleted</pre>
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm create test-chart
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm create test-chart
 Creating test-chart
 $ tree test-chart
 cy-test/
@@ -404,7 +404,7 @@ cy-test/
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">apiVersion: v1
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">apiVersion: v1
 appVersion: "1.0"
 description: A Helm chart for Kubernetes
 name: test-chart
@@ -424,7 +424,7 @@ version: 0.1.0</pre>
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">...
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">...
 replicaCount: 1
 
 image:
@@ -455,7 +455,7 @@ serviceAccount:
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">...
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">...
 image:
   repository: nginx
 ...</pre>
@@ -474,7 +474,7 @@ image:
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">apiVersion: apps/v1
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "test-chart.fullname" . }}
@@ -508,7 +508,7 @@ spec:
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm install ./test-chart --name test-chart-release
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm install ./test-chart --name test-chart-release
 NAME:   test-chart-release
 LAST DEPLOYED: Wed Nov 20 11:33:02 2019
 NAMESPACE: default
@@ -549,7 +549,7 @@ NOTES:
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm ls test-chart-release
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm ls test-chart-release
 NAME              	REVISION	UPDATED                 	STATUS  	CHART           	APP VERSION	NAMESPACE
 test-chart-release	1       	Wed Nov 20 11:33:02 2019	DEPLOYED	test-chart-0.1.0	1.0        	default</pre>
  </div>
@@ -565,7 +565,7 @@ test-chart-release	1       	Wed Nov 20 11:33:02 2019	DEPLOYED	test-chart-0.1.0	1
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ kubectl  get pod | grep test-chart-release
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ kubectl  get pod | grep test-chart-release
 test-chart-release-6d87f576d4-8x4gc          1/1     Running   0          4m46s</pre>
  </div>
 </div>
@@ -579,7 +579,7 @@ test-chart-release-6d87f576d4-8x4gc          1/1     Running   0          4m46s<
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">replicaCount: 2
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">replicaCount: 2
 ...
 
 </pre>
@@ -595,7 +595,7 @@ test-chart-release-6d87f576d4-8x4gc          1/1     Running   0          4m46s<
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">apiVersion: v1
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">apiVersion: v1
 appVersion: "1.0"
 description: A Helm chart for Kubernetes
 name: test-chart
@@ -609,7 +609,7 @@ version: 0.2.0</pre>
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm upgrade test-chart-release ./test-chart
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm upgrade test-chart-release ./test-chart
 $ kubectl  get pod | grep test-chart-release
 test-chart-release-6d87f576d4-8x4gc          1/1     Running   0          56s
 test-chart-release-6d87f576d4-b9sq4          1/1     Running   0          29s
@@ -621,7 +621,7 @@ test-chart-release-6d87f576d4-b9sq4          1/1     Running   0          29s
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm ls test-chart-release
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm ls test-chart-release
 NAME              	REVISION	UPDATED                 	STATUS  	CHART           	APP VERSION	NAMESPACE
 test-chart-release	2       	Sat Nov 23 15:15:18 2019	DEPLOYED	test-chart-0.2.0	1.0        	default
 
@@ -639,7 +639,7 @@ REVISION	UPDATED                 	STATUS    	CHART           	APP VERSION	DESCRI
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm rollback test-chart-release 1
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm rollback test-chart-release 1
 Rollback was a success.
 $  kubectl  get pod | grep test-chart-release
 test-chart-release-6d87f576d4-8x4gc          1/1     Running   0          5m3s
@@ -668,7 +668,7 @@ REVISION	UPDATED                 	STATUS    	CHART           	APP VERSION	DESCRI
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ mkdir -p /data/charts
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ mkdir -p /data/charts
 $ chown 1000:1000 /data/charts
 $ docker run -d -it  \
   --net host \
@@ -685,7 +685,7 @@ $ docker run -d -it  \
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ curl http://localhost:8080/api/charts
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ curl http://localhost:8080/api/charts
 {}</pre>
  </div>
 </div>
@@ -694,7 +694,7 @@ $ docker run -d -it  \
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm create test-chartmuseum
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm create test-chartmuseum
 Creating test-chartmuseum</pre>
  </div>
 </div>
@@ -703,7 +703,7 @@ Creating test-chartmuseum</pre>
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm package  test-chartmuseum
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm package  test-chartmuseum
 Successfully packaged chart and saved it to: /root/cyyoon/test-chartmuseum-0.1.0.tgz
 $ ls -al /root/cyyoon/test-chartmuseum-0.1.0.tgz
 -rw-r--r-- 1 root root 3266 Nov 23 15:38 /root/cyyoon/test-chartmuseum-0.1.0.tgz</pre>
@@ -717,7 +717,7 @@ $ ls -al /root/cyyoon/test-chartmuseum-0.1.0.tgz
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ curl --data-binary "@test-chartmuseum-0.1.0.tgz" http://localhost:8080/api/charts
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ curl --data-binary "@test-chartmuseum-0.1.0.tgz" http://localhost:8080/api/charts
 {"saved":true}
 
 $ curl -s  http://localhost:8080/api/charts
@@ -749,7 +749,7 @@ $ curl -s  http://localhost:8080/api/charts | jq
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$  ls -al /data/charts
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$  ls -al /data/charts
 total 8
 drwxr-xr-x 2 centos centos   64 Nov 23 17:48 .
 drwxr-xr-x 3 centos centos   54 Nov 23 17:44 ..
@@ -762,7 +762,7 @@ drwxr-xr-x 3 centos centos   54 Nov 23 17:44 ..
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm repo add chartmuseum http://localhost:8080/
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm repo add chartmuseum http://localhost:8080/
 "chartmuseum" has been added to your repositories
 $ helm repo list
 NAME       	URL
@@ -776,7 +776,7 @@ chartmuseum	http://localhost:8080/</pre>
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm search test-chartmuseum
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">$ helm search test-chartmuseum
 NAME                        	CHART VERSION	APP VERSION	DESCRIPTION
 chartmuseum/test-chartmuseum	0.1.0        	1.0        	A Helm chart for Kubernetes
 

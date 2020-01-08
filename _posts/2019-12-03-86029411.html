@@ -161,7 +161,7 @@ image: /assets/images/86029411/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">configFileProvider([configFile(fileId: 'maven_settings_xml', variable: 'maven_settings')]) {
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">configFileProvider([configFile(fileId: 'maven_settings_xml', variable: 'maven_settings')]) {
 	sh 'mvn -s $maven_settings clean package'
 }</pre>
  </div>
@@ -174,7 +174,7 @@ image: /assets/images/86029411/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">[Pipeline] configFileProvider
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">[Pipeline] configFileProvider
 provisioning config files...
 copy managed file [MyGlobalSettings] to file:/home/jenkins/agent/workspace/jacobbaek-nexustest@tmp/config6273356296431193901tmp
 [Pipeline] {
@@ -236,7 +236,7 @@ copy managed file [MyGlobalSettings] to file:/home/jenkins/agent/workspace/jacob
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">echo -n 'admin:password' | openssl base64</pre>
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">echo -n 'admin:password' | openssl base64</pre>
  </div>
 </div>
 <p>
@@ -258,7 +258,7 @@ copy managed file [MyGlobalSettings] to file:/home/jenkins/agent/workspace/jacob
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">registry=[nexus의 npm proxy 주소]
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">registry=[nexus의 npm proxy 주소]
 _auth=[id:password base64 encoding 결과]</pre>
  </div>
 </div>
@@ -281,7 +281,7 @@ _auth=[id:password base64 encoding 결과]</pre>
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">withNPM(npmrcConfig: 'npmrc_file_ID' {
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">withNPM(npmrcConfig: 'npmrc_file_ID' {
     sh 'npm install'
 }</pre>
  </div>
@@ -299,7 +299,7 @@ _auth=[id:password base64 encoding 결과]</pre>
   </b>
  </div>
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">[Pipeline] dir
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">[Pipeline] dir
 Running in /home/jenkins/agent/workspace/jacobbaek-nexustest/iot-frontend
 [Pipeline] {
 [Pipeline] sh

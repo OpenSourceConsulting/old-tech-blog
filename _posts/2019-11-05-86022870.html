@@ -105,7 +105,7 @@ image: /assets/images/86022870/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># 간단히 설명하자면 tomcat 이미지를 pull 받아와 tomcat내의 webapps directory에 ROOT.war파일로 복사하게 하여 해당 application이 
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># 간단히 설명하자면 tomcat 이미지를 pull 받아와 tomcat내의 webapps directory에 ROOT.war파일로 복사하게 하여 해당 application이 
 # tomcat을 통해 loading되어지게 하는 것이다.
 # 당시 사용되는 demo-0.1.1.war파일의 경우 앞선 build plan에 의해 build 후 생성된 war 파일이다.
 
@@ -172,7 +172,7 @@ COPY target/demo-1.0.0.war /usr/local/tomcat/webapps/ROOT.war</pre>
   </p>
   <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
    <div class="codeContent panelContent pdl">
-    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># email의 경우 old docker에서만 기입(최신의 docker가 사용되는 환경이라면 빈칸으로 넘어가야 합니다.)
+    <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># email의 경우 old docker에서만 기입(최신의 docker가 사용되는 환경이라면 빈칸으로 넘어가야 합니다.)
 docker login -u userid -p password 
 # 이미지 push
 docker push namespace/imagename

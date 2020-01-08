@@ -1,5 +1,5 @@
 ---
 name: eomhy
 title: 엄휘용
-image: files/authors/eomhy.jpg
+image: /files/authors/eomhy.jpg
 ---
