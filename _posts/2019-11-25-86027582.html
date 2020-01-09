@@ -9,17 +9,32 @@ category:
 image: /assets/images/86027582/0.png 
 ---
 <p>
- Spinnaker를 통해 배포를 하는 과정에서 Jenkins에서 사용했던 정보를 활용해야할 경우가 있습니다.
+ Spinnaker와 Jenkins가 연동된 환경에서 Spinnaker를 통해 배포수행시
 </p>
 <p>
- Jenkins의 Artifact를 통해 어떻게 Spinnaker properties로 불러오는지에 대해 알아보도록 하겠습니다.
+ Jenkins 상에서 사용했던 정보를 활용해야 하는 경우가 생겼을때  Jenkins에서 어떤 방식으로
 </p>
-<h1 id="JenkinsArtifact를이용한Tag정보를Spinnaker로넘기는방법-설정및사용법">
- 설정 및 사용법
+<p>
+ Spinnaker 에 관련정보를 전달할 수 있는지에 대해서 알아보도록 하겠습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 우선 관련된 방법을 간단히 설명하자면 Jenkins에서 Artifact로 관련 정보를 text 형태로 저장하고
+</p>
+<p>
+ 이를 Spinnaker의 Properties로 불러오도록 하는 방식입니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 그렇다면 어떻게 설정하면 되는지에 대하여 알아보도록 하겠습니다.
+</p>
+<h1 id="JenkinsArtifact를이용한Tag정보를Spinnaker로넘기는방법-Jenkins에서설정">
+ Jenkins에서 설정
 </h1>
-<h3 id="JenkinsArtifact를이용한Tag정보를Spinnaker로넘기는방법-Jenkins">
- Jenkins
-</h3>
 <p>
  먼저 Jenkins에 artifact를 만드는 방법에 대하여 알아보도록 하겠습니다.
 </p>
@@ -37,31 +52,21 @@ image: /assets/images/86027582/0.png
 <p>
  참고로 Artifact는 try/catch/finally를 사용하여 build 과정이 완료된 시점에 archiveAritfacts가 이루어지도록 하였습니다.
 </p>
-<p>
- <br/>
-</p>
-<div class="confluence-information-macro confluence-information-macro-note conf-macro output-block" data-hasbody="true" data-macro-name="note">
- <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon">
- </span>
- <div class="confluence-information-macro-body">
-  <p>
-   <strong>
-    참고사항
-   </strong>
-  </p>
-  <p>
-   pipeline내에 spinnaker property는 다음 링크를 참고하여 좀더 확장된 방식의 property를 설정하여 사용할 수 있습니다.
-  </p>
-  <p>
-   <a class="external-link" href="https://www.spinnaker.io/guides/user/pipeline/expressions/" rel="nofollow">
-    https://www.spinnaker.io/guides/user/pipeline/expressions/
-   </a>
-  </p>
- </div>
-</div>
-<p>
- <br/>
-</p>
+<blockquote>
+ <p>
+  <strong>
+   참고사항
+  </strong>
+ </p>
+ <p>
+  pipeline내에 spinnaker property는 다음 링크를 참고하여 좀더 확장된 방식의 property를 설정하여 사용할 수 있습니다.
+ </p>
+ <p>
+  <a class="external-link" href="https://www.spinnaker.io/guides/user/pipeline/expressions/" rel="nofollow">
+   https://www.spinnaker.io/guides/user/pipeline/expressions/
+  </a>
+ </p>
+</blockquote>
 <p>
  이후 build now를 클릭하여 build를 수행하면 중앙부분에 Artifacts 파일이 생성됨을 확인할 수 있습니다.
 </p>
@@ -79,11 +84,14 @@ image: /assets/images/86027582/0.png
 <p>
  실제 위 이미지에서 볼수 있듯이 Web 을 통한 다운로드가 가능합니다.
 </p>
-<h3 id="JenkinsArtifact를이용한Tag정보를Spinnaker로넘기는방법-Spinnaker">
- Spinnaker
-</h3>
+<h1 id="JenkinsArtifact를이용한Tag정보를Spinnaker로넘기는방법-Spinnaker에서설정">
+ Spinnaker에서 설정
+</h1>
 <p>
- 이제는 Spinnaker에서 설정을 진행할 차례입니다. Spinnaker에서는 Application 설정시 Automated Triggers에서 property File 지정을 할 수 있습니다.
+ 이제는 Spinnaker에서 설정을 진행할 차례입니다.
+</p>
+<p>
+ Spinnaker에서는 Application 설정시 Automated Triggers에서 property File 지정을 할 수 있습니다.
 </p>
 <p>
  Property File은 앞서 Jenkins에서 Artifact로 지정되었던 파일명을 입력합니다.
@@ -118,59 +126,58 @@ image: /assets/images/86027582/0.png
   <img src="/assets/images/86027582/4.png"/>
  </span>
 </p>
+<h1 id="JenkinsArtifact를이용한Tag정보를Spinnaker로넘기는방법-참고사항">
+ 참고사항
+</h1>
+<p>
+ Spinnaker는 Jenkins Job을 Polling 하게 되고 이때 Success된 Job만을 배포하도록 되어 있다.
+</p>
+<p>
+ 실제 Spinnaker에서는 아래와 같은 선택 가능한 리스트가 출력되며
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86027582/5.png"/>
+ </span>
+</p>
+<p>
+ 실제 Jenkins에서 해당 Job들을 확인해보면
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86027582/6.png"/>
+ </span>
+</p>
 <p>
  <br/>
 </p>
-<div class="confluence-information-macro confluence-information-macro-note conf-macro output-block" data-hasbody="true" data-macro-name="note">
- <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon">
- </span>
- <div class="confluence-information-macro-body">
-  <p>
-   <strong>
-    참고사항
-   </strong>
-  </p>
-  <p>
-   Spinnaker는 Jenkins job을 polling 할시에 success된 job만이 배포되어지도록 되어 있다. 실제 확인해보면 build가 success된 build number만이 출력된다.
-  </p>
-  <p>
-   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
-    <img src="/assets/images/86027582/5.png"/>
-   </span>
-   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
-    <img src="/assets/images/86027582/6.png"/>
-   </span>
-  </p>
-  <p>
-   <br/>
-  </p>
- </div>
-</div>
 <h1 id="JenkinsArtifact를이용한Tag정보를Spinnaker로넘기는방법-참고사이트">
  참고사이트
 </h1>
-<p>
- <a class="external-link" href="https://medium.com/@gustavo.guss/how-to-do-post-build-in-jenkins-pipeline-d1e7233909b8" rel="nofollow" style="letter-spacing: 0.0px;">
-  https://medium.com/@gustavo.guss/how-to-do-post-build-in-jenkins-pipeline-d1e7233909b8
- </a>
-</p>
-<p>
- <a class="external-link" href="https://jenkins.io/doc/pipeline/tour/tests-and-artifacts/" rel="nofollow">
-  https://jenkins.io/doc/pipeline/tour/tests-and-artifacts/
- </a>
-</p>
-<p>
- <a class="external-link" href="https://www.spinnaker.io/reference/artifacts/in-pipelines/#triggers" rel="nofollow">
-  https://www.spinnaker.io/reference/artifacts/in-pipelines/#triggers
- </a>
-</p>
-<p>
- <a class="external-link" href="https://community.spinnaker.io/t/passing-branch-parameter-from-jenkins-to-spinnaker/70/3" rel="nofollow">
-  https://community.spinnaker.io/t/passing-branch-parameter-from-jenkins-to-spinnaker/70/3
- </a>
-</p>
-<p>
- <a class="external-link" href="https://community.spinnaker.io/t/script-stage-errors-unable-to-find-master/589" rel="nofollow">
-  https://community.spinnaker.io/t/script-stage-errors-unable-to-find-master/589
- </a>
-</p>
+<ul>
+ <li>
+  <a class="external-link" href="https://medium.com/@gustavo.guss/how-to-do-post-build-in-jenkins-pipeline-d1e7233909b8" rel="nofollow" style="letter-spacing: 0.0px;">
+   https://medium.com/@gustavo.guss/how-to-do-post-build-in-jenkins-pipeline-d1e7233909b8
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://jenkins.io/doc/pipeline/tour/tests-and-artifacts/" rel="nofollow" style="letter-spacing: 0.0px;">
+   https://jenkins.io/doc/pipeline/tour/tests-and-artifacts/
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://www.spinnaker.io/reference/artifacts/in-pipelines/#triggers" rel="nofollow" style="letter-spacing: 0.0px;">
+   https://www.spinnaker.io/reference/artifacts/in-pipelines/#triggers
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://community.spinnaker.io/t/passing-branch-parameter-from-jenkins-to-spinnaker/70/3" rel="nofollow" style="letter-spacing: 0.0px;">
+   https://community.spinnaker.io/t/passing-branch-parameter-from-jenkins-to-spinnaker/70/3
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://community.spinnaker.io/t/script-stage-errors-unable-to-find-master/589" rel="nofollow" style="letter-spacing: 0.0px;">
+   https://community.spinnaker.io/t/script-stage-errors-unable-to-find-master/589
+  </a>
+ </li>
+</ul>
