@@ -1,0 +1,482 @@
+---
+layout: post
+title: "bitbucket-server manifest 작성방법"
+description: " " 
+author: jacobbaek
+date: 2020-01-09
+tags: ['atlassian', 'bitbucket-server', 'bitbucket', 'kubernetes']
+category: 
+image: /assets/images/86037485/ 
+---
+<p>
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  Atlassian은 Dockerhub에 각 Product에 대한 official Docker image를 공개하였습니다.
+이전부터 몇몇 Product에 대한 Image는 제공하였으나 모든 제품에 대한 Official Image를 제공하지 않았었고
+작년 말경에 Official Image들을 모두 공개하였습니다.
+ </p>
+ <p>
+  아시다시피 Docker Image를 docker command를 통해 Host상에 동작시킬수도 있지만 Kubernetes와 같은
+Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 효율적인 관리가 이루어집니다.
+하여 Atlassian 공식이미지를 활용한 Kubernetes Manifest 작성법을 Bitbucket-server의 예제로 알아보고자 합니다.
+ </p>
+ <p>
+  우선 알아두어야하는 것은 기존 Atlassian 제품 설치방법과 동일하게 License 입력과정이 있기에 서버내에서의 License 입력
+및 Database 연결과정은 UI상에서 직접 이루어져야 합니다.
+ </p>
+ <h1>
+  <a href="#manifest-작성-대상" id="manifest-작성-대상">
+   Manifest 작성 대상
+  </a>
+ </h1>
+ <p>
+  Kubernetes로 Atlassian 서비스를 구동시키기 위해서는 다음과 같은 구성들이 필요합니다.
+ </p>
+ <ul>
+  <li>
+   Bitbucket-server
+  </li>
+  <li>
+   PostgreSQL
+  (타 서비스도 가능하며 일반적으로 DB와 같은 서비스를 Kubernetes에서 동작시키는 것을 권장하지 않기에 Database는 별도의 서버로 구동시킬것을 권장합니다.)
+  </li>
+  <li>
+   Nginx
+  (Ingress도 있지만 여기서는 deployment로 nginx를 구동시켜 Reverse Proxy 서비스를 제공할 예정입니다.)
+  </li>
+ </ul>
+ <h1>
+  <a href="#manifest-작성" id="manifest-작성">
+   Manifest 작성
+  </a>
+ </h1>
+ <h3>
+  <a href="#bitbucket-server-manifest" id="bitbucket-server-manifest">
+   Bitbucket-server manifest
+  </a>
+ </h3>
+ <blockquote>
+  <p>
+   <strong>
+   </strong>
+  </p>
+  <p style="color:blue">
+   Note
+  </p>
+  <br/>
+  PersistentVolume의 경우 관리자에 의해 미리 생성되어 있다는 가정하에 작성을 진행하였습니다.
+  <br/>
+  namespace는 필요에 따라 변경해서 사용하실수 있습니다.
+  <p>
+  </p>
+ </blockquote>
+ <ul>
+  <li>
+   PersistentVolumceClaim
+  </li>
+ </ul>
+ <pre><code>kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bitbucket-pvc
+  namespace: jacobbaek
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  volumeName: bitbucket-volume
+  resources:
+    requests:
+      storage: 5Gi
+
+</code></pre>
+ <ul>
+  <li>
+   Deployment
+  </li>
+ </ul>
+ <pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: bitbucket
+    namespace: jacobbaek
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: bitbucket
+    template:
+        metadata:
+            labels:
+                app: bitbucket
+        spec:
+            containers:
+                - name: bitbucket
+                  image: "atlassian/bitbucket-server"
+                  ports:
+                      - containerPort: 7990
+                        name: bitbucket-http 
+                  volumeMounts:
+                      - mountPath: /var/atlassian/application-data/bitbucket
+                        name: bitbucket-appdata
+                  env:
+                      - name: SERVER_SECURE
+                        value: "false"
+                      - name: SERVER_SCHEME
+                        value: "http"
+                      - name: SERVER_PROXY_PORT
+                        value: "80"
+            volumes:
+                - name: bitbucket-appdata
+                  persistentVolumeClaim:
+                      claimName: bitbucket-pvc
+</code></pre>
+ <ul>
+  <li>
+   Service
+  </li>
+ </ul>
+ <pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: bitbucket-svc
+  namespace: jacobbaek
+spec:
+  ports:
+  - name: http
+    port: 7990
+    targetPort: bitbucket-http
+  selector:
+    app: bitbucket
+  type: LoadBalancer
+</code></pre>
+ <p>
+  아래 링크에 Official Docker Image 소개 및 각종 환경변수, 그리고 Volume mount 정보등이 있습니다.
+위의 source는 일부만이 사용되었기 때문에 필요에 따라 자유롭게 사용하시면 됩니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://hub.docker.com/r/atlassian/bitbucket-server/">
+    https://hub.docker.com/r/atlassian/bitbucket-server/
+   </a>
+  </li>
+ </ul>
+ <h3>
+  <a href="#postgresql-manifest" id="postgresql-manifest">
+   Postgresql manifest
+  </a>
+ </h3>
+ <blockquote>
+  <p>
+   <strong>
+   </strong>
+  </p>
+  <p style="color:red">
+   Warning
+  </p>
+  <br/>
+  앞서도 이야기 하였지만 Production상에서 Kubernetes위의 DB는 권장되지 않기에
+  <br/>
+  해당 서비스는 별도의 서버에 구동시키는 것을 권장드립니다.
+  <p>
+  </p>
+ </blockquote>
+ <ul>
+  <li>
+   Deployment
+  </li>
+ </ul>
+ <pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: jacobbaek
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:10.4
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgredb
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName: postgres-pvc
+
+</code></pre>
+ <ul>
+  <li>
+   configmap
+  postgresql의 경우 인증 및 설정정보가 추가되어야 하기에 해당 정보를 configmap으로 생성하였습니다.
+  secret으로 사용하여 보안성을 높이는 방식이 고려되면 좀더 효율적인 서비스를 사용하실 수 있습니다.
+  </li>
+ </ul>
+ <pre><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: jacobbaek
+  labels:
+    app: postgres
+data:
+  username: postgres
+  password: postgres
+  postgres_db: bitbucket
+</code></pre>
+ <ul>
+  <li>
+   PersistentVolumceClaim
+  </li>
+ </ul>
+ <pre><code>kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postgres-pvc
+  namespace: jacobbaek
+  labels:
+    app: postgres
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  volumeName: postgres-volume
+  resources:
+    requests:
+      storage: 5Gi
+
+</code></pre>
+ <ul>
+  <li>
+   Service
+  내부 통신만이 이루어질 예정이기에 ClusterIP로 생성됩니다.
+  </li>
+ </ul>
+ <pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: jacobbaek
+  labels:
+    app: postgres
+spec:
+  selector:
+    app: postgres
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
+</code></pre>
+ <h3>
+  <a href="#nginx-manifest" id="nginx-manifest">
+   Nginx manifest
+  </a>
+ </h3>
+ <ul>
+  <li>
+   configmap
+  nginx의 경우 reverse proxy로 사용될 예정이기에 별도의 persistent volume은 필요하지 않고
+  configmap을 통한 설정정보가 중요하게 사용됩니다.
+  </li>
+ </ul>
+ <pre><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-rproxy-config
+  namespace: jacobbaek
+  labels:
+    app: nginx-rproxy
+data:
+  nginx-config: |
+    worker_processes  5;  ## Default: 1
+    error_log  /var/log/nginx/error.log debug;
+    pid        /var/run/nginx.pid;
+
+    events {
+      worker_connections  4096;  ## Default: 1024
+    }
+
+    http {
+      default_type  application/octet-stream;
+
+      log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                        '$status $body_bytes_sent "$http_referer" '
+                        '"$http_user_agent" "$http_x_forwarded_for"';
+
+      access_log /var/log/nginx/access.log main;
+      sendfile        on;
+
+      keepalive_timeout  65;
+
+      include /etc/nginx/conf.d/*.conf;
+    }
+  virtualhost-config: |
+    server {
+      listen 80;
+
+      location / {
+        proxy_pass http://bitbucket-svc.jacobbaek.svc.cluster.local:7990;
+        proxy_set_header    X-Forwarded-Host $host;
+        proxy_set_header    X-Forwarded-Server $host;
+        proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header    X-Real-IP $remote_addr;
+        proxy_set_header    "Host" $host;
+        proxy_redirect 		  off;
+       }
+    }
+</code></pre>
+ <blockquote>
+  <p>
+   <strong>
+   </strong>
+  </p>
+  <p style="color:blue">
+   Note
+  </p>
+  <br/>
+  여기서 참고할 것은 내부 통신을 위해 proxy_pass 에 주소가 bitbucket-svc.jacobbaek.svc.cluster.local 와 같이 설정되었다는 것입니다.
+  <br/>
+  해당 주소 정보는 [bitbucket-service-name].[namespace].svc.cluster.local 로 일반적으로 이루어집니다.
+  <br/>
+  만약 해당 정보를 확인하고자 한다면 kubectl exec 명령을 통해 bitbucket pod에 접근하여 cat /etc/resolv.conf 정보를 확인해보면
+  <br/>
+  관련 cluster domain 정보를 확인할 수 있습니다.
+  <p>
+  </p>
+ </blockquote>
+ <ul>
+  <li>
+   Deployment
+  </li>
+ </ul>
+ <pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-rproxy
+  namespace: jacobbaek
+  labels:
+    app: nginx-rproxy
+spec:
+  selector:
+    matchLabels:
+      app: nginx-rproxy
+  template:
+    metadata:
+      labels:
+        app: nginx-rproxy
+    spec:
+      containers:
+      - name: nginx-rproxy
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx
+          readOnly: true
+          name: nginx-conf
+        - mountPath: /var/log/nginx
+          name: nginx-log
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-rproxy-config
+            items:
+              - key: nginx-config
+                path: nginx.conf
+              - key: virtualhost-config
+                path: conf.d/virtualhost.conf
+        - name: nginx-log
+          emptyDir: {}
+
+</code></pre>
+ <ul>
+  <li>
+   Service
+  실제 End User의 접속이 이루어지게 되는 관문이 될 예정이기에
+  해당 Service는 Loadbalancer type으로 생성됩니다.
+  </li>
+ </ul>
+ <pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-rproxy-svc
+  namespace: jacobbaek
+  labels:
+    app: nginx-rproxy
+spec:
+  selector:
+    app: nginx-rproxy
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+</code></pre>
+ <p>
+  위 모든 manifest파일을 kubectl create -f *.yaml 로 실행하여 구동시키면 bitbucket을 kubernetes위에서 동작시킬 수 있습니다.
+마지막으로 사용자는 nginx service에 EXTERNAL-IP를 통해 접속하게 되면 bitbucket 서버에 접속할수 있는 화면이 출력됩니다.
+ </p>
+ <p>
+  위 모든 manifest 파일들은 아래 bitbucket 에 저장되어 있습니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://bitbucket.org/jacobbaek/bitbucket-manifest/src/master/">
+    https://bitbucket.org/jacobbaek/bitbucket-manifest/src/master/
+   </a>
+  </li>
+ </ul>
+ <h1>
+  <a href="#참고사이트" id="참고사이트">
+   참고사이트
+  </a>
+ </h1>
+ <ul>
+  <li>
+   <a href="https://medium.com/@jmarhee/running-atlassian-bitbucket-server-on-kubernetes-e3f13779ae36">
+    https://medium.com/@jmarhee/running-atlassian-bitbucket-server-on-kubernetes-e3f13779ae36
+   </a>
+  </li>
+ </ul>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
