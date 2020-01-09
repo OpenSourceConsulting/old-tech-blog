@@ -1,0 +1,183 @@
+---
+layout: post
+title: "Bitbucket webhook을 사용하여 Bamboo build plan trigger하기"
+description: " " 
+author: jacobbaek
+date: 2020-01-09
+tags: ['atlassian', 'bamboo', 'trigger']
+category: 
+image: /assets/images/86037490/0.png 
+---
+<p>
+ Bamboo를 사용하면서 특정한 경우 (예를 들어 Merge 상황에서만) Trigger를 받고 싶은 경우가 있는데
+</p>
+<p>
+ 이러한 선택된 경우만 Trigger를 받는게 기본설정으로는 제공되지 않는다.
+</p>
+<p>
+ 기본설정은 다음과 같이 Repository선택만 가능하여 Trigger를 선택적으로 받을 수 없다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/0.png"/>
+ </span>
+</p>
+<p>
+ 하여 특정한 경우만 Trigger를 받고자 할때는 난감한 상황이 될수 있다.
+</p>
+<p>
+ 이러한 경우 Bamboo의 Remote Trigger를 통해 해결할 수 있는데 이에 대해 알아보도록 하자.
+</p>
+<h1 id="Bitbucketwebhook을사용하여Bamboobuildplantrigger하기-Bamboo설정">
+ Bamboo 설정
+</h1>
+<p>
+ Bamboo에서는 앞서 이야기 했던 Trigger 메뉴에서 Remote trigger를 추가하여 선택적인 Trigger를 받을수 있는 준비를 한다.
+</p>
+<p>
+ Bamboo의 Build Plan으로 이동하여 Configure plan 메뉴로 이동하면 Triggers 항목이 존재하며 해당 항목에서 Add trigger 버튼을 클릭하여 Remote trigger를 추가한다.
+</p>
+<p>
+ 설정정보는 다음과 같이 복잡한 설정은 없고 Repository 선택과 Trigger IP Addresses 항목을 추가하면 된다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/1.png"/>
+ </span>
+</p>
+<blockquote>
+ <p>
+  <strong>
+   여기서 중요한것은 Trigger IP addresses 이다.
+  </strong>
+ </p>
+ <p>
+  <strong>
+   해당 Trigger는 IP로 인증을 수행하기 때문에
+   <span style="color: rgb(255,0,0);">
+    해당 IP를 사용해서 Trigger되는 경우만
+   </span>
+   인증이 수행되게 된다.
+  </strong>
+ </p>
+</blockquote>
+<p>
+ <br/>
+</p>
+<p>
+ 참고로 Trigger는 webhook을 사용할 예정이고 webhook으로 Bamboo REST API를 호출할 예정이다.
+</p>
+<p>
+ API는 다음과 같이 구성된다. 참고로 아래는 Bamboo에 Rest API를 테스트해볼수 있는 Rest API Browser(Addon)이다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/2.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 여기서 Project ID와 buildKey 가 중요한데 이는 관련 project에 들어가보거나 buildplan에 이동해보면 URL을 통해 확인이 가능하다.
+</p>
+<p>
+ 관련 Project ID는
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/3.png"/>
+ </span>
+</p>
+<p>
+ Buildkey는
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/4.png"/>
+ </span>
+</p>
+<p>
+ 와 같이 확인된다.
+</p>
+<h1 id="Bitbucketwebhook을사용하여Bamboobuildplantrigger하기-Bitbucket설정">
+ Bitbucket 설정
+</h1>
+<p>
+ 이제 Bitbucket의 설정을 추가해보자.
+</p>
+<p>
+ 앞서 Bamboo에서 등록했던 Repository로 이동한다. 해당 Repository에 설정항목에서 Post Webhooks으로 이동한다.
+</p>
+<p>
+ 우리는 Pull Request merged 에 대한 event만 받을 것이기 때문에 앞선 Bamboo 설정상에서 확인하였던 Rest API URL과 Pull request merged 항목을 체크한후 저장한다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/5.png"/>
+ </span>
+</p>
+<p>
+ 이후 아래와 같이 추가된 webhook을 확인할 수 있다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/6.png"/>
+ </span>
+</p>
+<h1 id="Bitbucketwebhook을사용하여Bamboobuildplantrigger하기-테스트">
+ 테스트
+</h1>
+<p>
+ 이제 설정은 다 완료되었다.
+</p>
+<p>
+ 실제로 테스트를 해보자.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ JIRA를 통해 Branch를 생성하고 commit 및 pull request를 생성한다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/7.png"/>
+ </span>
+</p>
+<p>
+ 이후 pull request를 merge하게 되면 다음과 같이 Build가 앞서 생성하였던 TB-38-XX 브랜치로 진행되었음을 확인할 수 있다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86037490/8.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h1 id="Bitbucketwebhook을사용하여Bamboobuildplantrigger하기-참고사이트">
+ 참고사이트
+</h1>
+<ul>
+ <li>
+  <a class="external-link" href="https://confluence.atlassian.com/bamboo0607/triggering-builds-966045043.html" rel="nofollow">
+   https://confluence.atlassian.com/bamboo0607/triggering-builds-966045043.html
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://confluence.atlassian.com/bamboo/trigger-a-bamboo-build-from-bitbucket-cloud-using-webhooks-873949130.html" rel="nofollow">
+   https://confluence.atlassian.com/bamboo/trigger-a-bamboo-build-from-bitbucket-cloud-using-webhooks-873949130.html
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://community.atlassian.com/t5/Answers-Developer-Questions/Trigger-Bamboo-Plan-via-REST-Call/qaq-p/497583" rel="nofollow">
+   https://community.atlassian.com/t5/Answers-Developer-Questions/Trigger-Bamboo-Plan-via-REST-Call/qaq-p/497583
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://community.atlassian.com/t5/Bitbucket-questions/Bamboo-Server-Trigger-Plan-After-Merge-Development-Branch-To/qaq-p/1096080" rel="nofollow">
+   https://community.atlassian.com/t5/Bitbucket-questions/Bamboo-Server-Trigger-Plan-After-Merge-Development-Branch-To/qaq-p/1096080
+  </a>
+ </li>
+</ul>
