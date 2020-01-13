@@ -39,7 +39,17 @@ image: /assets/images/86026733/0.png
  </span>
  <div class="confluence-information-macro-body">
   <p>
-   해당 pipeline은 scripted 방식으로 작성
+   해당 pipeline은 scripted 방식으로 작성되었습니다.
+  </p>
+  <p>
+   이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다.
+  </p>
+  <p>
+   (
+   <a class="external-link" href="https://issues.jenkins-ci.org/browse/JENKINS-48421" rel="nofollow">
+    https://issues.jenkins-ci.org/browse/JENKINS-48421
+   </a>
+   )
   </p>
  </div>
 </div>
@@ -51,7 +61,7 @@ image: /assets/images/86026733/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">podTemplate(label: 'jenkins-slave-pod', 
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: yml; gutter: false; theme: Midnight" data-theme="Midnight">podTemplate(label: 'jenkins-slave-pod', 
   containers: [
     containerTemplate(
       name: 'git',
@@ -101,7 +111,7 @@ image: /assets/images/86026733/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">{
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: yml; gutter: false; theme: Midnight" data-theme="Midnight">{
     node('jenkins-slave-pod') { 
         def registry = "192.168.194.129:5000"
         def registryCredential = "nexus3-docker-registry"
@@ -161,7 +171,7 @@ image: /assets/images/86026733/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">        stage('Clone repository') {
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">        stage('Clone repository') {
             container('git') {
                 // https://gitlab.com/gitlab-org/gitlab-foss/issues/38910
                 checkout([$class: 'GitSCM',
@@ -198,7 +208,7 @@ image: /assets/images/86026733/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">        stage('build the source code via npm') {
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">        stage('build the source code via npm') {
             container('node') {
                 sh 'cd frontend &amp;&amp; npm install &amp;&amp; npm run build:production'
             }
@@ -223,7 +233,7 @@ image: /assets/images/86026733/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">        stage('Build docker image') {
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: yml; gutter: false; theme: Midnight" data-theme="Midnight">        stage('Build docker image') {
             container('docker') {
                 withDockerRegistry([ credentialsId: "$registryCredential", url: "http://$registry" ]) {
                     sh "docker build -t $registry/sampleapp:1.0 -f ./Dockerfile ."
@@ -253,7 +263,7 @@ image: /assets/images/86026733/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">        def registry = "192.168.194.129:5000"
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: yml; gutter: false; theme: Midnight" data-theme="Midnight">        def registry = "192.168.194.129:5000"
         def registryCredential = "nexus3-docker-registry"</pre>
  </div>
 </div>
@@ -275,7 +285,7 @@ image: /assets/images/86026733/0.png
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">podTemplate(label: 'jenkins-slave-pod', 
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">podTemplate(label: 'jenkins-slave-pod', 
   containers: [
     containerTemplate(
       name: 'git',
@@ -373,4 +383,20 @@ image: /assets/images/86026733/0.png
 </p>
 <p>
  이렇게 pipeline을 작성한 후 Jenkins와 연동까지 완료한다면 push와 같은 행위가 이루어질때 Jenkins를 통한 build가 함께 이루어지게 됩니다.
+</p>
+<p>
+ <br/>
+</p>
+<h1 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-참고사이트">
+ 참고사이트
+</h1>
+<ul>
+ <li>
+  <a class="external-link" href="https://akomljen.com/set-up-a-jenkins-ci-cd-pipeline-with-kubernetes/" rel="nofollow">
+   https://akomljen.com/set-up-a-jenkins-ci-cd-pipeline-with-kubernetes/
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
 </p>

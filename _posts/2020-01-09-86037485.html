@@ -13,17 +13,17 @@ image: /assets/images/86037485/
 </p>
 <div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
  <p>
-  Atlassian은 Dockerhub에 각 Product에 대한 official Docker image를 공개하였습니다.
-이전부터 몇몇 Product에 대한 Image는 제공하였으나 모든 제품에 대한 Official Image를 제공하지 않았었고
+  Dockerhub에 가보면 Atlassian에서 제공하는 각 Product에 대한 official Docker image를 공개되어 있습니다.<br>
+이전부터 몇몇 Product에 대한 Image는 제공하였으나 모든 제품에 대한 Official Image를 제공하지 않았었고<br>
 작년 말경에 Official Image들을 모두 공개하였습니다.
  </p>
  <p>
-  아시다시피 Docker Image를 docker command를 통해 Host상에 동작시킬수도 있지만 Kubernetes와 같은
-Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 효율적인 관리가 이루어집니다.
+  아시다시피 Docker Image를 docker command를 통해 Host상에 동작시킬수도 있지만 Kubernetes와 같은<br>
+Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 효율적인 관리가 이루어집니다.<br>
 하여 Atlassian 공식이미지를 활용한 Kubernetes Manifest 작성법을 Bitbucket-server의 예제로 알아보고자 합니다.
  </p>
  <p>
-  우선 알아두어야하는 것은 기존 Atlassian 제품 설치방법과 동일하게 License 입력과정이 있기에 서버내에서의 License 입력
+  우선 알아두어야하는 것은 기존 Atlassian 제품 설치방법과 동일하게 License 입력과정이 있기에 서버내에서의 <br>License 입력
 및 Database 연결과정은 UI상에서 직접 이루어져야 합니다.
  </p>
  <h1>
@@ -39,11 +39,11 @@ Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 �
    Bitbucket-server
   </li>
   <li>
-   PostgreSQL
+   PostgreSQL<br>
   (타 서비스도 가능하며 일반적으로 DB와 같은 서비스를 Kubernetes에서 동작시키는 것을 권장하지 않기에 Database는 별도의 서버로 구동시킬것을 권장합니다.)
   </li>
   <li>
-   Nginx
+   Nginx<br>
   (Ingress도 있지만 여기서는 deployment로 nginx를 구동시켜 Reverse Proxy 서비스를 제공할 예정입니다.)
   </li>
  </ul>
@@ -58,26 +58,21 @@ Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 �
   </a>
  </h3>
  <blockquote>
-  <p>
-   <strong>
-   </strong>
-  </p>
-  <p style="color:blue">
+  <span style="color:yellowgreen; font-size:1.5em">
    Note
-  </p>
-  <br/>
-  PersistentVolume의 경우 관리자에 의해 미리 생성되어 있다는 가정하에 작성을 진행하였습니다.
-  <br/>
-  namespace는 필요에 따라 변경해서 사용하실수 있습니다.
-  <p>
-  </p>
+  </span>
+  <br>
+  <span style="font-size:1.2em">
+    PersistentVolume의 경우 관리자에 의해 미리 생성되어 있다는 가정하에 작성을 진행하였습니다.<br>
+    namespace는 필요에 따라 변경해서 사용하실수 있습니다.
+  </span>
  </blockquote>
  <ul>
   <li>
    PersistentVolumceClaim
   </li>
  </ul>
- <pre><code>kind: PersistentVolumeClaim
+ {% highlight yaml %} kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: bitbucket-pvc
@@ -91,13 +86,13 @@ spec:
     requests:
       storage: 5Gi
 
-</code></pre>
+{% endhighlight %}
  <ul>
   <li>
    Deployment
   </li>
  </ul>
- <pre><code>apiVersion: apps/v1
+ {% highlight yaml %} apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: bitbucket
@@ -132,13 +127,13 @@ spec:
                 - name: bitbucket-appdata
                   persistentVolumeClaim:
                       claimName: bitbucket-pvc
-</code></pre>
+{% endhighlight %} 
  <ul>
   <li>
    Service
   </li>
  </ul>
- <pre><code>apiVersion: v1
+ {% highlight yaml %} apiVersion: v1
 kind: Service
 metadata:
   name: bitbucket-svc
@@ -151,7 +146,7 @@ spec:
   selector:
     app: bitbucket
   type: LoadBalancer
-</code></pre>
+{% endhighlight %} 
  <p>
   아래 링크에 Official Docker Image 소개 및 각종 환경변수, 그리고 Volume mount 정보등이 있습니다.
 위의 source는 일부만이 사용되었기 때문에 필요에 따라 자유롭게 사용하시면 됩니다.
@@ -169,26 +164,21 @@ spec:
   </a>
  </h3>
  <blockquote>
-  <p>
-   <strong>
-   </strong>
-  </p>
-  <p style="color:red">
-   Warning
-  </p>
-  <br/>
-  앞서도 이야기 하였지만 Production상에서 Kubernetes위의 DB는 권장되지 않기에
-  <br/>
-  해당 서비스는 별도의 서버에 구동시키는 것을 권장드립니다.
-  <p>
-  </p>
+  <span style="color:red; font-size:1.5em">
+    Warning
+   </span>
+   <br>
+   <span style="font-size:1.2em">
+   앞서도 이야기 하였지만 Production상에서 Kubernetes위의 DB는 권장되지 않기에<br/>
+   해당 서비스는 별도의 서버에 구동시키는 것을 권장드립니다.
+   </span>
  </blockquote>
  <ul>
   <li>
    Deployment
   </li>
  </ul>
- <pre><code>apiVersion: apps/v1
+ {% highlight yaml %} apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
@@ -222,7 +212,7 @@ spec:
           persistentVolumeClaim:
             claimName: postgres-pvc
 
-</code></pre>
+{% endhighlight %} 
  <ul>
   <li>
    configmap
@@ -230,7 +220,7 @@ spec:
   secret으로 사용하여 보안성을 높이는 방식이 고려되면 좀더 효율적인 서비스를 사용하실 수 있습니다.
   </li>
  </ul>
- <pre><code>apiVersion: v1
+ {% highlight yaml %} apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-config
@@ -241,13 +231,13 @@ data:
   username: postgres
   password: postgres
   postgres_db: bitbucket
-</code></pre>
+{% endhighlight %} 
  <ul>
   <li>
    PersistentVolumceClaim
   </li>
  </ul>
- <pre><code>kind: PersistentVolumeClaim
+{% highlight yaml %} kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: postgres-pvc
@@ -262,15 +252,14 @@ spec:
   resources:
     requests:
       storage: 5Gi
-
-</code></pre>
+{% endhighlight %} 
  <ul>
   <li>
    Service
   내부 통신만이 이루어질 예정이기에 ClusterIP로 생성됩니다.
   </li>
  </ul>
- <pre><code>apiVersion: v1
+ {% highlight yaml %} apiVersion: v1
 kind: Service
 metadata:
   name: postgres-service
@@ -284,7 +273,7 @@ spec:
   - protocol: TCP
     port: 5432
     targetPort: 5432
-</code></pre>
+{% endhighlight %}
  <h3>
   <a href="#nginx-manifest" id="nginx-manifest">
    Nginx manifest
@@ -297,7 +286,7 @@ spec:
   configmap을 통한 설정정보가 중요하게 사용됩니다.
   </li>
  </ul>
- <pre><code>apiVersion: v1
+ {% highlight yaml %} apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-rproxy-config
@@ -342,16 +331,13 @@ data:
         proxy_redirect 		  off;
        }
     }
-</code></pre>
+{% endhighlight %} 
  <blockquote>
-  <p>
-   <strong>
-   </strong>
-  </p>
-  <p style="color:blue">
-   Note
-  </p>
-  <br/>
+  <span style="color:yellowgreen; font-size:1.5em">
+    Note
+   </span>
+   <br>
+   <span style="font-size:1.2em">
   여기서 참고할 것은 내부 통신을 위해 proxy_pass 에 주소가 bitbucket-svc.jacobbaek.svc.cluster.local 와 같이 설정되었다는 것입니다.
   <br/>
   해당 주소 정보는 [bitbucket-service-name].[namespace].svc.cluster.local 로 일반적으로 이루어집니다.
@@ -359,15 +345,14 @@ data:
   만약 해당 정보를 확인하고자 한다면 kubectl exec 명령을 통해 bitbucket pod에 접근하여 cat /etc/resolv.conf 정보를 확인해보면
   <br/>
   관련 cluster domain 정보를 확인할 수 있습니다.
-  <p>
-  </p>
+  </span>
  </blockquote>
  <ul>
   <li>
    Deployment
   </li>
  </ul>
- <pre><code>apiVersion: apps/v1
+ {% highlight yaml %} apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-rproxy
@@ -406,15 +391,15 @@ spec:
         - name: nginx-log
           emptyDir: {}
 
-</code></pre>
+{% endhighlight %} 
  <ul>
   <li>
    Service
-  실제 End User의 접속이 이루어지게 되는 관문이 될 예정이기에
-  해당 Service는 Loadbalancer type으로 생성됩니다.
+   실제 End User의 접속이 이루어지게 되는 관문이 될 예정이기에
+   해당 Service는 Loadbalancer type으로 생성됩니다. 
   </li>
  </ul>
- <pre><code>apiVersion: v1
+ {% highlight yaml %} apiVersion: v1
 kind: Service
 metadata:
   name: nginx-rproxy-svc
@@ -428,7 +413,7 @@ spec:
   - port: 80
     targetPort: 80
   type: LoadBalancer
-</code></pre>
+{% endhighlight %} 
  <p>
   위 모든 manifest파일을 kubectl create -f *.yaml 로 실행하여 구동시키면 bitbucket을 kubernetes위에서 동작시킬 수 있습니다.
 마지막으로 사용자는 nginx service에 EXTERNAL-IP를 통해 접속하게 되면 bitbucket 서버에 접속할수 있는 화면이 출력됩니다.
