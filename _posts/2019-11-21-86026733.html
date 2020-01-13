@@ -11,15 +11,15 @@ image: /assets/images/86026733/0.png
 <p>
  kubernetes상에 동작하는 application에 대한 Build 를 위한 pipeline 작성방법에 대하여 알아보도록 하겠습니다.
 </p>
-<h2 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-Pipeline">
- Pipeline
-</h2>
+<h1 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-가정사항">
+ 가정사항
+</h1>
 <p>
- pipeline 작성을 위해 다음과 같은 상황을 가정하고 pipeline을 생성해보도록 하겠습니다.
+ 다음과 같은 상황을 가정하고 Pipeline을 작성할 예정입니다.
 </p>
 <ol>
  <li>
-  kubernetes 상에서 Jenkins가 배포되었으며 jenkins slave가 pod로 생성 및 빌드 후 termination 된다.
+  kubernetes 상에서 Jenkins가 배포되어있고 jenkins slave가 pod로 동작되며 job완료시 Termination
  </li>
  <li>
   React을 사용하여 build 되는 환경
@@ -34,28 +34,54 @@ image: /assets/images/86026733/0.png
 <p>
  <br/>
 </p>
-<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
- <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon">
- </span>
- <div class="confluence-information-macro-body">
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <blockquote>
   <p>
-   해당 pipeline은 scripted 방식으로 작성되었습니다.
-  </p>
-  <p>
+   <b style="color:blue">
+    INFO
+   </b>
+   <br/>
+   <strong>
+    해당 pipeline은 scripted 방식으로 작성되었습니다.
+   </strong>
+   <br/>
    이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다.
-  </p>
-  <p>
+   <br/>
    (
-   <a class="external-link" href="https://issues.jenkins-ci.org/browse/JENKINS-48421" rel="nofollow">
+   <a href="https://issues.jenkins-ci.org/browse/JENKINS-48421">
     https://issues.jenkins-ci.org/browse/JENKINS-48421
    </a>
    )
   </p>
- </div>
+ </blockquote>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
 </div>
-<p>
- <br/>
-</p>
+<h1 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-Pipeline작성법">
+ Pipeline 작성법
+</h1>
 <p>
  우선 첫째로 kubernetes 상에서 jenkins slave를 pod 형태로 띄우기 위한 pipeline 을 작성해보도록 하겠습니다.
 </p>
@@ -103,6 +129,16 @@ image: /assets/images/86026733/0.png
 <p>
  또한 volumes 항목에서 볼수 있듯이 container에 docker engine을 추가로 설치 및 구동하여 연결하는 방식이 아닌 host의 docker 그대로 사용하는 방식을 사용합니다.
 </p>
+<p>
+ 다음링크를 통해 좀더 상세한 podTemplate 사용법을 확인해볼 수 있습니다.
+</p>
+<ul>
+ <li>
+  <a class="external-link" href="https://jenkins.io/doc/pipeline/steps/kubernetes/#podtemplate-define-a-podtemplate-to-use-in-the-kubernetes-plugin" rel="nofollow">
+   https://jenkins.io/doc/pipeline/steps/kubernetes/#podtemplate-define-a-podtemplate-to-use-in-the-kubernetes-plugin
+  </a>
+ </li>
+</ul>
 <p>
  <br/>
 </p>
@@ -193,7 +229,7 @@ image: /assets/images/86026733/0.png
 <p>
  그 외에도 submodule 관련 사항 및 timeout 설정등 아래 링크에 다양한 옵션 정보가 존재하니 해당 옵션을 활용하여 좀더 사용자 입맛에 맞추어 작성이 가능합니다.
 </p>
-<ul style="list-style-type: square;">
+<ul>
  <li>
   <a class="external-link" href="https://jenkins.io/doc/pipeline/steps/workflow-scm-step/" rel="nofollow">
    https://jenkins.io/doc/pipeline/steps/workflow-scm-step/
@@ -270,7 +306,7 @@ image: /assets/images/86026733/0.png
 <p>
  withDockerRegistry 관련된 정보는 다음링크를 참조합니다.
 </p>
-<ul style="list-style-type: square;">
+<ul>
  <li>
   <a class="external-link" href="https://jenkins.io/doc/pipeline/steps/docker-workflow/#-withdockerregistry-sets-up-docker-registry-endpoint" rel="nofollow">
    https://jenkins.io/doc/pipeline/steps/docker-workflow/#-withdockerregistry-sets-up-docker-registry-endpoint
@@ -329,7 +365,7 @@ image: /assets/images/86026733/0.png
                 checkout([$class: 'GitSCM',
                     branches: [[name: '*/dockerizing']],
                     userRemoteConfigs: [
-                        [url: 'http://192.168.194.132/root/playce-iot.git', credentialsId: 'jacobbaek-privategitlab']
+                        [url: 'http://192.168.194.132/root/stlapp.git', credentialsId: 'jacobbaek-privategitlab']
                     ],
                 ])
             }
@@ -351,7 +387,7 @@ image: /assets/images/86026733/0.png
         stage('Build docker image') {
             container('docker') {
                 withDockerRegistry([ credentialsId: "$registryCredential", url: "http://$registry" ]) {
-                    sh "docker build -t $registry/playceiot:1.0 -f ./Dockerfile ."
+                    sh "docker build -t $registry/stlapp:1.0 -f ./Dockerfile ."
                 }
             }
         }
@@ -359,7 +395,7 @@ image: /assets/images/86026733/0.png
         stage('Push docker image') {
             container('docker') {
                 withDockerRegistry([ credentialsId: "$registryCredential", url: "http://$registry" ]) {
-                    docker.image("$registry/playceiot:1.0").push()
+                    docker.image("$registry/stlapp:1.0").push()
                 }
             }
         }
@@ -371,7 +407,7 @@ image: /assets/images/86026733/0.png
  <br/>
 </p>
 <p>
- 마지막으로 해당 파일을 관련된 repository에 commit and push 하여 관리하도록 합니다.
+ 마지막으로 해당 jenkins pipeline 파일을 관련된 repository에 commit and push 하여 관리하도록 합니다.
 </p>
 <p>
  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
@@ -382,10 +418,20 @@ image: /assets/images/86026733/0.png
  <br/>
 </p>
 <p>
- 이렇게 pipeline을 작성한 후 Jenkins와 연동까지 완료한다면 push와 같은 행위가 이루어질때 Jenkins를 통한 build가 함께 이루어지게 됩니다.
+ 위와 같이 작성된 pipeline을 Jenkins내 pipeline으로 생성된 job에
 </p>
 <p>
- <br/>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86026733/1.png"/>
+ </span>
+</p>
+<p>
+ 연동을 수행하면 push와 같은 event가 발생될 때마다 작성한 Jenkins pipeline을 통한 build가 이루어지게 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86026733/2.png"/>
+ </span>
 </p>
 <h1 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-참고사이트">
  참고사이트
