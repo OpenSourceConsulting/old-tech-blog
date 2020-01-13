@@ -87,7 +87,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: yml; gutter: false; theme: Midnight" data-theme="Midnight">podTemplate(label: 'jenkins-slave-pod', 
+  {% highlight groovy %}podTemplate(label: 'jenkins-slave-pod', 
   containers: [
     containerTemplate(
       name: 'git',
@@ -117,7 +117,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
   volumes: [ 
     hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'), 
   ]
-)</pre>
+){% endhighlight %}
  </div>
 </div>
 <p>
@@ -147,7 +147,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: yml; gutter: false; theme: Midnight" data-theme="Midnight">{
+   {% highlight groovy %}{
     node('jenkins-slave-pod') { 
         def registry = "192.168.194.129:5000"
         def registryCredential = "nexus3-docker-registry"
@@ -193,7 +193,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
             }
         }
     }   
-}</pre>
+}{% endhighlight %}
  </div>
 </div>
 <p>
@@ -207,7 +207,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">        stage('Clone repository') {
+    {% highlight groovy %}       stage('Clone repository') {
             container('git') {
                 // https://gitlab.com/gitlab-org/gitlab-foss/issues/38910
                 checkout([$class: 'GitSCM',
@@ -217,7 +217,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
                     ],
                 ])
             }
-        }</pre>
+        }{% endhighlight %}
  </div>
 </div>
 <p>
@@ -244,7 +244,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">        stage('build the source code via npm') {
+    {% highlight groovy %}        stage('build the source code via npm') {
             container('node') {
                 sh 'cd frontend &amp;&amp; npm install &amp;&amp; npm run build:production'
             }
@@ -255,7 +255,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
                 sh 'mvn package'
                 sh 'bash build.sh'
             }
-        }</pre>
+        }{% endhighlight %}
  </div>
 </div>
 <p>
@@ -269,7 +269,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: yml; gutter: false; theme: Midnight" data-theme="Midnight">        stage('Build docker image') {
+    {% highlight groovy %}        stage('Build docker image') {
             container('docker') {
                 withDockerRegistry([ credentialsId: "$registryCredential", url: "http://$registry" ]) {
                     sh "docker build -t $registry/sampleapp:1.0 -f ./Dockerfile ."
@@ -283,7 +283,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
                     docker.image("$registry/sampleapp:1.0").push()
                 }
             }
-        }</pre>
+        }{% endhighlight %}
  </div>
 </div>
 <p>
@@ -299,8 +299,8 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: yml; gutter: false; theme: Midnight" data-theme="Midnight">        def registry = "192.168.194.129:5000"
-        def registryCredential = "nexus3-docker-registry"</pre>
+    {% highlight groovy %}      def registry = "192.168.194.129:5000"
+        def registryCredential = "nexus3-docker-registry"{% endhighlight %}
  </div>
 </div>
 <p>
@@ -321,7 +321,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
  <div class="codeContent panelContent pdl">
-  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">podTemplate(label: 'jenkins-slave-pod', 
+    {% highlight groovy %}podTemplate(label: 'jenkins-slave-pod', 
   containers: [
     containerTemplate(
       name: 'git',
@@ -400,7 +400,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
             }
         }
     }   
-}</pre>
+}{% endhighlight %}
  </div>
 </div>
 <p>
@@ -411,7 +411,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <p>
  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
-  <img src="/assets/images/86026733/0.png"/>
+  <img width=800, src="/assets/images/86026733/0.png"/>
  </span>
 </p>
 <p>
@@ -422,7 +422,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <p>
  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
-  <img src="/assets/images/86026733/1.png"/>
+  <img width=800, src="/assets/images/86026733/1.png"/>
  </span>
 </p>
 <p>
@@ -430,7 +430,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 </p>
 <p>
  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
-  <img src="/assets/images/86026733/2.png"/>
+  <img width=800, src="/assets/images/86026733/2.png"/>
  </span>
 </p>
 <h1 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-참고사이트">
