@@ -1,0 +1,716 @@
+---
+layout: post
+title: "Kubernetes 환경에서 sonarqube 설치 및 Jenkins pipeline 활용법"
+description: " " 
+author: jacobbaek
+date: 2020-02-07
+tags: ['sonarqube', 'jenkinsfile', 'pipeline', 'kubernetes']
+category: 
+image: /assets/images/86045772/0.png 
+---
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <blockquote>
+  <p>
+   <b style="color:blue">
+    INFO
+   </b>
+   <br/>
+   sonarqube를 kubernetes 상에서 설치하고 이를 Jenkins pipeline으로
+  동작시키는 방법에 대하여 알아보도록 하겠습니다.
+  </p>
+  <p>
+   동작시켰던 환경은 다음과 같습니다.
+  </p>
+  <ul>
+   <li>
+    helm version 2.15.0
+   </li>
+   <li>
+    sonarqube Community EditionVersion 7.9.2
+   </li>
+   <li>
+    kubernetes v1.16.3
+   </li>
+  </ul>
+ </blockquote>
+ <h1>
+  <a href="#helm을-이용한-kubernetes-상에-sonarqube-설치" id="helm을-이용한-kubernetes-상에-sonarqube-설치">
+   helm을 이용한 kubernetes 상에 sonarqube 설치
+  </a>
+ </h1>
+ <p>
+  <a href="https://github.com/helm/charts/tree/master/stable/sonarqube%EC%99%80">
+   https://github.com/helm/charts/tree/master/stable/sonarqube와
+  </a>
+  같이 stable repo에 sonarqube가 제공되고 있습니다.
+이를 활용한 설치 방법을 알아보도록 하겠습니다.
+ </p>
+ <h3>
+  <a href="#helm-을-이용한-배포" id="helm-을-이용한-배포">
+   helm 을 이용한 배포
+  </a>
+ </h3>
+ <p>
+  몇가지 plugin을 설치하기 위해 바로 install 하지 않고 values.yaml 파일을 수정하여 install 해보도록 하겠습니다.
+ </p>
+ <pre><code>[root@labs-kube-infra001 ~]# helm fetch stable/sonarqube
+[root@labs-kube-infra001 ~]# tar xvf sonarqube.tgz
+[root@labs-kube-infra001 ~]# cd sonarqube
+[root@labs-kube-infra001 sonarqube]# vim values.yaml
+</code></pre>
+ <p>
+  위와 같이 values.yaml을 open하고 아래 예제에 있는 몇가지(sonar-go, sonar-java) plugin을 기본으로 설치되도록 추가합니다.
+ </p>
+ <pre><code>plugins:
+  install: [
+    "https://github.com/SonarSource/sonar-go/releases/download/1.1.1.2000/sonar-go-plugin-1.1.1.2000.jar",
+    "https://binaries.sonarsource.com/Distribution/sonar-java-plugin/sonar-java-plugin-6.0.2.20657.jar"
+    ]
+  lib: []
+...
+</code></pre>
+ <blockquote>
+  <p>
+   Sonarqube plugins 설치 링크는 다음 페이지에서 확인 가능합니다.
+  </p>
+  <ul>
+   <li>
+    <a href="https://binaries.sonarsource.com/Distribution/">
+     https://binaries.sonarsource.com/Distribution/
+    </a>
+    위 링크는 아래 페이지에서 참고하였습니다.
+   </li>
+   <li>
+    <a href="https://docs.sonarqube.org/latest/analysis/languages/java/">
+     https://docs.sonarqube.org/latest/analysis/languages/java/
+    </a>
+   </li>
+  </ul>
+ </blockquote>
+ <p>
+  변경된 내용을 저장하고 아래와 같이 설치를 진행합니다.
+(아래 예제는 sonarqbue라는 namespace에 설치하는 방법입니다. 하여 동일하게 수행하시고자 할 경우 namespace를 사전에 생성해야 합니다.)
+ </p>
+ <pre><code>[root@labs-kube-infra001 sonarqube]# helm install --name sonarqube -f values.yaml ./ --namespace sonarqube
+NAME:   sonarqube
+LAST DEPLOYED: Wed Feb  5 16:50:57 2020
+NAMESPACE: sonarqube
+STATUS: DEPLOYED
+
+RESOURCES:
+==&gt; v1/ConfigMap
+NAME                                 DATA  AGE
+sonarqube-sonarqube-config           0     3s
+sonarqube-sonarqube-copy-plugins     1     3s
+sonarqube-sonarqube-install-plugins  1     3s
+sonarqube-sonarqube-tests            1     3s
+
+==&gt; v1/Deployment
+NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
+sonarqube-sonarqube  0/1    1           0          2s
+
+==&gt; v1/Pod(related)
+NAME                                  READY  STATUS    RESTARTS  AGE
+sonarqube-postgresql-0                0/1    Pending   0         1s
+sonarqube-sonarqube-6dc86bd984-xfh5x  0/1    Init:0/3  0         1s
+
+==&gt; v1/Secret
+NAME                  TYPE    DATA  AGE
+sonarqube-postgresql  Opaque  1     3s
+
+==&gt; v1/Service
+NAME                           TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)   AGE
+sonarqube-postgresql           ClusterIP  10.233.34.210  &lt;none&gt;       5432/TCP  2s
+sonarqube-postgresql-headless  ClusterIP  None           &lt;none&gt;       5432/TCP  2s
+sonarqube-sonarqube            ClusterIP  10.233.53.207  &lt;none&gt;       9000/TCP  2s
+
+==&gt; v1/StatefulSet
+NAME                  READY  AGE
+sonarqube-postgresql  0/1    2s
+
+==&gt; v1beta1/Ingress
+NAME                 AGE
+sonarqube-sonarqube  2s
+
+
+NOTES:
+1. Get the application URL by running these commands:
+  http://sonar.organization.com
+</code></pre>
+ <p>
+  이후 kubectl 명령으로 확인해보면 다음과 같이 동작되는 sonarqube 를 확인할 수 있습니다.
+ </p>
+ <pre><code>[root@labs-kube-infra001 sonarqube]# k get po -n sonarqube
+NAME                                   READY   STATUS    RESTARTS   AGE
+sonarqube-postgresql-0                 1/1     Running   0          45h
+sonarqube-sonarqube-8677ffd4f4-smc62   1/1     Running   0          44h
+</code></pre>
+ <h1>
+  <a href="#jenkins와-sonarqube연동" id="jenkins와-sonarqube연동">
+   Jenkins와 sonarqube연동
+  </a>
+ </h1>
+ <p>
+  이제 sonarqube를 jenkins pipeline상에서 사용할 수 있도록 연동작업을 수행해보도록 하겠습니다.
+ </p>
+ <h3>
+  <a href="#sonarqube-token-생성" id="sonarqube-token-생성">
+   sonarqube token 생성
+  </a>
+ </h3>
+ <p>
+  우선 jenkins에서 sonarqube에 연결할 때 credential로 사용될 token을 생성해 보도록 하겠습니다.
+아래와 같이 sonarqube UI상에서 계정으로 이동하면 security에 Tokens 항목을 확인할수 있고 Generate Tokens라는 메뉴에서
+임의의 name을 설정하여 token을 생성하도록 하겠습니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86045772/0.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  아래와 같이 Token을 생성하고 token을 복사해둡니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86045772/1.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <h3>
+  <a href="#jenkins-credential을-생성" id="jenkins-credential을-생성">
+   Jenkins credential을 생성
+  </a>
+ </h3>
+ <p>
+  sonarqbue에서 생성했던 token을 사용하여 Jenkins에 credential을 생성해보도록 하겠습니다.
+Jenkins의 credential 항목에서 kind를 secret text 선택하여 앞서 복사한 token을 secret 항목에 추가합니다.
+(ID의 경우 sonarqube와 일치시킬 필요는 없으나 앞으로 작성할 jenkinsfile(pipeline)상에서 사용해야함으로
+해당 ID를 복사해둘필요는 있습니다.)
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86045772/2.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <h3>
+  <a href="#jenkins내-sonarscanner-plugin-설치" id="jenkins내-sonarscanner-plugin-설치">
+   Jenkins내 sonarscanner plugin 설치
+  </a>
+ </h3>
+ <p>
+  helm을 이용한 환경이다보니 jenkins 의 plugin도 helm을 통해 설치를 진행해보았습니다.
+ </p>
+ <p>
+  Jenkins 에 대한 helm chart내 values.yaml 파일에 다음 항목 추가합니다.
+ </p>
+ <pre><code>  extraPorts: []
+  installPlugins:
+    - kubernetes:1.21.3
+    - workflow-aggregator:2.6
+    - workflow-job:2.35
+    - credentials-binding:1.20
+    - git:3.12.1
+    - greenballs:1.15
+    - blueocean:1.21.0
+    - config-file-provider:3.6.2 
+    - sonar:2.11
+  enableRawHtmlMarkupFormatter: false
+  scriptApproval: []
+  initScripts: []
+</code></pre>
+ <ul>
+  <li>
+   jenkins의 sonar scanner plugin :
+   <a href="https://plugins.jenkins.io/sonar">
+    https://plugins.jenkins.io/sonar
+   </a>
+  </li>
+ </ul>
+ <p>
+  이후 helm upgrade 명령을 통해 추가된 sonar scanner plugin이 설치되도록 합니다.
+ </p>
+ <pre><code>[root@labs-kube-infra001 jenkins]# helm upgrade jenkins --namespace jenkins ./values.yaml ./
+</code></pre>
+ <h3>
+  <a href="#sonarqube와-연동을-위한-jenkins-설정" id="sonarqube와-연동을-위한-jenkins-설정">
+   sonarqube와 연동을 위한 Jenkins 설정
+  </a>
+ </h3>
+ <p>
+  설정은 다음 두가지에 대한 설정을 수행할 수 있습니다.
+ </p>
+ <ul>
+  <li>
+   Sonarqube server(필수)
+  </li>
+  <li>
+   Sonarscanner(옵션) : Jenkins master 서버에서 동작될 경우 필요한 설정
+  </li>
+ </ul>
+ <p>
+  우선 SonarQube Server 설정을 진행합니다.
+다음과 같이 Server URL과 Server authentication token을 선택하여 설정해줍니다.
+(앞서 생성했던 credential이 사용되어 집니다.)
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86045772/3.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  (Option) Jenkins 설정 메뉴중 Global Tool Configuration 에서 Sonarqube Scanner항목에서 아래와 같은 설정을 추가합니다.
+(앞서 설명되었듯이 Jenkins Master에서 수행될때 필요한 설정이라 kubernetes와 같이 pod로 slave가 동작되는 환경에서는 굳히 필요하지는 않습니다.)
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86045772/4.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <h1>
+  <a href="#jenkins-pipeline-설정" id="jenkins-pipeline-설정">
+   Jenkins pipeline 설정
+  </a>
+ </h1>
+ <h3>
+  <a href="#기본-sonarqube-plugin-사용법" id="기본-sonarqube-plugin-사용법">
+   기본 sonarqube plugin 사용법
+  </a>
+ </h3>
+ <p>
+  두개의 주요 모듈이 사용됩니다.
+ </p>
+ <ul>
+  <li>
+   withSonarQubeEnv : sonarscanner가 동작할 환경을 정의하게 됩니다.
+  일반적으로 script, batch(windows)와 같은 모듈을 통한 빌드 명령이 sonarscanner를 함께 실행하도록 정의되며
+  필요에 따라 credentail(token) 정보가 함께 정의됩니다.
+  </li>
+  <li>
+   waitForQualityGate : webhook을 통해 분석이 완료됨을 확인할 수 있습니다.
+  sonarqube에 webhook을 사전에 정의해야 합니다
+  </li>
+ </ul>
+ <pre><code>      stage("build &amp; SonarQube analysis") {
+          node {
+              withSonarQubeEnv('My SonarQube Server') {
+                 sh 'mvn clean package sonar:sonar'
+              }
+          }
+      }
+
+      stage("Quality Gate"){
+          timeout(time: 1, unit: 'HOURS') {
+              def qg = waitForQualityGate()
+              if (qg.status != 'OK') {
+                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+              }
+          }
+      }
+
+</code></pre>
+ <p>
+  만약 maven의 credential을 함께 사용해야 하는 경우는 다음과 같이 다중의 모듈을 사용할 수 있도록 설정해야 합니다.
+ </p>
+ <pre><code>stage('build the source code via maven') {
+                container('openjdk') {
+                    configFileProvider([configFile(fileId: 'maven-settings-xml', variable: 'maven_settings'), configFile(fileId: 'npmrc', variable: 'npmrc')]) {
+                        sh 'cat $npmrc &gt; frontend/.npmrc'
+                        
+                        withSonarQubeEnv(credentialsId: 'sonarqube-token') {
+                            sh './mvnw -s $maven_settings package'
+                        }
+                        
+                        script {
+                            def qg = waitForQualityGate()
+                            if (qg.status != 'OK') {
+                                error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                            }
+                        }
+
+                    }
+                }
+            }
+</code></pre>
+ <p>
+  참고로 sonar-project.properties내에서 사용되는 설정정보를 다음과 같이 사용할 수도 있습니다.
+ </p>
+ <pre><code>        withSonarQubeEnv('Sonar') { 
+          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
+          '-f all/pom.xml ' +
+          '-Dsonar.projectKey=com.huettermann:all:master ' +
+          '-Dsonar.login=$SONAR_UN ' +
+          '-Dsonar.password=$SONAR_PW ' +
+          '-Dsonar.language=java ' +
+          '-Dsonar.sources=. ' +
+          '-Dsonar.tests=. ' +
+          '-Dsonar.test.inclusions=**/*Test*/** ' +
+          '-Dsonar.exclusions=**/*Test*/**'
+        }
+</code></pre>
+ <blockquote>
+  <p>
+   Sonarscanner에 properties 설정에 대한 설명을 아래 링크에서 확인할수 있습니다.
+  </p>
+  <ul>
+   <li>
+    <a href="https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/">
+     https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/
+    </a>
+   </li>
+  </ul>
+ </blockquote>
+ <p>
+  위에 설명된 sonarqube 사용에 대한 pipeline 예제를 아래 링크에서 참고할수 있습니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://jenkins.io/doc/pipeline/steps/sonar/">
+    https://jenkins.io/doc/pipeline/steps/sonar/
+   </a>
+  </li>
+ </ul>
+ <h3>
+  <a href="#sonarscanner-docker-image를-사용하는-방법" id="sonarscanner-docker-image를-사용하는-방법">
+   sonarscanner docker image를 사용하는 방법
+  </a>
+ </h3>
+ <p>
+  sonar-scanner 명령을 직접 사용하여 분석작업을 수행할 수 있습니다.
+image는 (newtmitch/sonar-scanner)[https://hub.docker.com/r/newtmitch/sonar-scanner]를
+사용하며 다음과 같은 stage 내 명령을 선언하면 사용이 가능합니다.
+ </p>
+ <pre><code>    withSonarQubeEnv('Sonar') { 
+      sh "/usr/local/bin/sonar-scanner -Dsonar.host.url=http://sonarqube.openlabs:9000 -Dsonar.sources=."
+    }
+</code></pre>
+ <p>
+  참고로 아직 official container image가 제공되지는 않는것으로 보입니다. 관련 링크를 참고하시기 바랍니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://community.sonarsource.com/t/official-docker-image-for-sonar-scanner-cli/3060">
+    https://community.sonarsource.com/t/official-docker-image-for-sonar-scanner-cli/3060
+   </a>
+  </li>
+ </ul>
+ <h1>
+  <a href="#jenkins-pipeline-job-build-수행" id="jenkins-pipeline-job-build-수행">
+   Jenkins pipeline job build 수행
+  </a>
+ </h1>
+ <blockquote>
+  <p>
+   scanner를 실행하기 전에 quaility profile이 존재하는지를 확인해두어야 한다.
+  만약 존재하지 않는다면 앞선 helm 을 통한 설치시 plugin이 설치되지 않는 상황으로
+  market place에서 설치를 수동으로 진행해서라도 설치되어야 합니다.(sonarjava, sonargo 같은)
+  </p>
+ </blockquote>
+ <p>
+  실제 job build가 완료된후에 다음과 같이 sonarqube 관련 로그를 확인할 수 있으며
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86045772/5.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  또한 sonarqube icon이 활성화 되며 해당 링크를 클릭시 sonarqube로 이동됩니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86045772/6.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  다음과 같은 sonarqube를 통한 분석결과를 확인할수 있습니다.
+(해당 결과는 설치된 sonar-java plugin에 제공된 quality profile에 의해 분석된 결과입니다.)
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86045772/7.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <h1>
+  <a href="#참고사이트" id="참고사이트">
+   참고사이트
+  </a>
+ </h1>
+ <ul>
+  <li>
+   <a href="https://medium.com/@rosaniline/setup-sonarqube-with-jenkins-declarative-pipeline-75bccdc9075f">
+    https://medium.com/@rosaniline/setup-sonarqube-with-jenkins-declarative-pipeline-75bccdc9075f
+   </a>
+  </li>
+  <li>
+   <a href="https://stackoverflow.com/questions/41513527/how-to-configure-a-jenkins-pipeline-for-sonarqube-scan">
+    https://stackoverflow.com/questions/41513527/how-to-configure-a-jenkins-pipeline-for-sonarqube-scan
+   </a>
+  </li>
+  <li>
+   <a href="https://jenkins.io/blog/2017/04/18/continuousdelivery-devops-sonarqube/">
+    https://jenkins.io/blog/2017/04/18/continuousdelivery-devops-sonarqube/
+   </a>
+  </li>
+  <li>
+   <a href="https://www.solstice.com/fwd/sonarqube-gcp-kubernetes">
+    https://www.solstice.com/fwd/sonarqube-gcp-kubernetes
+   </a>
+  </li>
+  <li>
+   <a href="https://rtfm.co.ua/en/sonarqube-running-tests-from-jenkins-pipeline-from-docker/">
+    https://rtfm.co.ua/en/sonarqube-running-tests-from-jenkins-pipeline-from-docker/
+   </a>
+  </li>
+  <li>
+   <a href="https://www.fosslinux.com/24961/configuring-jenkins-pipeline-with-sonarqube-and-gitlab-integration.htm">
+    https://www.fosslinux.com/24961/configuring-jenkins-pipeline-with-sonarqube-and-gitlab-integration.htm
+   </a>
+  </li>
+  <li>
+   <a href="https://github.com/coderise-lab/k8s-sonarqube">
+    https://github.com/coderise-lab/k8s-sonarqube
+   </a>
+  </li>
+  <li>
+   Golang 기반의 sonar scanner 사용법 :
+   <a href="https://medium.com/red6-es/go-for-sonarqube-ffff5b74f33a">
+    https://medium.com/red6-es/go-for-sonarqube-ffff5b74f33a
+   </a>
+  </li>
+ </ul>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
