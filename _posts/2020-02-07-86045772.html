@@ -53,22 +53,22 @@ image: /assets/images/86045772/0.png
  <p>
   몇가지 plugin을 설치하기 위해 바로 install 하지 않고 values.yaml 파일을 수정하여 install 해보도록 하겠습니다.
  </p>
- <pre><code>[root@labs-kube-infra001 ~]# helm fetch stable/sonarqube
+ {% highlight bash %}[root@labs-kube-infra001 ~]# helm fetch stable/sonarqube
 [root@labs-kube-infra001 ~]# tar xvf sonarqube.tgz
 [root@labs-kube-infra001 ~]# cd sonarqube
 [root@labs-kube-infra001 sonarqube]# vim values.yaml
-</code></pre>
+{% endhighlight %}
  <p>
   위와 같이 values.yaml을 open하고 아래 예제에 있는 몇가지(sonar-go, sonar-java) plugin을 기본으로 설치되도록 추가합니다.
  </p>
- <pre><code>plugins:
+ {% highlight bash %}plugins:
   install: [
     "https://github.com/SonarSource/sonar-go/releases/download/1.1.1.2000/sonar-go-plugin-1.1.1.2000.jar",
     "https://binaries.sonarsource.com/Distribution/sonar-java-plugin/sonar-java-plugin-6.0.2.20657.jar"
     ]
   lib: []
 ...
-</code></pre>
+{% endhighlight %}
  <blockquote>
   <p>
    Sonarqube plugins 설치 링크는 다음 페이지에서 확인 가능합니다.
@@ -91,7 +91,7 @@ image: /assets/images/86045772/0.png
   변경된 내용을 저장하고 아래와 같이 설치를 진행합니다.
 (아래 예제는 sonarqbue라는 namespace에 설치하는 방법입니다. 하여 동일하게 수행하시고자 할 경우 namespace를 사전에 생성해야 합니다.)
  </p>
- <pre><code>[root@labs-kube-infra001 sonarqube]# helm install --name sonarqube -f values.yaml ./ --namespace sonarqube
+ {% highlight bash %}[root@labs-kube-infra001 sonarqube]# helm install --name sonarqube -f values.yaml ./ --namespace sonarqube
 NAME:   sonarqube
 LAST DEPLOYED: Wed Feb  5 16:50:57 2020
 NAMESPACE: sonarqube
@@ -136,15 +136,15 @@ sonarqube-sonarqube  2s
 NOTES:
 1. Get the application URL by running these commands:
   http://sonar.organization.com
-</code></pre>
+{% endhighlight %}
  <p>
   이후 kubectl 명령으로 확인해보면 다음과 같이 동작되는 sonarqube 를 확인할 수 있습니다.
  </p>
- <pre><code>[root@labs-kube-infra001 sonarqube]# k get po -n sonarqube
+ {% highlight bash %}[root@labs-kube-infra001 sonarqube]# k get po -n sonarqube
 NAME                                   READY   STATUS    RESTARTS   AGE
 sonarqube-postgresql-0                 1/1     Running   0          45h
 sonarqube-sonarqube-8677ffd4f4-smc62   1/1     Running   0          44h
-</code></pre>
+{% endhighlight %}
  <h1>
   <a href="#jenkins와-sonarqube연동" id="jenkins와-sonarqube연동">
    Jenkins와 sonarqube연동
@@ -281,7 +281,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
  <p>
   Jenkins 에 대한 helm chart내 values.yaml 파일에 다음 항목 추가합니다.
  </p>
- <pre><code>  extraPorts: []
+ {% highlight bash %}  extraPorts: []
   installPlugins:
     - kubernetes:1.21.3
     - workflow-aggregator:2.6
@@ -295,7 +295,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
   enableRawHtmlMarkupFormatter: false
   scriptApproval: []
   initScripts: []
-</code></pre>
+{% endhighlight %}
  <ul>
   <li>
    jenkins의 sonar scanner plugin :
@@ -307,8 +307,8 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
  <p>
   이후 helm upgrade 명령을 통해 추가된 sonar scanner plugin이 설치되도록 합니다.
  </p>
- <pre><code>[root@labs-kube-infra001 jenkins]# helm upgrade jenkins --namespace jenkins ./values.yaml ./
-</code></pre>
+ {% highlight bash %}[root@labs-kube-infra001 jenkins]# helm upgrade jenkins --namespace jenkins ./values.yaml ./
+{% endhighlight %}
  <h3>
   <a href="#sonarqube와-연동을-위한-jenkins-설정" id="sonarqube와-연동을-위한-jenkins-설정">
    sonarqube와 연동을 위한 Jenkins 설정
@@ -423,7 +423,7 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
   sonarqube에 webhook을 사전에 정의해야 합니다
   </li>
  </ul>
- <pre><code>      stage("build &amp; SonarQube analysis") {
+ {% highlight bash %}      stage("build &amp; SonarQube analysis") {
           node {
               withSonarQubeEnv('My SonarQube Server') {
                  sh 'mvn clean package sonar:sonar'
@@ -440,46 +440,44 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
           }
       }
 
-</code></pre>
+{% endhighlight %}
  <p>
   만약 maven의 credential을 함께 사용해야 하는 경우는 다음과 같이 다중의 모듈을 사용할 수 있도록 설정해야 합니다.
  </p>
- <pre><code>stage('build the source code via maven') {
-                container('openjdk') {
-                    configFileProvider([configFile(fileId: 'maven-settings-xml', variable: 'maven_settings'), configFile(fileId: 'npmrc', variable: 'npmrc')]) {
-                        sh 'cat $npmrc &gt; frontend/.npmrc'
+ {% highlight bash %}stage('build the source code via maven') {
+    container('openjdk') {
+      configFileProvider([configFile(fileId: 'maven-settings-xml', variable: 'maven_settings'), configFile(fileId: 'npmrc', variable: 'npmrc')]) {
+        sh 'cat $npmrc &gt; frontend/.npmrc'
+        withSonarQubeEnv(credentialsId: 'sonarqube-token') {
+          sh './mvnw -s $maven_settings package'
+        }
                         
-                        withSonarQubeEnv(credentialsId: 'sonarqube-token') {
-                            sh './mvnw -s $maven_settings package'
-                        }
-                        
-                        script {
-                            def qg = waitForQualityGate()
-                            if (qg.status != 'OK') {
-                                error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                            }
-                        }
-
-                    }
-                }
-            }
-</code></pre>
+        script {
+          def qg = waitForQualityGate()
+          if (qg.status != 'OK') {
+            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+          }
+        }
+      }
+    }
+  }
+{% endhighlight %}
  <p>
   참고로 sonar-project.properties내에서 사용되는 설정정보를 다음과 같이 사용할 수도 있습니다.
  </p>
- <pre><code>        withSonarQubeEnv('Sonar') { 
-          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
-          '-f all/pom.xml ' +
-          '-Dsonar.projectKey=com.huettermann:all:master ' +
-          '-Dsonar.login=$SONAR_UN ' +
-          '-Dsonar.password=$SONAR_PW ' +
-          '-Dsonar.language=java ' +
-          '-Dsonar.sources=. ' +
-          '-Dsonar.tests=. ' +
-          '-Dsonar.test.inclusions=**/*Test*/** ' +
-          '-Dsonar.exclusions=**/*Test*/**'
-        }
-</code></pre>
+ {% highlight bash %}    withSonarQubeEnv('Sonar') { 
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
+      '-f all/pom.xml ' +
+      '-Dsonar.projectKey=com.huettermann:all:master ' +
+      '-Dsonar.login=$SONAR_UN ' +
+      '-Dsonar.password=$SONAR_PW ' +
+      '-Dsonar.language=java ' +
+      '-Dsonar.sources=. ' +
+      '-Dsonar.tests=. ' +
+      '-Dsonar.test.inclusions=**/*Test*/** ' +
+      '-Dsonar.exclusions=**/*Test*/**'
+    }
+{% endhighlight %}
  <blockquote>
   <p>
    Sonarscanner에 properties 설정에 대한 설명을 아래 링크에서 확인할수 있습니다.
@@ -512,10 +510,10 @@ AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) 
 image는 (newtmitch/sonar-scanner)[https://hub.docker.com/r/newtmitch/sonar-scanner]를
 사용하며 다음과 같은 stage 내 명령을 선언하면 사용이 가능합니다.
  </p>
- <pre><code>    withSonarQubeEnv('Sonar') { 
+ {% highlight bash %}    withSonarQubeEnv('Sonar') { 
       sh "/usr/local/bin/sonar-scanner -Dsonar.host.url=http://sonarqube.openlabs:9000 -Dsonar.sources=."
     }
-</code></pre>
+{% endhighlight %}
  <p>
   참고로 아직 official container image가 제공되지는 않는것으로 보입니다. 관련 링크를 참고하시기 바랍니다.
  </p>
