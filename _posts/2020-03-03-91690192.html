@@ -1,0 +1,444 @@
+---
+layout: post
+title: "[Container 시리즈] 02. Docker사용법 Docker Basic Command"
+description: " " 
+author: kbseo
+date: 2020-03-03
+tags: ['docker', 'dockerbasic', 'dockercommand', '도커', '도커명령어']
+category: 
+image: /assets/images/91690192/0.png 
+---
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
+ <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   nginx docker image를 여 registry로 부터 image pull, run, 그리고 삭제하는 과정에 대해 기술
+  </p>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 안녕하세요 ^^
+</p>
+<p>
+ 저번시간에 설치만 해서 너무 간질간질 하셨을 여러분을 위해
+</p>
+<p>
+ 지난 글에 이어서 Docker 기본 명령어에 대해 알아보는 시간을 가지도록 하겠습니다.
+</p>
+<p>
+ <a href="/pages/viewpage.action?pageId=91690167">
+  [Container 시리즈] 00. Container/ Docker란 뭔가요?
+ </a>
+</p>
+<p>
+ <a href="/pages/viewpage.action?pageId=91690190">
+  [Container 시리즈] 01. 도커를 설치하고 실행해보자! Docker on Amazon Linux
+ </a>
+</p>
+<p>
+ <br/>
+</p>
+<h1 id="id-[Container시리즈]02.Docker사용법DockerBasicCommand-1.Image가져오기">
+ 1. Image 가져오기
+</h1>
+<p>
+ : 기본 개념에서와 같이 도커는 저장소(registry)에서 이미지를 가져와 사용을 합니다
+</p>
+<p>
+ $ docker pull nginx:latest
+</p>
+<p>
+ <br/>
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># docker images 명령어를 통해 현재 가지고 있는 이미지 확인
+[kbseo@ip-172-20-1-221 ~]$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+
+# docker login
+[kbseo@ip-172-20-1-221 ~]$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: kbseo
+Password: 
+WARNING! Your password will be stored unencrypted in /home1/kbseo/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+
+</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 이미지를 땡겨 봅시다
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># tag를 지정해주지 않으면 default로 latest 버전을 가져옵니다.
+# tag를 지정할 경우 
+# docker pull nginx:latest 
+# 위의 명령어 대로 pull 가능
+
+[kbseo@ip-172-20-1-221 ~]$ docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+bc51dd8edc1b: Pull complete 
+66ba67045f57: Pull complete 
+bf317aa10aa5: Pull complete 
+Digest: sha256:ad5552c786f128e389a0263104ae39f3d3c7895579d45ae716f528185b36bc6f
+Status: Downloaded newer image for nginx:latest
+[kbseo@ip-172-20-1-221 ~]$ 
+
+# 이미지 확인
+[kbseo@ip-172-20-1-221 ~]$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               latest              2073e0bcb60e        3 weeks ago         127MB
+[kbseo@ip-172-20-1-221 ~]$ 
+
+</pre>
+ </div>
+</div>
+<p class="auto-cursor-target">
+ 이미지를 가져왔으니 이제 실행시켜봐야죠!
+</p>
+<h1 class="auto-cursor-target" id="id-[Container시리즈]02.Docker사용법DockerBasicCommand-2.RunContainer">
+ 2. Run Container
+</h1>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># docker ps 라는 명령어로 현재 실행중인 컨테이너를 확인합니다.
+# docker ps -a -&gt; 중지된 컨테이너까지 모두 출력
+
+[kbseo@ip-172-20-1-221 ~]$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</pre>
+ </div>
+</div>
+<p class="auto-cursor-target">
+ 실행중인 컨테이너가 없네요
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># docker run 이라는 명령어로 컨테이너를 실행시켜줍니다.
+# docker run &lt;옵션&gt; &lt;이미지 이름&gt; &lt;실행할 파일&gt;
+
+[kbseo@ip-172-20-1-221 ~]$ docker run -it -d -p 8080:80 --name=nginx nginx:latest
+57c8f50ce8c565e7b8fcfbe3a730b4be9c7c0221606ee0ba7dc22295d1b8ae04
+
+# 옵션 -i(interactive), -t(Pseudo-tty) -&gt; Bash Shell에 입력 및 출력을 할 수 있습니다.
+# 옵션 --name -&gt; 컨테이너의 이름을 지정해 줍니다.
+# 옵션 -d -&gt; daemonized
+# 옵션 -p -&gt; 포트포워딩
+
+[kbseo@ip-172-20-1-221 ~]$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+57c8f50ce8c5        nginx:latest        "nginx -g 'daemon of…"   4 seconds ago       Up 3 seconds        0.0.0.0:8080-&gt;80/tcp   nginx
+[kbseo@ip-172-20-1-221 ~]$ 
+
+[kbseo@ip-172-20-1-221 ~]$ curl http://localhost:8080
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+&lt;style&gt;
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+&lt;p&gt;If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.&lt;/p&gt;
+
+&lt;p&gt;For online documentation and support please refer to
+&lt;a href="http://nginx.org/"&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+Commercial support is available at
+&lt;a href="http://nginx.com/"&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+[kbseo@ip-172-20-1-221 ~]$ 
+
+
+</pre>
+ </div>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/91690192/0.png"/>
+ </span>
+</p>
+<p class="auto-cursor-target" style="text-align: center;">
+ 잘 뜨네요. 기쁩니다.
+</p>
+<p class="auto-cursor-target">
+ 컨테이너를 실행했으니 내부로 들어가 봅시다.
+</p>
+<h1 class="auto-cursor-target" id="id-[Container시리즈]02.Docker사용법DockerBasicCommand-3.Container내부탐험">
+ 3. Container 내부탐험
+</h1>
+<p class="auto-cursor-target">
+ $ docker exec
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># 내부장벽진입
+[kbseo@ip-172-20-1-221 ~]$ docker exec -it nginx /bin/bash
+root@57c8f50ce8c5:/# 
+
+# 진입완료
+# 컨테이너의 hostname을 알아봅시다 
+root@57c8f50ce8c5:/# hostname
+57c8f50ce8c5
+
+root@57c8f50ce8c5:/# cat /etc/issue
+Debian GNU/Linux 10 \n \l
+
+root@57c8f50ce8c5:/# 
+
+# Shell을 빠져나오려면 Ctrl + D 혹은 exit를 입력합니다.
+
+# exit로 나왔을 경우 container 도 쉘 종료메세지(exit 0)을 받고 자연스럽게 종료 되기때문에 docker start [컨테이더 ID ] 명령어로 재시작 혹은 ctrl+ p 혹은 ctrl + q 로 실행을 유지한 채 터미널로 빠져 나올 수 있습니다.</pre>
+ </div>
+</div>
+<h1 class="auto-cursor-target" id="id-[Container시리즈]02.Docker사용법DockerBasicCommand-4.Image삭제">
+ 4. Image 삭제
+</h1>
+<p class="auto-cursor-target">
+ : 보통은 이미지를 삭제하기 전 컨테이너를 먼저 삭제한 후 진행됩니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># docker rm 명령어를 통해 삭제합니다
+# 컨테이너 삭제 
+[kbseo@ip-172-20-1-221 ~]$ docker rm nginx
+Error response from daemon: You cannot remove a running container 57c8f50ce8c565e7b8fcfbe3a730b4be9c7c0221606ee0ba7dc22295d1b8ae04. Stop the container before attempting removal or force remove
+
+# 어라? 삭제가 안되네요
+# 먼저 중지를 해줍니다.
+
+# I will find you and I will kill you...
+
+[kbseo@ip-172-20-1-221 ~]$ docker kill nginx
+nginx
+
+# 다시삭제를 해봅니다.
+[kbseo@ip-172-20-1-221 ~]$ docker rm nginx
+nginx
+[kbseo@ip-172-20-1-221 ~]$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+[kbseo@ip-172-20-1-221 ~]$ 
+
+# 잘 삭제가 되네요
+
+</pre>
+ </div>
+</div>
+<p class="auto-cursor-target">
+ 이미지도 지워버립시다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># docker rmi 명령어를 통해 이미지를 삭제해줍니다.
+
+[kbseo@ip-172-20-1-221 ~]$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               latest              2073e0bcb60e        3 weeks ago         127MB
+[kbseo@ip-172-20-1-221 ~]$ 
+
+# $ docker rmi nginx:latest 혹은 $ docker rmi [ 이미지 ID ] 
+
+[kbseo@ip-172-20-1-221 ~]$ docker rmi nginx:latest
+Untagged: nginx:latest
+Untagged: nginx@sha256:ad5552c786f128e389a0263104ae39f3d3c7895579d45ae716f528185b36bc6f
+Deleted: sha256:2073e0bcb60ee98548d313ead5eacbfe16d9054f8800a32bedd859922a99a6e1
+Deleted: sha256:a3136fbf38691346715cac8360bcdfca0fff812cede416469653670f04e2cab0
+Deleted: sha256:99360ffcb2da18fd9ede194efaf5d4b90e7aee99f45737e918113e6833dcf278
+Deleted: sha256:488dfecc21b1bc607e09368d2791cb784cf8c4ec5c05d2952b045b3e0f8cc01e
+[kbseo@ip-172-20-1-221 ~]$ 
+[kbseo@ip-172-20-1-221 ~]$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+
+</pre>
+ </div>
+</div>
+<p class="auto-cursor-target">
+ 컨테이너를 삭제하기 전 이미지를 삭제할 경우 -f옵션으로 한꺼번에 삭제할 수 있습니다.
+</p>
+<p class="auto-cursor-target">
+ $ docker rmi -f [이미지 ID]
+</p>
+<p class="auto-cursor-target">
+ &gt; 컨테이너도 강제삭제
+</p>
+<p class="auto-cursor-target">
+ 이렇게 끝내면 너무 아쉬우니 부가적으로 이미지를 저장할때 aws s3로 저장하는 방법도 슬쩍 소개해 드리겠습니다.
+</p>
+<p class="auto-cursor-target">
+ <s>
+  aws가 좋아서 그런거는 아닙니다.
+ </s>
+</p>
+<h1 class="auto-cursor-target" id="id-[Container시리즈]02.Docker사용법DockerBasicCommand-+AWSS3에컨테이너이미지저장">
+ + AWS S3에 컨테이너 이미지 저장
+</h1>
+<ul style="list-style-type: square;">
+ <li>
+  Docker registry 이미지를 가져옵니다.
+ </li>
+</ul>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># docker pull registry:latest
+[kbseo@ip-172-20-1-221 ~]$ docker pull registry:latest
+latest: Pulling from library/registry
+486039affc0a: Pull complete 
+ba51a3b098e6: Pull complete 
+8bb4c43d6c8e: Pull complete 
+6f5f453e5f2d: Pull complete 
+42bc10b72f42: Pull complete 
+Digest: sha256:7d081088e4bfd632a88e3f3bcd9e007ef44a796fddfe3261407a3f9f04abe1e7
+Status: Downloaded newer image for registry:latest
+[kbseo@ip-172-20-1-221 ~]$ 
+
+</pre>
+ </div>
+</div>
+<ul style="list-style-type: square;">
+ <li>
+  이미지를 컨테이너로 실행해줍니다.
+ </li>
+</ul>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># 다운받은 이미지 Run
+[kbseo@ip-172-20-1-221 ~]$  docker run -d -p 5000:5000 --restart=always --name docker-registry \
+&gt;   -e REGISTRY_STORAGE=s3 \
+&gt;   -e REGISTRY_STORAGE_S3_BUCKET=kbseo-s3 \
+&gt;   -e REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJMYYWQIASYOLHOLA \
+&gt;   -e REGISTRY_STORAGE_S3_SECRETKEY=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 \
+&gt;   -e REGISTRY_STORAGE_S3_REGION=ap-northeast-2 \
+&gt;   registry
+274a07c0c008d866e44215eb4b3626448e5ef11fa573acd69ecb3e000ebde7b2
+
+[kbseo@ip-172-20-1-221 ~]$ 
+
+# docker run -d -p 5000:5000 --restart=always --name docker-registr -&gt; s3-registry 이미지 이름 지정 후 registry 기본포트 5000번으로 실행해줍니다
+# -e SETTINGS_FLAVOR=s3  -&gt; SETTINGS_FLAVOR는 s3로 설정해줍니다.
+# -e AWS_BUCKET=kbseo-s3 -&gt; 저장할 버킷이름을 지정해주세요
+# -e STORAGE_PATH=/registry -&gt; 저장될 경로입니다.
+# -e AWS_KEY=AKIAJMYYWQIA******* -&gt; IAM 혹은 루트계정의 Access Key를 입력해주세요
+# -e AWS_SECRET=YTOwsm0lDgghwjRHtR************ -&gt;  IAM 혹은 루트계정의 Secret Key를 입력해주세요
+
+ docker run -d -p 5000:5000 --restart=always --name docker-registry \
+  -e REGISTRY_STORAGE=s3 \
+  -e REGISTRY_STORAGE_S3_BUCKET=kbseo-s3 \
+  -e REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJMYYWQIASYOLHOLA \
+  -e REGISTRY_STORAGE_S3_SECRETKEY=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 \
+  -e REGISTRY_STORAGE_S3_REGION=ap-northeast-2 \
+  registry</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  이제 s3로 푸시해볼 차례입니다.
+ </li>
+</ul>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Eclipse" data-theme="Eclipse"># 어떤 이미지를 푸시해볼까....
+[kbseo@ip-172-20-1-221 ~]$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+registry            latest              708bc6af7e5e        4 weeks ago         25.8MB
+[kbseo@ip-172-20-1-221 ~]$ 
+
+# 음.. 이미지를 다 지워서 push할 이미지가 없네요
+# 만만한 hello-world 이미지를 받아봅니다.
+
+[kbseo@ip-172-20-1-221 ~]$ docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete 
+Digest: sha256:fc6a51919cfeb2e6763f62b6d9e8815acbf7cd2e476ea353743570610737b752
+Status: Downloaded newer image for hello-world:latest
+[kbseo@ip-172-20-1-221 ~]$ 
+[kbseo@ip-172-20-1-221 ~]$ docker images
+REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+registry                     latest              708bc6af7e5e        4 weeks ago         25.8MB
+hello-world                  latest              fce289e99eb9        14 months ago       1.84kB
+localhost:5000/hello-world   latest              fce289e99eb9        14 months ago       1.84kB
+
+
+# tag를 지정해줍니다
+# tag에 대해선 다음시간에 좀 더 자세히 다뤄보도록 하겠습니다.
+[kbseo@ip-172-20-1-221 ~]$ docker tag hello-world localhost:5000/hello-world
+
+# registry가 잘 돌아가고있네요
+[kbseo@ip-172-20-1-221 ~]$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+274a07c0c008        registry            "/entrypoint.sh /etc…"   7 seconds ago       Up 6 seconds        0.0.0.0:5000-&gt;5000/tcp   docker-registry
+[kbseo@ip-172-20-1-221 ~]$ 
+
+
+
+# s3에 올려볼 차례
+[kbseo@ip-172-20-1-221 ~]$ docker push localhost:5000/hello-world
+The push refers to repository [localhost:5000/hello-world]
+af0b15c8625b: Pushed 
+latest: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524
+[kbseo@ip-172-20-1-221 ~]$ 
+
+</pre>
+ </div>
+</div>
+<ul style="list-style-type: square;">
+ <li>
+  확인
+ </li>
+</ul>
+<p>
+ 잘 올라갔는지 s3로 가봅시다 총총총
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91690192/1.png"/>
+ </span>
+</p>
+<p>
+ 요기 올라와져있네여
+</p>
+<p>
+ <br/>
+</p>
+<p class="auto-cursor-target">
+ 사실상 Code →  Docker file → Docker Image 형태이기 때문에  이러한 과정에서 수정사항이 있으면 Docker file을 재작성 후 재빌드하고 이를 다시 Image화 하야하는데
+</p>
+<p class="auto-cursor-target">
+ 천리길도 한걸음부터 라는 말이 있듯이!
+</p>
+<p class="auto-cursor-target">
+ 이러한 과정은 다음시간에 이어서 소개해 드리겠습니다.
+</p>
+<p>
+ <br/>
+</p>
