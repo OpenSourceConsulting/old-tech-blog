@@ -10,7 +10,8 @@ image: /assets/images/91693588/0.png
 ---
 <div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
  <p>
-  "앤코어"라고 불리우는 DevSecOps 도구의 사용법과 Jenkins상에서 Anchore와 연계된 CICD pipeline을 만드는 과정에 대해 알아보도록 하겠습니다.
+ "앤코어"라고 불리우는 DevSecOps 도구의 사용법과 Jenkins상에서 Anchore와 연계된 CICD pipeline을</br>
+ 만드는 과정에 대해 알아보도록 하겠습니다.
  </p>
  <h1>
   <a href="#anchore-는" id="anchore-는">
@@ -20,11 +21,13 @@ image: /assets/images/91693588/0.png
  <p>
   컨테이너 이미지에 대한 검증, 분석, 검사에 대한 중앙화된 서비스를 제공하는 오픈소스 프로젝트입니다.
   <br/>
-  Docker V2 호환 컨테이너 저장소들로부터 컨테이너 이미지를 다운로드 받고 분석합니다. 그리고 사용자가 지정한 정책에 기반해 평가를 수행합니다.
+  Docker V2 호환 컨테이너 저장소들로부터 컨테이너 이미지를 다운로드 받고 분석합니다. 
   <br/>
-  CI/CD와 통합된 서비스로 빌드 파이프라인 상에서 보안 및 규정에 대한 체크를 시행할수 있고 RESTful API와의 연동을 통해 컨테이너 모니터링과의
+  그리고 사용자가 지정한 정책에 기반해 평가를 수행합니다.
   <br/>
-  연동의 구성요소로도 사용될수 있습니다.
+  CI/CD와 통합된 서비스로 빌드 파이프라인 상에서 보안 및 규정에 대한 체크를 시행할수 있고
+  <br/>
+  RESTful API와의 연동을 통해 컨테이너 모니터링과의 연동의 구성요소로도 사용될수 있습니다.
  </p>
  <ul>
   <li>
@@ -34,14 +37,14 @@ image: /assets/images/91693588/0.png
   </li>
  </ul>
  <h1>
-  <a href="#anchore-engine은" id="anchore-engine은">
-   Anchore Engine은?
+  <a href="#anchore-engine-은" id="anchore-engine-은">
+   Anchore Engine 은?
   </a>
  </h1>
  <p>
-  Anchore는 상용버전과 open source 버전이 있는데 Anchore Engine은 오픈소스 버전으로 깊이있는 이미지 검사와 취약점 스캐닝을 수행할수 있고
-  <br/>
-  Anchore Enterprise 버전은 상용버전으로 대규모 팀을 위한 포괄적인 워크 플로우 및 감사를 수행하는 솔루션이라고 명명되어 있습니다.
+ Anchore는 상용버전과 open source 버전이 있는데 Anchore Engine은 오픈소스 버전으로 <br/>
+ 깊이있는 이미지 검사와 취약점 스캐닝을 수행할수 있고 Anchore Enterprise 버전은 상용버전으로 <br/>
+  대규모 팀을 위한 포괄적인 워크 플로우 및 감사를 수행하는 솔루션 입니다.
   <br/>
  </p>
  <ul>
@@ -54,7 +57,7 @@ image: /assets/images/91693588/0.png
  <p>
   Anchore Engine은 다음과 같은 component들로 구성되어 있습니다.
  </p>
- <ul>
+ <ul style="font-weight:bold">
   <li>
    API service
   </li>
@@ -100,7 +103,7 @@ image: /assets/images/91693588/0.png
  </ul>
  <h1>
   <a href="#anchore-engine-설치" id="anchore-engine-설치">
-   anchore engine 설치
+   Anchore Engine 설치
   </a>
  </h1>
  <p>
@@ -116,7 +119,7 @@ image: /assets/images/91693588/0.png
   </li>
  </ul>
  <p>
- helm chart의 value 값을 변경하기 위해 아래와 같이 values.yaml template파일을 가져옵니다.
+ helm chart의 value 값을 변경하기 위해 아래와 같이 values.yaml template 파일을 가져옵니다.
  </p>
  {% highlight bash %}jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests$ helm fetch stable/anchore-engine
 jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests$ ll
@@ -629,10 +632,9 @@ CVE-2020-1712           libudev1-241-7~deb10u3             Unknown           Non
   </p>
   <ul>
    <li>
-    <a href="https://mydeveloperplanet.com/2019/02/13/check-docker-images-for-v%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC">
-     https://mydeveloperplanet.com/2019/02/13/check-docker-images-for-v이미지를
+    <a href="https://mydeveloperplanet.com/2019/02/13/check-docker-images-for-vulnerabilities-with-anchore-engine/">
+     https://mydeveloperplanet.com/2019/02/13/check-docker-images-for-vulnerabilities-with-anchore-engine/
     </a>
-    실제 upload 및 scan해보도록ulnerabilities-with-anchore-engine/
    </li>
   </ul>
  </blockquote>
