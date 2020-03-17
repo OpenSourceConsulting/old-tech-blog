@@ -79,7 +79,7 @@ image: /assets/images/91693588/0.png
   </b>
  </p>
  <p>
-  참고링크
+  아래 링크들은 anchore 공식 문서들로 위 내용들을 좀더 상세히 알아볼수 있습니다.
  </p>
  <ul>
   <li>
@@ -113,9 +113,11 @@ image: /assets/images/91693588/0.png
    <a href="https://github.com/helm/charts/tree/master/stable/anchore-engine">
     https://github.com/helm/charts/tree/master/stable/anchore-engine
    </a>
-   helm chart의 value 값을 변경하기 위해 아래와 같이 values.yaml template파일을 가져옵니다.
   </li>
  </ul>
+ <p>
+ helm chart의 value 값을 변경하기 위해 아래와 같이 values.yaml template파일을 가져옵니다.
+ </p>
  {% highlight bash %}jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests$ helm fetch stable/anchore-engine
 jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests$ ll
 total 60
@@ -133,6 +135,7 @@ jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests$ curl -O https://raw.
 {% endhighlight %}
  <p>
   가져온 values.yaml 파일의 내용을 아래와 같이 수정합니다.
+  <br/>
 (개인적으로 필요한 정보만을 넣어준것이기에 추가적으로 변경이 필요한 부분은 확인하여 변경하시기를 권장합니다.)
  </p>
  {% highlight bash %}...
@@ -236,7 +239,7 @@ List files found in the image with:
   </li>
  </ul>
  <p>
-  anchore 설치후 동작하는데 약 5분의 시간이 소요되었습니다.
+ anchore 설치후 동작하는데 약 5분의 시간이 소요되었습니다.</br>
 anchore document에는 약3분정도 소요된다고 했는데 시스템에 따라 다를수 있으니 최소 3분이상 대기가 필요할것으로 보입니다.
  </p>
  {% highlight bash %}jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine$ k get po -n anchore
@@ -253,6 +256,7 @@ anchore-postgresql-7d8f988b7-kdc4z                    1/1     Running   0       
  </p>
  <p>
   또한 실제 외부 IP를 확인하여 해당 IP로 anchore가 정상적으로 running 하는지 확인해봅니다.
+  </br>
 (loadbalancer type으로 생성하여 진행하였습니다.)
  </p>
  {% highlight bash %}jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine$ k get svc -n anchore
@@ -266,7 +270,7 @@ anchore-postgresql                   ClusterIP      10.233.39.237   &lt;none&gt;
  <p>
   아래와 같이 api 호출에 대한 json 결과를 확인할수 있는 페이지가 확인되어집니다.
   <br/>
-  <img src="/assets/images/91693588/0.png" width=800/>
+  <img src="/assets/images/91693588/0.png" width=60%/>
  </p>
  <p>
   참고로 docker-compose를 이용하여 설치도 가능하니 참고하면 좋을 것 같습니다.
@@ -280,13 +284,15 @@ anchore-postgresql                   ClusterIP      10.233.39.237   &lt;none&gt;
  </ul>
  <blockquote>
   <p>
-   <strong>
+   <strong style="color:red;font-weight:bold">
     WARNING
    </strong>
    <br/>
    UI는 Enterprise 버전에서만 가능합니다.
    <br/>
-   물론 UI가 꼭 필요하지는 않지만 좀더 UI를 통해 정보를 확인하고자할 경우 enterprise 라이센스구매에 대해서도 고민해볼 필요는 있을것 같습니다.
+   물론 UI가 꼭 필요하지는 않지만 좀더 UI를 통해 정보를 확인하고자할 경우
+   <br/>
+   enterprise 라이센스구매에 대해서도 고민해볼 필요는 있을것 같습니다.
   </p>
  </blockquote>
  <h3>
@@ -303,7 +309,7 @@ anchore-postgresql                   ClusterIP      10.233.39.237   &lt;none&gt;
 {% endhighlight %}
  <blockquote>
   <p>
-   <strong>
+   <strong style="color:red;font-weight:bold">
     WARNING
    </strong>
    <br/>
@@ -325,6 +331,7 @@ anchore-postgresql                   ClusterIP      10.233.39.237   &lt;none&gt;
  </h1>
  <p>
   실제 anchore 를 사용하기 위해서는 anchore-cli를 설치해서 사용해야 합니다.
+   </br>
 하여 다음 링크를 참고하여 anchore-cli를 설치합니다.
  </p>
  <ul>
@@ -378,7 +385,7 @@ export ANCHORE_CLI_PASS=password
  <p>
   우선 anchore document에서 소개되고 있는 debian image를 가져와 분석하는 과정을 수행해보도록 하겠습니다.
  </p>
- {% highlight bash %}[root@ip-10-43-0-40 ~]# anchore-cli image add docker.io/library/debian:latest
+ {% highlight bash %}(venv) jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine$ anchore-cli image add docker.io/library/debian:latest
 Image Digest: sha256:121dd2a723be1c8aa8b116684d66157c93c801f2f5107b60287937e88c13ab89
 Parent Digest: sha256:a63d0b2ecbd723da612abf0a8bdb594ee78f18f691d7dc652ac305a490c9b71a
 Analysis Status: not_analyzed
@@ -394,10 +401,10 @@ Layer Count: None
 
 Full Tag: docker.io/library/debian:latest
 Tag Detected At: 2020-03-16T07:58:44Z
-[root@ip-10-43-0-40 ~]# anchore-cli image list
+(venv) jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine$ anchore-cli image list
 Full Tag                               Image Digest                                                                   Analysis Status        
 docker.io/library/debian:latest        sha256:121dd2a723be1c8aa8b116684d66157c93c801f2f5107b60287937e88c13ab89        analyzing                        
-[root@ip-10-43-0-40 ~]# anchore-cli image wait docker.io/library/debian:latest
+(venv) jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine$ anchore-cli image wait docker.io/library/debian:latest
 Status: analyzing
 Waiting 5.0 seconds for next retry.
 Image Digest: sha256:121dd2a723be1c8aa8b116684d66157c93c801f2f5107b60287937e88c13ab89
@@ -418,9 +425,9 @@ Tag Detected At: 2020-03-16T07:58:44Z
 
 {% endhighlight %}
  <p>
-  image 정보 확인
+  아래와 같이 api service를 통해 업로드된 image 정보를 확인할 수 있습니다.
   <br/>
-  <img src="/assets/images/91693588/1.png" width=800/>
+  <img src="/assets/images/91693588/1.png" width=100%/>
  </p>
  <h3>
   <a href="#policy-hub-사용" id="policy-hub-사용">
@@ -430,7 +437,7 @@ Tag Detected At: 2020-03-16T07:58:44Z
  <p>
   사전에 정의된 anchore 정책 번들의 저장소라는 개념으로 policy hub가 사용되어집니다.
  </p>
- {% highlight bash %}[root@ip-10-43-0-40 ~]# anchore-cli policy hub list
+ {% highlight bash %}(venv) jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine$ anchore-cli policy hub list
 Name                           Description                                                         
 anchore_security_only          Single policy, single whitelist bundle for performing               
                                security checks, including example blacklist known malicious        
@@ -465,7 +472,7 @@ anchore_cis_1.13.0_base                     True          2020-03-17T01:34:06Z  
   </li>
  </ul>
  <p>
-  개인 repository에 있는 이미지를 실제 upload 및 scan해보도록 하겠습니다.
+ 개인 repository에 있는 이미지를 실제 upload 및 scan해보도록 하겠습니다.</br>
 anchore-cli를 통해 이미지를 가져오고 분석하여 평가하는 과정을 아래 명령어들을 통해 수행해볼수 있습니다.
  </p>
  {% highlight bash %}(venv) jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine$ anchore-cli image add dubaek/samplejavaweb:latest
@@ -612,7 +619,7 @@ CVE-2020-1712           libudev1-241-7~deb10u3             Unknown           Non
  </ul>
  <blockquote>
   <p>
-   <strong>
+   <strong style="color:red;font-weight:bold">
     WARNING
    </strong>
    <br/>
@@ -720,7 +727,7 @@ Success
 {% endhighlight %}
  <blockquote>
   <p>
-   <strong>
+   <strong style="color:yellowgreen;font-weight:bold">
     NOTE
    </strong>
    <br/>
@@ -748,7 +755,7 @@ Success
  <p>
   workflow는 다음과 같습니다.
   <br/>
-  <img src="/assets/images/91693588/2.png" width=800/>
+  <img src="/assets/images/91693588/2.png" width=100%/>
  </p>
  <p>
   anchore를 jenkins에서 사용하기 위해서는 plugin을 설치해야 합니다.
@@ -767,18 +774,18 @@ Success
   <br/>
   해당 정보는 앞서 anchore-cli에서 export 했던 정보를 그대로 입력하면 됩니다.
   <br/>
-  <img src="/assets/images/91693588/3.png" width=600/>
+  <img src="/assets/images/91693588/3.png" width=60%/>
  </p>
  <p>
   이후 kubernetes 환경에서 jenkins를 사용중이기에 scripted pipeline으로 작성을 진행합니다.
   <br/>
   kubernetes 환경의 jenkins에서는 docker image를 사용할수 있고 anchore를 사용하기 위해서는
   <br/>
-  (Jenkins pipeline을 kubernetes에서 사용하는 방법에 대하여는
+  (Jenkins pipeline을 kubernetes에서 사용하는 방법은
   <a href="https://tech.osci.kr/2019/11/21/86026733/">
    https://tech.osci.kr/2019/11/21/86026733/
   </a>
-  블로그를 참고부탁드립니다.)
+  블로그 참고)
   <br/>
   다음 anchore-cli container image를 사용합니다.
   <br/>
@@ -813,13 +820,13 @@ Success
 {% endhighlight %}
  <blockquote>
   <p>
-   <strong>
+   <strong style="color:yellowgreen;font-weight:bold">
     NOTE
    </strong>
    <br/>
    jenkins pipeline에 의해 실행된 anchore 결과 중 image 정보를 확인해볼수 있습니다.
    <br/>
-   <img src="/assets/images/91693588/4.png" width=800/>
+   <img src="/assets/images/91693588/4.png" width=100%/>
    <br/>
    또한 jenkinsfile example은 다음과 같습니다.
   </p>
@@ -834,17 +841,17 @@ Success
  <p>
   실제 jenkins pipeline에 의해 실행된 결과는 다음과 같이 출력됩니다.
   <br/>
-  <img src="/assets/images/91693588/5.png" width=800/>
+  <img src="/assets/images/91693588/5.png" width=100%/>
  </p>
  <p>
   Jenkins plugin을 통해 다음과 같은 파일들이 생성됨을 확인할 수 있으며 각 파일은 json 형태로 생성됩니다.
   <br/>
-  <img src="/assets/images/91693588/6.png" width=800/>
+  <img src="/assets/images/91693588/6.png" width=100%/>
  </p>
  <p>
   Anchore Policy에 기반한 평가 결과에 대해서도 Jenkins UI상에서 확인해볼수 있습니다.
   <br/>
-  <img src="/assets/images/91693588/7.png" width=800/>
+  <img src="/assets/images/91693588/7.png" width=100%/>
  </p>
  <p>
   Dockerfile의 HEALTHCHECK 지시어 사용에대한 권장안도 출력되었고 CVE를 기반으로 하기에 CVE의 취약점에 대한 경고도
