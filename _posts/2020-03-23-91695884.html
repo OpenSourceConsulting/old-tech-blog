@@ -1,0 +1,984 @@
+---
+layout: post
+title: "[Container 시리즈] 03. Docker File, Docker Image - 도커파일 및 이미지에 대하여"
+description: " " 
+author: kbseo
+date: 2020-03-23
+tags: ['docker', 'dockerbasic', 'dockerfile', 'dockerimage', 'container', '도커', '컨테이너', '도커파일', '도커이미지', 'dockercommand']
+category: 
+image: /assets/images/91695884/0.png 
+---
+<p>
+ <br/>
+</p>
+<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
+ <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   도커를 설치하고 컨테이너를 실행해봤으니 이제는 도커 이미지를 만들고 서버에 배포해볼 차례!
+  </p>
+ </div>
+</div>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  도커 개념에서도 다뤄봤듯이, 도커는 도커 파일을 가지고 도커 이미지를 만들게 되는데요,
+ </p>
+ <blockquote>
+  <p>
+   다시 한번 말씀드리자면, Docker File이란 Docker Image를 만들기 위한 여러가지 명렁어의 집합입니다.
+  </p>
+ </blockquote>
+ <p>
+  프로페셔널한 엔지니어라면 뚝딱뚝딱 Dockerfile을 만들 수 있지만
+ </p>
+ <p>
+  저는 초보자이기 때문에 서버에 명령어를 입력하고 버그를 잡아가면서 Dockerfile을 한 땀 한 땀 만듭니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91695884/0.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  만약에 여러분이 우분투 서버에서 nginx를 설치해서 실행한다고 가정했을 시
+순서는 다음과 같습니다.
+ </p>
+ <ol>
+  <li>
+   ubuntu 설치
+  </li>
+  <li>
+   패키지 업데이트
+  </li>
+  <li>
+   nginx 설치
+  </li>
+  <li>
+   경로설정 (필요한 경우)
+  </li>
+ </ol>
+ <p>
+  먼저 리눅스 서버에서 한줄한줄 테스트를 해봅니다
+ </p>
+ <pre><code class="language-javascript">## 1. ubuntu 설치 &amp; 2. 패키지 업데이트
+# 테스트 ubuntu 서버를 사용하였기 때문에 패키지 업데이트를 먼저 합니다.
+
+kbseo@KB-SEO:~$ sudo apt-get update
+[sudo] password for kbseo:
+Hit:1 http://mirror.kakao.com/ubuntu bionic InRelease
+Get:2 http://mirror.kakao.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://mirror.kakao.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:4 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:5 http://mirror.kakao.com/ubuntu bionic-updates/main amd64 Packages [872 kB]
+Get:6 http://mirror.kakao.com/ubuntu bionic-updates/main Translation-en [303 kB]
+Get:7 http://mirror.kakao.com/ubuntu bionic-updates/restricted amd64 Packages [32.9 kB]
+Get:8 http://mirror.kakao.com/ubuntu bionic-updates/restricted Translation-en [8468 B]
+Get:9 http://mirror.kakao.com/ubuntu bionic-updates/universe amd64 Packages [1055 kB]
+Get:10 http://mirror.kakao.com/ubuntu bionic-updates/universe Translation-en [326 kB]
+Get:11 http://mirror.kakao.com/ubuntu bionic-updates/multiverse amd64 Packages [10.1 kB]
+Get:12 http://mirror.kakao.com/ubuntu bionic-updates/multiverse Translation-en [4636 B]
+Get:13 http://mirror.kakao.com/ubuntu bionic-backports/universe amd64 Packages [4028 B]
+Get:14 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [651 kB]
+Get:15 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [211 kB]
+Get:16 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [23.8 kB]
+Get:17 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [6528 B]
+Get:18 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [648 kB]
+Get:19 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [215 kB]
+Get:20 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [6756 B]
+Get:21 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [2700 B]
+Fetched 4634 kB in 6s (739 kB/s)
+Reading package lists... Done
+kbseo@KB-SEO:~$
+
+## 3. nginx 설치
+kbseo@KB-SEO:~$ sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6
+  libxpm4 nginx-common nginx-core
+Suggested packages:
+  libgd-tools fcgiwrap nginx-doc ssl-cert
+The following NEW packages will be installed:
+  fontconfig-config fonts-dejavu-core libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6
+  libxpm4 nginx nginx-common nginx-core
+0 upgraded, 18 newly installed, 0 to remove and 239 not upgraded.
+Need to get 2461 kB of archives.
+After this operation, 8210 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+...
+...
+#이하 생략
+#설치 확인
+kbseo@KB-SEO:~$ nginx -v
+nginx version: nginx/1.14.0 (Ubuntu)
+kbseo@KB-SEO:~$
+
+# 설치파일 경로
+kbseo@KB-SEO:/etc/nginx$ pwd
+/etc/nginx
+
+</code></pre>
+ <blockquote>
+  <p>
+   여기서 잠깐
+  </p>
+  <blockquote>
+   <ul>
+    <li>
+     저희는 nginx를 패키지를 통하여 설치 하였기에 Default directory가 /etc/nginx 아래에 위치하게 됩니다.
+    </li>
+    <li>
+     직접 compile한 경우에 경로는 /usr/local/nginx/conf 혹은 /use/local/etc/nginx 에 위치하고 있습니다.
+    </li>
+    <li>
+     그래도 경로가 없다 한다면 다음의 명령어를 통해 찾을 수 있습니다.
+    </li>
+   </ul>
+   <pre><code>kbseo@KB-SEO:/etc/nginx$ sudo find / -name nginx.conf
+/etc/nginx/nginx.conf
+</code></pre>
+  </blockquote>
+ </blockquote>
+ <ol start="4">
+  <li>
+   경로설정 (필요한 경우)
+  </li>
+ </ol>
+ <pre><code class="language-javascript">kbseo@KB-SEO:/etc/nginx$ ls
+conf.d        fastcgi_params  koi-win     modules-available  nginx.conf    scgi_params      sites-enabled  uwsgi_params
+fastcgi.conf  koi-utf         mime.types  modules-enabled    proxy_params  sites-available  snippets       win-utf
+
+# 기본적인 환경 설정 파일 정보는 sites-available/default 이곳에 있습니다.
+# 따라서 웹서버의 루트 디렉토리 변경 등의 작업이 필요하다면 이곳에 들어가 작업하시면 됩니다.
+
+kbseo@KB-SEO:/etc/nginx$ vim sites-available/default
+
+</code></pre>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91695884/1.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  <em>
+   설정하실때 세미콜론(;) 잊지 말아쥬세염
+  </em>
+ </p>
+ <p>
+  저는 테스트이기 때문에 따로 경로 설정은 안하고 Default로 두었습니다.
+ </p>
+ <pre><code class="language-javascript"># index.html 를 만든 후 찍어 봅니다.
+kbseo@KB-SEO:/var/www/html$ sudo service nginx restart
+ * Restarting nginx nginx                                           [ OK ]
+kbseo@KB-SEO:/var/www/html$
+kbseo@KB-SEO:/var/www/html$ curl 127.0.0.1
+Hello KB
+</code></pre>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91695884/2.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <hr/>
+ <h3>
+  <a href="#이제는-이런-한땀한땀-구축한-명령어를-토대로-docker-file을-만들어-보겠습니다" id="이제는-이런-한땀한땀-구축한-명령어를-토대로-docker-file을-만들어-보겠습니다">
+   이제는 이런 한땀한땀 구축한 명령어를 토대로 docker file을 만들어 보겠습니다.
+  </a>
+ </h3>
+ <ol>
+  <li>
+   ubuntu 설치
+  </li>
+  <li>
+   패키지 업데이트
+  apt-get update
+  </li>
+  <li>
+   nginx 설치
+  apt-get install nginx
+  </li>
+  <li>
+   경로설정 (필요한 경우)
+  cd /etc/nginx
+  </li>
+ </ol>
+ <br/>
+ <p>
+  위와 같은 순서로 한줄한줄 수작업을 해 주었는데
+Docker file은 어떨까요?
+  <br/>
+ </p>
+ <pre><code class="language-python">FROM ubuntu:14.04 
+MAINTAINER Dongbin Na "kbseo@osci.kr" 
+RUN apt-get update
+RUN apt-get install -y nginx
+WORKDIR /etc/nginx 
+CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 80 
+</code></pre>
+ <p>
+  <br/>
+  <br/>
+  docker file이 거의 흡사하게 작성된 것을 보실 수 있습니다.
+아마 도커파일에 있는 내용들이 생소하실 여러분(저를 포함)을 위해 하나하나 뜯어 보도록 할까요?
+  <br/>
+  <br/>
+ </p>
+ <p>
+  <code>
+   1. FROM ubuntu:14.04
+  </code>
+  -&gt; 기반으로 할 이미지를 가져옵니다.
+여기에서는 ubuntu 14.04버전의 이미지를 가져오겠습니다.
+ </p>
+ <p>
+  <code>
+   2. MAINTAINER Dongbin Na "kbseo@osci.kr"
+  </code>
+  -&gt; 작성자의 정보를 기입해줍니다.
+ </p>
+ <p>
+  <code>
+   3. RUN apt-get update
+  </code>
+  -&gt; RUN이라는 명령어를 통하여 쉘 스크립트를 실행하여 줍니다.
+ </p>
+ <p>
+  <code>
+   4. RUN apt-get install -y nginx
+  </code>
+  -&gt; 도커 빌드 중에는 키보드를 입력할 수 없기에
+  <em>
+   [-y]
+  </em>
+  옵션을 넣어줍니다.
+ </p>
+ <p>
+  <code>
+   5. WORKDIR /etc/nginx
+  </code>
+  -&gt; 이후 CMD 명령어가 실행 할 경로로 먼저 이동을 해 줍니다.
+ </p>
+ <p>
+  <code>
+   6. CMD ["nginx", "-g", "daemon off;"]
+  </code>
+  -&gt; nginx를 백그라운드로 실행합니다
+ </p>
+ <p>
+  <code>
+   7. EXPOSE 80
+  </code>
+  -&gt; 80번 포트를 오픈하여 웹서버에 정상적으로 접근할 수 있게 합니다.
+  <br/>
+  <br/>
+  <br/>
+ </p>
+ <p>
+  아직까지 Dockerfile 명령어들이 익숙치 않으시죠?
+  <del>
+   아니라고 해도
+  </del>
+  명령어들은 좀더 나눠서 알아보겠습니다.
+  <br/>
+  <br/>
+ </p>
+ <table class="confluenceTable">
+  <thead>
+   <tr>
+    <th align="left">
+     명렁어
+    </th>
+    <th align="center">
+     내용
+    </th>
+    <th align="center">
+     예시
+    </th>
+    <th align="center">
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      FROM
+     </strong>
+    </td>
+    <td align="center">
+     - 베이스 이미지를 지정해줍니다.
+    </td>
+    <td align="center">
+     FROM &lt;image&gt;:&lt;tag&gt;
+    </td>
+    <td align="center">
+     FROM ubuntu:14.04
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <em>
+   -&gt; 베이스 이미지는 반드시 지정해줘야하며, 버전정보는 latest보다는 구체적인 버전을 지정해주는것이 좋습니다.
+  </em>
+  <br/>
+ </p>
+ <table class="confluenceTable">
+  <thead>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      RUN
+     </strong>
+    </td>
+    <td align="center">
+     - 직접적으로 쉘 스크립트 내에서 실행 될 명령어 앞에 적어줍니다.
+    </td>
+    <td align="center">
+     RUN &lt;command&gt;
+    </td>
+    <td align="center">
+     RUN apt-get update
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <em>
+   -&gt; 실질적으로 가장 많이 쓰이는 명령어 입니다
+  </em>
+  <br/>
+ </p>
+ <table class="confluenceTable">
+  <thead>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      CMD
+     </strong>
+    </td>
+    <td align="center">
+     - 도커가 실행될 때 실행할 명령어를 정의해줍니다.
+    </td>
+    <td align="center">
+     CMD ["executable", "param", "param"]
+    </td>
+    <td align="center">
+     CMD ["nginx", "-g", "daemon off;"]
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <em>
+   -&gt; 도커 빌드시에는 실행되지 않으며, 여러개의 CMD 명령어가 존재할 경우 가장 마지막 명령어만 실행 됩니다.
+  </em>
+  <em>
+   CMD nginx 라고 입력하면 nginx 서버를 구동시키게 됩니다.
+  </em>
+  <br/>
+ </p>
+ <table class="confluenceTable">
+  <thead>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      WORKDIR
+     </strong>
+    </td>
+    <td align="center">
+     - 이후 명령어가 작업할 디렉토리로 이동합니다
+    </td>
+    <td align="center">
+     WORKDIR /path
+    </td>
+    <td align="center">
+     WORKDIR /etc/nginx
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <em>
+   -&gt; 명령어(RUN, CMD ) 등이 실행될 디렉토리를 설정합니다.
+  </em>
+  <em>
+   각 명령어는 줄마다 초기화가 되기 때문에 'RUN cd /path' 로 경로를 잡아줘도 다음줄에선 다시 위치가 초기화가 됩니다.
+  </em>
+  <em>
+   같은 디렉토리에서 계속 작업하기 위하여 WORKDIR을 사용해줍니다.
+  </em>
+  <br/>
+ </p>
+ <table class="confluenceTable">
+  <thead>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      COPY
+     </strong>
+    </td>
+    <td align="center">
+     - 파일이나 디렉토리를 이미지로 복사합니다
+    </td>
+    <td align="center">
+     COPY &lt;src&gt; &lt;dst&gt;
+    </td>
+    <td align="center">
+     COPY . /usr/src/app
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <em>
+   -&gt; 일반적으로 소스를 복사하는데 사용합니다
+  </em>
+  <br/>
+ </p>
+ <table class="confluenceTable">
+  <thead>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      ADD
+     </strong>
+    </td>
+    <td align="center">
+     - COPY와 비슷하게 복사를 위해 사용합니다
+    </td>
+    <td align="center">
+     ADD &lt;src&gt; &lt;dst&gt;
+    </td>
+    <td align="center">
+     ADD . /usr/src/app
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <em>
+   -&gt; COPY명령어와 비슷하게 소스를 복사하는데 사용하지만 차이점은 ADD같은경우 압축파일이 있을 경우 자동으로 압축을 해제하면서 복사됩니다.
+  </em>
+  <br/>
+ </p>
+ <table class="confluenceTable">
+  <thead>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      EXPOSE
+     </strong>
+    </td>
+    <td align="center">
+     - 공개 하고자 하는 포트를 지정해줍니다
+    </td>
+    <td align="center">
+     EXPOSE &lt;port&gt;
+    </td>
+    <td align="center">
+     EXPOSE 80
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  <em>
+   -&gt; 호스트와 연결해줄 포트를 지정해주며, 여러개의 포트를 지정할 수 있습니다.
+  </em>
+  <br/>
+  <br/>
+ </p>
+ <p>
+  이 밖에 사용되는
+  <code>
+   ENV
+  </code>
+  ,
+  <code>
+   VOLUME
+  </code>
+  같은 명령어는
+  <a href="https://docs.docker.com/engine/reference/builder/">
+   공식문서
+  </a>
+  를 참고 바랍니다
+ </p>
+ <p>
+  <br/>
+  <br/>
+  <br/>
+ </p>
+ <h3>
+  <a href="#dockerfile을-만들었으니-build를-해봅시다" id="dockerfile을-만들었으니-build를-해봅시다">
+   Dockerfile을 만들었으니 Build를 해봅시다.
+  </a>
+ </h3>
+ <pre><code class="language-python">docker build --force-rm --tag mynginx:0.1 .
+</code></pre>
+ <ul>
+  <li>
+   --force-rm : 기존에 존재하는 image를 삭제합니다.
+  </li>
+  <li>
+   --tag : 태그를 설정해줍니다.
+  </li>
+ </ul>
+ <pre><code class="language-python">
+[kbseo@ip-172-20-1-221 docker]$ docker build --force-rm --tag mynginx:0.1 .
+Sending build context to Docker daemon  2.048kB
+Step 1/7 : FROM ubuntu:14.04
+14.04: Pulling from library/ubuntu
+2e6e20c8e2e6: Pull complete 
+30bb187ac3fc: Pull complete 
+b7a5bcc4a58a: Pull complete 
+Digest: sha256:ffc76f71dd8be8c9e222d420dc96901a07b61616689a44c7b3ef6a10b7213de4
+Status: Downloaded newer image for ubuntu:14.04
+ ---&gt; 6e4f1fe62ff1
+Step 2/7 : MAINTAINER Dongbin Na "kbseo@osci.kr"
+ ---&gt; Running in 224535a7dd96
+Removing intermediate container 224535a7dd96
+ ---&gt; dc0f4b41cf96
+Step 3/7 : RUN apt-get update
+ ---&gt; Running in 1e6d817f7aa0
+...
+...
+Removing intermediate container 1e6d817f7aa0
+ ---&gt; bf2a670332b6
+Step 4/7 : RUN apt-get install -y nginx
+ ---&gt; Running in b5fe65990ed8
+...
+...
+Removing intermediate container b5fe65990ed8
+ ---&gt; 6664b9edcc36
+Step 5/7 : WORKDIR /etc/nginx
+ ---&gt; Running in 34f5b2fe1f42
+Removing intermediate container 34f5b2fe1f42
+ ---&gt; bc81d2ba24e1
+Step 6/7 : CMD ["nginx", "-g", "daemon off;"]
+ ---&gt; Running in 45d49d210fea
+Removing intermediate container 45d49d210fea
+ ---&gt; 44591f5b5a0c
+Step 7/7 : EXPOSE 80
+ ---&gt; Running in b98221c6597d
+Removing intermediate container b98221c6597d
+ ---&gt; 747275175211
+Successfully built 747275175211
+Successfully tagged mynginx:0.1
+[kbseo@ip-172-20-1-221 docker]$ 
+
+# 이미지확인
+[kbseo@ip-172-20-1-221 docker]$ docker images
+REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+mynginx                      0.1                 747275175211        12 minutes ago      231MB
+registry                     latest              708bc6af7e5e        7 weeks ago         25.8MB
+ubuntu                       14.04               6e4f1fe62ff1        2 months ago        197MB
+localhost:5000/hello-world   latest              fce289e99eb9        14 months ago       1.84kB
+hello-world                  latest              fce289e99eb9        14 months ago       1.84kB
+[kbseo@ip-172-20-1-221 docker]$ 
+
+</code></pre>
+ <p>
+  <br/>
+  <br/>
+  빌드가 완료되어 Docker Image가 만들어진 것을 확인할 수 있는데요
+이 빌드가 되는 과정들도 또 하나하나 살펴보도록 하겠습니다.
+ </p>
+ <p>
+  빌드과정을 요약하면 다음과 같습니다.
+  <br/>
+ </p>
+ <pre><code>Sending build context to Docker daemon  2.048kB               &lt;---   [1]
+Step 1/7 : FROM ubuntu:14.04                                  &lt;---   [2]            
+14.04: Pulling from library/ubuntu                            &lt;---   [3]
+ ---&gt; 6e4f1fe62ff1                                            &lt;---   [4]
+Step 2/7 : MAINTAINER Dongbin Na "kbseo@osci.kr"              &lt;---   [5]
+ ---&gt; Running in 224535a7dd96                                 &lt;---   [6]
+Removing intermediate container 224535a7dd96                  &lt;---   [7]
+ ---&gt; dc0f4b41cf96                                            &lt;---   [8]
+Step 3/7 : RUN apt-get update                                 &lt;---   [9]
+ ---&gt; Running in 1e6d817f7aa0
+...
+Successfully built 747275175211                               &lt;---   [10]
+</code></pre>
+ <p>
+  <strong>
+   [1]
+  </strong>
+  <code>
+   Sending build context to Docker daemon 2.048kB
+  </code>
+  <br/>
+  도커는 서버 클라이언트 구조이기 때문에 작업할 도커파일들(build context)을 도커서버(daemon)으로 전송해줍니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   [2]
+  </strong>
+  <code>
+   Step 1/7 : FROM ubuntu:14.04
+  </code>
+  <br/>
+  빌드할 도커파일의 제일 윗줄부터 한줄한줄 실행하여 줍니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   [3]
+  </strong>
+  <code>
+   14.04: Pulling from library/ubuntu
+  </code>
+  <br/>
+  ubuntu라는 이미지를 repository에서 다운받는 작업을 합니다
+기본적으로 DockerHub Repository를 사용하고 있으며 사용자가 별도의 저장소를 지정할 수 있습니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   [4]
+  </strong>
+  <code>
+   ---&gt; 6e4f1fe62ff1
+  </code>
+  <br/>
+  다운받은 ubuntu 이미지의 ID를 출력해줍니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   [5]
+  </strong>
+  <code>
+   Step 2/7 : MAINTAINER Dongbin Na "kbseo@osci.kr"
+  </code>
+  <br/>
+  도커파일의 두번째 명령어를 실행해줍니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   [6]
+  </strong>
+  <code>
+   ---&gt; Running in 224535a7dd96
+  </code>
+  <br/>
+  도커는 이미지 형태로 저장하기 때문에 바로위에서 실행한 우분투 이미지 '6e4f1fe62ff1'를 기반으로 임시 컨테이너 '224535a7dd96' 를 만듭니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   [7],[8]
+  </strong>
+  <br/>
+  <code>
+   Removing intermediate container 224535a7dd96
+  </code>
+  <br/>
+  <code>
+   ---&gt; dc0f4b41cf96
+  </code>
+  <br/>
+  임시로 실행했던 컨테이너 '224535a7dd96'를 삭제해주고 새로운 이미지 'dc0f4b41cf96'를 만듭니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   [9]
+  </strong>
+  <code>
+   Step 3/7 : RUN apt-get update
+  </code>
+  <br/>
+  도커파일에 작성하였던 다음줄의 명령어를 실행해줍니다.
+이전 단계 에서처럼 _전에 만들어진 이미지를 기반으로 임시 컨테이너를 만들어 명령어를 실행하고 이를 또 다른 이미지로 저장을 한 후 임시 컨테이너는 삭제_하여줍니다.
+이러한 과정을 도커파일의 마지막 명령줄까지 반복합니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   [10]
+  </strong>
+  <code>
+   Successfully built 747275175211
+  </code>
+  <br/>
+  최종적으로 만들어진 이미지ID를 멋지게 출력해줍니다.
+  <br/>
+ </p>
+ <p>
+  좀 전에 빌드했던 도커파일을 다시 빌드하게 되면 처음 빌드했을 때 보다 훨씬 빨라지게 되는데요
+그 이유는, 명령어를 실행할 때 이미지 위에 레이어를 추가하는 형태로 저장을 하게 되고 재 빌드를 하게 되면 기존에 저장된 이미지를 그대로 캐시처럼 사용하여 빌드 하기 때문입니다. (변경된 사항이 없다면)
+  <br/>
+  <br/>
+ </p>
+ <pre><code># 재빌드
+Sending build context to Docker daemon  2.048kB
+Step 1/7 : FROM ubuntu:14.04
+ ---&gt; 6e4f1fe62ff1
+Step 2/7 : MAINTAINER Dongbin Na "kbseo@osci.kr"
+ ---&gt; Using cache
+ ---&gt; dc0f4b41cf96
+Step 3/7 : RUN apt-get update
+ ---&gt; Using cache
+ ---&gt; bf2a670332b6
+Step 4/7 : RUN apt-get install -y nginx
+ ---&gt; Using cache
+ ---&gt; 6664b9edcc36
+Step 5/7 : WORKDIR /etc/nginx
+ ---&gt; Using cache
+ ---&gt; bc81d2ba24e1
+Step 6/7 : CMD ["nginx", "-g", "daemon off;"]
+ ---&gt; Using cache
+ ---&gt; 44591f5b5a0c
+Step 7/7 : EXPOSE 80
+ ---&gt; Using cache
+ ---&gt; 747275175211
+Successfully built 747275175211
+
+</code></pre>
+ <br/>
+ 이러한 도커빌드 원리를 이해하고 있으면 도커파일을 만들 때 효과적으로 만드실 수 있습니다.
+ <blockquote>
+  <p>
+   참고로 명렁어를 주르륵 나열하기보단 최대한 간결하고 '&amp;&amp;' 명령어를 이용해 줄여서 적어주는것이 좋습니다! (스토리지 엔진에 따라 이미지 개수가 제한되는 경우도 있기때문)
+  </p>
+ </blockquote>
+ <p>
+  <br/>
+  <br/>
+  <br/>
+ </p>
+ <p>
+  ###빌드한 이미지는 각 서버에 어떻게 배포할까요?
+ </p>
+ <p>
+  도커는 이미지를 각각의 서버에 복사하는 방법 대신 저장소(Registry)를 이용합니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91695884/3.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  여기서 이미지를 저장소에 업로드할때 'puch' 명령어를 사용하고,
+각 서버에서 저장소에 올려져있는 이미지를 가져올때 'pull'이라는 명령어를 사용합니다.
+ </p>
+ <br/>
+ 저번시간에 tag에 대하여 스르륵 지나갔었는데
+이미지 이야기를 하는김에 같이 다뤄보도록 하겠습니다.
+ <br/>
+ <h4>
+  <a href="#이미지-태그에-관하여" id="이미지-태그에-관하여">
+   이미지 태그에 관하여
+  </a>
+ </h4>
+ <p>
+  'docker tag &lt;옵션&gt; &lt;이미지 이름&gt;:&lt;태그&gt; &lt;저장소 주소, 사용자명&gt;/&lt;이미지이름&gt;:&lt;태그&gt;'
+굉장히 복잡해 보입니다...
+ </p>
+ <p>
+  저장소 주소는 기본적으로 Docker hub를 바라보고 있고, 사용자 ID를 지정해주지 않으면 기본으로 library를 사용합니다.
+  <br/>
+  즉,
+'&lt;저장소 주소, 사용자명&gt;/&lt;이미지이름&gt;:&lt;태그&gt;'는
+docker.io/library/nginx = library/nginx = nginx
+이렇게 추릴수도 있습니다.
+ </p>
+ <p>
+  <em>
+   이미지 이름 변경
+  </em>
+ </p>
+ <p>
+  'docker tag &lt;reponame&gt;:&lt;old_name&gt; &lt;new_reponame&gt;:&lt;new_name&gt;
+-&gt; 이름을 변경한다기 보다는 복제라고 보는게 더 맞습니다.
+예시) 'docker tag mynginx:0.2 kbseonginx:0.1'
+ </p>
+ <pre><code>#before
+[kbseo@ip-172-20-1-221 docker]$ docker images
+REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+mynginx                      0.1                 747275175211        25 hours ago        231MB
+mynginx                      0.2                 747275175211        25 hours ago        231MB
+
+#after
+REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+kbseonginx                   0.1                 747275175211        25 hours ago        231MB
+mynginx                      0.1                 747275175211        25 hours ago        231MB
+mynginx                      0.2                 747275175211        25 hours ago        231MB
+ 
+
+</code></pre>
+ <p>
+  이렇게 해서 이번 시간에는 Docker File과 Image에 대하여 알아보았는데요
+ </p>
+ <p>
+  다음번에는 실질적으로 사용하고 있는 application을 어떻게 Dockerized 할 것인가
+ </p>
+ <p>
+  라는 주제로 다시 찾아뵙도록 하겠습니다.
+ </p>
+ <p>
+  뿅!
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
