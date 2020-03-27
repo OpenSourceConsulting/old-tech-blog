@@ -332,8 +332,8 @@ Status: Downloaded newer image for registry:latest
 [kbseo@ip-172-20-1-221 ~]$  docker run -d -p 5000:5000 --restart=always --name docker-registry \
 &gt;   -e REGISTRY_STORAGE=s3 \
 &gt;   -e REGISTRY_STORAGE_S3_BUCKET=kbseo-s3 \
-&gt;   -e REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJMYYWQIASYOLHOLA \
-&gt;   -e REGISTRY_STORAGE_S3_SECRETKEY=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 \
+&gt;   -e REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJMYYWQIA******* \
+&gt;   -e REGISTRY_STORAGE_S3_SECRETKEY=YTOwsm0lDgghwjRHtR************ \
 &gt;   -e REGISTRY_STORAGE_S3_REGION=ap-northeast-2 \
 &gt;   registry
 274a07c0c008d866e44215eb4b3626448e5ef11fa573acd69ecb3e000ebde7b2
@@ -350,8 +350,8 @@ Status: Downloaded newer image for registry:latest
  docker run -d -p 5000:5000 --restart=always --name docker-registry \
   -e REGISTRY_STORAGE=s3 \
   -e REGISTRY_STORAGE_S3_BUCKET=kbseo-s3 \
-  -e REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJMYYWQIASYOLHOLA \
-  -e REGISTRY_STORAGE_S3_SECRETKEY=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 \
+  -e REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJMYYWQIA****** \
+  -e REGISTRY_STORAGE_S3_SECRETKEY=YTOwsm0lDgghwjRHtR************ \
   -e REGISTRY_STORAGE_S3_REGION=ap-northeast-2 \
   registry</pre>
  </div>
