@@ -1,0 +1,818 @@
+---
+layout: post
+title: "Kubernetes상에서 Keycloak과 Jenkins 그리고 Spinnaker 연동하기"
+description: " " 
+author: jacobbaek
+date: 2020-04-04
+tags: ['spinnaker', 'jenkins', 'keycloak', 'sso', 'saml', 'oidc']
+category: 
+image: /assets/images/91699412/0.png 
+---
+<p>
+ keycloak이라는 SSO solution을 이용하여 Jenkins 그리고 Spinnaker를 SAML과 OIDC 방식으로 연동하고
+</p>
+<p>
+ 한번의 로그인으로 각 솔루션을 접근할수 있는 방법에 대하여 알아보도록 하겠습니다.
+</p>
+<h1 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Keycloak이란?">
+ Keycloak이란?
+</h1>
+<p>
+ 우선 Keycloak에 대하여 알아보도록 하겠습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/0.png"/>
+ </span>
+</p>
+<p>
+ 현대의 Application과 Service들에 대한 오픈소스 계정 및 접근 관리 솔루션으로 기존에 서비스 되고 있었거나
+</p>
+<p>
+ 새로운 Application을 구현하고자할때 해당 코드의 변경없이(혹은 약간의 수정만으로) 인증과 자원보호의 기능을 제공하는 솔루션입니다.
+</p>
+<p>
+ 해당 솔루션은 오픈소스로 제공되며 Community 버전의 경우 별도의 비용없이 사용이 가능하며 Red Hat Single Sign-On이라는 솔루션으로
+</p>
+<p>
+ 벤더의 지원을 구매하여 사용하실수도 있습니다.
+</p>
+<ul>
+ <li>
+  <a class="external-link" href="https://www.keycloak.org/about.html" rel="nofollow">
+   https://www.keycloak.org/about.html
+  </a>
+ </li>
+</ul>
+<h3 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-기본적으로제공하는기능은다음과같습니다.">
+ 기본적으로 제공하는 기능은 다음과 같습니다.
+</h3>
+<ul>
+ <li>
+  SSO (Single Sign On)
+ </li>
+ <li>
+  ID 중개와 소셜 로그인 (OpenID, SAML, GitHub, facebook, google, twitter 등)
+ </li>
+ <li>
+  사용자 연합 (LDAP, AD, RDMS와의 연동을 통해 중앙화된 계정통합을 제공)
+ </li>
+ <li>
+  관리자 / 계정관리 콘솔
+ </li>
+ <li>
+  표준 프로토콜 지원 (OpenID, SAML, OAuth 2.0)
+ </li>
+ <li>
+  Client Adapters (다수의 platform과 프로그래밍 언어가 사용가능한 adapter를 가지고 있다.)
+ </li>
+ <li>
+  권한부여 서비스
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ 여기까지는 간단하게 Keycloak이라는 SSO에 대하여 알아보았고 이제부터 Keycloak을 Kubernetes 환경에 배포하고
+</p>
+<p>
+ 배포된 Keycloak을 이용하여 Jenkins, Spinnaker에 SSO 환경을 구성하는 방법에 대하여 알아보도록 하겠습니다.
+</p>
+<h1 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Keycloak배포및구성">
+ Keycloak 배포 및 구성
+</h1>
+<p>
+ 우선 간단하게 helm을 이용하여 Kubernetes환경에서 keycloak을 구성하는 방법에 대하여 알아보도록 하겠습니다.
+</p>
+<p>
+ 설치시 helm을 이용할 예정이기에 values.yaml내에 아래와 같은 몇가지 설정을 변경합니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">[root@labs-kube-infra001 keycloak]# kubectl create ns keycloak
+[root@labs-kube-infra001 keycloak]# helm repo add codecentric https://codecentric.github.io/helm-charts
+"codecentric" has been added to your repositories
+[root@labs-kube-infra001 keycloak]# mkdir keycloak &amp;&amp; cd keycloak
+[root@labs-kube-infra001 keycloak]# helm show values codecentric/keycloak &gt; values.yaml
+[root@labs-kube-infra001 keycloak]# cat values.yaml
+...
+  ## Username for the initial Keycloak admin user
+  username: keycloak
+
+  ## Password for the initial Keycloak admin user. Applicable only if existingSecret is not set.
+  ## If not set, a random 10 characters password will be used
+  password: "Pa55w0rd$#"
+...
+  service:
+    annotations: {}
+    # service.beta.kubernetes.io/aws-load-balancer-internal: "0.0.0.0/0"
+
+    labels: {}
+    # key: value
+
+    ## ServiceType
+    ## ref: https://kubernetes.io/docs/user-guide/services/#publishing-services---service-types
+    type: LoadBalancer
+...
+  persistence:
+    # If true, the Postgres chart is deployed
+    deployPostgres: true
+
+    # The database vendor. Can be either "postgres", "mysql", "mariadb", or "h2"
+    dbVendor: "postgres"
+...
+postgresql:
+...
+  persistence:
+    ## Enable PostgreSQL persistence using Persistent Volume Claims.
+    ##
+    enabled: true
+...
+</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 자 이제 설치를 진행해보도록 하겠습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">[root@labs-kube-infra001 keycloak]# helm install --name keycloak -f values.yaml codecentric/keycloak --namespace keycloak
+NAME:   keycloak
+LAST DEPLOYED: Thu Mar 19 15:33:50 2020
+NAMESPACE: keycloak
+STATUS: DEPLOYED
+
+RESOURCES:
+==&gt; v1/ConfigMap
+NAME              DATA  AGE
+keycloak-sh       1     2s
+keycloak-startup  1     2s
+keycloak-test     1     2s
+
+==&gt; v1/Pod(related)
+NAME                   READY  STATUS    RESTARTS  AGE
+keycloak-0             0/1    Init:0/1  0         1s
+keycloak-postgresql-0  0/1    Pending   0         1s
+
+==&gt; v1/Secret
+NAME                 TYPE    DATA  AGE
+keycloak-http        Opaque  1     3s
+keycloak-postgresql  Opaque  1     3s
+
+==&gt; v1/Service
+NAME                          TYPE          CLUSTER-IP    EXTERNAL-IP      PORT(S)                      AGE
+keycloak-headless             ClusterIP     None          &lt;none&gt;           80/TCP,8443/TCP              2s
+keycloak-http                 LoadBalancer  10.233.3.82   192.168.197.141  80:32242/TCP,8443:31190/TCP  2s
+keycloak-postgresql           ClusterIP     10.233.7.200  &lt;none&gt;           5432/TCP                     2s
+keycloak-postgresql-headless  ClusterIP     None          &lt;none&gt;           5432/TCP                     2s
+
+==&gt; v1/StatefulSet
+NAME                 READY  AGE
+keycloak             0/1    2s
+keycloak-postgresql  0/1    2s
+
+
+NOTES:
+
+Keycloak can be accessed:
+
+* Within your cluster, at the following DNS name at port 80:
+
+  keycloak-http.keycloak.svc.cluster.local
+
+* From outside the cluster, run these commands in the same shell:
+
+  NOTE:
+  It may take a few minutes for the LoadBalancer IP to be available.
+  You can watch the status of by running 'kubectl get svc -w keycloak'
+
+  export SERVICE_IP=$(kubectl get svc --namespace keycloak keycloak -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+  echo http://$SERVICE_IP:80
+
+Login with the following credentials:
+Username: keycloak
+
+To retrieve the initial user password run:
+kubectl get secret --namespace keycloak keycloak-http -o jsonpath="{.data.password}" | base64 --decode; echo
+
+[root@labs-kube-infra001 keycloak]# k get po -n keycloak
+NAME                    READY   STATUS    RESTARTS   AGE
+keycloak-0              1/1     Running   0          6m42s
+keycloak-postgresql-0   1/1     Running   0          6m42s
+[root@labs-kube-infra001 keycloak]# k get svc -n keycloak
+NAME                           TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)                       AGE
+keycloak-headless              ClusterIP      None           &lt;none&gt;            80/TCP,8443/TCP               6m49s
+keycloak-http                  LoadBalancer   10.233.3.82    192.168.197.141   80:32242/TCP,8443:31190/TCP   6m49s
+keycloak-postgresql            ClusterIP      10.233.7.200   &lt;none&gt;            5432/TCP                      6m49s
+keycloak-postgresql-headless   ClusterIP      None           &lt;none&gt;            5432/TCP                      6m49s
+[root@labs-kube-infra001 keycloak]# k get statefulset -n keycloak
+NAME                  READY   AGE
+keycloak              1/1     7m6s
+keycloak-postgresql   1/1     7m6s</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 설치가 완료되고 keycloak 서비스에 접근하게 되면 아래와 같은 관리자 화면이 출력됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/1.png"/>
+ </span>
+</p>
+<p>
+ 로그인 계정은 앞서 helm values.yaml 파일에 설정했던 value를 사용하여 로그인을 합니다.
+</p>
+<p>
+ <br/>
+</p>
+<div class="confluence-information-macro confluence-information-macro-note conf-macro output-block" data-hasbody="true" data-macro-name="note">
+ <p class="title">
+  참고사항
+ </p>
+ <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   docker-compose를 사용할수 있는 예제도 존재하니 테스트를 해보고자 하는 경우 간단히 docker-compose 예제를 다운로드 받아
+  </p>
+  <p>
+   설치 및 테스트를 수행해보기를 추천드립니다.
+  </p>
+  <ul>
+   <li>
+    <a class="external-link" href="https://github.com/keycloak/keycloak-containers/tree/master/docker-compose-examples" rel="nofollow">
+     https://github.com/keycloak/keycloak-containers/tree/master/docker-compose-examples
+    </a>
+   </li>
+  </ul>
+ </div>
+</div>
+<h1 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Keycloak연동하기전에기본적인용어들">
+ Keycloak 연동하기 전에 기본적인 용어들
+</h1>
+<p>
+ SSO 혹은 Keycloak이 처음이라면 아래의 용어에 우선 친숙해질 필요가 있습니다.
+</p>
+<p>
+ 간단하게 설명된 용어들을 읽어보고 연동을 진행해보기를 추천드립니다.
+</p>
+<h5 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Realm">
+ Realm
+</h5>
+<ul>
+ <li>
+  SSO로서 인증 대상의 범위를 지정한다라고 생각하면 됩니다.
+ </li>
+ <li>
+  Realm을 통해 Namespace 형태로 관리할수 있으며 Metadata와 관련 설정에 대한 모든것을 관리하도록 도와줍니다.
+ </li>
+ <li>
+  참고로 다수의 realm을 가질수 있고 일반적으로 master(default로 생성된 realm)는 관리자의 목적으로만 사용하고
+  <br/>
+  다른 realm을 생성하여 사용하기를 권장합니다.
+ </li>
+</ul>
+<h5 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Client">
+ Client
+</h5>
+<ul>
+ <li>
+  SSO를 사용할 각 Application입니다.
+  <br/>
+  (즉, 여기서는 Jenkins, Spinnaker가 Client라고 보시면 됩니다.)
+ </li>
+</ul>
+<h5 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-User">
+ User
+</h5>
+<ul>
+ <li>
+  앞서 설명드린 Client에 실제 로그인할 사용자계정이라 보면됩니다.
+ </li>
+</ul>
+<h5 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-참고">
+ 참고
+</h5>
+<ul>
+ <li>
+  <a class="external-link" href="https://jsonobject.tistory.com/445" rel="nofollow">
+   https://jsonobject.tistory.com/445
+  </a>
+ </li>
+</ul>
+<h1 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Keycloak과Jenkins연동하기">
+ Keycloak과 Jenkins 연동하기
+</h1>
+<p>
+ Keycloak과 Jenkins를 연결하여 인증을 Keycloak을 통해서 받을 수 있도록 해보도록 하겠습니다.
+</p>
+<p>
+ Keycloak 연동에는 다양한 방식이 있고 역할기반의 제어도 가능하나 여기서는 Jenkins의 경우
+</p>
+<p>
+ <strong>
+  SAML을 이용한 방식의 로그인만을 연동
+ </strong>
+ 하는 방법에 대하여 알아볼 예정입니다.
+</p>
+<p>
+ 참고로
+ <span style="letter-spacing: 0.0px;">
+  Jenkins는 jenkins.openlabs:8080 으로 접속되는 환경으로 구성이 이미 완료된 상태입니다.
+ </span>
+</p>
+<h3 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-KeycloakSide">
+ Keycloak Side
+</h3>
+<p>
+ 앞서 설명하였던대로 Master가 기본으로 설정되어 있지만 이를 사용하지 않고 새로운 Realm을 생성합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/2.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 생성된 Realm의 Realm Settings로 이동하여 Endpoint를 확인합니다.
+</p>
+<p>
+ (해당 Endpoint 정보는 Jenkins 의 Keycloak 관련 SAML 설정상에서 사용될 예정입니다.)
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/3.png"/>
+ </span>
+</p>
+<p>
+ 클릭해보면 다음과 같은 XML 형태의 문서가 출력되게 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/4.png"/>
+ </span>
+</p>
+<p>
+ 해당 정보를 사전에 복사해둡니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ keycloak를 사용한 인증을 위한 Jenkins Client를 생성합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/5.png"/>
+ </span>
+</p>
+<p>
+ 설정은 아래 그림에 체크되어 있는 설정을 추가하여 설정을 마무리 합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/6.png"/>
+ </span>
+</p>
+<p>
+ 위에 체크된 항목에 대해 추가를 진행한다.
+</p>
+<div class="confluence-information-macro confluence-information-macro-note conf-macro output-block" data-hasbody="true" data-macro-name="note">
+ <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   만약 설정시 아래와 같은 이슈가 있다면 참고하시기 바랍니다.
+  </p>
+  <ul>
+   <li>
+    invalid_redirect_url 에러 관련
+    <ul>
+     <li>
+      Valid Redirect URIs 에 IP 및 domain 정보가 추가되어 있지 않아서 발생된 이슈로 추가시 이슈해결됨.
+     </li>
+    </ul>
+   </li>
+   <li>
+    로그인후에 자동 로그아웃되는 현상
+    <ul>
+     <li>
+      document signing enable 후에 자동로그아웃되는 현상 사라짐.
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </div>
+</div>
+<h3 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-JenkinsSide">
+ Jenkins Side
+</h3>
+<p>
+ 이제 Keycloak SSO를 사용하기 위한 Jenkins의 설정을 추가해 보도록 하겠습니다.
+</p>
+<p>
+ Jenkins의 경우 앞서 Keycloak에서 설정했듯이 SAML을 이용할 예정입니다.
+</p>
+<p>
+ 하여 SAML plugin을 먼저 설치합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/7.png"/>
+ </span>
+</p>
+<p>
+ SAML plugin 설치후 global security 설정에서 아래와 같은 설정을 진행합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/8.png"/>
+ </span>
+</p>
+<p>
+ 위에 체크된 항목을 변경하여 설정을 완료합니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이제 설정은 완료되었습니다. 아래와 같이 직접 Jenkins UI로 접근을 시도해봅니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/9.gif"/>
+ </span>
+</p>
+<p>
+ 이제 SSO 연동을 위한 Jenkins 로그인 과정을 완료하였습니다.
+</p>
+<p>
+ SSO의 경우 한번의 로그인을 통해 다수의 서비스를 사용할수 있는 것이기에 다음 Spinnaker를 SSO와 연동하여 두개의 서비스가
+</p>
+<p>
+ 한번의 로그인으로 이루어질수 있는지 추가로 알아보도록 하겠습니다.
+</p>
+<p>
+ <br/>
+</p>
+<div class="confluence-information-macro confluence-information-macro-note conf-macro output-block" data-hasbody="true" data-macro-name="note">
+ <p class="title">
+  참고
+ </p>
+ <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   Keycloak은 Login Page에 대한 customization을 제공하기 때문에 아래 링크를 활용하여 custom theme를 작성하고
+  </p>
+  <p>
+   적용하여 자신만의 login page를 구성할수 있습니다.
+  </p>
+  <ul>
+   <li>
+    <a class="external-link" href="https://medium.com/@auscunningham/create-a-custom-theme-for-keycloak-8781207be604" rel="nofollow">
+     https://medium.com/@auscunningham/create-a-custom-theme-for-keycloak-8781207be604
+    </a>
+   </li>
+   <li>
+    <a class="external-link" href="https://github.com/Alfresco/alfresco-keycloak-theme" rel="nofollow" style="letter-spacing: 0.0px;">
+     https://github.com/Alfresco/alfresco-keycloak-theme
+    </a>
+   </li>
+  </ul>
+ </div>
+</div>
+<h1 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Spinnaker와Keycloak">
+ Spinnaker와 Keycloak
+</h1>
+<p>
+ 이번에는 Spinnaker 연동을 해보도록 하겠습니다.
+</p>
+<p>
+ 앞서 이야기 드렸듯이 Keycloak 연동에는 다양한 방식이 있고 역할기반의 제어도 가능하나 여기서는 spinnaker의 경우
+</p>
+<p>
+ <strong>
+  OIDC를 이용한 방식의 로그인만을 연동
+ </strong>
+ 하는 방법에 대하여 알아볼 예정입니다.
+</p>
+<p>
+ 참고로
+ <span>
+  spinnaker는 spinnaker.openlabs 으로 접속되는 환경으로 구성이 이미 완료된 상태입니다.
+ </span>
+</p>
+<p>
+ 또한 spinnaker-gate.openlabs:8084로 gate가 접속 가능한 환경입니다.
+</p>
+<h3 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-KeycloakSide.1">
+ Keycloak Side
+</h3>
+<p>
+ 이제 Keycloak에서 spinnaker를 위한 Client를 생성합니다.
+</p>
+<p>
+ 이번에는 keycloak에서 권장하는 OIDC(OpenID Connect)로 설정하여 Client를 생성해보도록 하겠습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/10.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ Jenkins 연동시와 동일하게 Client을 생성합니다.
+</p>
+<p>
+ (Jenkins 에서 생성했던 Realm을 동일하게 사용하는 것을 가정하였습니다.)
+</p>
+<p>
+ 이후 아래와 같은 설정에 매칭되는 OIDC json 파일의 내용을 확인합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/11.png"/>
+ </span>
+</p>
+<p>
+ 실제 Json 내용은 다음과 같습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">{
+  "realm": "Openlabs",
+  "auth-server-url": "http://keycloak.openlabs/auth/",
+  "ssl-required": "external",
+  "resource": "spinnaker",
+  "credentials": {
+    "secret": "d123150f-2879-4a99-9e22-e40fcaf02bdb"
+  },
+  "confidential-port": 0
+}</pre>
+ </div>
+</div>
+<p>
+ 여기서 우리는 credentials 정보와 auth-server-url, realm 등을 사용할 예정입니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 또한 realm 의 endpoint 정보도 확인해놓습니다.
+</p>
+<p>
+ 아래와 같이 앞서 생성했던 Realm 의 Settings에서 Endpoints 내에 OpenID Endpoint Configuration을 클릭하여 확인이 가능합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/12.png"/>
+ </span>
+</p>
+<p>
+ 클릭시 아래와 같은 Json 결과가 출력될 것이고 아래 정보는 spinnaker 설정에서 사용될 예정입니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/13.png"/>
+ </span>
+</p>
+<p>
+ 실제 사용될 url 정보는 다음과 같습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">authorization_endpoint: "http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/auth",
+token_endpoint: "http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/token",
+userinfo_endpoint: "http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/userinfo"</pre>
+ </div>
+</div>
+<h3 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-SpinnakerSide">
+ Spinnaker Side
+</h3>
+<p>
+ 이제 spinnaker에서 설정을 진행해보도록 하겠습니다.
+</p>
+<p>
+ 아시다시피 spinnaker의 경우 halyard pod에 접속하여 (혹은 hal command가 가능한 서버에 접속하여) 설정 변경을 수행해야 합니다.
+</p>
+<p>
+ 하여 halyard pod에 접속하여 hal command를 수행해봅니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">jacob@jacob-laptop:~/workspace$ k get po
+NAME                                READY   STATUS      RESTARTS   AGE
+spin-clouddriver-5d569c94b8-ffmfs   1/1     Running     0          69d
+spin-deck-7754884b55-fq7r4          1/1     Running     0          69d
+spin-echo-c57577776-vz8zg           1/1     Running     0          69d
+spin-front50-79d4d69b45-klchv       1/1     Running     0          69d
+spin-gate-75c76579c4-dxnjp          1/1     Running     0          69d
+spin-igor-74d8c59858-zj4bt          1/1     Running     0          69d
+spin-orca-f7b8c4676-kfbwp           1/1     Running     0          69d
+spin-rosco-7d58898bd6-8h2g5         1/1     Running     0          69d
+spinnaker-install-using-hal-x9vds   0/1     Completed   0          70d
+spinnaker-minio-5dc587c6f-k9hsx     1/1     Running     0          70d
+spinnaker-redis-master-0            1/1     Running     0          70d
+spinnaker-redis-slave-0             1/1     Running     0          70d
+spinnaker-redis-slave-1             1/1     Running     0          70d
+spinnaker-spinnaker-halyard-0       1/1     Running     0          70d
+jacob@jacob-laptop:~/workspace$ k exec -it spinnaker-spinnaker-halyard-0 /bin/bash
+spinnaker@spinnaker-spinnaker-halyard-0:/workdir$ </pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 실제 halyard pod에서 수행될 명령어들은 다음과 같습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">echo "server:
+  tomcat:
+    protocolHeader: X-Forwarded-Proto
+    remoteIpHeader: X-Forwarded-For
+    internalProxies: .*
+    httpsServerPort: X-Forwarded-Port
+security:
+  oauth2:
+    enabled: true
+    client: 
+      clientId: spinnaker
+      clientSecret: d123150f-2879-4a99-9e22-e40fcaf02bdb
+      userAuthorizationUri: http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/auth
+      accessTokenUri: http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/token
+      scope: roles,email,profile
+    resource:
+      userInfoUri: http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/userinfo
+    userInfoMapping:
+      email: email
+      firstName: given_name
+      lastName: family_name
+      username: preferred_username" &gt; .hal/default/profiles/gate-local.yml
+hal config security authn oauth2 edit \
+--client-id spinnaker \
+--client-secret d123150f-2879-4a99-9e22-e40fcaf02bdb \
+--pre-established-redirect-uri http://spinnaker-api.openlabs:8084/login
+hal config security authn oauth2 enable
+hal config security ui edit --override-base-url http://spinnaker.openlabs:9000
+hal config security api edit --override-base-url http://spinnaker-api.openlabs:8084 
+hal deploy apply
+
+## 혹은 다음 명령 set 수행
+hal config security authn oauth2 edit \
+--client-id spinnaker \
+--client-secret d123150f-2879-4a99-9e22-e40fcaf02bdb \
+--pre-established-redirect-uri http://spinnaker-api.openlabs:8084/login \
+--access-token-uri http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/token \
+--scope read:roles,email,profile \
+--user-authorization-uri http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/auth \
+--user-info-mapping-email email \
+--user-info-mapping-first-name given_name \
+--user-info-mapping-last-name family_name \
+--user-info-mapping-username preferred_username \
+--user-info-uri http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/userinfo
+hal config security authn oauth2 enable
+hal config security ui edit --override-base-url http://spinnaker.openlabs:9000
+hal config security api edit --override-base-url http://spinnaker-api.openlabs:8084 
+hal deploy apply</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 물론 helm chart를 이용한 업그레이드 방법도 가능합니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">   additionalProfileConfigMaps:
+     create: true
+     data:
+       gate-local.yml: |-
+         server:
+           tomcat:
+             protocolHeader: X-Forwarded-Proto
+             remoteIpHeader: X-Forwarded-For
+             internalProxies: .*
+             httpsServerPort: X-Forwarded-Port
+         security:
+           oauth2:
+             enabled: true
+             client:
+               clientId: spinnaker
+               clientSecret: xxxx00cc-xxxx-xxxx-xxxx-xxxx2515xxxx
+               userAuthorizationUri: http://keycloak.openlabs/auth/realms/openlabs/protocol/openid-connect/auth
+               accessTokenUri: http://keycloak.openlabs/auth/realms/openlabs/protocol/openid-connect/token
+               scope: roles,email,profile
+             resource:
+               userInfoUri: http://keycloak.openlabs/auth/realms/openlabs/protocol/openid-connect/userinfo
+             userInfoMapping:
+               email: email
+               firstName: given_name
+               lastName: family_name
+               username: preferred_username
+   additionalScripts:
+     create: true
+     data: 
+       override_baseurls.sh: |-
+           $HAL_COMMAND config security api edit --override-base-url http://spinnaker-gate.openlabs:8084/
+           $HAL_COMMAND config security ui edit --override-base-url http://spinnaker.openlabs/
+</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 위 명령 혹은 helm upgrade를 통한 설정 변경을 수행한 후 실제 로그인을 수행해보도록 하겠습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/14.gif"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 로그인 완료후 아래와 같이 로그인 계정이 확인됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/15.png"/>
+ </span>
+</p>
+<h1 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-확인">
+ 확인
+</h1>
+<p>
+ 자 이제 SSO 기능 검증을 위해 두개의 Application을 로그인시도해보도록 하겠습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91699412/16.gif"/>
+ </span>
+</p>
+<p>
+ 두개의 Application을 한번의 로그인으로 사용할수 있도록 하는것을 확인할수 있습니다.
+</p>
+<p>
+ <br/>
+</p>
+<div class="confluence-information-macro confluence-information-macro-warning conf-macro output-block" data-hasbody="true" data-macro-name="warning">
+ <p class="title">
+  참고사항
+ </p>
+ <span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   <strong>
+    keycloak에서 권장하는 사항들
+   </strong>
+  </p>
+  <ul>
+   <li>
+    SAML을 사용하는 경우
+    <ul>
+     <li>
+      XML 교환방식을 Post Binding 으로 사용하는것을 권장 (보안과 크기제한에 대한 이슈로 인하여)
+     </li>
+    </ul>
+   </li>
+   <li>
+    SAML 보다는 OIDC를 권장
+    <ul>
+     <li>
+      <a class="external-link" href="https://www.keycloak.org/docs/latest/server_admin/#openid-connect-vs-saml" rel="nofollow">
+       https://www.keycloak.org/docs/latest/server_admin/#openid-connect-vs-saml
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </div>
+</div>
+<h1 id="Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-참고사이트">
+ 참고사이트
+</h1>
+<ul>
+ <li>
+  <a class="external-link" href="https://www.keycloak.org/docs/latest/getting_started/index.html" rel="nofollow">
+   https://www.keycloak.org/docs/latest/getting_started/index.html
+  </a>
+ </li>
+</ul>
