@@ -47,7 +47,7 @@ Sharing Tech. Growing Together.
 
 
 <link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
-<link href="/assets/favicon.png" rel="icon" type="image/png"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
 <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
 <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
 <link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
@@ -101,133 +101,177 @@ Sharing Tech. Growing Together.<br />
         <ul id="post-list">
     
         <li class="post-item post ">
-    <a href="/2019/04/23/71800553/">
-        <h3 class="post-title">2019년 4월 Atlassian User Group Meetup에 다녀오다!</h3>
-        <p class="post-excerpt">  안녕하세요? 오픈소스컨설팅입니다. 오픈소스컨설팅은 Atlassian User Group(AUG) 의 공식 스폰서로 활동하고 있습니다. (많이들 오세요! 몸만 오시면 됩니다!   ) 4월 22일 개최된 26번째 아틀라시안 유저 그룹 밋업 에 오픈소스컨설팅이 직접 다녀왔습니다! 이번  밋업에서는 지난 4월 9일-11일, 라스베가스에서 개최된 역대 최대 규모의 아틀라시안 유저 컨퍼런스인 "Atlassian Summit 2019" 에 대한 이야기를 나누었습니다. 오픈소스컨설팅의 한진규 이사님과 AUG의 공동 리더인 디프로그웍스의 신철민 대표님의 발표가 있었습니다. "아틀라시안 서밋 2019 참석기 by 한진규 이사님" Atlassian Summit? 3일 동안 진행되는 아틀라시안 서밋, 올해 행사에는...</p>
+    <a href="/2020/03/22/91695235/">
+        <h3 class="post-title">Kubernetes1.17 Hard Way using docker,flannel</h3>
+        <p class="post-excerpt">  Kubernetes1.17 Hard Way (Libvirt) using docker,flannel 해당 문서는 https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/master/docs/01-prerequisites.md , https://veerendra2.github.io/kubernetes-the-hard-way-3/ 를 기반으로 테스트된 문서 입니다. Prerequisites 호스트 서버에서 설정되어 있는 인스턴스는 아래와 같이 배포를 위한 서버기반으로 master 인스턴스3개와 worker 인스턴스 3개로 구성된다. 이중 master 인스턴스틑 worker의 역할과 같이 진행 할 수 있도록 한다. kubernetes 배포를 위한 인증서 및 kubeconfg 파일의 설정은 kube-hard-deploy 호스트에서 진행 된다. master와 woker로 각 설정의 편의를 위하여 kube-hard-deploy 인스턴스에서 ansible로 진행 하도록 한다. /opt/kubernetes 디렉토리를 생성하여 ansible inventory파일을 설정 한다....</p>
     </a>
     <p class="post-tags">
         
-            <a class="tag tag-atlassian">atlassian</a>
+            <a class="tag tag-kubernetes">kubernetes</a>
         
-            <a class="tag tag-aug">aug</a>
-        
-            <a class="tag tag-아틀라시안커뮤니티">아틀라시안커뮤니티</a>
-        
-            <a class="tag tag-아틀라시안유저그룹">아틀라시안유저그룹</a>
-        
-            <a class="tag tag-summit">summit</a>
+            <a class="tag tag-flannel">flannel</a>
         
     </p>
     <div class="post-meta">
         
-        <a href="/authors/hjkim">
+        <a href="/authors/cyyoon">
             <div class="author-image"
-                 style="background-image:url(/files/authors/hjkim);">
-                <span class="sr-only">hjkim's profile image</span>
+                 style="background-image:url(/files/authors/cyyoon.jpg);">
+                <span class="sr-only">cyyoon's profile image</span>
             </div>
-            <p class="author-name">hjkim</p>
+            <p class="author-name">cyyoon</p>
         </a>
-        <p class="post-date">2019-04-23</p>
+        <p class="post-date">2020-03-22</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>
 
     
         <li class="post-item post ">
-    <a href="/2019/04/15/71798599/">
-        <h3 class="post-title">Kubernetes Volume 을 공부해보자!</h3>
-        <p class="post-excerpt">  이번 포스팅은 Kubernetes Korea Group의 Kubernetes Architecture Study 모임에서 스터디 후, 발표 진행한 내용입니다. Link : k8skr-study-architecture Github Kubernetes Volume Kubernetes 에서 Volume 으로 사용 가능한 유형은 아래와 같습니다. emptyDir hostPath gitRepo Openstack Cinder cephfs iscsi rbd 그 외 Public Cloud Storage 이처럼 Kubernetes 에서는 다양한 Volume 을 지원합니다. 책(Kubernetes In Action)에 소개된 emptyDir / hostPath / gitRepo 에 대해 예제와 함께 어떤식으로 사용이 되는지 확인 해보겠습니다. 추가로 책에는 없는 nfs / cephfs / rbd...</p>
+    <a href="/2020/03/17/91693588/">
+        <h3 class="post-title">Jenkins에서 anchore를 이용한 docker image scanning</h3>
+        <p class="post-excerpt">  "앤코어"라고 불리우는 DevSecOps 도구의 사용법과 Jenkins상에서 Anchore와 연계된 CICD pipeline을 만드는 과정에 대해 알아보도록 하겠습니다. Anchore 는? 컨테이너 이미지에 대한 검증, 분석, 검사에 대한 중앙화된 서비스를 제공하는 오픈소스 프로젝트입니다. Docker V2 호환 컨테이너 저장소들로부터 컨테이너 이미지를 다운로드 받고 분석합니다. 그리고 사용자가 지정한 정책에 기반해 평가를 수행합니다. CI/CD와 통합된 서비스로 빌드 파이프라인 상에서 보안 및 규정에 대한 체크를 시행할수 있고 RESTful API와의 연동을 통해 컨테이너 모니터링과의 연동의 구성요소로도 사용될수 있습니다. https://github.com/anchore/anchore-engine Anchore Engine 은? Anchore는 상용버전과...</p>
     </a>
     <p class="post-tags">
+        
+            <a class="tag tag-anchore">anchore</a>
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-anchore_jenkinsfile">anchore_jenkinsfile</a>
+        
+            <a class="tag tag-jenkinsfile">jenkinsfile</a>
+        
+            <a class="tag tag-security">security</a>
+        
+            <a class="tag tag-container_image_scanning">container_image_scanning</a>
+        
+            <a class="tag tag-컨테이너">컨테이너</a>
+        
+            <a class="tag tag-이미지">이미지</a>
+        
+            <a class="tag tag-스캐닝">스캐닝</a>
         
     </p>
     <div class="post-meta">
         
-        <a href="/authors/chhan">
+        <a href="/authors/jacobbaek">
             <div class="author-image"
-                 style="background-image:url(/files/authors/chhan.png);">
-                <span class="sr-only">chhan's profile image</span>
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
             </div>
-            <p class="author-name">chhan</p>
+            <p class="author-name">jacobbaek</p>
         </a>
-        <p class="post-date">2019-04-15</p>
+        <p class="post-date">2020-03-17</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>
 
     
         <li class="post-item post ">
-    <a href="/2019/02/28/63373558/">
-        <h3 class="post-title">Atlassian CI/CD Step By Step</h3>
-        <p class="post-excerpt">  안녕하세요. 오픈소스컨설팅 아틀라시안팀 김세연입니다. 요즘 많은 고객사, 필드에서는 Agile, ALM, DevOps 문화 구축 후 CI/CD를 구축하고 준비하고 있습니다. CI/CD Step by step을 소개 하겠습니다. CI/CD란? CI(Continuous Integration) 지속적인 통합을 의미합니다. 훌륭한 개발A팀 기능 100개와 개발B팀 기능 100개가 통합 된단다고 상상해보세요. 좋은 기능 200개가 될까요? S/W 통합은 눈에 보이지 않는 복잡한 일입니다. 자동화된 도구로 자주 Build, Test로 S/W의 높은 품질을 유지해야 합니다. CD(Continuous Delivery or Continuous Deploy)란? 높은 품질의 S/W를 개발서버, 운영서버에 배포하는 과정을 사람 손으로...</p>
+    <a href="/2020/03/06/91691404/">
+        <h3 class="post-title">재택 근무를 위해 꼭 필요한 세 가지 Tips, 이것만 기억하세요!</h3>
+        <p class="post-excerpt">  안녕하세요, 오픈소스컨설팅 마케팅팀 박현수입니다. 신종 코로나 바이러스로 인한 감염병 위험 단계가  "심각" 으로 격상되면서, 국내 많은 기업들이 구성원과 고객의 안전을 위해 재택 근무를 도입하고 있습니다. 유연한 조직 문화가 잘 형성되어 있던 스타트업뿐 만 아니라 카카오, SK텔레콤, KT 등 대기업들도 빠르게 재택 근무를 도입하여 눈길을 끌었습니다. 업무 효율성과 내부 만족도를 위해 잘 구축해 놓았던 원격 근무 시스템 덕분에, 예상치 못한 재난 사태에도 구성원들의 안전을 챙기기위한 조치를 취할 수 있었습니다. 신종 코로나 바이러스 사태가 잠잠해지더라도, 재택 근무와...</p>
     </a>
     <p class="post-tags">
         
-            <a class="tag tag-atlassian">atlassian</a>
+            <a class="tag tag-재택근무">재택근무</a>
         
-            <a class="tag tag-ci/cd">ci/cd</a>
+            <a class="tag tag-agile">agile</a>
+        
+            <a class="tag tag-devops">devops</a>
+        
+            <a class="tag tag-cloud">cloud</a>
+        
+            <a class="tag tag-마이그레이션">마이그레이션</a>
+        
+            <a class="tag tag-신종코로나">신종코로나</a>
         
     </p>
     <div class="post-meta">
         
-        <a href="/authors/seiyeon.kim">
+        <a href="/authors/soopark">
             <div class="author-image"
-                 style="background-image:url(/files/authors/it2seiyon.jpeg);">
-                <span class="sr-only">seiyeon.kim's profile image</span>
+                 style="background-image:url(/files/authors/soopark);">
+                <span class="sr-only">soopark's profile image</span>
             </div>
-            <p class="author-name">seiyeon.kim</p>
+            <p class="author-name">soopark</p>
         </a>
-        <p class="post-date">2019-02-28</p>
+        <p class="post-date">2020-03-06</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>
 
     
         <li class="post-item post ">
-    <a href="/2019/02/13/59736201/">
-        <h3 class="post-title">Docker Swarm 을 이용한 Container Orchestration 환경 만들기</h3>
-        <p class="post-excerpt">  안녕하세요? 오픈소스컨설팅 한철희 과장입니다. 이전 " Docker 이해하기 " 를 포스팅에 이어, " Docker Swarm 을 이용한 Container Orchestration 환경 만들기 " 라는 포스팅을 작성하게 되었습니다. (Review - Docker 이해하기 ) 이전 포스팅에서 Docker 를 직접 사용하면서 여러 장점을 확인했습니다. 하지만 과연 실무에 적용하면 안정적으로 서비스를 유지하고 운영할 수 있을지에 대해서는 의문을 가지고 있었습니다. 이러한 의문은 Container 들을 자동으로 관리하게 해주는 Container Orchestration Tool 을 활용함으로써 해결을 하게 되었습니다. Container Orchestration 컨테이너 오케스트레이션 이란? 다중 컨테이너...</p>
+    <a href="/2020/03/03/91690192/">
+        <h3 class="post-title">[Container 시리즈] 02. Docker사용법 Docker Basic Command</h3>
+        <p class="post-excerpt">  nginx docker image를 여 registry로 부터 image pull, run, 그리고 삭제하는 과정에 대해 기술 안녕하세요 ^^ 저번시간에 설치만 해서 너무 간질간질 하셨을 여러분을 위해 지난 글에 이어서 Docker 기본 명령어에 대해 알아보는 시간을 가지도록 하겠습니다. [Container 시리즈] 00. Container/ Docker란 뭔가요? [Container 시리즈] 01. 도커를 설치하고 실행해보자! Docker on Amazon Linux 1. Image 가져오기 : 기본 개념에서와 같이 도커는 저장소(registry)에서 이미지를 가져와 사용을 합니다 $ docker pull nginx:latest # docker images 명령어를 통해 현재 가지고...</p>
     </a>
     <p class="post-tags">
+        
+            <a class="tag tag-docker">docker</a>
+        
+            <a class="tag tag-dockerbasic">dockerbasic</a>
+        
+            <a class="tag tag-dockercommand">dockercommand</a>
+        
+            <a class="tag tag-도커">도커</a>
+        
+            <a class="tag tag-도커명령어">도커명령어</a>
         
     </p>
     <div class="post-meta">
         
-        <a href="/authors/chhan">
+        <a href="/authors/kbseo">
             <div class="author-image"
-                 style="background-image:url(/files/authors/chhan.png);">
-                <span class="sr-only">chhan's profile image</span>
+                 style="background-image:url(/files/authors/kbseo);">
+                <span class="sr-only">kbseo's profile image</span>
             </div>
-            <p class="author-name">chhan</p>
+            <p class="author-name">kbseo</p>
         </a>
-        <p class="post-date">2019-02-13</p>
+        <p class="post-date">2020-03-03</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>
 
     
         <li class="post-item post ">
-    <a href="/2019/02/06/58035834/">
-        <h3 class="post-title">오픈소스컨설팅 아틀라시안팀이 일하는 방법</h3>
-        <p class="post-excerpt">  안녕하세요? 오픈소스컨설팅 아틀라시안팀 - 김세연입니다. 지금부터 저희 팀 소개를 하겠습니다~ 재미있어요~ (아마도요..) 저희 팀은 애자일, 데브옵스 문화 도입 및 활성화를 위해, 최선의 방법을 찾아 알맞은 솔루션을 컨설팅합니다. 애자일, 데브옵스의 경험이 풍부한 엔지니어로 이루어진 저희 팀은 꾸준한 교육과 연습을 통해, 팀을 발전 시키고자 합니다. 팀웍, 협업, 공유를 중요시하는 저희 아틀라시안팀의 이야기를 들어보실래요? 'ㅡ' 그리고 함께할 멤버를 찾고 있습니다. (불꽃!!) &lt;운명같은 만남을 꿈꾸고 발 벗고 찾아다닙니다.&gt; 오픈소스컨설팅 출근과 퇴근 &lt;월요일의 내 멘탈은 대략 블루스크린&gt; 월요일 월요일은 오전...</p>
+    <a href="/2020/03/03/91690190/">
+        <h3 class="post-title">[Container 시리즈] 01. 도커를 설치하고 실행해보자! Docker on Amazon Linux</h3>
+        <p class="post-excerpt">  기존에 테스트용으로 사용하던 서버위에 설치 서버 환경 : Amazon Linux 2 서버 스펙 : t3.micro 안녕하세요 저번시간에 Container와 Docker에 대해서 간략하게 알아보는 시간을 가졌는데요 지난 시간 글 [Container 시리즈] 00. Container/ Docker란 뭔가요? 아무래도 엔지니어분들은 직접 명령어를 쳐야 몸이 풀리기때문에 도커 설치하는 법 부터 가져왔습니다! 자 한번 설치를 시작해볼까요??? 1. 테스트 서버를 간만에 접속해서 업데이트를 먼저 해줍니다. $ sudo yum -y upgrade [ec2-user@ip-172-20-1-221 ~]$ sudo yum -y upgrade Loaded plugins: extras_suggestions, langpacks, priorities, update-motd amzn2-core...</p>
     </a>
     <p class="post-tags">
         
-            <a class="tag tag-atlassian">atlassian</a>
+            <a class="tag tag-container">container</a>
         
-            <a class="tag tag-opensourceconsulting">opensourceconsulting</a>
+            <a class="tag tag-containerized">containerized</a>
+        
+            <a class="tag tag-docker">docker</a>
+        
+            <a class="tag tag-dockerinstall">dockerinstall</a>
+        
+            <a class="tag tag-dockeronaws">dockeronaws</a>
+        
+            <a class="tag tag-aws">aws</a>
+        
+            <a class="tag tag-컨테이너">컨테이너</a>
+        
+            <a class="tag tag-도커">도커</a>
+        
+            <a class="tag tag-도커설치">도커설치</a>
         
     </p>
     <div class="post-meta">
         
-        <a href="/authors/seiyeon.kim">
+        <a href="/authors/kbseo">
             <div class="author-image"
-                 style="background-image:url(/files/authors/it2seiyon.jpeg);">
-                <span class="sr-only">seiyeon.kim's profile image</span>
+                 style="background-image:url(/files/authors/kbseo);">
+                <span class="sr-only">kbseo's profile image</span>
             </div>
-            <p class="author-name">seiyeon.kim</p>
+            <p class="author-name">kbseo</p>
         </a>
-        <p class="post-date">2019-02-06</p>
+        <p class="post-date">2020-03-03</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>
@@ -306,7 +350,7 @@ Sharing Tech. Growing Together.<br />
         </li>
     </ul>
     <p id="copyright">
-        <a href="https://tech.osci.kr">&copy;2018 OpenSourceConsulting</a>
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
         All rights reserved.
     </p>
 </div><!--#footer-->

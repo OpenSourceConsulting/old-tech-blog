@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>오픈소스컨설팅 
+기술 블로그
+</title>
+<meta name="title" content="오픈소스컨설팅 
+기술 블로그
+" />
+<meta name="author" content="lab@osci.kr"/>
+<meta name="description" content="기술을 나눕니다. 함께 성장합니다.
+Sharing Tech. Growing Together.
+"/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:description" content="기술을 나눕니다. 함께 성장합니다.
+Sharing Tech. Growing Together.
+"/>
+<meta property="og:url" content="https://tech.osci.kr"/>
+<meta property="og:image" content="/files/authors/jacobbaek.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta name="twitter:description" content="기술을 나눕니다. 함께 성장합니다.
+Sharing Tech. Growing Together.
+"/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="lab@osci.kr"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/files/authors/jacobbaek.jpg"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content=""/>
+
+
+
+<meta property="article:published_time" content="2020-04-28T12:38:46+09:00"/>
+
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="author-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Main</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/authors/jacobbaek/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container" style="background-image: url('/assets/images/book-glass.jpeg');">
+    <div>
+        <div id="cover-author-image" style="width:0px; height: 0px;">
+            <span class="sr-only"></span>
+        </div>
+        <h1>백도운</h1>
+        <p style="margin:0px; text-align: center; width: 100%; max-width: 100%;">All Posts by <em>jacobbaek</em></p>
+    </div>
+</div>
+
+<div id="content" class="container">
+    <div id="author-content" role="main">
+        <ul id="post-list">
+            
+                
+            
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2020/04/04/91699412/">
+        <h3 class="post-title">Kubernetes상에서 Keycloak과 Jenkins 그리고 Spinnaker 연동하기</h3>
+        <p class="post-excerpt">  keycloak이라는 SSO solution을 이용하여 Jenkins 그리고 Spinnaker를 SAML과 OIDC 방식으로 연동하고 한번의 로그인으로 각 솔루션을 접근할수 있는 방법에 대하여 알아보도록 하겠습니다. Keycloak이란? 우선 Keycloak에 대하여 알아보도록 하겠습니다. 현대의 Application과 Service들에 대한 오픈소스 계정 및 접근 관리 솔루션으로 기존에 서비스 되고 있었거나 새로운 Application을 구현하고자할때 해당 코드의 변경없이(혹은 약간의 수정만으로) 인증과 자원보호의 기능을 제공하는 솔루션입니다. 해당 솔루션은 오픈소스로 제공되며 Community 버전의 경우 별도의 비용없이 사용이 가능하며 Red Hat Single Sign-On이라는 솔루션으로 벤더의 지원을 구매하여 사용하실수도 있습니다. https://www.keycloak.org/about.html 기본적으로...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-spinnaker">spinnaker</a>
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-keycloak">keycloak</a>
+        
+            <a class="tag tag-sso">sso</a>
+        
+            <a class="tag tag-saml">saml</a>
+        
+            <a class="tag tag-oidc">oidc</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2020-04-04</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2020/03/17/91693588/">
+        <h3 class="post-title">Jenkins에서 anchore를 이용한 docker image scanning</h3>
+        <p class="post-excerpt">  "앤코어"라고 불리우는 DevSecOps 도구의 사용법과 Jenkins상에서 Anchore와 연계된 CICD pipeline을 만드는 과정에 대해 알아보도록 하겠습니다. Anchore 는? 컨테이너 이미지에 대한 검증, 분석, 검사에 대한 중앙화된 서비스를 제공하는 오픈소스 프로젝트입니다. Docker V2 호환 컨테이너 저장소들로부터 컨테이너 이미지를 다운로드 받고 분석합니다. 그리고 사용자가 지정한 정책에 기반해 평가를 수행합니다. CI/CD와 통합된 서비스로 빌드 파이프라인 상에서 보안 및 규정에 대한 체크를 시행할수 있고 RESTful API와의 연동을 통해 컨테이너 모니터링과의 연동의 구성요소로도 사용될수 있습니다. https://github.com/anchore/anchore-engine Anchore Engine 은? Anchore는 상용버전과...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-anchore">anchore</a>
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-anchore_jenkinsfile">anchore_jenkinsfile</a>
+        
+            <a class="tag tag-jenkinsfile">jenkinsfile</a>
+        
+            <a class="tag tag-security">security</a>
+        
+            <a class="tag tag-container_image_scanning">container_image_scanning</a>
+        
+            <a class="tag tag-컨테이너">컨테이너</a>
+        
+            <a class="tag tag-이미지">이미지</a>
+        
+            <a class="tag tag-스캐닝">스캐닝</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2020-03-17</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2020/02/07/86045772/">
+        <h3 class="post-title">Kubernetes 환경에서 sonarqube 설치 및 Jenkins pipeline 활용법</h3>
+        <p class="post-excerpt">  INFO sonarqube를 kubernetes 상에서 설치하고 이를 Jenkins pipeline으로 동작시키는 방법에 대하여 알아보도록 하겠습니다. 동작시켰던 환경은 다음과 같습니다. helm version 2.15.0 sonarqube Community EditionVersion 7.9.2 kubernetes v1.16.3 helm을 이용한 kubernetes 상에 sonarqube 설치 https://github.com/helm/charts/tree/master/stable/sonarqube와 같이 stable repo에 sonarqube가 제공되고 있습니다. 이를 활용한 설치 방법을 알아보도록 하겠습니다. helm 을 이용한 배포 몇가지 plugin을 설치하기 위해 바로 install 하지 않고 values.yaml 파일을 수정하여 install 해보도록 하겠습니다. [root@labs-kube-infra001 ~]# helm fetch stable/sonarqube [root@labs-kube-infra001 ~]# tar xvf sonarqube.tgz [root@labs-kube-infra001 ~]#...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-sonarqube">sonarqube</a>
+        
+            <a class="tag tag-jenkinsfile">jenkinsfile</a>
+        
+            <a class="tag tag-pipeline">pipeline</a>
+        
+            <a class="tag tag-kubernetes">kubernetes</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2020-02-07</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2020/01/16/86039236/">
+        <h3 class="post-title">Jenkins Build를 GitLab에 push와 함께 수행되도록 하기</h3>
+        <p class="post-excerpt">  GitLab을 사용하고 Jenkins를 통해 CI를 수행하는 환경에서 이를 연동해서 자동으로 빌드가 이루어지 도록 할때 몇가지 이슈사항을 어떻게 해결하면 좋을지와 실제화면상에 어떤 Value들을 입력하면 좋을지에 대해 정리해보았습니다. 실제 GitLab과 Jenkins를 연결하는 방법은 다음과 같은 순서로 진행되었습니다. GitLab에 Access Token 발급 Jenkins에서 GitLab과 연동을 위해 1에서 발급받았던 Access Token을 credential로 추가한다. Jenkins에서 추가한 credential을 global setting에서 gitlab 설정으로 추가한다. Jenkins에서 자동 Build Trigger가 진행되도록 설정한다. GitLab에서 Webhook을 생성한다. 연동 환경 Jenkins 2.204.1 GitLab 12.6.4 설정방법 1. GitLab에서...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-gitlab">gitlab</a>
+        
+            <a class="tag tag-secret">secret</a>
+        
+            <a class="tag tag-token">token</a>
+        
+            <a class="tag tag-webhook">webhook</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2020-01-16</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2020/01/09/86037490/">
+        <h3 class="post-title">Bitbucket webhook을 사용하여 Bamboo build plan trigger하기</h3>
+        <p class="post-excerpt">  Bamboo를 사용하면서 특정한 경우 (예를 들어 Merge 상황에서만) Trigger를 받고 싶은 경우가 있는데 이러한 선택된 경우만 Trigger를 받는게 기본설정으로는 제공되지 않는다. 기본설정은 다음과 같이 Repository선택만 가능하여 Trigger를 선택적으로 받을 수 없다. 하여 특정한 경우만 Trigger를 받고자 할때는 난감한 상황이 될수 있다. 이러한 경우 Bamboo의 Remote Trigger를 통해 해결할 수 있는데 이에 대해 알아보도록 하자. Bamboo 설정 Bamboo에서는 앞서 이야기 했던 Trigger 메뉴에서 Remote trigger를 추가하여 선택적인 Trigger를 받을수 있는 준비를 한다. Bamboo의 Build Plan으로 이동하여...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-atlassian">atlassian</a>
+        
+            <a class="tag tag-bamboo">bamboo</a>
+        
+            <a class="tag tag-trigger">trigger</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2020-01-09</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2020/01/09/86037485/">
+        <h3 class="post-title">bitbucket-server manifest 작성방법</h3>
+        <p class="post-excerpt">  Dockerhub에 가보면 Atlassian에서 제공하는 각 Product에 대한 official Docker image를 공개되어 있습니다. 이전부터 몇몇 Product에 대한 Image는 제공하였으나 모든 제품에 대한 Official Image를 제공하지 않았었고 작년 말경에 Official Image들을 모두 공개하였습니다. 아시다시피 Docker Image를 docker command를 통해 Host상에 동작시킬수도 있지만 Kubernetes와 같은 Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 효율적인 관리가 이루어집니다. 하여 Atlassian 공식이미지를 활용한 Kubernetes Manifest 작성법을 Bitbucket-server의 예제로 알아보고자 합니다. 우선 알아두어야하는 것은 기존 Atlassian 제품 설치방법과 동일하게 License 입력과정이 있기에 서버내에서의...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-atlassian">atlassian</a>
+        
+            <a class="tag tag-bitbucket-server">bitbucket-server</a>
+        
+            <a class="tag tag-bitbucket">bitbucket</a>
+        
+            <a class="tag tag-kubernetes">kubernetes</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2020-01-09</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2019/12/06/86030002/">
+        <h3 class="post-title">Spinnaker에서 Judgement를 활용한 Rollback 사용해보기</h3>
+        <p class="post-excerpt">  Spinnaker에서 Judgement stage를 활용하여 Rollback을 수행했던 내용에 대하여 알아보도록 하겠습니다. 우선 기존 deploy 방식에 대하여 간단히 알아보겠습니다. Application 배포는 다음과 같은 Deploy(Manifest) stage 구성으로 진행됩니다. 배포 전략은 Red/Black 방식을 사용하여 새로운 Replicaset이 배포되면 기존 Replicaset은 disable 되도록 하였습니다. 위 배포가 진행된 이후 Rollback과 Rollout 선택을 통해 배포를 그대로 진행할지 결정하도록 하였고 그에 따라 Rollback 후 delete가 될지 Rollout 그대로 진행후 오래된 ReplicaSet을 disable 할지 결정하게 됩니다. Judgement stage 를 사용하여 분기시키기 앞서 설명하였던 "Manual Judgement"...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-spinnaker">spinnaker</a>
+        
+            <a class="tag tag-rollback">rollback</a>
+        
+            <a class="tag tag-kubernetes">kubernetes</a>
+        
+            <a class="tag tag-judgement">judgement</a>
+        
+            <a class="tag tag-stage">stage</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2019-12-06</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2019/12/03/86029411/">
+        <h3 class="post-title">Jenkinsfile에서 Nexus 사용을 위한 maven settings.xml 과 npmrc 파일 활용하기</h3>
+        <p class="post-excerpt">  Spring boot와 React 를 사용하는 application 에 대한 build를 Nexus를 활용해 수행시 maven settings.xml, npmrc 파일이 사전에 해당 경로에 생성되어 있어야 합니다. 이를 Jenkins 상에서는 어떤 방법으로 사전에 생성할수 있는지에 대하여 알아보도록 하겠습니다. 우선 간단히 사용법을 요약해보자면 Jenkins 상에 settings.xml 혹은 npmrc 파일을 업로드하고 해당 파일을 jenkinsfile(pipeline)상에서 사용하거나 Jenkins freestyle project 상에서 선택하여 사용할수 있게 하는 방법입니다. Plugins 먼저 settings.xml과 npmrc를 Jenkins 내에 파일로 등록해 놓고 사용하기 위해서는 별도의 plugin 설치가 필요합니다. 아래 리스트는 Jenkins 상에서...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-nexus">nexus</a>
+        
+            <a class="tag tag-npm">npm</a>
+        
+            <a class="tag tag-maven">maven</a>
+        
+            <a class="tag tag-settings">settings</a>
+        
+            <a class="tag tag-npmrc">npmrc</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2019-12-03</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2019/11/25/86027582/">
+        <h3 class="post-title">Jenkins Artifact를 이용한 Tag정보를 Spinnaker로 넘기는 방법</h3>
+        <p class="post-excerpt">  Spinnaker와 Jenkins가 연동된 환경에서 Spinnaker를 통해 배포수행시 Jenkins 상에서 사용했던 정보를 활용해야 하는 경우가 생겼을때  Jenkins에서 어떤 방식으로 Spinnaker 에 관련정보를 전달할 수 있는지에 대해서 알아보도록 하겠습니다. 우선 관련된 방법을 간단히 설명하자면 Jenkins에서 Artifact로 관련 정보를 text 형태로 저장하고 이를 Spinnaker의 Properties로 불러오도록 하는 방식입니다. 그렇다면 어떻게 설정하면 되는지에 대하여 알아보도록 하겠습니다. Jenkins에서 설정 먼저 Jenkins에 artifact를 만드는 방법에 대하여 알아보도록 하겠습니다. Jenkinsfile내에서 지정된 stage에서 spinnaker에서 사용할 "TAG" 지시어를 파일로 추가하고 archiveArtifacts 지시어를 사용하여 파일로 저장하게...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-spinnaker">spinnaker</a>
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-pipeline">pipeline</a>
+        
+            <a class="tag tag-properties">properties</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2019-11-25</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2019/11/21/86026733/">
+        <h3 class="post-title">Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법</h3>
+        <p class="post-excerpt">  kubernetes상에 동작하는 application에 대한 Build 를 위한 pipeline 작성방법에 대하여 알아보도록 하겠습니다. 가정사항 다음과 같은 상황을 가정하고 Pipeline을 작성할 예정입니다. kubernetes 상에서 Jenkins가 배포되어있고 jenkins slave가 pod로 동작되며 job완료시 Termination React을 사용하여 build 되는 환경 maven으로 package되며 war 파일 생성 Dockerfile을 통해 Docker build 가능 INFO 해당 pipeline은 scripted 방식으로 작성되었습니다. 이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다. ( https://issues.jenkins-ci.org/browse/JENKINS-48421 ) Pipeline 작성법 우선 첫째로 kubernetes 상에서 jenkins slave를 pod 형태로 띄우기...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-kubernetes">kubernetes</a>
+        
+            <a class="tag tag-jenkinsfile">jenkinsfile</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2019-11-21</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2019/11/05/86022870/">
+        <h3 class="post-title">Containerized application을 Bamboo docker task를 이용하여 빌드하기</h3>
+        <p class="post-excerpt">  소개 Bamboo task중 Docker task를 이용하여 Docker build 부터 Docker push를 통한 Docker Hub에 등록하는 과정까지를 알아보도록 하겠습니다. 사전준비 Spring boot application을 sample로 하여 war로 package된 application을 대상으로 진행합니다. 하여 아래와 같은 상황을 가정합니다. spring-boot 를 이용한 web application 이 war로 build되도록. Dockerfile에 해당 war가 tomcat image를 통해 구동되도록(좀더 쉽게 spring batch로 실행하여도 무방) Sample은 다음 repository에서 확인해볼수 있습니다. https://git.osci.kr/projects/JBPRJ/repos/samplejavadocker/browse 사용법 사전준비사항에서 언급된 docker image 준비가 완료되면 Dockerfile을 해당 repository에 함께 push한후 Docker task 추가를...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-bamboo">bamboo</a>
+        
+            <a class="tag tag-containerized">containerized</a>
+        
+            <a class="tag tag-containerizedapplication">containerizedapplication</a>
+        
+            <a class="tag tag-bamboodocker">bamboodocker</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2019-11-05</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+            
+                
+            
+                
+                    <li class="post-item post ">
+    <a href="/2019/10/19/86017664/">
+        <h3 class="post-title">Bitbucket으로 관리되는 Bamboo task script 사용하기</h3>
+        <p class="post-excerpt">  Bamboo를 사용하다보면 build plan 및 deployment 에서 script task를 자주 사용하게 됩니다. 해당 script task를 자주 사용하다보면 각 Build Plan 혹은 Deployment에 중복된 script이 추가되는 경우도 있고 향후 관리가 어려워져 이를 저장소를 이용하여 관리하면 어떨까 하는 생각이 들게 됩니다. 하여 Bitbucket을 통해 관리하고 업데이트하는 방법에 대해 알아보고자 합니다. 간단하게 설명하자면 먼저 Bamboo script 작성한후 이를 Bitbucket(git) Repository에 등록하고 등록된 repository를 bamboo plan 및 deployment가 실행될때마다 불러와 실행하게 합니다. 이와 같이 수행하게되면 각 build plan 및 deployment에...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-아틀라시안팀">아틀라시안팀</a>
+        
+            <a class="tag tag-atlassian">atlassian</a>
+        
+            <a class="tag tag-bamboo">bamboo</a>
+        
+            <a class="tag tag-bash">bash</a>
+        
+            <a class="tag tag-script">script</a>
+        
+            <a class="tag tag-variables">variables</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2019-10-19</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+        <ul id="pagination" role="navigation">
+    
+</ul>
+
+    </div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

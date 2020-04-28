@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Spinnaker에서 Judgement를 활용한 Rollback 사용해보기</title>
+<meta name="title" content="Spinnaker에서 Judgement를 활용한 Rollback 사용해보기" />
+<meta name="author" content="jacobbaek"/>
+<meta name="description" content="Spinnaker에서 Judgement stage를 활용하여 Rollback을 수행했던 내용에 대하여 알아보도록 하겠습니다. 우선 기존 deploy 방식에 대하여 간단히 알아보겠습니다. Application 배포는 다음과 같은 Deploy(Manifest) stage 구성으로 진행됩니다. 배포 전략은 Red/Black 방식을 사용하여 새로운 Replicaset이 배포되면 기존 Replicaset은 disable 되도록 하였습니다. 위 배포가 진행된 이후 Rollback과 Rollout 선택을 통해 배포를 그대로 진행할지 결정하도록 하였고 그에 따라 Rollback 후 delete가 될지 Rollout 그대로 진행후 오래된 ReplicaSet을 disable 할지 결정하게 됩니다. Judgement stage 를 사용하여 분기시키기 앞서 설명하였던 "Manual Judgement"..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Spinnaker에서 Judgement를 활용한 Rollback 사용해보기"/>
+<meta property="og:description" content="Spinnaker에서 Judgement stage를 활용하여 Rollback을 수행했던 내용에 대하여 알아보도록 하겠습니다. 우선 기존 deploy 방식에 대하여 간단히 알아보겠습니다. Application 배포는 다음과 같은 Deploy(Manifest) stage 구성으로 진행됩니다. 배포 전략은 Red/Black 방식을 사용하여 새로운 Replicaset이 배포되면 기존 Replicaset은 disable 되도록 하였습니다. 위 배포가 진행된 이후 Rollback과 Rollout 선택을 통해 배포를 그대로 진행할지 결정하도록 하였고 그에 따라 Rollback 후 delete가 될지 Rollout 그대로 진행후 오래된 ReplicaSet을 disable 할지 결정하게 됩니다. Judgement stage 를 사용하여 분기시키기 앞서 설명하였던 "Manual Judgement"..."/>
+<meta property="og:url" content="https://tech.osci.kr/2019/12/06/86030002/"/>
+<meta property="og:image" content="/assets/images/86030002/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Spinnaker에서 Judgement를 활용한 Rollback 사용해보기"/>
+<meta name="twitter:description" content="Spinnaker에서 Judgement stage를 활용하여 Rollback을 수행했던 내용에 대하여 알아보도록 하겠습니다. 우선 기존 deploy 방식에 대하여 간단히 알아보겠습니다. Application 배포는 다음과 같은 Deploy(Manifest) stage 구성으로 진행됩니다. 배포 전략은 Red/Black 방식을 사용하여 새로운 Replicaset이 배포되면 기존 Replicaset은 disable 되도록 하였습니다. 위 배포가 진행된 이후 Rollback과 Rollout 선택을 통해 배포를 그대로 진행할지 결정하도록 하였고 그에 따라 Rollback 후 delete가 될지 Rollout 그대로 진행후 오래된 ReplicaSet을 disable 할지 결정하게 됩니다. Judgement stage 를 사용하여 분기시키기 앞서 설명하였던 "Manual Judgement"..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="jacobbaek"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/86030002/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="spinnaker,rollback,kubernetes,judgement,stage"/>
+
+<meta property="article:tag" content="spinnaker"/>
+
+<meta property="article:tag" content="rollback"/>
+
+<meta property="article:tag" content="kubernetes"/>
+
+<meta property="article:tag" content="judgement"/>
+
+<meta property="article:tag" content="stage"/>
+
+
+
+<meta property="article:published_time" content="2019-12-06T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/jacobbaek"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2019/12/06/86030002/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/86030002/0.png);">
+    <div>
+        <h1>Spinnaker에서 Judgement를 활용한 Rollback 사용해보기</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                spinnaker
+                ,
+            
+                rollback
+                ,
+            
+                kubernetes
+                ,
+            
+                judgement
+                ,
+            
+                stage
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p class="auto-cursor-target">
+ Spinnaker에서 Judgement stage를 활용하여 Rollback을 수행했던 내용에 대하여 알아보도록 하겠습니다.
+</p>
+<p class="auto-cursor-target">
+ 우선 기존 deploy 방식에 대하여 간단히 알아보겠습니다.
+</p>
+<p class="auto-cursor-target">
+ Application 배포는 다음과 같은 Deploy(Manifest) stage 구성으로 진행됩니다.
+</p>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/0.png"/>
+ </span>
+</p>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/1.png"/>
+ </span>
+</p>
+<p class="auto-cursor-target">
+ 배포 전략은 Red/Black 방식을 사용하여 새로운 Replicaset이 배포되면 기존 Replicaset은 disable 되도록 하였습니다.
+</p>
+<p class="auto-cursor-target">
+ 위 배포가 진행된 이후 Rollback과 Rollout 선택을 통해 배포를 그대로 진행할지 결정하도록 하였고 그에 따라 Rollback 후 delete가 될지
+</p>
+<p class="auto-cursor-target">
+ Rollout 그대로 진행후 오래된 ReplicaSet을 disable 할지 결정하게 됩니다.
+</p>
+<h2 id="Spinnaker에서Judgement를활용한Rollback사용해보기-Judgementstage를사용하여분기시키기">
+ Judgement stage 를 사용하여 분기시키기
+</h2>
+<h2 id='Spinnaker에서Judgement를활용한Rollback사용해보기-앞서설명하였던"ManualJudgement"stage를사용한분기방식에대하여알아보도록하겠습니다.'>
+ <span style="color: rgb(23,43,77);font-size: 14.0px;letter-spacing: 0.0px;">
+  앞서 설명하였던 "Manual Judgement" stage를 사용한 분기 방식에 대하여 알아보도록 하겠습니다.
+ </span>
+</h2>
+<p>
+ 먼저 Manual Judgement stage를 아래와 같이 Approval 이라는 이름과 함께 Option에 "rollout", "rollback"을 추가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/2.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이후 다음 Enable(Manifest) Stage로 선택하여 아래와 같은 Execution Options을 추가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/3.png"/>
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/4.png"/>
+ </span>
+</p>
+<p>
+ 실제 조건은 다음과 같습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">${ #judgement( 'Approval' } == 'rollback' }</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 이후 Delete (Manifest) Stage를 선택하여 아래와 같은 Execution Options을 추가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/5.png"/>
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/6.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 실제 조건은 다음과 같습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">${ #judgement( 'Approval' } == 'rollout' }</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 여기까지는 설정방법이고 실제 동작결과에 대하여 알아보도록 하겠습니다.
+</p>
+<h3 id="Spinnaker에서Judgement를활용한Rollback사용해보기-Rollback">
+ Rollback
+</h3>
+<p>
+ 위 설정에 기반한 Rollback 에 대하여 실제 적용한 결과를 확인해보면 deploy가 실행되고 실제 Application은 다음과 같은 배포가 이루어집니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/7.png"/>
+ </span>
+</p>
+<p>
+ 배포가 되면서 기존 Replicaset은 disable 되고 새로운 Replicaset이 동작하게 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/8.png"/>
+ </span>
+</p>
+<p>
+ Judgement 에서 rollback 을 선택하면
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/9.png"/>
+ </span>
+</p>
+<p>
+ 아래와 같이 Delete(Manifest)는 제외된 상태로 진행이 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/10.png"/>
+ </span>
+</p>
+<p>
+ Cluster를 확인해보면 다음과 같이 새로운 Replicaset이 아닌 기존 동작중이던 Replicaset으로 rollback 되었음을 확인할 수 있습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/11.png"/>
+ </span>
+</p>
+<h3 id="Spinnaker에서Judgement를활용한Rollback사용해보기-NormalRollout">
+ Normal Rollout
+</h3>
+<p>
+ 이번에는 정상적으로 Rollout 된 상황에 대하여 알아보도록 하겠습니다.
+</p>
+<p>
+ deploy가 실행되면 실제 Replicaset은 다음과 같이 배포가 이루어집니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/12.png"/>
+ </span>
+</p>
+<p>
+ Judgement 에서 rollout을 선택하면
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/13.png"/>
+ </span>
+</p>
+<p>
+ 아래와 같이 Delete(Manifest)만 실행되고 나머지는 제외된 상태로 진행이 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/14.png"/>
+ </span>
+</p>
+<p>
+ Cluster를 확인해보면 다음과 같이 새로운 Replicaset이 동작중이고 가장 오래된 Replicaset이 삭제되었음을 확인할 수 있습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86030002/15.png"/>
+ </span>
+</p>
+<h1 id="Spinnaker에서Judgement를활용한Rollback사용해보기-참고사이트">
+ 참고사이트
+</h1>
+<ul>
+ <li>
+  <a class="external-link" href="https://www.spinnaker.io/guides/user/pipeline/expressions/#use-preconditions-to-choose-pipeline-paths" rel="nofollow">
+   https://www.spinnaker.io/guides/user/pipeline/expressions/#use-preconditions-to-choose-pipeline-paths
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://www.spinnaker.io/guides/user/kubernetes-v2/automated-rollbacks/#parameterized-rollbacks" rel="nofollow">
+   https://www.spinnaker.io/guides/user/kubernetes-v2/automated-rollbacks/#parameterized-rollbacks
+  </a>
+ </li>
+ <li>
+  <a class="external-link" href="https://www.spinnaker.io/guides/user/kubernetes-v2/automated-rollbacks/#configure-automated-rollbacks-in-the-kubernetes-provider-v2" rel="nofollow">
+   https://www.spinnaker.io/guides/user/kubernetes-v2/automated-rollbacks/#configure-automated-rollbacks-in-the-kubernetes-provider-v2
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2019/12/06/86030002/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2019/12/06/86030002/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/jacobbaek/">
+            <div id="author-image" style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p id="author-name">jacobbaek</p>
+        </a>
+        <p id="post-date">2019-12-06</p>
+        <a id="post-more" href="/authors/jacobbaek/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/86029411/0.png);">
+            <div>
+                <h3><a href="/2019/12/03/86029411/">Jenkinsfile에서 Nexus 사용을 위한 maven settings.xml 과 npmrc 파일 활용하기</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/86032520/0.png);">
+            <div>
+                <h3><a href="/2019/12/18/86032520/">어서와, AWS re:Invent 2019는 처음이지?</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

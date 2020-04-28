@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Kubernetes1.17 Hard Way using docker,flannel</title>
+<meta name="title" content="Kubernetes1.17 Hard Way using docker,flannel" />
+<meta name="author" content="cyyoon"/>
+<meta name="description" content="Kubernetes1.17 Hard Way (Libvirt) using docker,flannel 해당 문서는 https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/master/docs/01-prerequisites.md , https://veerendra2.github.io/kubernetes-the-hard-way-3/ 를 기반으로 테스트된 문서 입니다. Prerequisites 호스트 서버에서 설정되어 있는 인스턴스는 아래와 같이 배포를 위한 서버기반으로 master 인스턴스3개와 worker 인스턴스 3개로 구성된다. 이중 master 인스턴스틑 worker의 역할과 같이 진행 할 수 있도록 한다. kubernetes 배포를 위한 인증서 및 kubeconfg 파일의 설정은 kube-hard-deploy 호스트에서 진행 된다. master와 woker로 각 설정의 편의를 위하여 kube-hard-deploy 인스턴스에서 ansible로 진행 하도록 한다. /opt/kubernetes 디렉토리를 생성하여 ansible inventory파일을 설정 한다...."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Kubernetes1.17 Hard Way using docker,flannel"/>
+<meta property="og:description" content="Kubernetes1.17 Hard Way (Libvirt) using docker,flannel 해당 문서는 https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/master/docs/01-prerequisites.md , https://veerendra2.github.io/kubernetes-the-hard-way-3/ 를 기반으로 테스트된 문서 입니다. Prerequisites 호스트 서버에서 설정되어 있는 인스턴스는 아래와 같이 배포를 위한 서버기반으로 master 인스턴스3개와 worker 인스턴스 3개로 구성된다. 이중 master 인스턴스틑 worker의 역할과 같이 진행 할 수 있도록 한다. kubernetes 배포를 위한 인증서 및 kubeconfg 파일의 설정은 kube-hard-deploy 호스트에서 진행 된다. master와 woker로 각 설정의 편의를 위하여 kube-hard-deploy 인스턴스에서 ansible로 진행 하도록 한다. /opt/kubernetes 디렉토리를 생성하여 ansible inventory파일을 설정 한다...."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/03/22/91695235/"/>
+<meta property="og:image" content="/assets/images/91695235/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Kubernetes1.17 Hard Way using docker,flannel"/>
+<meta name="twitter:description" content="Kubernetes1.17 Hard Way (Libvirt) using docker,flannel 해당 문서는 https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/master/docs/01-prerequisites.md , https://veerendra2.github.io/kubernetes-the-hard-way-3/ 를 기반으로 테스트된 문서 입니다. Prerequisites 호스트 서버에서 설정되어 있는 인스턴스는 아래와 같이 배포를 위한 서버기반으로 master 인스턴스3개와 worker 인스턴스 3개로 구성된다. 이중 master 인스턴스틑 worker의 역할과 같이 진행 할 수 있도록 한다. kubernetes 배포를 위한 인증서 및 kubeconfg 파일의 설정은 kube-hard-deploy 호스트에서 진행 된다. master와 woker로 각 설정의 편의를 위하여 kube-hard-deploy 인스턴스에서 ansible로 진행 하도록 한다. /opt/kubernetes 디렉토리를 생성하여 ansible inventory파일을 설정 한다...."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="cyyoon"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/91695235/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="kubernetes,flannel"/>
+
+<meta property="article:tag" content="kubernetes"/>
+
+<meta property="article:tag" content="flannel"/>
+
+
+
+<meta property="article:published_time" content="2020-03-22T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/cyyoon"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/03/22/91695235/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/91695235/0.png);">
+    <div>
+        <h1>Kubernetes1.17 Hard Way using docker,flannel</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                kubernetes
+                ,
+            
+                flannel
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <h1>
+  <a href="#kubernetes117-hard-way-libvirt-using-dockerflannel" id="kubernetes117-hard-way-libvirt-using-dockerflannel">
+   Kubernetes1.17 Hard Way (Libvirt) using docker,flannel
+  </a>
+ </h1>
+ <p>
+  해당 문서는
+  <a href="https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/master/docs/01-prerequisites.md">
+   https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/master/docs/01-prerequisites.md
+  </a>
+  ,
+  <a href="https://veerendra2.github.io/kubernetes-the-hard-way-3/">
+   https://veerendra2.github.io/kubernetes-the-hard-way-3/
+  </a>
+  를 기반으로 테스트된 문서 입니다.
+ </p>
+ <h1>
+  <a href="#prerequisites" id="prerequisites">
+   Prerequisites
+  </a>
+ </h1>
+ <p>
+  호스트 서버에서 설정되어 있는 인스턴스는 아래와 같이 배포를 위한 서버기반으로 master 인스턴스3개와 worker 인스턴스 3개로 구성된다.
+ </p>
+ <p>
+  이중 master 인스턴스틑 worker의 역할과 같이 진행 할 수 있도록 한다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91695235/0.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  kubernetes  배포를 위한 인증서 및 kubeconfg 파일의 설정은 kube-hard-deploy 호스트에서 진행 된다.
+ </p>
+ <p>
+  master와 woker로 각 설정의 편의를 위하여 kube-hard-deploy  인스턴스에서 ansible로 진행 하도록 한다.
+ </p>
+ <p>
+  /opt/kubernetes 디렉토리를 생성하여 ansible inventory파일을 설정 한다. 해당 디렉토리에서 인증서 생성 및 kubeconfig 파일을 생성하는 작업을 진행 한다.
+ </p>
+ <pre><code>$ mkdir /opt/kubernetes
+$ cd /opt/kubernetes/
+$ yum install ansible -y
+$ cat &lt;&lt;EOF | tee ansible.cfg
+[defaults]
+forks = 20
+host_key_checking = false
+deprecation_warnings = false
+log_path=/var/log/ansible.log
+EOF
+
+$ cat &lt;&lt;EOF | tee hosts
+[kube_master]
+kube-hard-master001  ansible_host=10.15.10.21
+kube-hard-master002  ansible_host=10.15.10.22
+kube-hard-master003  ansible_host=10.15.10.23
+ 
+[kube_worker]
+kube-hard-worker001  ansible_host=10.15.10.31
+kube-hard-worker002  ansible_host=10.15.10.32
+kube-hard-worker003  ansible_host=10.15.10.33
+ 
+[all:children]
+kube_master
+kube_worker
+
+[all:vars]
+ansible_user=centos
+EOF
+</code></pre>
+ <p>
+  ping module을 이용하여 ansible 으로 ssh 통신이 되는지 확인 한다. 만약, 통신이 안될경우
+  <code>
+   ssh-copy-id
+  </code>
+  명령을 이용하여 key를 복사 한다.
+ </p>
+ <pre><code>$ ansible -i /opt/kubernetes/hosts  -m ping  all
+</code></pre>
+ <h1>
+  <a href="#installing-the-client-tools" id="installing-the-client-tools">
+   Installing the Client Tools
+  </a>
+ </h1>
+ <p>
+  완료하는 데 필요한 명령 줄 유틸리티 인
+  <code>
+   cfssl
+  </code>
+  ,
+  <code>
+   cfssljson
+  </code>
+  및
+  <code>
+   kubectl
+  </code>
+  을 설치한다.
+ </p>
+ <h3>
+  <a href="#install-cfssl" id="install-cfssl">
+   Install CFSSL
+  </a>
+ </h3>
+ <p>
+  <code>
+   cfssl
+  </code>
+  및
+  <code>
+   cfssljson
+  </code>
+  명령 줄 유틸리티는 PKI 인프라를 프로비저닝하고 TLS 인증서를 생성하는 데 사용된다.
+ </p>
+ <p>
+  <code>
+   cfssl
+  </code>
+  및
+  <code>
+   cfssljson
+  </code>
+  다운로드 및 설치:
+ </p>
+ <pre><code>$ cd /opt/kubernetes/
+$ yum install wget -y
+$ wget -q --timestamping \
+   https://storage.googleapis.com/kubernetes-the-hard-way/cfssl/linux/cfssl \
+  https://storage.googleapis.com/kubernetes-the-hard-way/cfssl/linux/cfssljson
+$ ls -al  cfssl*
+-rw-r--r--. 1 root root 20574840 Sep 15  2019 cfssl
+-rw-r--r--. 1 root root 12670032 Sep 15  2019 cfssljson
+$ chmod +x cfssl*
+$ sudo mv cfssl cfssljson /usr/local/bin/
+</code></pre>
+ <h3>
+  <a href="#verification" id="verification">
+   Verification
+  </a>
+ </h3>
+ <p>
+  <code>
+   cfssl
+  </code>
+  및
+  <code>
+   cfssljson
+  </code>
+  버전 1.3.4 이상이 설치되어 있는지 확인한다.
+ </p>
+ <pre><code>$ cfssl version
+Version: 1.3.4
+Revision: dev
+Runtime: go1.13
+
+$ cfssljson --version
+Version: 1.3.4
+Revision: dev
+Runtime: go1.13
+</code></pre>
+ <h3>
+  <a href="#install-kubectl" id="install-kubectl">
+   Install kubectl
+  </a>
+ </h3>
+ <p>
+  <code>
+   kubectl
+  </code>
+  명령 줄 유틸리티는 Kubernetes API Server와 상호 작용하는 데 사용된다. 공식 릴리스 바이너리에서
+  <code>
+   kubectl
+  </code>
+  을 다운로드하여 설치한다.
+ </p>
+ <pre><code>$ wget https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kubectl
+$ chmod +x kubectl
+$ sudo mv kubectl /usr/local/bin/
+</code></pre>
+ <h3>
+  <a href="#verification-1" id="verification-1">
+   Verification
+  </a>
+ </h3>
+ <p>
+  kubectl 버전 1.17.4 이상이 설치 되어 있는지 확인한다.
+ </p>
+ <pre><code>$ kubectl version --client
+Client Version: version.Info{Major:"1", Minor:"17", GitVersion:"v1.17.4", GitCommit:"8d8aa39598534325ad77120c120a22b3a990b5ea", GitTreeState:"clean", BuildDate:"2020-03-12T21:03:42Z", GoVersion:"go1.13.8", Compiler:"gc", Platform:"linux/amd64"}
+</code></pre>
+ <h3>
+  <a href="#load-balancer-service" id="load-balancer-service">
+   Load balancer service
+  </a>
+ </h3>
+ <p>
+  인스턴스에서 HAProxy를 사용하여 로드 밸런서 서비스를 설치하는 방법을 보여준다.
+ </p>
+ <p>
+  Install and configure HAProxy
+ </p>
+ <pre><code>$ sudo su -
+$ yum install -y haproxy
+$ tee /etc/haproxy/haproxy.cfg &lt;&lt; EOF
+global
+    log         127.0.0.1 local2
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     4000
+    user        haproxy
+    group       haproxy
+    daemon
+    stats socket /var/lib/haproxy/stats
+
+defaults
+    log                     global
+    option                  httplog
+    option                  dontlognull
+    option                  http-server-close
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 3000
+
+listen stats :9000
+    stats enable
+    stats realm Haproxy\ Statistics
+    stats uri /haproxy_stats
+    stats auth admin:password
+    stats refresh 30
+    mode http
+
+frontend  main *:6443
+    default_backend mgmt6443
+    option tcplog
+
+backend mgmt6443
+    balance source
+    mode tcp
+    # MASTERS 6443
+    server kube-hard-master001 10.15.10.21:6443 check
+    server kube-hard-master002 10.15.10.22:6443 check
+    server kube-hard-master003 10.15.10.23:6443 check
+EOF
+</code></pre>
+ <p>
+  Kubernetes 포트가 6443이므로 selinux 정책을 수정하여 haproxy가 해당 특정 포트에서 청취 할 수 있도록 해야 한다.
+ </p>
+ <pre><code>$ sudo semanage port --add --type http_port_t --proto tcp 6443
+</code></pre>
+ <p>
+  모든 것이 올바르게 구성 되었는지 확인한다.
+ </p>
+ <pre><code>$ haproxy -c -V -f /etc/haproxy/haproxy.cfg
+Configuration file is valid
+</code></pre>
+ <p>
+  구성이 확인되면 서비스를 실행 한다.
+ </p>
+ <pre><code>$ systemctl enable haproxy --now
+Created symlink from /etc/systemd/system/multi-user.target.wants/haproxy.service to /usr/lib/systemd/system/haproxy.service.
+</code></pre>
+ <h2>
+  <a href="#provisioning-a-ca-and-generating-tls-certificates" id="provisioning-a-ca-and-generating-tls-certificates">
+   Provisioning a CA and Generating TLS Certificates
+  </a>
+ </h2>
+ <p>
+  CloudFlare의 PKI 툴킷 인 cfssl을 사용하여 PKI 인프라를 프로비저닝 한 다음이를 사용하여 인증 기관을 부트 스트랩하고 다음 구성 요소에 대한 TLS 인증서를 생성한다.
+ </p>
+ <p>
+  아래의 총 6개의 인증서를 생성 해야 한다.
+ </p>
+ <ul>
+  <li>
+   API 서버에 클러스터 관리자(admin) 인증을 위한 클라이언트 인증서
+  </li>
+  <li>
+   API 서버에서 kubelet과 통신을 위한 클라이언트 인증서
+  </li>
+  <li>
+   컨트롤러 매니저와 API 서버 간의 통신을 위한 클라이언트 인증서/kubeconfig
+  </li>
+  <li>
+   kube-proxy를 위한 클라이언트 인증서
+  </li>
+  <li>
+   스케줄러와 API 서버간 통신을 위한 클라이언트 인증서/kubeconfig
+  </li>
+  <li>
+   API 서버 엔드포인트를 위한 서버 인증서
+  </li>
+ </ul>
+ <h3>
+  <a href="#certificate-authority" id="certificate-authority">
+   Certificate Authority
+  </a>
+ </h3>
+ <p>
+  추가 TLS 인증서를 생성하는 데 사용할 수있는 인증 기관을 제공합니다. CA 구성 파일, 인증서 및 개인 키를 생성한다.
+ </p>
+ <p>
+  CloudFlare의 PKI 툴킷인 cfssl을 사용하여 PKI 인프라를 구축한 다음 이를 사용하여 CA(인증 기관)을 부트스트랩 한다.
+ </p>
+ <p>
+  C : ISO 국가 코드 KR, US, CN, JP (대문자)
+ST : 시,도
+L : 구,군
+O : 기관명, 회사명
+OU : 조직명
+CN : 도메인명, 일반이름. IP 주소는 CN 으로 사용할수 없다
+위 항목은 모두 영문입력을 해야 합니다. 특수문자를 사용하면 안된다.
+ </p>
+ <pre><code>$ 
+{
+cat &gt; ca-config.json &lt;&lt;EOF
+{
+  "signing": {
+    "default": {
+      "expiry": "8760h"
+    },
+    "profiles": {
+      "kubernetes": {
+        "usages": ["signing", "key encipherment", "server auth", "client auth"],
+        "expiry": "8760h"
+      }
+    }
+  }
+}
+EOF
+
+cat &gt; ca-csr.json &lt;&lt;EOF
+{
+  "CN": "Kubernetes",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "KR",
+      "L": "Seoul",
+      "O": "HARD",
+      "OU": "CA",
+      "ST": "Korea"
+    }
+  ]
+}
+EOF
+
+cfssl gencert -initca ca-csr.json | cfssljson -bare ca
+
+}
+</code></pre>
+ <h2>
+  <a href="#client-and-server-certificates" id="client-and-server-certificates">
+   Client and Server Certificates
+  </a>
+ </h2>
+ <p>
+  각 Kubernetes 구성 요소에 대한 클라이언트 및 서버 인증서와 Kubernetes  admin에  대한 클라이언트 인증서를 생성한다.
+ </p>
+ <h3>
+  <a href="#the-admin-client-certificate" id="the-admin-client-certificate">
+   The Admin Client Certificate
+  </a>
+ </h3>
+ <p>
+  API 서버에 클러스터 admin 인증을 위한 클라이언트 인증서 및 개인 키를 생성
+ </p>
+ <pre><code>$
+{
+
+cat &gt; admin-csr.json &lt;&lt;EOF
+{
+  "CN": "admin",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "KR",
+      "L": "Seoul",
+      "O": "system:masters",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Korea"
+    }
+  ]
+}
+EOF
+
+cfssl gencert \
+  -ca=ca.pem \
+  -ca-key=ca-key.pem \
+  -config=ca-config.json \
+  -profile=kubernetes \
+  admin-csr.json | cfssljson -bare admin
+
+}
+
+$ ls -al admin.pem
+-rw-r--r--. 1 root root 1407 Mar 21 08:41 admin.pem
+
+$ ls -al admin-key.pem
+-rw-------. 1 root root 1675 Mar 21 08:41 admin-key.pem
+</code></pre>
+ <h3>
+  <a href="#the-kubelet-client-certificates" id="the-kubelet-client-certificates">
+   The Kubelet Client Certificates
+  </a>
+ </h3>
+ <p>
+  Kubernetes는
+  <code>
+   Node Authorizer
+  </code>
+  (
+  <a href="https://kubernetes.io/docs/reference/access-authn-authz/node/">
+   https://kubernetes.io/docs/reference/access-authn-authz/node/
+  </a>
+  )라는 특수 목적의 권한 부여 모드를 사용한다.
+ </p>
+ <p>
+  이 모드는 Kubelets의 API 요청을 구체적으로 승인한다. 노드 인증 자에 의해 권한을 부여하기 위해 Kubelets는 사용자 이름이
+  <code>
+   system:node :&lt;nodeName&gt;
+  </code>
+  인
+  <code>
+   system :nodes
+  </code>
+  그룹에 있는 것으로 식별하는 자격 증명을 사용해야 한다.  노드 권한 부 여자 요구 사항을 충족하는 각 Kubernetes 작업자 노드에 대한 인증서를 만든다.
+ </p>
+ <p>
+  각 Kubernetes 작업자 노드에 대한 인증서 및 개인 키를 생성한다.
+ </p>
+ <pre><code>$ for instance in kube-hard-worker001 kube-hard-worker002 kube-hard-worker003  kube-hard-master003   kube-hard-master002  kube-hard-master001; do
+cat &gt; ${instance}-csr.json &lt;&lt;EOF
+{
+  "CN": "system:node:${instance}",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "KR",
+      "L": "Seoul",
+      "O": "system:nodes",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Korea"
+    }
+  ]
+}
+EOF
+
+NODE_IP=$( cat /etc/hosts| grep ${instance} | awk '{print $1}')
+
+cfssl gencert \
+  -ca=ca.pem \
+  -ca-key=ca-key.pem \
+  -config=ca-config.json \
+  -hostname=${instance},${instance},${NODE_IP} \
+  -profile=kubernetes \
+  ${instance}-csr.json | cfssljson -bare ${instance}
+done
+
+$ ls -al kube-hard-wor ker0*.pem
+-rw-------. 1 root root 1679 Mar 21 08:42 kube-hard-worker001-key.pem
+-rw-r--r--. 1 root root 1525 Mar 21 08:42 kube-hard-worker001.pem
+-rw-------. 1 root root 1679 Mar 21 08:42 kube-hard-worker002-key.pem
+-rw-r--r--. 1 root root 1525 Mar 21 08:42 kube-hard-worker002.pem
+-rw-------. 1 root root 1679 Mar 21 08:42 kube-hard-worker003-key.pem
+-rw-r--r--. 1 root root 1525 Mar 21 08:42 kube-hard-worker003.pem
+</code></pre>
+ <h3>
+  <a href="#the-controller-manager-client-certificate" id="the-controller-manager-client-certificate">
+   The Controller Manager Client Certificate
+  </a>
+ </h3>
+ <p>
+  kube-controller-manager 클라이언트 인증서 및 개인 키를 생성
+ </p>
+ <pre><code>$ {
+
+cat &gt; kube-controller-manager-csr.json &lt;&lt;EOF
+{
+  "CN": "system:kube-controller-manager",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "KR",
+      "L": "Seoul",
+      "O": "system:kube-controller-manager",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Korea"
+    }
+  ]
+}
+EOF
+
+cfssl gencert \
+  -ca=ca.pem \
+  -ca-key=ca-key.pem \
+  -config=ca-config.json \
+  -profile=kubernetes \
+  kube-controller-manager-csr.json | cfssljson -bare kube-controller-manager
+
+}
+
+$ ls -al kube-controller-manage*.pem
+-rw-------. 1 root root 1679 Mar 21 08:43 kube-controller-manager-key.pem
+-rw-r--r--. 1 root root 1464 Mar 21 08:43 kube-controller-manager.pem
+</code></pre>
+ <h3>
+  <a href="#the-kube-proxy-client-certificate" id="the-kube-proxy-client-certificate">
+   The Kube Proxy Client Certificate
+  </a>
+ </h3>
+ <p>
+  kube-proxy 클라이언트 인증서 및 개인 키를 생성
+ </p>
+ <pre><code>$
+{
+
+cat &gt; kube-proxy-csr.json &lt;&lt;EOF
+{
+  "CN": "system:kube-proxy",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "KR",
+      "L": "Seoul",
+      "O": "system:node-proxier",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Korea"
+    }
+  ]
+}
+EOF
+
+cfssl gencert \
+  -ca=ca.pem \
+  -ca-key=ca-key.pem \
+  -config=ca-config.json \
+  -profile=kubernetes \
+  kube-proxy-csr.json | cfssljson -bare kube-proxy
+
+}
+
+$ ls -al kube-proxy*.pem
+-rw-------. 1 root root 1679 Mar 21 08:43 kube-proxy-key.pem
+-rw-r--r--. 1 root root 1432 Mar 21 08:43 kube-proxy.pem
+</code></pre>
+ <h3>
+  <a href="#the-scheduler-client-certificate" id="the-scheduler-client-certificate">
+   The Scheduler Client Certificate
+  </a>
+ </h3>
+ <p>
+  kube-scheduler 클라이언트 인증서 및 개인 키를 생성
+ </p>
+ <pre><code>$
+{
+
+cat &gt; kube-scheduler-csr.json &lt;&lt;EOF
+{
+  "CN": "system:kube-scheduler",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "KR",
+      "L": "Seoul",
+      "O": "system:kube-scheduler",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Korea"
+    }
+  ]
+}
+EOF
+
+cfssl gencert \
+  -ca=ca.pem \
+  -ca-key=ca-key.pem \
+  -config=ca-config.json \
+  -profile=kubernetes \
+  kube-scheduler-csr.json | cfssljson -bare kube-scheduler
+
+}
+
+$ ls -al kube-scheduler*.pem
+-rw-------. 1 root root 1675 Mar 21 08:43 kube-scheduler-key.pem
+-rw-r--r--. 1 root root 1440 Mar 21 08:43 kube-scheduler.pem
+</code></pre>
+ <h3>
+  <a href="#the-kubernetes-api-server-certificate" id="the-kubernetes-api-server-certificate">
+   The Kubernetes API Server Certificate
+  </a>
+ </h3>
+ <p>
+  <code>
+   kubernetes-the-hard-way
+  </code>
+  고정 IP 주소는 Kubernetes API Server 인증서의
+  <code>
+   hostname
+  </code>
+  목록에 포함 된다. 이렇게 하면 원격 클라이언트가 인증서를 확인할 수 있다.
+ </p>
+ <p>
+  Kubernetes API Server 인증서 및 개인 키를 생성한다.
+ </p>
+ <pre><code>$
+{
+
+KUBERNETES_HOSTNAMES=kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.svc.cluster.local
+
+cat &gt; kubernetes-csr.json &lt;&lt;EOF
+{
+  "CN": "kubernetes",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "KR",
+      "L": "Seoul",
+      "O": "Kubernetes",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Korea"
+    }
+  ]
+}
+EOF
+
+cfssl gencert \
+  -ca=ca.pem \
+  -ca-key=ca-key.pem \
+  -config=ca-config.json \
+  -hostname=10.32.0.1,10.15.10.2,10.15.10.21,10.15.10.22,10.15.10.23,${KUBERNETES_BAREMETAL_ADDRESS},127.0.0.1,${KUBERNETES_HOSTNAMES} \
+  -profile=kubernetes \
+  kubernetes-csr.json | cfssljson -bare kubernetes
+
+}
+
+
+$ ls -al kubernetes*.pem
+-rw-------. 1 root root 1675 Mar 21 08:44 kubernetes-key.pem
+-rw-r--r--. 1 root root 1647 Mar 21 08:44 kubernetes.pem
+</code></pre>
+ <p>
+  Kubernetes API 서버에는 kubernetes 내부 dns 이름이 자동으로 할당되며, 이는 컨트롤 플레인 부트 스트랩 실험실에서 내부 클러스터 서비스 용으로 예약 된 주소 범위 (10.32.0.0/24)에서 첫 번째 IP 주소 (10.32.0.1)에 연결된다.
+ </p>
+ <h3>
+  <a href="#the-service-account-key-pair" id="the-service-account-key-pair">
+   The Service Account Key Pair
+  </a>
+ </h3>
+ <p>
+  Kubernetes Controller Manager는 키 페어를 사용하여 서비스 계정 관리 문서(
+  <a href="https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/">
+   https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/
+  </a>
+  ) 에 설명 된대로 서비스 계정 토큰을 생성하고 서명한다.
+ </p>
+ <p>
+  service-account 인증서 및 개인 키를 생성
+ </p>
+ <pre><code>$
+{
+
+cat &gt; service-account-csr.json &lt;&lt;EOF
+{
+  "CN": "service-accounts",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "KR",
+      "L": "Seoul",
+      "O": "Kubernetes",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Korea"
+    }
+  ]
+}
+EOF
+
+cfssl gencert \
+  -ca=ca.pem \
+  -ca-key=ca-key.pem \
+  -config=ca-config.json \
+  -profile=kubernetes \
+  service-account-csr.json | cfssljson -bare service-account
+
+}
+
+$ ls -al service-account*.pem
+-rw-------. 1 root root 1675 Mar 21 08:44 service-account-key.pem
+-rw-r--r--. 1 root root 1419 Mar 21 08:44 service-account.pem
+</code></pre>
+ <h3>
+  <a href="#distribute-the-client-and-server-certificates" id="distribute-the-client-and-server-certificates">
+   Distribute the Client and Server Certificates
+  </a>
+ </h3>
+ <p>
+  적절한 인증서와 개인 키를 각 Worker 인스턴스에 복사한다. (kube-proxy, kube-controller-manager, kube-scheduler 및 kubelet 클라이언트 인증서는  클라이언트 인증 구성 파일을 생성하는 데 사용)
+ </p>
+ <pre><code>$ for node in kube-hard-worker001 kube-hard-worker002 kube-hard-worker003  kube-hard-master002  kube-hard-master001 kube-hard-master003; do
+  	for key in ca.pem ${node}-key.pem ${node}.pem kube-proxy-key.pem kube-proxy.pem; do
+	    	 scp ${key} centos@${node}:~ 
+	  done
+  done
+</code></pre>
+ <p>
+  적절한 인증서 및 개인 키를 각 Controller 인스턴스에 복사한다.
+ </p>
+ <pre><code>$  for node in kube-hard-master001 kube-hard-master003 kube-hard-master002; do 
+  	for key in ca.pem ca-key.pem kubernetes-key.pem kubernetes.pem service-account-key.pem service-account.pem; do 
+		 scp ${key} centos@${node}:~ 
+        done 
+  done
+</code></pre>
+ <h2>
+  <a href="#generating-kubernetes-configuration-files-for-authentication" id="generating-kubernetes-configuration-files-for-authentication">
+   Generating Kubernetes Configuration Files for Authentication
+  </a>
+ </h2>
+ <p>
+  이 실습에서는 Kubernetes configuration files (
+  <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">
+   https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
+  </a>
+  ) 라고도하는 Kubernetes 구성 파일을 생성하여 Kubernetes 클라이언트가 Kubernetes API 서버를 찾고 인증 할 수 있도록 한다.
+ </p>
+ <h3>
+  <a href="#client-authentication-configs" id="client-authentication-configs">
+   Client Authentication Configs
+  </a>
+ </h3>
+ <p>
+  <code>
+   controller manager
+  </code>
+  ,
+  <code>
+   kubelet
+  </code>
+  ,
+  <code>
+   kube-proxy
+  </code>
+  및
+  <code>
+   scheduler
+  </code>
+  클라이언트 및
+  <code>
+   admin
+  </code>
+  을 위한 kubeconfig 파일을 생성한다.
+ </p>
+ <h3>
+  <a href="#kubernetes-public-ip-address" id="kubernetes-public-ip-address">
+   Kubernetes Public IP Address
+  </a>
+ </h3>
+ <p>
+  각 kubeconfig에는 Kubernetes API 서버가 연결되어 있어야 한다. 고 가용성을 지원하기 위해 Kubernetes API 서버 앞에있는로드 밸런서에 할당 된 IP 주소가 사용된다. 로드 밸런서 고정 IP 주소를 검색 한다.
+  <code>
+   KUBERNETES_PUBLIC_ADDRESS
+  </code>
+  는 로드 밸런서 IP 주소로  Kubernetes 클러스터 내부의 모든 인스턴스와 베어 메탈 자체에서 오는 모든 API 요청의 시작점 이라고 할수 있다.
+ </p>
+ <pre><code>$ KUBERNETES_PUBLIC_ADDRESS=10.15.10.2
+</code></pre>
+ <h3>
+  <a href="#the-kubelet-kubernetes-configuration-file" id="the-kubelet-kubernetes-configuration-file">
+   The kubelet Kubernetes Configuration File
+  </a>
+ </h3>
+ <p>
+  Kubelets에 대한 kubeconfig 파일을 생성 할 때 Kubelet의 노드 이름과 일치하는 클라이언트 인증서를 사용해야 한다. 이를 통해 Kuberlet이 Kubernetes Node Authorizer(
+  <a href="https://kubernetes.io/docs/reference/access-authn-authz/node/">
+   https://kubernetes.io/docs/reference/access-authn-authz/node/
+  </a>
+  )에 의해 올바르게 인증된다. ( SSL 인증서를 생성하는 데 사용 된 동일한 디렉토리에서 다음 명령을 실행해야 한다.)
+ </p>
+ <p>
+  각 작업자 노드에 대한 kubeconfig 파일을 생성한다.
+ </p>
+ <pre><code>$ for instance in kube-hard-worker001 kube-hard-worker002 kube-hard-worker003  kube-hard-master002  kube-hard-master001 kube-hard-master003 ; do
+  kubectl config set-cluster kubernetes-the-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://${KUBERNETES_PUBLIC_ADDRESS}:6443 \
+    --kubeconfig=${instance}.kubeconfig
+
+  kubectl config set-credentials system:node:${instance}.${DOMAIN} \
+    --client-certificate=${instance}.pem \
+    --client-key=${instance}-key.pem \
+    --embed-certs=true \
+    --kubeconfig=${instance}.kubeconfig
+
+  kubectl config set-context default \
+    --cluster=kubernetes-the-hard-way \
+    --user=system:node:${instance}.${DOMAIN} \
+    --kubeconfig=${instance}.kubeconfig
+
+  kubectl config use-context default --kubeconfig=${instance}.kubeconfig
+done
+
+$ ls -al kube-hard-worker*.kubeconfig
+-rw-------. 1 root root 6412 Mar 21 08:45 kube-hard-worker001.kubeconfig
+-rw-------. 1 root root 6412 Mar 21 08:45 kube-hard-worker002.kubeconfig
+-rw-------. 1 root root 6412 Mar 21 08:45 kube-hard-worker003.kubeconfig
+</code></pre>
+ <h3>
+  <a href="#the-kube-proxy-kubernetes-configuration-file" id="the-kube-proxy-kubernetes-configuration-file">
+   The kube-proxy Kubernetes Configuration File
+  </a>
+ </h3>
+ <p>
+  kube-proxy 서비스에 대한 kubeconfig 파일을 생성 한다.
+ </p>
+ <pre><code>$ 
+{
+KUBERNETES_PUBLIC_ADDRESS=10.15.10.2
+
+  kubectl config set-cluster kubernetes-the-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://${KUBERNETES_PUBLIC_ADDRESS}:6443 \
+    --kubeconfig=kube-proxy.kubeconfig
+
+  kubectl config set-credentials system:kube-proxy \
+    --client-certificate=kube-proxy.pem \
+    --client-key=kube-proxy-key.pem \
+    --embed-certs=true \
+    --kubeconfig=kube-proxy.kubeconfig
+
+  kubectl config set-context default \
+    --cluster=kubernetes-the-hard-way \
+    --user=system:kube-proxy \
+    --kubeconfig=kube-proxy.kubeconfig
+
+  kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig
+}
+
+$ ls -al kube-proxy.kubeconfig
+-rw-------. 1 root root 6258 Mar 21 08:46 kube-proxy.kubeconfig
+</code></pre>
+ <h3>
+  <a href="#the-kube-controller-manager-kubernetes-configuration-file" id="the-kube-controller-manager-kubernetes-configuration-file">
+   The kube-controller-manager Kubernetes Configuration File
+  </a>
+ </h3>
+ <p>
+  kube-controller-manager 서비스를위한 kubeconfig 파일을 생성
+ </p>
+ <pre><code>$
+{
+  kubectl config set-cluster kubernetes-the-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://127.0.0.1:6443 \
+    --kubeconfig=kube-controller-manager.kubeconfig
+
+  kubectl config set-credentials system:kube-controller-manager \
+    --client-certificate=kube-controller-manager.pem \
+    --client-key=kube-controller-manager-key.pem \
+    --embed-certs=true \
+    --kubeconfig=kube-controller-manager.kubeconfig
+
+  kubectl config set-context default \
+    --cluster=kubernetes-the-hard-way \
+    --user=system:kube-controller-manager \
+    --kubeconfig=kube-controller-manager.kubeconfig
+
+  kubectl config use-context default --kubeconfig=kube-controller-manager.kubeconfig
+}
+
+$ ls -al kube-controller-manager.kubeconfig
+-rw-------. 1 root root 6323 Mar 21 08:46 kube-controller-manager.kubeconfig
+</code></pre>
+ <h3>
+  <a href="#the-kube-scheduler-kubernetes-configuration-file" id="the-kube-scheduler-kubernetes-configuration-file">
+   The kube-scheduler Kubernetes Configuration File
+  </a>
+ </h3>
+ <p>
+  kube-scheduler 서비스에 대한 kubeconfig 파일을 생성
+ </p>
+ <pre><code>$
+{
+  kubectl config set-cluster kubernetes-the-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://127.0.0.1:6443 \
+    --kubeconfig=kube-scheduler.kubeconfig
+
+  kubectl config set-credentials system:kube-scheduler \
+    --client-certificate=kube-scheduler.pem \
+    --client-key=kube-scheduler-key.pem \
+    --embed-certs=true \
+    --kubeconfig=kube-scheduler.kubeconfig
+
+  kubectl config set-context default \
+    --cluster=kubernetes-the-hard-way \
+    --user=system:kube-scheduler \
+    --kubeconfig=kube-scheduler.kubeconfig
+
+  kubectl config use-context default --kubeconfig=kube-scheduler.kubeconfig
+}
+
+
+$ ls -al kube-scheduler.kubeconfig
+-rw-------. 1 root root 6269 Mar 21 08:46 kube-scheduler.kubeconfig
+</code></pre>
+ <h3>
+  <a href="#the-admin-kubernetes-configuration-file" id="the-admin-kubernetes-configuration-file">
+   The admin Kubernetes Configuration File
+  </a>
+ </h3>
+ <p>
+  관리자를위한 kubeconfig 파일을 생성
+ </p>
+ <pre><code>$ {
+  kubectl config set-cluster kubernetes-the-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://127.0.0.1:6443 \
+    --kubeconfig=admin.kubeconfig
+
+  kubectl config set-credentials admin \
+    --client-certificate=admin.pem \
+    --client-key=admin-key.pem \
+    --embed-certs=true \
+    --kubeconfig=admin.kubeconfig
+
+  kubectl config set-context default \
+    --cluster=kubernetes-the-hard-way \
+    --user=admin \
+    --kubeconfig=admin.kubeconfig
+
+  kubectl config use-context default --kubeconfig=admin.kubeconfig
+}
+
+$ ls -al admin.kubeconfig
+-rw-------. 1 root root 6193 Mar 21 08:46 admin.kubeconfig
+</code></pre>
+ <h3>
+  <a href="#distribute-the-kubernetes-configuration-files" id="distribute-the-kubernetes-configuration-files">
+   Distribute the Kubernetes Configuration Files
+  </a>
+ </h3>
+ <p>
+  적절한 kubelet 및 kube-proxy kubeconfig 파일을 각 Woker 인스턴스에 복사
+ </p>
+ <pre><code>$ for node in kube-hard-worker001 kube-hard-worker002 kube-hard-worker003 
+do 
+	 scp ${node}.kubeconfig centos@${node}:~
+	 scp kube-proxy.kubeconfig centos@${node}:~
+done
+</code></pre>
+ <p>
+  적절한 kube-controller-manager 및 kube-scheduler kubeconfig 파일을 각 Controller 인스턴스에 복사
+ </p>
+ <pre><code>$ for node in kube-hard-master001 kube-hard-master002 kube-hard-master003 kube-hard-master002  kube-hard-master001 kube-hard-master003
+ do
+	 for kubeconfig in admin.kubeconfig kube-controller-manager.kubeconfig kube-scheduler.kubeconfig; do 
+		 scp ${kubeconfig} centos@${node}:~
+ 	done 
+done
+</code></pre>
+ <h2>
+  <a href="#generating-the-data-encryption-config-and-key" id="generating-the-data-encryption-config-and-key">
+   Generating the Data Encryption Config and Key
+  </a>
+ </h2>
+ <p>
+  Kubernetes는 클러스터 상태, 응용 프로그램 구성 및 Secret을 포함한 다양한 데이터를 저정한다. Kubernetes는 유휴 클러스터 데이터를 암호화하는 기능을 지원한다.(
+  <a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">
+   https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/
+  </a>
+  )
+ </p>
+ <p>
+  Kubernetes Secrets 암호화에 적합한 암호화 키 및 암호화 구성을 생성합니다.(
+  <a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/#understanding-the-encryption-at-rest-configuration">
+   https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/#understanding-the-encryption-at-rest-configuration
+  </a>
+  )
+ </p>
+ <h3>
+  <a href="#the-encryption-key" id="the-encryption-key">
+   The Encryption Key
+  </a>
+ </h3>
+ <p>
+  암호화 키를 생성
+ </p>
+ <pre><code>$ ENCRYPTION_KEY=$(head -c 32 /dev/urandom | base64)
+$ echo $ENCRYPTION_KEY
+HRF0fAkpGSP762AFx9v0ugveE/v2ikl9Z4AdrLo6/rc=
+</code></pre>
+ <h3>
+  <a href="#the-encryption-config-file" id="the-encryption-config-file">
+   The Encryption Config File
+  </a>
+ </h3>
+ <p>
+  encryption-config.yaml 암호화 구성 파일을 작성
+ </p>
+ <pre><code>$ cat &gt; encryption-config.yaml &lt;&lt;EOF
+kind: EncryptionConfig
+apiVersion: v1
+resources:
+  - resources:
+      - secrets
+    providers:
+      - aescbc:
+          keys:
+            - name: key1
+              secret: ${ENCRYPTION_KEY}
+      - identity: {}
+EOF
+$ ls -al encryption-config.yaml
+-rw-r--r--. 1 root root 240 Mar 21 08:47 encryption-config.yaml
+</code></pre>
+ <p>
+  encryption-config.yaml 암호화 구성 파일을 각 Controller 인스턴스에 복사
+ </p>
+ <pre><code>$ for node in kube-hard-master001 kube-hard-master002 kube-hard-master003; do 
+	 scp encryption-config.yaml centos@$node:~
+  done
+</code></pre>
+ <h2>
+  <a href="#bootstrapping-the-etcd-cluster" id="bootstrapping-the-etcd-cluster">
+   Bootstrapping the etcd Cluster
+  </a>
+ </h2>
+ <p>
+  Kubernetes 구성 요소는 상태 비 저장이며 클러스터 상태를 etcd(
+  <a href="https://github.com/etcd-io/etcd">
+   https://github.com/etcd-io/etcd
+  </a>
+  ) 에 저장한다. etcd는 분산 시스템 또는 시스템 클러스터에서 액세스해야하는 데이터를 안정적으로 저장할 수있는 강력하고 일관된 분산 키-값 저장소 이다. 3 개의 노드 클러스터를 부트 스트랩 하고 고 가용성 및 안전한 원격 액세스를 위해 구성힌다.
+ </p>
+ <h3>
+  <a href="#time-synchronization" id="time-synchronization">
+   Time synchronization
+  </a>
+ </h3>
+ <p>
+  분산 시스템은 구성 요소가 동기화되어 있어야 한다. 그렇기 때문에 인프라의 모든 VM을 따라 시간 동기화를 구성하는 것이 좋다. 이를 위해 CentOS에서 패키지로 제공되는 Ansible 및system roles을 활용할 것이다.
+ </p>
+ <p>
+  먼저  system-role을 설치 한다.
+ </p>
+ <pre><code>$ yum install rhel-system-roles.noarch  -y 
+</code></pre>
+ <p>
+  시간 동기화를 위한 playbook을 작성 한다.
+ </p>
+ <pre><code>$ cat &gt; timesync.yml &lt;&lt;EOF
+
+- hosts: all
+  become: yes
+  vars:
+    timesync_ntp_provider: chrony
+    timesync_ntp_servers:
+      - hostname: pool.ntp.org
+        iburst: yes
+  roles:
+  - rhel-system-roles.timesync
+
+EOF
+
+$ ansible-playbook -i hosts timesync.yml
+</code></pre>
+ <p>
+  Ansible ad-hoc 을 이용하여 시간동기화가 제대로 되었는지 확인 한다.
+ </p>
+ <pre><code>$ ansible -i hosts  all -a "date"
+kube-hard-master001 | CHANGED | rc=0 &gt;&gt;
+Sat Mar 21 17:50:28 KST 2020
+kube-hard-master003 | CHANGED | rc=0 &gt;&gt;
+Sat Mar 21 17:50:16 KST 2020
+kube-hard-worker001 | CHANGED | rc=0 &gt;&gt;
+Sat Mar 21 17:50:15 KST 2020
+kube-hard-worker003 | CHANGED | rc=0 &gt;&gt;
+Sat Mar 21 17:49:59 KST 2020
+kube-hard-worker002 | CHANGED | rc=0 &gt;&gt;
+Sat Mar 21 17:50:02 KST 2020
+kube-hard-master002 | CHANGED | rc=0 &gt;&gt;
+Sat Mar 21 17:50:11 KST 2020
+</code></pre>
+ <h3>
+  <a href="#bootstrapping-an-etcd-cluster-member" id="bootstrapping-an-etcd-cluster-member">
+   Bootstrapping an etcd Cluster Member
+  </a>
+ </h3>
+ <p>
+  모든 master노드에서 사용할 etcd 바이너리 파일을 다운로드하며, etcd에 관련된 바이너리를 각 마스터 노드의 /usr/local/bin/ 로 이동한다.
+ </p>
+ <pre><code>$ wget  https://github.com/etcd-io/etcd/releases/download/v3.4.5/etcd-v3.4.5-linux-amd64.tar.gz
+$ tar zxvf etcd-v3.4.5-linux-amd64.tar.gz  '*/etcd' '*/etcdctl' --transform 's,.*/\+\([^/]*\)$,\1,'
+$ for file in etcd etcdctl; do ansible -i hosts kube_master -m copy -ba "src=$file dest=/usr/local/bin/ owner=root group=root mode=0755"; done
+$ for dir in /etc/etcd /var/lib/etcd; do ansible -i hosts kube-master -m file -ba "path=$dir state=directory"; done
+$ for file in ca.pem kubernetes-key.pem kubernetes.pem
+  do
+    ansible -i hosts kube_master -m copy -ba "src=$file dest=/etc/etcd/ owner=root group=root mode=0600"
+  done
+</code></pre>
+ <p>
+  etcd.service 파일을 각 마스터 노드에 생성 하고 etcd서비스를 실행 한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | tee etcd.service.j2
+[Unit]
+Description=etcd
+Documentation=https://github.com/coreos
+ 
+[Service]
+ExecStart=/usr/local/bin/etcd \\
+  --name  \\
+  --cert-file=/etc/etcd/kubernetes.pem \\
+  --key-file=/etc/etcd/kubernetes-key.pem \\
+  --peer-cert-file=/etc/etcd/kubernetes.pem \\
+  --peer-key-file=/etc/etcd/kubernetes-key.pem \\
+  --trusted-ca-file=/etc/etcd/ca.pem \\
+  --peer-trusted-ca-file=/etc/etcd/ca.pem \\
+  --peer-client-cert-auth \\
+  --client-cert-auth \\
+  --initial-advertise-peer-urls https://:2380 \\
+  --listen-peer-urls https://:2380 \\
+  --listen-client-urls https://:2379,https://127.0.0.1:2379 \\
+  --advertise-client-urls https://:2379 \\
+  --initial-cluster-token etcd-cluster-0 \\
+  --initial-cluster  \\
+  --initial-cluster-state new \\
+  --data-dir=/var/lib/etcd
+Restart=on-failure
+RestartSec=5
+ 
+[Install]
+WantedBy=multi-user.target
+EOF
+ 
+ansible -i hosts kube_master -m template -ba 'src=etcd.service.j2 dest=/etc/systemd/system/etcd.service owner=root group=root mode=0644'
+ansible -i hosts kube_master -m systemd -ba 'name=etcd state=started daemon_reload=yes enabled=yes'
+</code></pre>
+ <p>
+  제대로 맴버가 join되었는지 etcdctl 명령을 이용해서 확인 한다.
+ </p>
+ <pre><code>$ sudo ETCDCTL_API=3 ./etcdctl member list \
+  --endpoints=https://10.15.10.21:2379 \
+  --cacert=ca.pem \
+  --cert=kubernetes.pem \
+  --key=kubernetes-key.pem
+2b127dde7e17ea5d, started, kube-hard-master001, https://10.15.10.21:2380, https://10.15.10.21:2379, false
+3472b03aa4a9e736, started, kube-hard-master003, https://10.15.10.23:2380, https://10.15.10.23:2379, false
+cfbb4a598b8eb8bc, started, kube-hard-master002, https://10.15.10.22:2380, https://10.15.10.22:2379, false
+</code></pre>
+ <h2>
+  <a href="#bootstrapping-the-kubernetes-control-plane" id="bootstrapping-the-kubernetes-control-plane">
+   Bootstrapping the Kubernetes Control Plane
+  </a>
+ </h2>
+ <p>
+  3 개의 컴퓨팅 인스턴스에서 Kubernetes Controller 노드를 을 Bootstrap하고 고 가용성을 위해 구성한다. Kubernetes API 서버를 원격 클라이언트에 노출시키는 이미 프로비저닝 된 로드 밸런서를 사용한다.
+  <code>
+   Kubernetes API ,
+  </code>
+  <code>
+   Scheduler
+  </code>
+  및
+  <code>
+   Controller Manager
+  </code>
+  와 같은 구성 요소가 각 마스터 또는 컨트롤러에 설치 된다
+ </p>
+ <h3>
+  <a href="#prerequisites" id="prerequisites">
+   Prerequisites
+  </a>
+ </h3>
+ <p>
+  모든 마스터 노드에 SELinux를 해제 한다.
+ </p>
+ <pre><code>$ ansible -i hosts kube_master -m selinux -ba "state=disabled"
+</code></pre>
+ <h3>
+  <a href="#download-and-install-the-kubernetes-controller-binaries" id="download-and-install-the-kubernetes-controller-binaries">
+   Download and Install the Kubernetes Controller Binaries
+  </a>
+ </h3>
+ <p>
+  공식 Kubernetes 릴리스 바이너리를 다운로드 한다.
+ </p>
+ <pre><code>$ wget \
+  "https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kube-apiserver" \
+  "https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kube-controller-manager" \
+  "https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kube-scheduler" \
+  "https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kubectl"
+</code></pre>
+ <p>
+  각 마스터 노드에  다운로드 받은 바이너리와 생성한 인증서를 복사한다.
+ </p>
+ <pre><code>$ ansible -i hosts kube_master -m file -ba 'path=/etc/kubernetes/config state=directory'
+$ for file in kube-apiserver kube-controller-manager kube-scheduler kubectl
+  do
+    ansible -i hosts kube_master -m copy -ba "src=$file dest=/usr/local/bin/ owner=root group=root mode=0755"
+  done
+$ for file in encryption-config.yaml ca.pem ca-key.pem kubernetes-key.pem kubernetes.pem service-account-key.pem service-account.pem
+  do
+    ansible -i hosts kube_master  -m copy -ba "src=$file dest=/var/lib/kubernetes/ owner=root group=root mode=0600"
+  done
+</code></pre>
+ <p>
+  kube-apiserver.service 시스템 Unit 파일을 작성하고 마스터 노드에 복사 한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | sudo tee kube-apiserver.service.j2
+[Unit]
+Description=Kubernetes API Server
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+ExecStart=/usr/local/bin/kube-apiserver \\
+  --advertise-address= \\
+  --allow-privileged=true \\
+  --apiserver-count=3 \\
+  --audit-log-maxage=30 \\
+  --audit-log-maxbackup=3 \\
+  --audit-log-maxsize=100 \\
+  --audit-log-path=/var/log/audit.log \\
+  --authorization-mode=Node,RBAC \\
+  --bind-address=0.0.0.0 \\
+  --client-ca-file=/var/lib/kubernetes/ca.pem \\
+  --enable-admission-plugins=NamespaceLifecycle,NodeRestriction,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota \\
+  --etcd-cafile=/var/lib/kubernetes/ca.pem \\
+  --etcd-certfile=/var/lib/kubernetes/kubernetes.pem \\
+  --etcd-keyfile=/var/lib/kubernetes/kubernetes-key.pem \\
+  --etcd-servers= \\
+  --event-ttl=1h \\
+  --encryption-provider-config=/var/lib/kubernetes/encryption-config.yaml \\
+  --kubelet-certificate-authority=/var/lib/kubernetes/ca.pem \\
+  --kubelet-client-certificate=/var/lib/kubernetes/kubernetes.pem \\
+  --kubelet-client-key=/var/lib/kubernetes/kubernetes-key.pem \\
+  --kubelet-https=true \\
+  --service-account-key-file=/var/lib/kubernetes/service-account.pem \\
+  --service-cluster-ip-range=10.32.0.0/24 \\
+  --service-node-port-range=30000-32767 \\
+  --tls-cert-file=/var/lib/kubernetes/kubernetes.pem \\
+  --tls-private-key-file=/var/lib/kubernetes/kubernetes-key.pem \\
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+$ ansible -i hosts kube_master -m template -ba 'src=kube-apiserver.service.j2 dest=/etc/systemd/system/kube-apiserver.service owner=root group=root mode=0644'
+</code></pre>
+ <p>
+  <code>
+   service-cluster-ip-range
+  </code>
+  설정은 서비스 Kubernetes 객체가 수신하는 서비스 네트워크에 할당 된 네트워크 범위를 나타낸다 . 이 네트워크는 내부 Kubernetes 네트워크이다.
+ </p>
+ <h3>
+  <a href="#configure-the-kubernetes-controller-manager" id="configure-the-kubernetes-controller-manager">
+   Configure the Kubernetes Controller Manager
+  </a>
+ </h3>
+ <p>
+  <code>
+   kube-controller-manager.service
+  </code>
+  시스템 Unit  파일을 만들고 마스터 노드로 복사 한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | sudo tee kube-controller-manager.service
+[Unit]
+Description=Kubernetes Controller Manager
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+ExecStart=/usr/local/bin/kube-controller-manager \\
+  --address=0.0.0.0 \\
+  --allocate-node-cidrs=true \\
+  --cluster-cidr=10.200.0.0/16 \\
+  --cluster-name=kubernetes \\
+  --cluster-signing-cert-file=/var/lib/kubernetes/ca.pem \\
+  --cluster-signing-key-file=/var/lib/kubernetes/ca-key.pem \\
+  --kubeconfig=/var/lib/kubernetes/kube-controller-manager.kubeconfig \\
+  --leader-elect=true \\
+  --root-ca-file=/var/lib/kubernetes/ca.pem \\
+  --service-account-private-key-file=/var/lib/kubernetes/service-account-key.pem \\
+  --service-cluster-ip-range=10.32.0.0/24 \\
+  --use-service-account-credentials=true \\
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+$ ansible -i hosts kube_master -m copy -ba 'src=kube-controller-manager.service dest=/etc/systemd/system/ owner=root group=root mode=0644'
+</code></pre>
+ <p>
+  <code>
+   cluster-cidr
+  </code>
+  은 포드가 실행되는 클러스터의 모든 노드에 할당 된 네트워크 범위이다. 실제로 각 노드에는 이 네트워크의 일부가 할당된다. 이 네트워크는 내부 Kubernetes 네트워크이다.
+ </p>
+ <h3>
+  <a href="#configure-the-kubernetes-scheduler" id="configure-the-kubernetes-scheduler">
+   Configure the Kubernetes Scheduler
+  </a>
+ </h3>
+ <p>
+  <code>
+   kube-scheduler.yaml
+  </code>
+  설정 파일을 생성 하고 마스터 노드로 복사 한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | sudo tee kube-scheduler.yaml
+apiVersion: kubescheduler.config.k8s.io/v1alpha1
+kind: KubeSchedulerConfiguration
+clientConnection:
+  kubeconfig: "/var/lib/kubernetes/kube-scheduler.kubeconfig"
+leaderElection:
+  leaderElect: true
+EOF
+
+$ ansible -i  hosts kube_master -m copy -ba 'src=kube-scheduler.yaml dest=/etc/kubernetes/config/ owner=root group=root mode=0644'
+</code></pre>
+ <p>
+  <code>
+   kube-scheduler.service
+  </code>
+  시스템 Unit 파일을 생성 하고 마스터 노드로 복사 한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | sudo tee kube-scheduler.service
+[Unit]
+Description=Kubernetes Scheduler
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+ExecStart=/usr/local/bin/kube-scheduler \\
+  --config=/etc/kubernetes/config/kube-scheduler.yaml \\
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+$ ansible -i  hosts kube_master -m copy -ba 'src=kube-scheduler.service dest=/etc/systemd/system/ owner=root group=root mode=0644'
+</code></pre>
+ <p>
+  kube-controller-manager kube-scheduler 의 kubeconfig  파일을 복사 한다.
+ </p>
+ <pre><code>$ for file in kube-controller-manager kube-scheduler
+do
+ansible -i  hosts kube_master  -m copy -ba "src=${file}.kubeconfig dest=/var/lib/kubernetes/ owner=root group=root mode=0644"
+done
+</code></pre>
+ <h3>
+  <a href="#start-the-controller-services" id="start-the-controller-services">
+   Start the Controller Services
+  </a>
+ </h3>
+ <p>
+  설정한 데몬을 실행 한다.
+ </p>
+ <pre><code>$ for service in kube-apiserver kube-controller-manager kube-scheduler
+do
+ansible -i hosts kube_master -m systemd -ba "name=$service state=started daemon-reload=yes enabled=yes"
+done
+</code></pre>
+ <h3>
+  <a href="#rbac-for-kubelet-authorization" id="rbac-for-kubelet-authorization">
+   RBAC for Kubelet Authorization
+  </a>
+ </h3>
+ <p>
+  Kubernetes API 서버가 각 작업자 노드의 Kubelet API에 액세스 할 수 있도록 RBAC 권한을 구성한다. 포드에서 메트릭, 로그 및 명령을 검색하려면 Kubelet API에 액세스해야 한다.
+ </p>
+ <p>
+  Kubelet --authorization-mode 플래그를 Webhook로 설정한다. 웹 후크 모드는 SubjectAccessReview API를 사용하여 권한을 결정한다.(
+  <a href="https://kubernetes.io/docs/reference/access-authn-authz/authorization/#checking-api-access">
+   https://kubernetes.io/docs/reference/access-authn-authz/authorization/#checking-api-access
+  </a>
+  )
+ </p>
+ <p>
+  Kubelet API에 액세스 할 수있는 권한으로
+  <code>
+   system:kube-apiserver-to-kubelet
+  </code>
+  ClusterRole(
+  <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole">
+   https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole
+  </a>
+  )을 만들고 포드 관리와 관련된 가장 일반적인 작업을 수행한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | kubectl apply --kubeconfig admin.kubeconfig -f -
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:kube-apiserver-to-kubelet
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - nodes/proxy
+      - nodes/stats
+      - nodes/log
+      - nodes/spec
+      - nodes/metrics
+    verbs:
+      - "*"
+EOF
+</code></pre>
+ <p>
+  Kubernetes API 서버는
+  <code>
+   --kubelet-client-certificate
+  </code>
+  플래그로 정의 된 클라이언트 인증서를 사용하여 kubernetes 사용자로 Kubelet에 Kubelet을 인증한다.
+ </p>
+ <p>
+  <code>
+   system:kube-apiserver-to-kubelet
+  </code>
+  를 ClusterRole kubernetes유저로 바인딩 한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | kubectl apply --kubeconfig admin.kubeconfig -f -
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: system:kube-apiserver
+  namespace: ""
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:kube-apiserver-to-kubelet
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: kubernetes
+EOF
+</code></pre>
+ <h3>
+  <a href="#verification-2" id="verification-2">
+   Verification
+  </a>
+ </h3>
+ <p>
+  마지막으로 서비스가 성공적으로 실행되고 있으며 정상 상태인지 확인한다.
+ </p>
+ <pre><code>$ kubectl get componentstatuses --kubeconfig admin.kubeconfig -o yaml | egrep "kind|name|message"
+
+# Output&gt;&gt;
+- message: ok
+  kind: ComponentStatus
+    name: controller-manager
+  - message: ok
+  kind: ComponentStatus
+    name: scheduler
+  - message: '{"health":"true"}'
+  kind: ComponentStatus
+    name: etcd-1
+  - message: '{"health":"true"}'
+  kind: ComponentStatus
+    name: etcd-2
+  - message: '{"health":"true"}'
+  kind: ComponentStatus
+    name: etcd-0
+kind: List
+</code></pre>
+ <p>
+  베어 메탈 노드에서 로드 밸런서가 올바르게 구성되었는지 확인한다.
+ </p>
+ <pre><code>$ KUBERNETES_PUBLIC_ADDRESS=10.15.10.2
+$ curl --cacert ca.pem https://${KUBERNETES_PUBLIC_ADDRESS}:6443/version
+
+curl --cacert ca.pem https://${KUBERNETES_PUBLIC_ADDRESS}:6443/version
+{
+  "major": "1",
+  "minor": "17",
+  "gitVersion": "v1.17.4",
+  "gitCommit": "8d8aa39598534325ad77120c120a22b3a990b5ea",
+  "gitTreeState": "clean",
+  "buildDate": "2020-03-12T20:55:23Z",
+  "goVersion": "go1.13.8",
+  "compiler": "gc",
+  "platform": "linux/amd64"
+</code></pre>
+ <h2>
+  <a href="#bootstrapping-the-kubernetes-worker-nodes" id="bootstrapping-the-kubernetes-worker-nodes">
+   Bootstrapping the Kubernetes Worker Nodes
+  </a>
+ </h2>
+ <p>
+  3 개의 Kubernetes Worker 노드를 부트 스트랩 한다. 다음 구성 요소가 각 노드에 설치된다 : docker, kubelet 및 kube-proxy
+ </p>
+ <h3>
+  <a href="#provisioning-a-kubernetes-worker-node" id="provisioning-a-kubernetes-worker-node">
+   Provisioning a Kubernetes Worker Node
+  </a>
+ </h3>
+ <p>
+  모든 Worker 노드에 OS 종속성패키지를 설치하며, Docker를 설치 한다.
+ </p>
+ <pre><code>$ for package in epel-release socat conntrack ipset wget  vim jq   device-mapper-persistent-data  yum-utils lvm2 ;
+  do 
+    ansible -i hosts  all -b -m yum  -a name=$package ;
+ done 
+
+$ wget https://download.docker.com/linux/centos/docker-ce.repo 
+
+$  ansible -i hosts  all  -b -m copy -a 'src=docker-ce.repo  dest=/etc/yum.repos.d/docker.repo'
+
+$  for docker_package in docker-ce docker-ce-cli containerd.io ;
+  do 
+    ansible -i hosts  all -b -m yum  -a name=$docker_package ;
+ done 
+</code></pre>
+ <h3>
+  <a href="#download-and-install-worker-binaries" id="download-and-install-worker-binaries">
+   Download and Install Worker Binaries
+  </a>
+ </h3>
+ <p>
+  모든 Worker노드에 구성을 위한 바이너리 파일을 다운로드 한다.
+ </p>
+ <pre><code>$ wget \
+https://github.com/containernetworking/plugins/releases/download/v0.8.2/cni-plugins-linux-amd64-v0.8.2.tgz \
+https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kube-proxy \
+https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kubelet
+
+
+$ for dir in  /etc/cni/net.d /opt/cni/bin /var/lib/kubelet /var/lib/kubernetes /var/run/kubernetes /var/lib/kube-proxy; 
+    do 
+      ansible -i hosts all -m file -ba "path=$dir state=directory"; 
+    done
+
+
+$ for file in kubectl kube-proxy kubelet  ; 
+  do 
+     ansible -i hosts all -m copy -ba "src=$file dest=/usr/local/bin/ owner=root group=root mode=0755"; 
+  done
+
+$  ansible -i hosts all -m copy -ba "src=cni-plugins-linux-amd64-v0.8.2.tgz dest=/tmp owner=root group=root mode=0755"; 
+
+$ ansible -i hosts all -m unarchive -ba 'src=/tmp/cni-plugins-linux-amd64-v0.8.2.tgz dest=/opt/cni/bin/ remote_src=yes'
+</code></pre>
+ <h3>
+  <a href="#configure-the-kubelet" id="configure-the-kubelet">
+   Configure the Kubelet
+  </a>
+ </h3>
+ <p>
+  worker 노드 설정을 위한 인증서와 kubeconfig  파일을 복사 한다.
+ </p>
+ <pre><code>$ ansible -i hosts all  -m copy -ba "src=-key.pem dest=/var/lib/kubelet/ owner=root group=root mode=0600"
+$ ansible -i hosts all  -m copy -ba "src=.pem dest=/var/lib/kubelet/ owner=root group=root mode=0600"
+$ ansible -i hosts all  -m copy -ba "src=.kubeconfig dest=/var/lib/kubelet/kubeconfig owner=root group=root mode=0644"
+$ ansible -i hosts all  -m copy -ba "src=ca.pem dest=/var/lib/kubernetes/ owner=root group=root mode=0600"
+</code></pre>
+ <p>
+  <code>
+   kubelet-config.yaml
+  </code>
+  구성 파일을 작성하고 woker노드로 복사한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | sudo tee kubelet-config.yaml.j2
+kind: KubeletConfiguration
+apiVersion: kubelet.config.k8s.io/v1beta1
+authentication:
+  anonymous:
+    enabled: false
+  webhook:
+    enabled: true
+  x509:
+    clientCAFile: "/var/lib/kubernetes/ca.pem"
+authorization:
+  mode: Webhook
+clusterDomain: "cluster.local"
+clusterDNS:
+  - "10.32.0.10"
+resolvConf: "/etc/resolv.conf"
+runtimeRequestTimeout: "15m"
+tlsCertFile: "/var/lib/kubelet/.pem"
+tlsPrivateKeyFile: "/var/lib/kubelet/-key.pem"
+EOF
+
+$ ansible -i hosts all -m template -ba "src=kubelet-config.yaml.j2 dest=/var/lib/kubelet/kubelet-config.yaml owner=root group=root mode=0644"
+</code></pre>
+ <p>
+  <code>
+   resolvConf
+  </code>
+  구성은
+  <code>
+   systemd-resolved
+  </code>
+  를 실행하는 시스템에서 서비스 검색에
+  <code>
+   CoreDNS
+  </code>
+  를 사용할 때 루프를 피하기 위해 사용된다.
+ </p>
+ <p>
+  <code>
+   kubelet.service
+  </code>
+  시스템 Unit 파일을 작성한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | sudo tee kubelet.service
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/kubernetes/kubernetes
+After=containerd.service
+Requires=containerd.service
+
+[Service]
+ExecStart=/usr/local/bin/kubelet \\
+  --config=/var/lib/kubelet/kubelet-config.yaml \\
+  --container-runtime=docker \\
+  --image-pull-progress-deadline=2m \\
+  --kubeconfig=/var/lib/kubelet/kubeconfig \\
+  --network-plugin=cni \\
+  --register-node=true \\
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+$ ansible -i hosts all  -m copy -ba "src=kubelet.service dest=/etc/systemd/system/kubelet.service owner=root group=root mode=0644"
+</code></pre>
+ <h3>
+  <a href="#configure-the-kubernetes-proxy" id="configure-the-kubernetes-proxy">
+   Configure the Kubernetes Proxy
+  </a>
+ </h3>
+ <p>
+  worker 노드 설정을 kubeconfig  파일을 복사 한다.
+ </p>
+ <pre><code>$ ansible -i hosts all  -m copy -ba "src=kube-proxy.kubeconfig  dest=/var/lib/kube-proxy/kubeconfig owner=root group=root mode=0600"
+</code></pre>
+ <p>
+  <code>
+   kube-proxy-config.yaml
+  </code>
+  구성 파일을 작성하고  woker노드로 복사한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | sudo tee kube-proxy-config.yaml
+kind: KubeProxyConfiguration
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+clientConnection:
+  kubeconfig: "/var/lib/kube-proxy/kubeconfig"
+mode: "iptables"
+clusterCIDR: "10.200.0.0/16"
+EOF
+
+$ ansible -i hosts all  -m copy -ba "src=kube-proxy-config.yaml dest=/var/lib/kube-proxy/ owner=root group=root mode=0644"
+</code></pre>
+ <p>
+  <code>
+   kube-proxy.service
+  </code>
+  시스템 Unit 파일을 작성하고  woker노드로 복사한다.
+ </p>
+ <pre><code>$ cat &lt;&lt;EOF | sudo tee kube-proxy.service
+[Unit]
+Description=Kubernetes Kube Proxy
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+ExecStart=/usr/local/bin/kube-proxy \\
+  --config=/var/lib/kube-proxy/kube-proxy-config.yaml
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+$ ansible -i  hosts all -m copy -ba "src=kube-proxy.service dest=/etc/systemd/system/ owner=root group=root mode=0644"
+</code></pre>
+ <h3>
+  <a href="#start-the-worker-services" id="start-the-worker-services">
+   Start the Worker Services
+  </a>
+ </h3>
+ <p>
+  모든 Wokerer노드에서 Worker노드 구동에 필요한 데몬을 실행한다.
+ </p>
+ <pre><code>$ for service in docker kubelet kube-proxy; 
+  do 
+    ansible -i hosts all  -m systemd -ba "name=$service daemon-reload=yes state=started enabled=yes"; 
+  done
+</code></pre>
+ <p>
+  Verification
+ </p>
+ <pre><code>$ kubectl  get nodes -o wide
+NAME                  STATUS     ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION               CONTAINER-RUNTIME
+kube-hard-master001   Ready    &lt;none&gt;   28s   v1.17.4   10.15.10.21   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-master002   Ready    &lt;none&gt;   29s   v1.17.4   10.15.10.22   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-master003   Ready    &lt;none&gt;   28s   v1.17.4   10.15.10.23   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-worker001   Ready    &lt;none&gt;   34m   v1.17.4   10.15.10.31   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-worker002   Ready    &lt;none&gt;   34m   v1.17.4   10.15.10.32   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-worker003   Ready    &lt;none&gt;   34m   v1.17.4   10.15.10.33   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+</code></pre>
+ <h2>
+  <a href="#configuring-kubectl-for-remote-access" id="configuring-kubectl-for-remote-access">
+   Configuring kubectl for Remote Access
+  </a>
+ </h2>
+ <p>
+  kube-hard-deploy 인스턴스에서 로드밸런서 역할을 하는 haproxy로 클라이언트 요청을 보낼 context를 설정 한다.
+ </p>
+ <pre><code>$ KUBERNETES_PUBLIC_ADDRESS=10.15.10.2
+
+  kubectl config set-cluster kubernetes-the-hard-way \
+    --certificate-authority=ca.pem \
+    --embed-certs=true \
+    --server=https://${KUBERNETES_PUBLIC_ADDRESS}:6443
+
+  kubectl config set-credentials admin \
+    --client-certificate=admin.pem \
+    --client-key=admin-key.pem
+
+  kubectl config set-context kubernetes-the-hard-way \
+    --cluster=kubernetes-the-hard-way \
+    --user=admin
+
+  kubectl config use-context kubernetes-the-hard-way
+</code></pre>
+ <p>
+  kube-hard-deploy 인스턴스에서 kubectl  클라이언트를 이용하여 클러스터의 상태를 확인 한다.
+ </p>
+ <pre><code>$ kubectl get componentstatuses -o yaml | egrep "name:|kind:|message:"
+  - message: ok
+  kind: ComponentStatus
+    name: controller-manager
+  - message: '{"health":"true"}'
+  kind: ComponentStatus
+    name: etcd-1
+  - message: '{"health":"true"}'
+  kind: ComponentStatus
+    name: etcd-2
+  - message: '{"health":"true"}'
+  kind: ComponentStatus
+    name: etcd-0
+kind: List
+
+$ kubectl  get nodes -o wide
+NAME                  STATUS     ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION               CONTAINER-RUNTIME
+kube-hard-master001   Ready    &lt;none&gt;   28s   v1.17.4   10.15.10.21   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-master002   Ready    &lt;none&gt;   29s   v1.17.4   10.15.10.22   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-master003   Ready    &lt;none&gt;   28s   v1.17.4   10.15.10.23   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-worker001   Ready    &lt;none&gt;   34m   v1.17.4   10.15.10.31   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-worker002   Ready    &lt;none&gt;   34m   v1.17.4   10.15.10.32   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+kube-hard-worker003   Ready    &lt;none&gt;   34m   v1.17.4   10.15.10.33   &lt;none&gt;        CentOS Linux 7 (Core)   3.10.0-957.27.2.el7.x86_64   docker://19.3.8
+</code></pre>
+ <h2>
+  <a href="#provisioning-pod-network-routes" id="provisioning-pod-network-routes">
+   Provisioning Pod Network Routes
+  </a>
+ </h2>
+ <p>
+  모든 워커 노드에서 IP forwarding 활성화 및 Forward 체인에 대하여 허용하는 iptables 룰을 추가 한다.
+ </p>
+ <pre><code>$ ansible -i hosts all  -m sysctl -ba 'name=net.ipv4.conf.all.forwarding value=1'
+$ ansible -i hosts all -m iptables -ba 'chain=FORWARD jump=ACCEPT'
+</code></pre>
+ <h3>
+  <a href="#deploying-flannel" id="deploying-flannel">
+   Deploying Flannel
+  </a>
+ </h3>
+ <p>
+  CNI로 사용할 Flannel을 배포한다.
+ </p>
+ <pre><code>$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</code></pre>
+ <p>
+  배포된 Flannel은 데몬셋으로 모든 worker노드에 Pod로 올라온다.
+ </p>
+ <pre><code>$ kubectl  get pod -n kube-system -o wide
+NAME                          READY   STATUS    RESTARTS   AGE   IP            NODE                  NOMINATED NODE   READINESS GATES
+kube-flannel-ds-amd64-82jjr   1/1     Running   0          44s   10.15.10.23   kube-hard-master003   &lt;none&gt;           &lt;none&gt;
+kube-flannel-ds-amd64-hdd56   1/1     Running   0          44s   10.15.10.21   kube-hard-master001   &lt;none&gt;           &lt;none&gt;
+kube-flannel-ds-amd64-nzd9b   1/1     Running   0          29m   10.15.10.32   kube-hard-worker002   &lt;none&gt;           &lt;none&gt;
+kube-flannel-ds-amd64-rxw7l   1/1     Running   0          44s   10.15.10.22   kube-hard-master002   &lt;none&gt;           &lt;none&gt;
+kube-flannel-ds-amd64-vgftw   1/1     Running   0          29m   10.15.10.33   kube-hard-worker003   &lt;none&gt;           &lt;none&gt;
+kube-flannel-ds-amd64-vzdf5   1/1     Running   0          29m   10.15.10.31   kube-hard-worker001   &lt;none&gt;           &lt;none&gt;
+</code></pre>
+ <p>
+  테스트를 위하여 nginx pod를 모든 wokre노드로 배포 하며, busybox를 통하여 서로 다른 노드간 통신이 되는지 확인 한다.
+ </p>
+ <pre><code>$ cat &lt;&lt; EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  selector:
+    matchLabels:
+      run: nginx
+  replicas: 6
+  template:
+    metadata:
+      labels:
+        run: nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+EOF
+
+$ kubectl expose deployment/nginx
+$ kubectl run busybox --image=odise/busybox-curl --command -- sleep 3600
+$ POD_NAME=$(kubectl get pods -l run=busybox -o jsonpath="{.items[0].metadata.name}")
+$ kubectl get ep nginxkubectl get ep nginx
+NAME    ENDPOINTS                                               AGE
+nginx   10.200.0.2:80,10.200.1.2:80,10.200.2.2:80 + 3 more...   36m kubectl exec $POD_NAME -- curl &lt;first nginx pod IP address&gt;
+
+$ kubectl  get pod -o wide
+NAME                      READY   STATUS    RESTARTS   AGE     IP           NODE                  NOMINATED NODE   READINESS GATES
+busybox                   1/1     Running   0          7m22s   10.200.5.2   kube-hard-master003   &lt;none&gt;           &lt;none&gt;
+busybox-9689b649d-sdbqp   1/1     Running   0          37m     10.200.0.3   kube-hard-worker001   &lt;none&gt;           &lt;none&gt;
+nginx-776b7c6897-59tkb    1/1     Running   0          37m     10.200.2.2   kube-hard-worker002   &lt;none&gt;           &lt;none&gt;
+nginx-776b7c6897-frs8s    1/1     Running   0          85s     10.200.5.3   kube-hard-master003   &lt;none&gt;           &lt;none&gt;
+nginx-776b7c6897-kbw89    1/1     Running   0          37m     10.200.0.2   kube-hard-worker001   &lt;none&gt;           &lt;none&gt;
+nginx-776b7c6897-l2hsr    1/1     Running   0          85s     10.200.4.3   kube-hard-master001   &lt;none&gt;           &lt;none&gt;
+nginx-776b7c6897-mqqcv    1/1     Running   0          85s     10.200.3.3   kube-hard-master002   &lt;none&gt;           &lt;none&gt;
+nginx-776b7c6897-pfrcp    1/1     Running   0          37m     10.200.1.2   kube-hard-worker003   &lt;none&gt;           &lt;none&gt;
+
+$ kubectl exec $POD_NAME -- curl &lt;각 nginx pod ip &gt;
+</code></pre>
+ <h2>
+  <a href="#deploying-the-dns-cluster-add-on" id="deploying-the-dns-cluster-add-on">
+   Deploying the DNS Cluster Add-on
+  </a>
+ </h2>
+ <p>
+  Kubernetes 클러스터 내에서 실행되는 응용 프로그램에 DNS 기반 서비스 검색을 제공하는 DNS 애드온을 배포한다.
+ </p>
+ <h3>
+  <a href="#the-dns-cluster-add-on" id="the-dns-cluster-add-on">
+   The DNS Cluster Add-on
+  </a>
+ </h3>
+ <p>
+  coredns 서비시를 배포 한다.
+ </p>
+ <pre><code>$ kubectl apply -f https://raw.githubusercontent.com/e-minguez/kubernetes-the-hard-way-osp/master/deployments/coredns.yaml
+</code></pre>
+ <p>
+  coredns pod를 확인할 수 있다.
+ </p>
+ <pre><code>$ kubectl get pods -l k8s-app=kube-dns -n kube-system -o wide
+NAME                       READY   STATUS    RESTARTS   AGE   IP           NODE                  NOMINATED NODE   READINESS GATES
+coredns-68567cdb47-bkzsq   1/1     Running   0          87s   10.200.4.2   kube-hard-master001   &lt;none&gt;           &lt;none&gt;
+coredns-68567cdb47-cc2xn   1/1     Running   0          87s   10.200.3.2   kube-hard-master002   &lt;none&gt;           &lt;none&gt;
+</code></pre>
+ <h3>
+  <a href="#verification-3" id="verification-3">
+   Verification
+  </a>
+ </h3>
+ <p>
+  확인하기 위하여 간단한 busybox를 배포한다.
+ </p>
+ <pre><code>$ kubectl run --generator=run-pod/v1 busybox --image=busybox:1.28 --command -- sleep 3600
+</code></pre>
+ <p>
+  busybox 컨테이너에서 kuberntes 도메인에 대하여 질의 되는 것을 확인한다.
+ </p>
+ <pre><code>$ kubectl exec -ti busybox -- nslookup kubernetes
+Server:    10.32.0.10
+Address 1: 10.32.0.10 kube-dns.kube-system.svc.cluster.local
+
+Name:      kubernetes
+Address 1: 10.32.0.1 kubernetes.default.svc.cluster.local
+</code></pre>
+ <p>
+  만약 아래와 같은 응답이 안오는 현상이 있을경우
+ </p>
+ <pre><code>$ kubectl exec -ti busybox -- nslookup kubernetes
+Server:    10.32.0.10
+Address 1: 10.32.0.10
+
+nslookup: can't resolve 'kubernetes'
+command terminated with exit code 1
+</code></pre>
+ <p>
+  각 모든 worker 노드에서
+  <code>
+   br_netfilter
+  </code>
+  설정을 확인 해보자
+ </p>
+ <p>
+  <a href="https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/a78d056e67f580f33097dcdf4a462f388c6a2f05/docs/12-dns-addon.md">
+   https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/a78d056e67f580f33097dcdf4a462f388c6a2f05/docs/12-dns-addon.md
+  </a>
+ </p>
+ <pre><code>$  ansible -i hosts kube_worker -m modprobe -ba 'name=br_netfilter state=present'
+</code></pre>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/03/22/91695235/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/03/22/91695235/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/cyyoon/">
+            <div id="author-image" style="background-image:url(/files/authors/cyyoon.jpg);">
+                <span class="sr-only">cyyoon's profile image</span>
+            </div>
+            <p id="author-name">cyyoon</p>
+        </a>
+        <p id="post-date">2020-03-22</p>
+        <a id="post-more" href="/authors/cyyoon/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/91693588/0.png);">
+            <div>
+                <h3><a href="/2020/03/17/91693588/">Jenkins에서 anchore를 이용한 docker image scanning</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/91695884/0.png);">
+            <div>
+                <h3><a href="/2020/03/23/91695884/">[Container 시리즈] 03. Docker File, Docker Image - 도커파일 및 이미지에 대하여</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

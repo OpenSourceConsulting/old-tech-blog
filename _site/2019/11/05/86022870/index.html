@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Containerized application을 Bamboo docker task를 이용하여 빌드하기</title>
+<meta name="title" content="Containerized application을 Bamboo docker task를 이용하여 빌드하기" />
+<meta name="author" content="jacobbaek"/>
+<meta name="description" content="소개 Bamboo task중 Docker task를 이용하여 Docker build 부터 Docker push를 통한 Docker Hub에 등록하는 과정까지를 알아보도록 하겠습니다. 사전준비 Spring boot application을 sample로 하여 war로 package된 application을 대상으로 진행합니다. 하여 아래와 같은 상황을 가정합니다. spring-boot 를 이용한 web application 이 war로 build되도록. Dockerfile에 해당 war가 tomcat image를 통해 구동되도록(좀더 쉽게 spring batch로 실행하여도 무방) Sample은 다음 repository에서 확인해볼수 있습니다. https://git.osci.kr/projects/JBPRJ/repos/samplejavadocker/browse 사용법 사전준비사항에서 언급된 docker image 준비가 완료되면 Dockerfile을 해당 repository에 함께 push한후 Docker task 추가를..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Containerized application을 Bamboo docker task를 이용하여 빌드하기"/>
+<meta property="og:description" content="소개 Bamboo task중 Docker task를 이용하여 Docker build 부터 Docker push를 통한 Docker Hub에 등록하는 과정까지를 알아보도록 하겠습니다. 사전준비 Spring boot application을 sample로 하여 war로 package된 application을 대상으로 진행합니다. 하여 아래와 같은 상황을 가정합니다. spring-boot 를 이용한 web application 이 war로 build되도록. Dockerfile에 해당 war가 tomcat image를 통해 구동되도록(좀더 쉽게 spring batch로 실행하여도 무방) Sample은 다음 repository에서 확인해볼수 있습니다. https://git.osci.kr/projects/JBPRJ/repos/samplejavadocker/browse 사용법 사전준비사항에서 언급된 docker image 준비가 완료되면 Dockerfile을 해당 repository에 함께 push한후 Docker task 추가를..."/>
+<meta property="og:url" content="https://tech.osci.kr/2019/11/05/86022870/"/>
+<meta property="og:image" content="/assets/images/86022870/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Containerized application을 Bamboo docker task를 이용하여 빌드하기"/>
+<meta name="twitter:description" content="소개 Bamboo task중 Docker task를 이용하여 Docker build 부터 Docker push를 통한 Docker Hub에 등록하는 과정까지를 알아보도록 하겠습니다. 사전준비 Spring boot application을 sample로 하여 war로 package된 application을 대상으로 진행합니다. 하여 아래와 같은 상황을 가정합니다. spring-boot 를 이용한 web application 이 war로 build되도록. Dockerfile에 해당 war가 tomcat image를 통해 구동되도록(좀더 쉽게 spring batch로 실행하여도 무방) Sample은 다음 repository에서 확인해볼수 있습니다. https://git.osci.kr/projects/JBPRJ/repos/samplejavadocker/browse 사용법 사전준비사항에서 언급된 docker image 준비가 완료되면 Dockerfile을 해당 repository에 함께 push한후 Docker task 추가를..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="jacobbaek"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/86022870/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="bamboo,containerized,containerizedapplication,bamboodocker"/>
+
+<meta property="article:tag" content="bamboo"/>
+
+<meta property="article:tag" content="containerized"/>
+
+<meta property="article:tag" content="containerizedapplication"/>
+
+<meta property="article:tag" content="bamboodocker"/>
+
+
+
+<meta property="article:published_time" content="2019-11-05T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/jacobbaek"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2019/11/05/86022870/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/86022870/0.png);">
+    <div>
+        <h1>Containerized application을 Bamboo docker task를 이용하여 빌드하기</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                bamboo
+                ,
+            
+                containerized
+                ,
+            
+                containerizedapplication
+                ,
+            
+                bamboodocker
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <h1 id="Containerizedapplication을Bamboodockertask를이용하여빌드하기-소개">
+ 소개
+</h1>
+<p>
+ Bamboo task중 Docker task를 이용하여 Docker build 부터 Docker push를 통한 Docker Hub에 등록하는 과정까지를 알아보도록 하겠습니다.
+</p>
+<h1 id="Containerizedapplication을Bamboodockertask를이용하여빌드하기-사전준비">
+ 사전준비
+</h1>
+<p>
+ Spring boot application을 sample로 하여 war로 package된 application을 대상으로 진행합니다.
+</p>
+<p>
+ 하여 아래와 같은 상황을 가정합니다.
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  spring-boot 를 이용한 web application 이 war로 build되도록.
+ </li>
+ <li>
+  Dockerfile에 해당 war가 tomcat image를 통해 구동되도록(좀더 쉽게 spring batch로 실행하여도 무방)
+ </li>
+</ul>
+<p>
+ Sample은 다음 repository에서 확인해볼수 있습니다.
+</p>
+<ul>
+ <li>
+  <a class="external-link" href="https://git.osci.kr/projects/JBPRJ/repos/samplejavadocker/browse" rel="nofollow">
+   https://git.osci.kr/projects/JBPRJ/repos/samplejavadocker/browse
+  </a>
+ </li>
+</ul>
+<h1 id="Containerizedapplication을Bamboodockertask를이용하여빌드하기-사용법">
+ 사용법
+</h1>
+<p>
+ 사전준비사항에서 언급된 docker image 준비가 완료되면 Dockerfile을 해당 repository에 함께 push한후 Docker task 추가를 진행합니다.
+</p>
+<p>
+ 아래와 같이 docker plugin를 task에서 검색하여 task로 추가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86022870/0.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 추가후 아래와 같은 설정화면이 나타나며 아래와 같은 설정을 추가합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86022870/1.png"/>
+ </span>
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  <strong>
+   Build 과정 :
+  </strong>
+  <ul style="list-style-type: square;">
+   <li>
+    Source Code Checkout
+   </li>
+   <li>
+    Maven 3.x
+   </li>
+  </ul>
+ </li>
+ <li>
+  <strong>
+   Containerize 과정 :
+  </strong>
+  <ul style="list-style-type: square;">
+   <li>
+    Docker = Build a Docker image
+   </li>
+   <li>
+    Docker = Push a Docker image to a Docker registry
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ 위와 같이 4가지 방식의 task를 설정하면 docker image build 및 push가 가능합니다.
+</p>
+<p class="auto-cursor-target">
+ 앞서 첨부했던 링크에 있는 Dockerfile 을 참고용으로 첨부합니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># 간단히 설명하자면 tomcat 이미지를 pull 받아와 tomcat내의 webapps directory에 ROOT.war파일로 복사하게 하여 해당 application이 
+# tomcat을 통해 loading되어지게 하는 것이다.
+# 당시 사용되는 demo-0.1.1.war파일의 경우 앞선 build plan에 의해 build 후 생성된 war 파일이다.
+
+FROM tomcat:8.5.47-jdk8-openjdk
+
+MAINTAINER jacobbaek@osci.kr
+
+RUN rm -Rf /usr/local/tomcat/webapps/ROOT
+COPY target/demo-1.0.0.war /usr/local/tomcat/webapps/ROOT.war</pre>
+ </div>
+</div>
+<p>
+ 실제로 인지해야 하는 내용은 Docker task를 사용하는 부분입니다.
+</p>
+<p>
+ 먼저 Docker image build를 수행하는 과정입니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86022870/2.png"/>
+ </span>
+</p>
+<ol>
+ <li>
+  Command 리스트 박스에서 Build a Docker image를 선택
+ </li>
+ <li>
+  또한 Repository에는 실제 namespace와 image name으로 사용될 내용을 작성
+ </li>
+ <li>
+  앞서 source code repository내에 Dockerfile을 작성해두었기에 "user an existing Dockerfile located in the task's working directory"를 선택
+  <br/>
+  만약 Dockerfile을 작성하지 않고 직접 내용을 기입하고자 할 경우 "Specify the Dockerfile contents"를 선택하여 기입
+ </li>
+</ol>
+<p>
+ <br/>
+</p>
+<p>
+ 이후 Dockerhub에 image를 push 하는 작업을 아래와 같이 수행합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86022870/3.png"/>
+ </span>
+</p>
+<ol>
+ <li>
+  Command 리스트 박스에서 Push a Docker image to a Docker registry 를 선택
+ </li>
+ <li>
+  Docker hub를 선택
+  <br/>
+  만약 private 한 registry를 소유하고 있다면 Custom registry를 선택하여 해당 주소를 기입
+ </li>
+ <li>
+  Repository에는 앞서 build 과정에서 입력하였던것과 동일한 namespace와 image name을 기입
+ </li>
+ <li>
+  <p class="auto-cursor-target">
+   마지막으로 Dockerhub의 ID/PW를 기입
+   <br/>
+   실제 내부적으로는 아래와 같은 명령을 통해 인증과정이 수행됩니다.
+  </p>
+  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+   <div class="codeContent panelContent pdl">
+    <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># email의 경우 old docker에서만 기입(최신의 docker가 사용되는 환경이라면 빈칸으로 넘어가야 합니다.)
+docker login -u userid -p password 
+# 이미지 push
+docker push namespace/imagename
+# logout
+docker logout</pre>
+   </div>
+  </div>
+ </li>
+</ol>
+<p>
+ <br/>
+</p>
+<p>
+ 이제 모든 준비작업은 완료되었습니다. build를 수행해보도록 합니다.
+</p>
+<p>
+ build plan 수행후 success가 되게 되면
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86022870/4.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 아래와 같이 samplejavaweb이 dockerhub에 등록됨을 확인할 수 있습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86022870/5.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h1 id="Containerizedapplication을Bamboodockertask를이용하여빌드하기-참고사이트">
+ 참고사이트
+</h1>
+<ul style="list-style-type: square;">
+ <li>
+  <a class="external-link" href="https://confluence.atlassian.com/bamboo/configuring-the-docker-task-in-bamboo-720411254.html" rel="nofollow">
+   https://confluence.atlassian.com/bamboo/configuring-the-docker-task-in-bamboo-720411254.html
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2019/11/05/86022870/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2019/11/05/86022870/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/jacobbaek/">
+            <div id="author-image" style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p id="author-name">jacobbaek</p>
+        </a>
+        <p id="post-date">2019-11-05</p>
+        <a id="post-more" href="/authors/jacobbaek/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/86022417/0.jpeg);">
+            <div>
+                <h3><a href="/2019/11/04/86022417/">오픈소스컨설팅, 애자일 코리아 컨퍼런스 2019에 가다!</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/86026733/0.png);">
+            <div>
+                <h3><a href="/2019/11/21/86026733/">Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

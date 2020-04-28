@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>React 16.7 → 16.11, 무엇이 바뀌었을까?</title>
+<meta name="title" content="React 16.7 → 16.11, 무엇이 바뀌었을까?" />
+<meta name="author" content="eomhy"/>
+<meta name="description" content="회사 제품 Playce WASup 을 리액트 16.7로 만들었습니다. Playce RoRo 를 처음 만들 땐 16.4였는데, 어느새 버저닝이 16.11까지 올라왔습니다. 아직 팀에서 리액트 16.8을 써본 사람이 없는데, 이제 쓰려고 합니다. 5월에 릴리즈된 16.8에서 hook이 나왔고, 2019년 11월에는 16.11까지 나와 있습니다. 16.7로 코딩하던 그대로 16.11에서 하면 안될 테니, 뭐가 달라졌는지 알고 가보려고 합니다. 16.8에서 달라진 점 16.8은 hook이 릴리즈된 업데이트입니다. 16.8에서 hook이 업데이트의 전부는 아니겠지만, hook이 리액트에 있어서 큰 변화인만큼, hook에 대해서만 집중하겠습니다. Hook 먼저, 리액트가 어떻게 훅을..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="React 16.7 → 16.11, 무엇이 바뀌었을까?"/>
+<meta property="og:description" content="회사 제품 Playce WASup 을 리액트 16.7로 만들었습니다. Playce RoRo 를 처음 만들 땐 16.4였는데, 어느새 버저닝이 16.11까지 올라왔습니다. 아직 팀에서 리액트 16.8을 써본 사람이 없는데, 이제 쓰려고 합니다. 5월에 릴리즈된 16.8에서 hook이 나왔고, 2019년 11월에는 16.11까지 나와 있습니다. 16.7로 코딩하던 그대로 16.11에서 하면 안될 테니, 뭐가 달라졌는지 알고 가보려고 합니다. 16.8에서 달라진 점 16.8은 hook이 릴리즈된 업데이트입니다. 16.8에서 hook이 업데이트의 전부는 아니겠지만, hook이 리액트에 있어서 큰 변화인만큼, hook에 대해서만 집중하겠습니다. Hook 먼저, 리액트가 어떻게 훅을..."/>
+<meta property="og:url" content="https://tech.osci.kr/2019/10/29/86020075/"/>
+<meta property="og:image" content="/assets/images/86020075/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="React 16.7 → 16.11, 무엇이 바뀌었을까?"/>
+<meta name="twitter:description" content="회사 제품 Playce WASup 을 리액트 16.7로 만들었습니다. Playce RoRo 를 처음 만들 땐 16.4였는데, 어느새 버저닝이 16.11까지 올라왔습니다. 아직 팀에서 리액트 16.8을 써본 사람이 없는데, 이제 쓰려고 합니다. 5월에 릴리즈된 16.8에서 hook이 나왔고, 2019년 11월에는 16.11까지 나와 있습니다. 16.7로 코딩하던 그대로 16.11에서 하면 안될 테니, 뭐가 달라졌는지 알고 가보려고 합니다. 16.8에서 달라진 점 16.8은 hook이 릴리즈된 업데이트입니다. 16.8에서 hook이 업데이트의 전부는 아니겠지만, hook이 리액트에 있어서 큰 변화인만큼, hook에 대해서만 집중하겠습니다. Hook 먼저, 리액트가 어떻게 훅을..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="eomhy"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/86020075/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="react,react-hooks"/>
+
+<meta property="article:tag" content="react"/>
+
+<meta property="article:tag" content="react-hooks"/>
+
+
+
+<meta property="article:published_time" content="2019-10-29T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/eomhy"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2019/10/29/86020075/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/86020075/0.png);">
+    <div>
+        <h1>React 16.7 → 16.11, 무엇이 바뀌었을까?</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                react
+                ,
+            
+                react-hooks
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ 회사 제품
+ <a class="external-link" href="http://www.play-ce.io/wasup/" rel="nofollow">
+  Playce WASup
+ </a>
+ 을 리액트 16.7로 만들었습니다.
+ <a class="external-link" href="http://www.play-ce.io/roro/" rel="nofollow">
+  Playce RoRo
+ </a>
+ 를 처음 만들 땐 16.4였는데, 어느새 버저닝이 16.11까지 올라왔습니다.
+</p>
+<p>
+ 아직 팀에서 리액트 16.8을 써본 사람이 없는데, 이제 쓰려고 합니다. 5월에 릴리즈된 16.8에서 hook이 나왔고, 2019년 11월에는 16.11까지 나와 있습니다. 16.7로 코딩하던 그대로 16.11에서 하면 안될 테니, 뭐가 달라졌는지 알고 가보려고 합니다.
+</p>
+<h2 id="React16.7→16.11,무엇이바뀌었을까?-16.8에서달라진점">
+ 16.8에서 달라진 점
+</h2>
+<p>
+ 16.8은 hook이 릴리즈된 업데이트입니다. 16.8에서 hook이 업데이트의 전부는 아니겠지만, hook이 리액트에 있어서 큰 변화인만큼, hook에 대해서만 집중하겠습니다.
+</p>
+<h3 id="React16.7→16.11,무엇이바뀌었을까?-Hook">
+ Hook
+</h3>
+<p>
+ 먼저, 리액트가 어떻게 훅을 소개하는지 살펴볼까요? 리액트는 훅을 아래와 같이 소개합니다:
+</p>
+<p>
+ <strong>
+  클래스를 작성할 필요 없이
+ </strong>
+ 상태와 여러 기능을 사용할 수 있습니다. 클래스는 장황하고, 사람을 혼동시키고, 리액트 컴포넌트는 함수 개념에 더 가깝습니다.
+</p>
+<p>
+ <strong>
+  이미 작성된 코드를 바꿀 필요는 없습니다.
+ </strong>
+ Hook은 선택적으로 사용하면 됩니다. 이전 버전과 호환성을 깨지 않습니다. 리액트에서 클래스를 제거할 계획도 없습니다. Hook을 점진적으로 적용해 나갈 수 있고, 이미 있는 복잡한 클래스 컴포넌트를 리팩토링하는걸 권장하지 않습니다.
+</p>
+<p>
+ <strong>
+  상태 관련 로직을 추상화하기 쉽습니다.
+ </strong>
+ 이전 코드는 고차 컴포넌트(HOC)과 render props 등을 활용하면 되지만, 컴포넌트를 재구성해야 한다는 점과 래퍼 헬(wrapper hell)이 만들어진단 단점이 있습니다.
+</p>
+<blockquote>
+ <p>
+  특히 고차 컴포넌트는 래퍼 헬을 잘 만들기 때문에 저는 몇 번 사용해본 뒤 쓰지 않고 있으며, render props를 더 선호합니다.
+ </p>
+</blockquote>
+<p>
+ <strong>
+  더 이해하기 쉬운 컴포넌트를 만듭니다.
+ </strong>
+ 기존 라이프사이클 메소드는 관련없는 로직이 섞여있습니다. 이를 테면 데이터 가져오기와 이벤트 리스너 등록 등입니다. 이것들이 같은 공간에 있기 때문에 테스트하기에 어렵습니다. 훅을 통해 로직에 기반을 둔 작은 함수로 컴포넌트를 나눌 수 있습니다.
+</p>
+<p>
+ 위 내용은
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-intro.html" rel="nofollow">
+  Hook 소개 – React
+ </a>
+ <span>
+  에서 더 자세히 읽을 수 있습니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 다음으로 리액트 훅에서 사용하는 API들을 알아봤습니다.
+ <code>
+  useState
+ </code>
+ ,
+ <code>
+  useEffect
+ </code>
+ ,
+ <code>
+  useRef
+ </code>
+ ,
+ <code>
+  useContext
+ </code>
+ ,
+ <code>
+  useCallback
+ </code>
+ ,
+ <code>
+  useReducer
+ </code>
+ , ..., 많지만 이것 말도고 더 있습니다. 다만, 이 API들이 제공하는 기능은, 앞서 말했듯이 이미 리액트에 있는 기능들이며, 완전히 새로운 기능이 생기거나 이미 있는 개념을 대체하는 것이 아닙니다. (전체 API는 다음 링크에서 볼 수 있습니다:
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-reference.html" rel="nofollow">
+  Hooks API Reference – React
+ </a>
+ )
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 다음으로 훅 사용 예시를 봅시다. 상태와 이펙트를 사용하는 간단한 훅의 예제를 알아볼 것입니다. 먼저 state hook입니다.
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-overview.html" rel="nofollow">
+  Hook 개요 – React
+ </a>
+ 의
+ <span style="color: rgb(0,0,0);">
+  버튼을 클릭하면 값이 증가하는 간단한 카운터 예시입니다.
+ </span>
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">import React, { useState } from 'react';
+
+function Example() {
+  // "count"라는 새 상태 변수를 선언합니다
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</pre>
+ </div>
+</div>
+<p>
+ 여기서
+ <code class="gatsby-code-text">
+  useState
+ </code>
+ 가 바로 훅입니다. 훅을 호출해서 함수 컴포넌트 안에 상태를 추가했습니다. 자세한 설명은
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-overview.html" rel="nofollow">
+  Hook 개요 – React
+ </a>
+ 를 읽어보면 좋습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 컴포넌트 하나에서 여러
+ <code>
+  useState
+ </code>
+ 를 사용해서 여러개의 상태를 사용할 수도 있습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">function ExampleWithManyStates() {
+  // 상태 변수를 여러 개 선언했습니다!
+  const [age, setAge] = useState(42);
+  const [fruit, setFruit] = useState('banana');
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+  // ...
+}</pre>
+ </div>
+</div>
+<p>
+ 리액트는 매 렌더링마다
+ <code class="gatsby-code-text">
+  useState
+ </code>
+ 가 쓰인 순서대로 실행할 겁니다. 아무래도 차후엔 훅들을 실행하는 순서가 중요한 때가 있을 것 같습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이번에는 effect hook입니다. 사이드 이펙트를 일으킬 때 사용하면 됩니다.
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-overview.html#effect-hook" rel="nofollow">
+  Hook 개요 – React
+ </a>
+ 에선 사이드 이펙트의 예시로
+ <span style="color: rgb(0,0,0);">
+  컴포넌트 안에서 데이터를 가져오거나 구독하고, DOM을 직접 조작하는 작업 등을 들었습니다.
+ </span>
+</p>
+<p>
+ 아래 예시는
+ <span style="color: rgb(0,0,0);">
+  리액트가 DOM을 업데이트한 뒤에 문서의 타이틀을 바꾸는 컴포넌트입니다.
+ </span>
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // componentDidMount, componentDidUpdate와 비슷합니다
+  useEffect(() =&gt; {
+    // 브라우저 API를 이용해 문서의 타이틀을 업데이트합니다
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</pre>
+ </div>
+</div>
+<p>
+ 기본적으로 리액트는 매 렌더링 뒤(DOM을 바꾼 뒤)에, 첫 번째 렌더링도 포함해서, 이펙트를 실행합니다. 이펙트는 컴포넌트 안에 선언 되어있기 때문에, props와 상태에 접근할 수 있습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 훅에 대한 설명은 다음 공식 문서에서 더 읽을 수 있습니다:
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-state.html" rel="nofollow">
+  Using the State Hook – React
+ </a>
+ ,
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-rules.html" rel="nofollow">
+  Hook의 규칙 – React
+ </a>
+ ,
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-effect.html" rel="nofollow">
+  Using the Effect Hook – React
+ </a>
+ . 제 생각엔 여기까지 읽으면 훅을 쓰기 시작해도 될 것 같습니다. 또
+ <a class="external-link" href="https://medium.com/vingle-tech-blog/react-hook-ec3f25c2d8fa" rel="nofollow">
+  About React Hook - Vingle Tech Blog - Medium
+ </a>
+ 그리고
+ <a class="external-link" href="https://hyunseob.github.io/2019/06/02/react-component-the-right-way/" rel="nofollow">
+  컴포넌트 제대로 만들기 | DailyEngineering
+ </a>
+ 는 훅을 공부하기에 아주 좋은 내용이 있는 블로그입니다.
+</p>
+<h2 id="React16.7→16.11,무엇이바뀌었을까?-16.9에서달라진점">
+ 16.9에서 달라진 점
+</h2>
+<blockquote>
+ <p>
+  16.8은 hooks가 추가됐을 뿐이니 사실 당장 hook을 사용하지 않는다면 버전을 올려도 그리 달라져야 할게 많지 않을 것 같지만, 16.9는 deprecations 때문에 오히려 할일이 많을거란 생각이 듭니다.
+ </p>
+</blockquote>
+<p>
+ <a class="external-link" href="https://ko.reactjs.org/blog/2019/08/08/react-v16.9.0.html" rel="nofollow">
+  React v16.9.0 and the Roadmap Update – React Blog
+ </a>
+</p>
+<h3 id="React16.7→16.11,무엇이바뀌었을까?-새로Deprecation한것">
+ 새로 Deprecation 한것
+</h3>
+<h4 id="React16.7→16.11,무엇이바뀌었을까?-리네이밍라이프사이클메서드">
+ 리네이밍 라이프사이클 메서드
+</h4>
+<ul>
+ <li>
+  <code class="gatsby-code-text">
+   componentWillMount
+  </code>
+  <span>
+  </span>
+  →
+  <span>
+  </span>
+  <code class="gatsby-code-text">
+   UNSAFE_componentWillMount
+  </code>
+ </li>
+ <li>
+  <code class="gatsby-code-text">
+   componentWillReceiveProps
+  </code>
+  <span>
+  </span>
+  →
+  <span>
+  </span>
+  <code class="gatsby-code-text">
+   UNSAFE_componentWillReceiveProps
+  </code>
+ </li>
+ <li>
+  <code class="gatsby-code-text">
+   componentWillUpdate
+  </code>
+  <span>
+  </span>
+  →
+  <span>
+  </span>
+  <code class="gatsby-code-text">
+   UNSAFE_componentWillUpdate
+  </code>
+ </li>
+</ul>
+<p>
+ 옛 이름을 쓰면 작동은 하지만, 워닝을 보게 됩니다.
+</p>
+<p>
+ 만일 컴포넌트를 마이그레이션하거나 테스트할 시간이 없다면,
+ <a class="external-link" href="https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb" rel="nofollow">
+  codemod
+ </a>
+ 스크립트로 자동으로 리네임할 수 있습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">cd your_project
+npx react-codemod rename-unsafe-lifecycles</pre>
+ </div>
+</div>
+<p>
+ <em>
+  (Note that it says
+  <span>
+  </span>
+  <code class="gatsby-code-text">
+   npx
+  </code>
+  , not
+  <span>
+  </span>
+  <code class="gatsby-code-text">
+   npm
+  </code>
+  .
+  <span>
+  </span>
+  <code class="gatsby-code-text">
+   npx
+  </code>
+  <span>
+  </span>
+  is a utility that comes with Node 6+ by default.)
+ </em>
+</p>
+<p>
+ <span>
+  codemod를 실행하면 옛날 이름을 바꿉니다.
+ </span>
+ <code class="gatsby-code-text">
+  componentWillMount
+ </code>
+ <span>
+ </span>
+ 같은 옛날 이름을 새 이름인
+ <span>
+ </span>
+ <code class="gatsby-code-text">
+  UNSAFE_componentWillMount
+ </code>
+ 로 바꿉니다. CLI에서 확인 가능합니다.
+</p>
+<h4 id="React16.7→16.11,무엇이바뀌었을까?-Deprecatingjavascript:URLs">
+ <a class="external-link" href="https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls" rel="nofollow">
+  Deprecating
+  <span>
+  </span>
+  <code class="gatsby-code-text">
+   javascript:
+  </code>
+  <span>
+  </span>
+  URLs
+ </a>
+</h4>
+<p>
+ (링크 참조)
+</p>
+<h4 id="React16.7→16.11,무엇이바뀌었을까?-Deprecating“Factory”Components">
+ <a class="external-link" href="https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-factory-components" rel="nofollow">
+  Deprecating “Factory” Components
+ </a>
+</h4>
+<p>
+ (링크 참조)
+</p>
+<h3 id="React16.7→16.11,무엇이바뀌었을까?-새기능">
+ 새 기능
+</h3>
+<h4 id="React16.7→16.11,무엇이바뀌었을까?-테스트를위한asyncact()추가">
+ 테스트를 위한 async
+ <code>
+  act()
+ </code>
+ 추가
+</h4>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {count: 0};
+    this.handleClick = this.handleClick.bind(this);
+  }
+  componentDidMount() {
+    document.title = `You clicked ${this.state.count} times`;
+  }
+  componentDidUpdate() {
+    document.title = `You clicked ${this.state.count} times`;
+  }
+  handleClick() {
+    this.setState(state =&gt; ({
+      count: state.count + 1,
+    }));
+  }
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;p&gt;You clicked {this.state.count} times&lt;/p&gt;
+        &lt;button onClick={this.handleClick}&gt;
+          Click me
+        &lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}</pre>
+ </div>
+</div>
+<p>
+ <span class="auto-cursor-target" style="color: rgb(0,0,0);">
+  위는
+  <code>
+   Counter
+  </code>
+  컴포넌트입니다.
+ </span>
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">import React from 'react';
+import ReactDOM from 'react-dom';
+import { act } from 'react-dom/test-utils';
+import Counter from './Counter';
+
+let container;
+
+beforeEach(() =&gt; {
+  container = document.createElement('div');
+  document.body.appendChild(container);
+});
+
+afterEach(() =&gt; {
+  document.body.removeChild(container);
+  container = null;
+});
+
+it('can render and update a counter', () =&gt; {
+  // 첫 render와 componentDidMount를 테스트
+  act(() =&gt; {
+    ReactDOM.render(&lt;Counter /&gt;, container);
+  });
+  const button = container.querySelector('button');
+  const label = container.querySelector('p');
+  expect(label.textContent).toBe('You clicked 0 times');
+  expect(document.title).toBe('You clicked 0 times');
+
+  // 두 번째 render와 componentDidUpdate를 테스트
+  act(() =&gt; {
+    button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+  });
+  expect(label.textContent).toBe('You clicked 1 times');
+  expect(document.title).toBe('You clicked 1 times');
+});</pre>
+ </div>
+</div>
+<p>
+ <span class="auto-cursor-target" style="color: rgb(0,0,0);">
+  <span style="color: rgb(0,0,0);">
+   <a class="external-link" href="https://ko.reactjs.org/docs/test-utils.html#act" rel="nofollow">
+    이런 방식
+   </a>
+   으로 테스트 할 수 있습니다.
+  </span>
+ </span>
+</p>
+<p>
+ <code>
+  act()
+ </code>
+ 동작 방식에 대한 자세한 내용은
+ <a class="external-link" href="https://ko.reactjs.org/docs/testing-recipes.html" rel="nofollow">
+  Testing Recipes – React
+ </a>
+ 에 예시와 사용법과 함께 포함되어 있습니다.
+</p>
+<h4 id="React16.7→16.11,무엇이바뀌었을까?-퍼포먼스측정을위해&lt;React.Profiler&gt;추가">
+ 퍼포먼스 측정을 위해
+ <span>
+ </span>
+ <code class="gatsby-code-text" style="text-decoration: none;">
+  <a class="external-link" href="https://reactjs.org/docs/profiler.html" rel="nofollow" style="text-decoration: none;">
+   &lt;React.Profiler&gt;
+  </a>
+  추가
+ </code>
+</h4>
+<p>
+ 프로그래머틱하게 측정치를 얻을 수 있습니다.
+</p>
+<p>
+ 프로파일러는 리액트 앱이 얼마나 자주 렌더하는지 그리고 렌더링의 코스트를 측정합니다. 앱이 얼마나 느린지, 그리고
+ <a class="external-link" href="https://ko.reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations" rel="nofollow">
+  메모이즈 등으로 최적화할 때
+ </a>
+ 어떤 이점이 있는지 제공하는게 목적입니다.
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  프로파일러는 리액트 트리 아무데나 추가할 수 있습니다. 두 가지 props가 필요한데 하나는
+  <code>
+   /**
+  </code>
+  <code>
+   @type {string} */ id
+  </code>
+  , 다른 하나는
+  <a class="external-link" href="https://ko.reactjs.org/docs/profiler.html#onrender-callback" rel="nofollow">
+   <code class="gatsby-code-text">
+    <code>
+     /**
+    </code>
+    <code>
+     @function */ o
+    </code>
+    nRender
+   </code>
+   <span>
+    콜백
+   </span>
+  </a>
+  입니다.
+ </span>
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">render(
+  &lt;Profiler id="application" onRender={onRenderCallback}&gt;
+    &lt;App&gt;
+      &lt;Navigation {...props} /&gt;
+      &lt;Main {...props} /&gt;
+    &lt;/App&gt;
+  &lt;/Profiler&gt;
+);</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 나머지 16.9 업데이트는 링크에서 확인합시다:
+ <a class="external-link" href="https://ko.reactjs.org/blog/2019/08/08/react-v16.9.0.html" rel="nofollow">
+  React v16.9.0 and the Roadmap Update – React Blog
+ </a>
+</p>
+<h2 id="React16.7→16.11,무엇이바뀌었을까?-16.10">
+ 16.10
+</h2>
+<p>
+ 리액트 16.8과 16.9는 리액트 블로그에서 무엇이 달라졌나 설명하는 글을 볼 수 있는데, 16.10과 11은 없습니다.
+ <a class="external-link" href="https://github.com/facebook/react/releases" rel="nofollow">
+  깃헙 리포지토리의 리액트 릴리즈
+ </a>
+ 의 16.10과 16.11을 보면 큰 변화는 없다는걸 볼 수 있습니다. 아래는 16.10 설명 중 몇 가지입니다.
+</p>
+<p>
+ <span style="color: rgb(36,41,46);">
+  <a class="external-link" href="https://github.com/facebook/react/pull/16359" rel="nofollow">
+   훅 업데이트가 메모이즈되지 않는 엣지 케이스 수정
+  </a>
+  .
+ </span>
+</p>
+<p>
+ <span style="color: rgb(36,41,46);">
+  <a class="external-link" href="https://github.com/facebook/react/pull/16739" rel="nofollow">
+   언제 hydrate하는지 결정하는 휴리스틱을 수정해서, 업데이트 중에 잘못된 hydrate를 하지 않
+  </a>
+  게 합니다.
+  <code>
+   <a class="external-link" href="https://ko.reactjs.org/docs/react-dom.html#hydrate" rel="nofollow">
+    hydrate()
+   </a>
+  </code>
+  는 서버 사이드 렌더링(SSR)을 하면 사용하는 함수입니다.
+ </span>
+</p>
+<h2 id="React16.7→16.11,무엇이바뀌었을까?-16.11">
+ 16.11
+</h2>
+<p>
+ <a class="external-link" href="https://github.com/facebook/react/pull/16928" rel="nofollow">
+  중첩된 리액트 컨테이너 안에서 mouseenter 핸들러가 두 번 트리거되는걸 수정
+ </a>
+ .
+</p>
+<p>
+ 등이 있습니다.
+</p>
+<h2 id="React16.7→16.11,무엇이바뀌었을까?-마무리">
+ 마무리
+</h2>
+<p>
+ 리액트 프로젝트를 16.7에서 16.11로 업데이트한다면, hook과 profiler를 중점적으로 보면 될 것 같습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86020075/0.png"/>
+ </span>
+</p>
+<p>
+ <a class="external-link" href="https://cdn-media-1.freecodecamp.org/images/1*0MgGEfZfLO91g1Oa2h3ebQ@2x.png" rel="nofollow" style="text-decoration: none;text-align: center;">
+  Image Credits — Free Code Camp
+ </a>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 그리고 글을 쓰는 중에
+ <a class="external-link" href="https://github.com/facebook/react/releases/tag/v16.12.0" rel="nofollow">
+  리액트 16.12
+ </a>
+ 가 나왔는데, 내용은 다음과 같습니다.
+</p>
+<blockquote>
+ <h3 id="React16.7→16.11,무엇이바뀌었을까?-ReactDOM">
+  React DOM
+ </h3>
+ <ul>
+  <li>
+   Fix passive effects (
+   <code>
+    useEffect
+   </code>
+   ) not being fired in a multi-root app. (
+   <a class="external-link" href="https://github.com/acdlite" rel="nofollow" style="text-decoration: none;">
+    @acdlite
+   </a>
+   in
+   <a class="external-link" href="https://github.com/facebook/react/pull/17347" rel="nofollow" style="text-decoration: none;">
+    #17347
+   </a>
+   )
+  </li>
+ </ul>
+ <h3 id="React16.7→16.11,무엇이바뀌었을까?-ReactIs">
+  React Is
+ </h3>
+ <ul>
+  <li>
+   Fix
+   <code>
+    lazy
+   </code>
+   and
+   <code>
+    memo
+   </code>
+   types considered elements instead of components (
+   <a class="external-link" href="https://github.com/bvaughn" rel="nofollow" style="text-decoration: none;">
+    @bvaughn
+   </a>
+   in
+   <a class="external-link" href="https://github.com/facebook/react/pull/17278" rel="nofollow" style="text-decoration: none;">
+    #17278
+   </a>
+   )
+  </li>
+ </ul>
+</blockquote>
+<p>
+ <br/>
+</p>
+<p>
+ <em>
+  엄휘용 | 솔루션개발팀
+ </em>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2019/10/29/86020075/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2019/10/29/86020075/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/eomhy/">
+            <div id="author-image" style="background-image:url(/files/authors/eomhy.jpg);">
+                <span class="sr-only">eomhy's profile image</span>
+            </div>
+            <p id="author-name">eomhy</p>
+        </a>
+        <p id="post-date">2019-10-29</p>
+        <a id="post-more" href="/authors/eomhy/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/86017664/0.png);">
+            <div>
+                <h3><a href="/2019/10/19/86017664/">Bitbucket으로 관리되는 Bamboo task script 사용하기</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/86022417/0.jpeg);">
+            <div>
+                <h3><a href="/2019/11/04/86022417/">오픈소스컨설팅, 애자일 코리아 컨퍼런스 2019에 가다!</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

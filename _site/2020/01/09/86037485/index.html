@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>bitbucket-server manifest 작성방법</title>
+<meta name="title" content="bitbucket-server manifest 작성방법" />
+<meta name="author" content="jacobbaek"/>
+<meta name="description" content="Dockerhub에 가보면 Atlassian에서 제공하는 각 Product에 대한 official Docker image를 공개되어 있습니다. 이전부터 몇몇 Product에 대한 Image는 제공하였으나 모든 제품에 대한 Official Image를 제공하지 않았었고 작년 말경에 Official Image들을 모두 공개하였습니다. 아시다시피 Docker Image를 docker command를 통해 Host상에 동작시킬수도 있지만 Kubernetes와 같은 Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 효율적인 관리가 이루어집니다. 하여 Atlassian 공식이미지를 활용한 Kubernetes Manifest 작성법을 Bitbucket-server의 예제로 알아보고자 합니다. 우선 알아두어야하는 것은 기존 Atlassian 제품 설치방법과 동일하게 License 입력과정이 있기에 서버내에서의..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="bitbucket-server manifest 작성방법"/>
+<meta property="og:description" content="Dockerhub에 가보면 Atlassian에서 제공하는 각 Product에 대한 official Docker image를 공개되어 있습니다. 이전부터 몇몇 Product에 대한 Image는 제공하였으나 모든 제품에 대한 Official Image를 제공하지 않았었고 작년 말경에 Official Image들을 모두 공개하였습니다. 아시다시피 Docker Image를 docker command를 통해 Host상에 동작시킬수도 있지만 Kubernetes와 같은 Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 효율적인 관리가 이루어집니다. 하여 Atlassian 공식이미지를 활용한 Kubernetes Manifest 작성법을 Bitbucket-server의 예제로 알아보고자 합니다. 우선 알아두어야하는 것은 기존 Atlassian 제품 설치방법과 동일하게 License 입력과정이 있기에 서버내에서의..."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/01/09/86037485/"/>
+<meta property="og:image" content="/assets/images/86037485/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="bitbucket-server manifest 작성방법"/>
+<meta name="twitter:description" content="Dockerhub에 가보면 Atlassian에서 제공하는 각 Product에 대한 official Docker image를 공개되어 있습니다. 이전부터 몇몇 Product에 대한 Image는 제공하였으나 모든 제품에 대한 Official Image를 제공하지 않았었고 작년 말경에 Official Image들을 모두 공개하였습니다. 아시다시피 Docker Image를 docker command를 통해 Host상에 동작시킬수도 있지만 Kubernetes와 같은 Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 효율적인 관리가 이루어집니다. 하여 Atlassian 공식이미지를 활용한 Kubernetes Manifest 작성법을 Bitbucket-server의 예제로 알아보고자 합니다. 우선 알아두어야하는 것은 기존 Atlassian 제품 설치방법과 동일하게 License 입력과정이 있기에 서버내에서의..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="jacobbaek"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/86037485/"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="atlassian,bitbucket-server,bitbucket,kubernetes"/>
+
+<meta property="article:tag" content="atlassian"/>
+
+<meta property="article:tag" content="bitbucket-server"/>
+
+<meta property="article:tag" content="bitbucket"/>
+
+<meta property="article:tag" content="kubernetes"/>
+
+
+
+<meta property="article:published_time" content="2020-01-09T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/jacobbaek"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/01/09/86037485/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/86037485/);">
+    <div>
+        <h1>bitbucket-server manifest 작성방법</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                atlassian
+                ,
+            
+                bitbucket-server
+                ,
+            
+                bitbucket
+                ,
+            
+                kubernetes
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  Dockerhub에 가보면 Atlassian에서 제공하는 각 Product에 대한 official Docker image를 공개되어 있습니다.<br>
+이전부터 몇몇 Product에 대한 Image는 제공하였으나 모든 제품에 대한 Official Image를 제공하지 않았었고<br>
+작년 말경에 Official Image들을 모두 공개하였습니다.
+ </p>
+ <p>
+  아시다시피 Docker Image를 docker command를 통해 Host상에 동작시킬수도 있지만 Kubernetes와 같은<br>
+Container Orchestration에 의해 Host상에 적절히 시키는것이 좀더 효율적인 관리가 이루어집니다.<br>
+하여 Atlassian 공식이미지를 활용한 Kubernetes Manifest 작성법을 Bitbucket-server의 예제로 알아보고자 합니다.
+ </p>
+ <p>
+  우선 알아두어야하는 것은 기존 Atlassian 제품 설치방법과 동일하게 License 입력과정이 있기에 서버내에서의 <br>License 입력
+및 Database 연결과정은 UI상에서 직접 이루어져야 합니다.
+ </p>
+ <h1>
+  <a href="#manifest-작성-대상" id="manifest-작성-대상">
+   Manifest 작성 대상
+  </a>
+ </h1>
+ <p>
+  Kubernetes로 Atlassian 서비스를 구동시키기 위해서는 다음과 같은 구성들이 필요합니다.
+ </p>
+ <ul>
+  <li>
+   Bitbucket-server
+  </li>
+  <li>
+   PostgreSQL<br>
+  (타 서비스도 가능하며 일반적으로 DB와 같은 서비스를 Kubernetes에서 동작시키는 것을 권장하지 않기에 Database는 별도의 서버로 구동시킬것을 권장합니다.)
+  </li>
+  <li>
+   Nginx<br>
+  (Ingress도 있지만 여기서는 deployment로 nginx를 구동시켜 Reverse Proxy 서비스를 제공할 예정입니다.)
+  </li>
+ </ul>
+ <h1>
+  <a href="#manifest-작성" id="manifest-작성">
+   Manifest 작성
+  </a>
+ </h1>
+ <h3>
+  <a href="#bitbucket-server-manifest" id="bitbucket-server-manifest">
+   Bitbucket-server manifest
+  </a>
+ </h3>
+ <blockquote>
+  <span style="color:yellowgreen; font-size:1.5em">
+   Note
+  </span>
+  <br>
+  <span style="font-size:1.2em">
+    PersistentVolume의 경우 관리자에 의해 미리 생성되어 있다는 가정하에 작성을 진행하였습니다.<br>
+    namespace는 필요에 따라 변경해서 사용하실수 있습니다.
+  </span>
+ </blockquote>
+ <ul>
+  <li>
+   PersistentVolumceClaim
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">kind</span><span class="pi">:</span> <span class="s">PersistentVolumeClaim</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">bitbucket-pvc</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">accessModes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ReadWriteMany</span>
+  <span class="na">storageClassName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">volumeName</span><span class="pi">:</span> <span class="s">bitbucket-volume</span>
+  <span class="na">resources</span><span class="pi">:</span>
+    <span class="na">requests</span><span class="pi">:</span>
+      <span class="na">storage</span><span class="pi">:</span> <span class="s">5Gi</span></code></pre></figure>
+ <ul>
+  <li>
+   Deployment
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">bitbucket</span>
+    <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+<span class="na">spec</span><span class="pi">:</span>
+    <span class="na">replicas</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="na">selector</span><span class="pi">:</span>
+        <span class="na">matchLabels</span><span class="pi">:</span>
+            <span class="na">app</span><span class="pi">:</span> <span class="s">bitbucket</span>
+    <span class="na">template</span><span class="pi">:</span>
+        <span class="na">metadata</span><span class="pi">:</span>
+            <span class="na">labels</span><span class="pi">:</span>
+                <span class="na">app</span><span class="pi">:</span> <span class="s">bitbucket</span>
+        <span class="na">spec</span><span class="pi">:</span>
+            <span class="na">containers</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">bitbucket</span>
+                  <span class="na">image</span><span class="pi">:</span> <span class="s2">"</span><span class="s">atlassian/bitbucket-server"</span>
+                  <span class="na">ports</span><span class="pi">:</span>
+                      <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="s">7990</span>
+                        <span class="na">name</span><span class="pi">:</span> <span class="s">bitbucket-http</span> 
+                  <span class="na">volumeMounts</span><span class="pi">:</span>
+                      <span class="pi">-</span> <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/atlassian/application-data/bitbucket</span>
+                        <span class="na">name</span><span class="pi">:</span> <span class="s">bitbucket-appdata</span>
+                  <span class="na">env</span><span class="pi">:</span>
+                      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">SERVER_SECURE</span>
+                        <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">false"</span>
+                      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">SERVER_SCHEME</span>
+                        <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">http"</span>
+                      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">SERVER_PROXY_PORT</span>
+                        <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">80"</span>
+            <span class="na">volumes</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">bitbucket-appdata</span>
+                  <span class="na">persistentVolumeClaim</span><span class="pi">:</span>
+                      <span class="na">claimName</span><span class="pi">:</span> <span class="s">bitbucket-pvc</span></code></pre></figure> 
+ <ul>
+  <li>
+   Service
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">bitbucket-svc</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">http</span>
+    <span class="na">port</span><span class="pi">:</span> <span class="s">7990</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="s">bitbucket-http</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">bitbucket</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">LoadBalancer</span></code></pre></figure> 
+ <p>
+  아래 링크에 Official Docker Image 소개 및 각종 환경변수, 그리고 Volume mount 정보등이 있습니다.
+위의 source는 일부만이 사용되었기 때문에 필요에 따라 자유롭게 사용하시면 됩니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://hub.docker.com/r/atlassian/bitbucket-server/">
+    https://hub.docker.com/r/atlassian/bitbucket-server/
+   </a>
+  </li>
+ </ul>
+ <h3>
+  <a href="#postgresql-manifest" id="postgresql-manifest">
+   Postgresql manifest
+  </a>
+ </h3>
+ <blockquote>
+  <span style="color:red; font-size:1.5em">
+    Warning
+   </span>
+   <br>
+   <span style="font-size:1.2em">
+   앞서도 이야기 하였지만 Production상에서 Kubernetes위의 DB는 권장되지 않기에<br/>
+   해당 서비스는 별도의 서버에 구동시키는 것을 권장드립니다.
+   </span>
+ </blockquote>
+ <ul>
+  <li>
+   Deployment
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">postgres</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">postgres</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:10.4</span>
+          <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="s2">"</span><span class="s">IfNotPresent"</span>
+          <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="s">5432</span>
+          <span class="na">envFrom</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">configMapRef</span><span class="pi">:</span>
+                <span class="na">name</span><span class="pi">:</span> <span class="s">postgres-config</span>
+          <span class="na">volumeMounts</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/lib/postgresql/data</span>
+              <span class="na">name</span><span class="pi">:</span> <span class="s">postgredb</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">postgredb</span>
+          <span class="na">persistentVolumeClaim</span><span class="pi">:</span>
+            <span class="na">claimName</span><span class="pi">:</span> <span class="s">postgres-pvc</span></code></pre></figure> 
+ <ul>
+  <li>
+   configmap
+  postgresql의 경우 인증 및 설정정보가 추가되어야 하기에 해당 정보를 configmap으로 생성하였습니다.
+  secret으로 사용하여 보안성을 높이는 방식이 고려되면 좀더 효율적인 서비스를 사용하실 수 있습니다.
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">postgres-config</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+<span class="na">data</span><span class="pi">:</span>
+  <span class="na">username</span><span class="pi">:</span> <span class="s">postgres</span>
+  <span class="na">password</span><span class="pi">:</span> <span class="s">postgres</span>
+  <span class="na">postgres_db</span><span class="pi">:</span> <span class="s">bitbucket</span></code></pre></figure> 
+ <ul>
+  <li>
+   PersistentVolumceClaim
+  </li>
+ </ul>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">kind</span><span class="pi">:</span> <span class="s">PersistentVolumeClaim</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">postgres-pvc</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">accessModes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ReadWriteMany</span>
+  <span class="na">storageClassName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+  <span class="na">volumeName</span><span class="pi">:</span> <span class="s">postgres-volume</span>
+  <span class="na">resources</span><span class="pi">:</span>
+    <span class="na">requests</span><span class="pi">:</span>
+      <span class="na">storage</span><span class="pi">:</span> <span class="s">5Gi</span></code></pre></figure> 
+ <ul>
+  <li>
+   Service
+  내부 통신만이 이루어질 예정이기에 ClusterIP로 생성됩니다.
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">postgres-service</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+  <span class="na">ports</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+    <span class="na">port</span><span class="pi">:</span> <span class="s">5432</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="s">5432</span></code></pre></figure>
+ <h3>
+  <a href="#nginx-manifest" id="nginx-manifest">
+   Nginx manifest
+  </a>
+ </h3>
+ <ul>
+  <li>
+   configmap
+  nginx의 경우 reverse proxy로 사용될 예정이기에 별도의 persistent volume은 필요하지 않고
+  configmap을 통한 설정정보가 중요하게 사용됩니다.
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-rproxy-config</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-rproxy</span>
+<span class="na">data</span><span class="pi">:</span>
+  <span class="na">nginx-config</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="no">worker_processes  5;  ## Default: 1</span>
+    <span class="no">error_log  /var/log/nginx/error.log debug;</span>
+    <span class="no">pid        /var/run/nginx.pid;</span>
+
+    <span class="no">events {</span>
+      <span class="no">worker_connections  4096;  ## Default: 1024</span>
+    <span class="no">}</span>
+
+    <span class="no">http {</span>
+      <span class="no">default_type  application/octet-stream;</span>
+
+      <span class="no">log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span>
+                        <span class="no">'$status $body_bytes_sent "$http_referer" '</span>
+                        <span class="no">'"$http_user_agent" "$http_x_forwarded_for"';</span>
+
+      <span class="no">access_log /var/log/nginx/access.log main;</span>
+      <span class="no">sendfile        on;</span>
+
+      <span class="no">keepalive_timeout  65;</span>
+
+      <span class="no">include /etc/nginx/conf.d/*.conf;</span>
+    <span class="no">}</span>
+  <span class="na">virtualhost-config</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="no">server {</span>
+      <span class="no">listen 80;</span>
+
+      <span class="no">location / {</span>
+        <span class="no">proxy_pass http://bitbucket-svc.jacobbaek.svc.cluster.local:7990;</span>
+        <span class="no">proxy_set_header    X-Forwarded-Host $host;</span>
+        <span class="no">proxy_set_header    X-Forwarded-Server $host;</span>
+        <span class="no">proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+        <span class="no">proxy_set_header    X-Real-IP $remote_addr;</span>
+        <span class="no">proxy_set_header    "Host" $host;</span>
+        <span class="no">proxy_redirect 		  off;</span>
+       <span class="no">}</span>
+    <span class="no">}</span></code></pre></figure> 
+ <blockquote>
+  <span style="color:yellowgreen; font-size:1.5em">
+    Note
+   </span>
+   <br>
+   <span style="font-size:1.2em">
+  여기서 참고할 것은 내부 통신을 위해 proxy_pass 에 주소가 bitbucket-svc.jacobbaek.svc.cluster.local 와 같이 설정되었다는 것입니다.
+  <br/>
+  해당 주소 정보는 [bitbucket-service-name].[namespace].svc.cluster.local 로 일반적으로 이루어집니다.
+  <br/>
+  만약 해당 정보를 확인하고자 한다면 kubectl exec 명령을 통해 bitbucket pod에 접근하여 cat /etc/resolv.conf 정보를 확인해보면
+  <br/>
+  관련 cluster domain 정보를 확인할 수 있습니다.
+  </span>
+ </blockquote>
+ <ul>
+  <li>
+   Deployment
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-rproxy</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-rproxy</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-rproxy</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-rproxy</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-rproxy</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="s">80</span>
+        <span class="na">volumeMounts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/etc/nginx</span>
+          <span class="na">readOnly</span><span class="pi">:</span> <span class="no">true</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-conf</span>
+        <span class="pi">-</span> <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/log/nginx</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-log</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-conf</span>
+          <span class="na">configMap</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-rproxy-config</span>
+            <span class="na">items</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="s">nginx-config</span>
+                <span class="na">path</span><span class="pi">:</span> <span class="s">nginx.conf</span>
+              <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="s">virtualhost-config</span>
+                <span class="na">path</span><span class="pi">:</span> <span class="s">conf.d/virtualhost.conf</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-log</span>
+          <span class="na">emptyDir</span><span class="pi">:</span> <span class="pi">{}</span></code></pre></figure> 
+ <ul>
+  <li>
+   Service
+   실제 End User의 접속이 이루어지게 되는 관문이 될 예정이기에
+   해당 Service는 Loadbalancer type으로 생성됩니다. 
+  </li>
+ </ul>
+ <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-rproxy-svc</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">jacobbaek</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-rproxy</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-rproxy</span>
+  <span class="na">ports</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span> <span class="s">80</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="s">80</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">LoadBalancer</span></code></pre></figure> 
+ <p>
+  위 모든 manifest파일을 kubectl create -f *.yaml 로 실행하여 구동시키면 bitbucket을 kubernetes위에서 동작시킬 수 있습니다.
+마지막으로 사용자는 nginx service에 EXTERNAL-IP를 통해 접속하게 되면 bitbucket 서버에 접속할수 있는 화면이 출력됩니다.
+ </p>
+ <p>
+  위 모든 manifest 파일들은 아래 bitbucket 에 저장되어 있습니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://bitbucket.org/jacobbaek/bitbucket-manifest/src/master/">
+    https://bitbucket.org/jacobbaek/bitbucket-manifest/src/master/
+   </a>
+  </li>
+ </ul>
+ <h1>
+  <a href="#참고사이트" id="참고사이트">
+   참고사이트
+  </a>
+ </h1>
+ <ul>
+  <li>
+   <a href="https://medium.com/@jmarhee/running-atlassian-bitbucket-server-on-kubernetes-e3f13779ae36">
+    https://medium.com/@jmarhee/running-atlassian-bitbucket-server-on-kubernetes-e3f13779ae36
+   </a>
+  </li>
+ </ul>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/01/09/86037485/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/01/09/86037485/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/jacobbaek/">
+            <div id="author-image" style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p id="author-name">jacobbaek</p>
+        </a>
+        <p id="post-date">2020-01-09</p>
+        <a id="post-more" href="/authors/jacobbaek/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/86034539/0.png);">
+            <div>
+                <h3><a href="/2019/12/30/86034539/">UX World 2019 fall 방문후기</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/86037490/0.png);">
+            <div>
+                <h3><a href="/2020/01/09/86037490/">Bitbucket webhook을 사용하여 Bamboo build plan trigger하기</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

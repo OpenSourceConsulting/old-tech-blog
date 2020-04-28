@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>JMeter로 웹 스트레스 테스트</title>
+<meta name="title" content="JMeter로 웹 스트레스 테스트" />
+<meta name="author" content="bje"/>
+<meta name="description" content="시작하며 웹 서비스 및 솔루션 개발을 진행하다가 부하 성능 테스트를 위해 다양한 오픈소스를 찾아보게 되었는데, 그 종류로는 nGrinder, PINPOINT, JMeter 등이 있었고, 그 중에서 JMeter라는 Apache Jakarta 프로젝트를 사용해 테스트할 사이트 URL, 요청에 필요한 파라미터, 테스트할 사용자 수 및 반복 횟수 등을 설정해 웹 사이트 서버의 성능을 테스트한 내용을 공유드리려 합니다. 보다 자세한 내용은 Apache Document의 내용을 읽어보시면 됩니다. ( https://jmeter.apache.org/ ) 설치 및 실행 본 내용은 MAC OS에서 설치를 진행했으며, brew를 사용해 간단하게 설치를..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="JMeter로 웹 스트레스 테스트"/>
+<meta property="og:description" content="시작하며 웹 서비스 및 솔루션 개발을 진행하다가 부하 성능 테스트를 위해 다양한 오픈소스를 찾아보게 되었는데, 그 종류로는 nGrinder, PINPOINT, JMeter 등이 있었고, 그 중에서 JMeter라는 Apache Jakarta 프로젝트를 사용해 테스트할 사이트 URL, 요청에 필요한 파라미터, 테스트할 사용자 수 및 반복 횟수 등을 설정해 웹 사이트 서버의 성능을 테스트한 내용을 공유드리려 합니다. 보다 자세한 내용은 Apache Document의 내용을 읽어보시면 됩니다. ( https://jmeter.apache.org/ ) 설치 및 실행 본 내용은 MAC OS에서 설치를 진행했으며, brew를 사용해 간단하게 설치를..."/>
+<meta property="og:url" content="https://tech.osci.kr/2019/11/29/86028454/"/>
+<meta property="og:image" content="/assets/images/86028454/0.jpeg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="JMeter로 웹 스트레스 테스트"/>
+<meta name="twitter:description" content="시작하며 웹 서비스 및 솔루션 개발을 진행하다가 부하 성능 테스트를 위해 다양한 오픈소스를 찾아보게 되었는데, 그 종류로는 nGrinder, PINPOINT, JMeter 등이 있었고, 그 중에서 JMeter라는 Apache Jakarta 프로젝트를 사용해 테스트할 사이트 URL, 요청에 필요한 파라미터, 테스트할 사용자 수 및 반복 횟수 등을 설정해 웹 사이트 서버의 성능을 테스트한 내용을 공유드리려 합니다. 보다 자세한 내용은 Apache Document의 내용을 읽어보시면 됩니다. ( https://jmeter.apache.org/ ) 설치 및 실행 본 내용은 MAC OS에서 설치를 진행했으며, brew를 사용해 간단하게 설치를..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="bje"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/86028454/0.jpeg"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content=""/>
+
+
+
+<meta property="article:published_time" content="2019-11-29T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/bje"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2019/11/29/86028454/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/86028454/0.jpeg);">
+    <div>
+        <h1>JMeter로 웹 스트레스 테스트</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <h3 id="JMeter로웹스트레스테스트-시작하며">
+ 시작하며
+</h3>
+<p>
+ 웹 서비스 및 솔루션 개발을 진행하다가 부하 성능 테스트를 위해 다양한 오픈소스를 찾아보게 되었는데, 그 종류로는 nGrinder, PINPOINT, JMeter 등이 있었고, 그 중에서 JMeter라는 Apache Jakarta 프로젝트를 사용해 테스트할 사이트 URL, 요청에 필요한 파라미터, 테스트할 사용자 수 및 반복 횟수 등을 설정해 웹 사이트 서버의 성능을 테스트한 내용을 공유드리려 합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/0.jpeg"/>
+ </span>
+</p>
+<p>
+ 보다 자세한 내용은 Apache Document의 내용을 읽어보시면 됩니다. (
+ <a class="external-link" href="https://jmeter.apache.org/" rel="nofollow">
+  https://jmeter.apache.org/
+ </a>
+ )
+</p>
+<h3 id="JMeter로웹스트레스테스트-설치및실행">
+ 설치 및 실행
+</h3>
+<p>
+ 본 내용은 MAC OS에서 설치를 진행했으며, brew를 사용해 간단하게 설치를 진행합니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">brew install jmeter</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 수 많은 로그가 지나가면서 설치가 완료가 되고 나면, 다음 명령어
+ <strong>
+  <em>
+   "jmeter"
+  </em>
+ </strong>
+ 를 사용해서 JMeter를 실행합니다. 아래와 같은 로그가 뜨면서 JMeter 클라이언트가 실행되는 것을 확인 해볼 수 있습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="highlight" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">jmeter
+
+================================================================================
+Don't use GUI mode for load testing !, only for Test creation and Test debugging.
+For load testing, use CLI Mode (was NON GUI):
+   jmeter -n -t [jmx file] -l [results file] -e -o [Path to web report folder]
+&amp; increase Java Heap to meet your test requirements:
+   Modify current env variable HEAP="-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m" in the jmeter batch file
+Check : https://jmeter.apache.org/usermanual/best-practices.html
+================================================================================</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ Windows 운영체제는 아래와 같이 설치를 진행합니다.
+</p>
+<p>
+ 다운로드 링크 :
+ <a class="external-link" href="http://jmeter.apache.org/download_jmeter.cgi" rel="nofollow">
+  http://jmeter.apache.org/download_jmeter.cgi
+ </a>
+ <br/>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/1.png"/>
+ </span>
+</p>
+<p>
+ 다운로드 받은 후 압축을 풀어주고, /bin 디렉토리 하위에 있는 jmeter.bat 파일을 실행해주면 됩니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <strong>
+  초기 실행화면
+ </strong>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/2.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h3 id="JMeter로웹스트레스테스트-테스트">
+ 테스트
+</h3>
+<p>
+ 테스트를 진행하기에 앞서, 테스트 진행을 위한 설정을 진행합니다. 우선 Test Plan에서 우클릭을 통해 Add &gt; Threads (Users) &gt; Thread Group을 생성해 줍니다. 그리고 아래의 그림과 같이 설정을 해주어야 될 사항이 있는데 성능 테스트에서 가장 중요한 부분입니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/3.png"/>
+ </span>
+</p>
+<ul>
+ <li>
+  Action to be taken after a Sampler error : 실행 중 Error가 발생했을 경우 처리할 방법에 대해서 선택해 하면 됩니다.
+ </li>
+ <li>
+  Number of Threads (users) : 쓰레드의 개수를 기입하는 곳으로 즉, 몇 명의 유저로 테스트를 진행할 것인지 결정해서 기입하면 됩니다.
+ </li>
+ <li>
+  Ramp-Up Period (in seconds) : 쓰레드가 전체가 실행되는데 까지의 걸리는 시간을 나타냅니다.
+  <br/>
+  → 예를 들면, Number of Thread가 10개이고, Ramp-Up Period가 10초 일 경우에는 첫 번째 thread가 수행된 후 다음 thread가 수행될 때까지 1초를 대기한다고 생각하면 됩니다. 즉, Thread 10개가 10초 동안 실행이 되려면 1초 마다 한개의 thread가 수행되어야 한다는 의미입니다.
+ </li>
+ <li>
+  Loop Count : 각각의 Thread가 몇 번씩 실행할 것인지를 나타냅니다.
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ 저의 경우에는 토큰의 유효성을 체크해 진행하기 위해 아래와 같이 Test Plan에서 우클릭 &gt; Add &gt; Confing Element &gt; HTTP  Header Manager를 생성 한 후, 토큰 인증을 위해 아래와 같이 구성해주었습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/4.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 테스트 할 페이지를 구성하기 위해 다음과 같이 Thread Group 우클릭 &gt; Add &gt; Sampler &gt; HTTP Request를 생성해 줍니다. 아래와 같이 사용할 자원을 입력해줍니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/5.png"/>
+ </span>
+</p>
+<p>
+ 테스트를 진행한 HTTP Request 의 내용은 아래와 같습니다.
+</p>
+<ul>
+ <li>
+  Name : dashboard
+ </li>
+ <li>
+  Server Name or IP : http:// 를 제외한 주소를 입력해 줍니다.
+ </li>
+ <li>
+  Port Number : 80
+ </li>
+ <li>
+  Method : GET ( GET 방식으로 데이터를 조회하기 때문에 GET으로 설정 )
+ </li>
+ <li>
+  Path : /api/dashboard/summary
+ </li>
+ <li>
+  Parameters : 필요할 경우 파라미터를 입력해줍니다.
+ </li>
+</ul>
+<h3 id="JMeter로웹스트레스테스트-결과확인">
+ 결과 확인
+</h3>
+<p>
+ 웹 스트레스 테스트의 결과를 다양한 뷰와 함께 확인해보기 위해서 저는 간단하게 Graph Results, Summary Report, View Results Tree 등을 추가해서 진행했습니다. 추가 방법으로는 Thread Group 우클릭 &gt; Listener 아래의 다양한 리포팅 방법 중에 취향에 따라 선택해서 확인하면 됩니다.
+</p>
+<p>
+ <strong>
+  1) Graph Results
+ </strong>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/6.png"/>
+ </span>
+</p>
+<p>
+ Graph Results는 전체적인 결과를 그래프의 형태로 표현해주기 때문에 시각적으로 한눈에 확인이 되는 것으로 보입니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <strong>
+  2) Summary Report
+ </strong>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/7.png"/>
+ </span>
+</p>
+<p>
+ 결과 값이 표 형태로 나오게 되는데, 차례대로 Label (HTTP Request의 이름), #Sample (서버에 요청한 횟수), Average (평균 응답 시간 ms), Min(최소 응답 시간 ms), Max(최대 응답 시간 ms), Error (에러 발생 율) 등 다양한 내용을 표의 형태로 정량적으로 나타내줍니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <strong>
+  3) View Result Tree
+ </strong>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/8.png"/>
+ </span>
+</p>
+<p>
+ View Result Tree의 경우에는 요청에 대한 request의 정보 및 response의 정보들을 확인해 볼 수 있으며, 성공의 경우에는 초록색으로 표현이 되고, 에러의 경우에는 빨간색으로 표현을 해서 전체적인 내용을 한번에 확인해 볼 수 있는 장점이 있습니다.
+</p>
+<h3 id="JMeter로웹스트레스테스트-JMeter동작방식">
+ JMeter 동작 방식
+</h3>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/86028454/9.png"/>
+ </span>
+</p>
+<h3 id="JMeter로웹스트레스테스트-참고사이트">
+ 참고 사이트
+</h3>
+<p>
+ <a class="external-link" href="https://jmeter.apache.org/" rel="nofollow">
+  https://jmeter.apache.org/
+ </a>
+</p>
+<p>
+ <a class="external-link" href="https://jmeter.apache.org/usermanual/index.html" rel="nofollow">
+  https://jmeter.apache.org/usermanual/index.html
+ </a>
+</p>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2019/11/29/86028454/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2019/11/29/86028454/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/bje/">
+            <div id="author-image" style="background-image:url(/files/authors/bje.jpg);">
+                <span class="sr-only">bje's profile image</span>
+            </div>
+            <p id="author-name">bje</p>
+        </a>
+        <p id="post-date">2019-11-29</p>
+        <a id="post-more" href="/authors/bje/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/86027582/0.png);">
+            <div>
+                <h3><a href="/2019/11/25/86027582/">Jenkins Artifact를 이용한 Tag정보를 Spinnaker로 넘기는 방법</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/86029411/0.png);">
+            <div>
+                <h3><a href="/2019/12/03/86029411/">Jenkinsfile에서 Nexus 사용을 위한 maven settings.xml 과 npmrc 파일 활용하기</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>[Container 시리즈] 00. Container/ Docker란 뭔가요?</title>
+<meta name="title" content="[Container 시리즈] 00. Container/ Docker란 뭔가요?" />
+<meta name="author" content="kbseo"/>
+<meta name="description" content="Container / Docker 컨테이너.. 들어봤는데 무엇인지 잘 모르겠다..라고 생각하시는 분들을 위하여 이 글을 연재합니다. 1. Container 보통 IT인이 아니라고 한다면 '컨테이너' 라는 말을 듣는다면 다음의 그림을 상상하실 겁니다. 사전적 의미로 컨테이너는 어떤 물체를 격리하는 공간을 뜻합니다. 하지만 저희 에게 컨테이너는 어떤 의미 일까요? 컨테이너는 리눅스 기술을 사용하여 선박의 컨테이너 처럼 프로세스가 사용하는 자원을 격리 하는 것입니다 가상 환경에 익숙하다면 컨테이너를 가상 머신(VM)에 비교하여 생각하면 이해하기 쉽습니다. 컨테이너는 가상머신과 마찬가지로 애플리케이션을 관련 라이브러리 및 종속 항목과 함께 패키지로..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="[Container 시리즈] 00. Container/ Docker란 뭔가요?"/>
+<meta property="og:description" content="Container / Docker 컨테이너.. 들어봤는데 무엇인지 잘 모르겠다..라고 생각하시는 분들을 위하여 이 글을 연재합니다. 1. Container 보통 IT인이 아니라고 한다면 '컨테이너' 라는 말을 듣는다면 다음의 그림을 상상하실 겁니다. 사전적 의미로 컨테이너는 어떤 물체를 격리하는 공간을 뜻합니다. 하지만 저희 에게 컨테이너는 어떤 의미 일까요? 컨테이너는 리눅스 기술을 사용하여 선박의 컨테이너 처럼 프로세스가 사용하는 자원을 격리 하는 것입니다 가상 환경에 익숙하다면 컨테이너를 가상 머신(VM)에 비교하여 생각하면 이해하기 쉽습니다. 컨테이너는 가상머신과 마찬가지로 애플리케이션을 관련 라이브러리 및 종속 항목과 함께 패키지로..."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/03/03/91690167/"/>
+<meta property="og:image" content="/assets/images/91690167/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="[Container 시리즈] 00. Container/ Docker란 뭔가요?"/>
+<meta name="twitter:description" content="Container / Docker 컨테이너.. 들어봤는데 무엇인지 잘 모르겠다..라고 생각하시는 분들을 위하여 이 글을 연재합니다. 1. Container 보통 IT인이 아니라고 한다면 '컨테이너' 라는 말을 듣는다면 다음의 그림을 상상하실 겁니다. 사전적 의미로 컨테이너는 어떤 물체를 격리하는 공간을 뜻합니다. 하지만 저희 에게 컨테이너는 어떤 의미 일까요? 컨테이너는 리눅스 기술을 사용하여 선박의 컨테이너 처럼 프로세스가 사용하는 자원을 격리 하는 것입니다 가상 환경에 익숙하다면 컨테이너를 가상 머신(VM)에 비교하여 생각하면 이해하기 쉽습니다. 컨테이너는 가상머신과 마찬가지로 애플리케이션을 관련 라이브러리 및 종속 항목과 함께 패키지로..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="kbseo"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/91690167/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="container,docker,dockerfile,dockerimage,image,도커,컨테이너,basic"/>
+
+<meta property="article:tag" content="container"/>
+
+<meta property="article:tag" content="docker"/>
+
+<meta property="article:tag" content="dockerfile"/>
+
+<meta property="article:tag" content="dockerimage"/>
+
+<meta property="article:tag" content="image"/>
+
+<meta property="article:tag" content="도커"/>
+
+<meta property="article:tag" content="컨테이너"/>
+
+<meta property="article:tag" content="basic"/>
+
+
+
+<meta property="article:published_time" content="2020-03-03T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/kbseo"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/03/03/91690167/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/91690167/0.png);">
+    <div>
+        <h1>[Container 시리즈] 00. Container/ Docker란 뭔가요?</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                container
+                ,
+            
+                docker
+                ,
+            
+                dockerfile
+                ,
+            
+                dockerimage
+                ,
+            
+                image
+                ,
+            
+                도커
+                ,
+            
+                컨테이너
+                ,
+            
+                basic
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <h1 id="id-[Container시리즈]00.Container/Docker란뭔가요?-Container/Docker">
+ Container / Docker
+</h1>
+<p>
+ 컨테이너.. 들어봤는데 무엇인지 잘 모르겠다..라고 생각하시는 분들을 위하여 이 글을 연재합니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <h1>
+  <a href="#1-container" id="1-container">
+   1. Container
+  </a>
+ </h1>
+ <p>
+  보통 IT인이 아니라고 한다면 '컨테이너' 라는 말을 듣는다면 다음의 그림을 상상하실 겁니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/0.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  사전적 의미로 컨테이너는 어떤 물체를 격리하는 공간을 뜻합니다. 하지만 저희 에게 컨테이너는 어떤 의미 일까요?
+ </p>
+ <p>
+  컨테이너는 리눅스 기술을 사용하여 선박의
+  <strong>
+   컨테이너 처럼 프로세스가 사용하는 자원을 격리
+  </strong>
+  하는 것입니다
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <span class="confluence-embedded-file-wrapper">
+   <img src="/assets/images/91690167/1.png"/>
+  </span>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  가상 환경에 익숙하다면 컨테이너를 가상 머신(VM)에 비교하여 생각하면 이해하기 쉽습니다.
+ </p>
+ <p>
+  컨테이너는 가상머신과 마찬가지로 애플리케이션을 관련 라이브러리 및 종속 항목과 함께 패키지로 묶어 소프트웨어 서비스 구동을 위한 격리 환경을 마련해 줍니다.
+ </p>
+ <p>
+  그러나 위의 그림에서 살펴보듯 VM과의 유사점은 여기까지 입니다.
+ </p>
+ <p>
+  컨테이너를 사용하면 개발자와 IT 운영팀이 훨씬 작은 단위로 업무를 수행할 수 있으므로 그에 따른 이점도 훨씬 많습니다.
+ </p>
+ <h3>
+  <a href="#장점" id="장점">
+   장점
+  </a>
+ </h3>
+ <ul>
+  <li>
+   가벼움
+  </li>
+  <li>
+   탄력성
+  </li>
+  <li>
+   유지 관리 효율
+  </li>
+ </ul>
+ <p>
+  각각의 장점들에 대해서 한가지씩 보도록 하겠습니다.
+ </p>
+ <pre><code>-  가벼움
+</code></pre>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p style="margin-left: 30.0px;">
+ <strong>
+  <span class="confluence-embedded-file-wrapper">
+   <img src="/assets/images/91690167/2.png"/>
+  </span>
+  '
+ </strong>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  사용자의 Request Traffic 이 증가함에 따라, 가상머신이나 컨테이너를 추가적으로 배포합니다.
+ </p>
+ <p>
+  하지만 가상머신의 크기는 최소 몇 GB이지만, 컨테이너의 경우 Guest OS가 없기에 MB단위의 크기를 가집니다.
+ </p>
+ <p>
+  결과적으로 가상머신은 배포하는데 수분에서 수 십분의 시간이 소요되지만, 컨테이너는 배포에 소요되는 몇 초 밖에 걸리지 않습니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <pre><code>-  탄력성
+</code></pre>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+ <br/>
+</p>
+<p style="margin-left: 30.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/3.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  컨테이너는 Linux, Windows운영체제, 가상머신, 베어메탈, Local pc, Data Center, Public Cloud등 어느 환경 에서나 구동 되므로 개발 및 배포가 크게 쉬워집니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <pre><code>-  유지관리 효율
+</code></pre>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/4.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  운영 체제 커널이 하나밖에 없기 때문에 운영 체제 수준에서 업데이트 또는 패치 작업을 한 번만 수행하면 변경 사항이 모든 컨테이너에 적용됩니다.
+ </p>
+ <p>
+  이를 통해 서버를 더 효율적으로 운영하고 유지 관리할 수 있습니다.
+ </p>
+ <h1>
+  <a href="#2-docker" id="2-docker">
+   2. Docker
+  </a>
+ </h1>
+ <p>
+  보통
+  <em>
+   컨테이너 = 도커
+  </em>
+  라고 생각하실 분들이 많은데
+ </p>
+ <p>
+  <em>
+   컨테이너 &gt; 도커
+  </em>
+  라고 생각하시면 이해가 쉬우실 것 같습니다.
+ </p>
+ <p>
+  도커에 대해 알아보기 전에 도커의 아키텍처에 대해 먼저 설명드리겠습니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/5.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  다음과 같은 형태로 도커가 실행이 되는데 이를 좀더 들여다 보면 아래와 같습니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/6.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  2018년도 DockerCon에서 나온 도커 아키텍처를 보면, 위와 같습니다.
+ </p>
+ <p>
+  도커안에는 여러 컴포넌트들이 있지만 크게 3가지로 나누어 보겠습니다.
+ </p>
+ <ul>
+  <li>
+   <strong>
+    docker engine
+   </strong>
+   여러분 모두가 아는 그 엔진, 이 엔진
+  </li>
+  <li>
+   <strong>
+    containerd
+   </strong>
+   표준 container 런타임으로 Docker로 부터 분리된 고급 런타임
+  </li>
+  <li>
+   <strong>
+    runc
+   </strong>
+   Open Container Initiative (OCI) 규격에 맞게 컨테이너를 실행하고 생성하는 CLI 도구
+  </li>
+ </ul>
+ <blockquote>
+  <p>
+   OCI (Open Container Initiative)는?
+  컨테이너 포맷과 런타임에 대한 개방형 업계 표준을 만들기 위한 목적으로 
+  Linux Foundation 의 지원으로 구성된 오픈 거버넌스 조직 (프로젝트)입니다.
+  OCI는 2015년 6월 22일에 Docker 사와  CoreOS 사가 각각 별도로 표준화를 진행하고 있던 컨테이너의 규격을 통일하는 것을 목적으로 
+  Docker, CoreOS 그리고  AWS, Google, Microsoft, IBM 등 주요 플랫폼 벤더가 참여하여 2015 년 6 월에 발족 한 단체이다.
+   <em>
+    즉, OCI 는 컨테이너 규격을 통일하는 것을 목적으로 만들어진 조직
+   </em>
+  </p>
+ </blockquote>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 30.0px;">
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  이러한 도커는 아래와 같은 형태로 작동을 하는데요
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p>
+ <br/>
+</p>
+<p style="margin-left: 30.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/7.png"/>
+ </span>
+</p>
+<p style="margin-left: 30.0px;">
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  간략하게 설명드리자면
+ </p>
+ <ol>
+  <li>
+   코드개발
+  </li>
+  <li>
+   Dockerfile 생성
+  </li>
+  <li>
+   <strong>
+    Dockerfile Image
+   </strong>
+   생성
+  </li>
+  <li>
+   Container Orchestrator를 통한 배포
+  </li>
+  <li>
+   Container run
+  </li>
+  <li>
+   Container
+   <strong>
+    image Push
+   </strong>
+  </li>
+ </ol>
+ <p>
+  의 순서로 작동을 하게 됩니다.
+ </p>
+ <p>
+  여기에서 중요한 점은 코드를 이미지화 하며 배포한다는 점입니다.
+ </p>
+ <p>
+  <del>
+   잠깐! Oh wait!!
+  </del>
+  이미지화를 하면 어떤점이 좋을까요?
+ </p>
+ <p>
+  예를 들어 신규 애플리케이션을 만든다고 가정했을 시 일단 인프라 환경을 먼저 구축할것입니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 30.0px;">
+ <br/>
+</p>
+<p style="margin-left: 30.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/8.png"/>
+ </span>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/9.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  서버도 만들어야하고 데이터를 저장할 데이터베이스도 만들어야겠죠...
+ </p>
+ <p>
+  <del>
+   <sub>
+    할일이 벌써 많은 기분이네요...
+   </sub>
+  </del>
+ </p>
+ <p>
+  요즘 그래도 CLOUD 환경이 많기에 클릭클릭클릭 만 해주면 예전에 비해 구축법이 많이 간편해 졌습니다!!
+ </p>
+ <p>
+  (클라우드 짱짱!)
+ </p>
+ <p>
+  하.지.만! 서버환경이 조금 씩 다른 서버 수십대를 생성하려면....?
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 30.0px;">
+ <br/>
+</p>
+<p style="margin-left: 30.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/10.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  이 또한 매우 반복되는 작업일 것입니다..
+ </p>
+ <p>
+  이렇게 반복되는 과정속에
+  <strong>
+   '필요한것은 미리 만들어 놓자!'
+  </strong>
+  라는 아이디어가 나오게 되고
+ </p>
+ <p>
+  서서히
+  <strong>
+   이미지화
+  </strong>
+  를 하게 됩니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 30.0px;">
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <h2>
+  <a href="#image" id="image">
+   IMAGE
+  </a>
+ </h2>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 30.0px;">
+ <br/>
+</p>
+<p style="margin-left: 30.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/11.png"/>
+ </span>
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/12.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  AWS에서는 AMI(Amazon Machine Image)형태로 이미지를 관리하고
+ </p>
+ <p>
+  Docker에서는 Docker Image 형태로 이미지를 관리합니다,
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 30.0px;">
+ <br/>
+</p>
+<p style="margin-left: 30.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/13.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  → 보통 생성된 이미지를 통해 OS를 실행하게 되고,
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 30.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p style="margin-left: 30.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/14.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  → 실행된 OS에서 이것저것 요청에 따라 설정사항들을 변경하고, 이를 토대로 다시 이미지를 재 생성하게 됩니다.
+ </p>
+ <p>
+  하. 지. 만.
+ </p>
+ <p>
+  시간이 서서히 지나면서 이미지가 쌓이게 되면서
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/15.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  뭐가 변경된 건지 알수가 없습니다..... ( 저만 그런가요ㅜㅜ? )
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91690167/16.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  그래서
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 300.0px;">
+ <br/>
+</p>
+<p style="margin-left: 90.0px;">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/91690167/17.png"/>
+ </span>
+</p>
+<p style="margin-left: 90.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/18.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  이미 다양한 코드화를 위한 도구들이 존재합니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/19.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  오늘의 주인공 도커는
+  <strong>
+   도커 파일
+  </strong>
+  로 코드들을 관리하고 있습니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/91690167/20.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  위와같은 전반적인 흐름으로 도커가 실행되고 있습니다.
+ </p>
+ <blockquote>
+  <p>
+   여기에서! 도커이미지를 Docker Hub같은 Registry에 업로드 할때 PUSH라는 명령어를 쓰고 
+  각 서버에서 이미지를 다운받을 때 이미지를 떙겨온다 해서 PULL이라는 명령어를 씁니다!
+  명령어는 다음시간에 자세히 다뤄보겠습니다~
+   <del>
+    <sub>
+     (홍보주의)
+    </sub>
+   </del>
+  </p>
+ </blockquote>
+ <p>
+  지금까지 컨테이너와 도커의 기본적인 개념아닌 개념에 대하여 살펴보았는데
+ </p>
+ <p>
+  그렇담
+ </p>
+ <p>
+  아니, 나는 컨테이너는 쿠버네티스 인줄알았는데?
+ </p>
+ <p>
+  아니 도커는 뭐고 쿠버네티스는 뭐지?
+ </p>
+ <p>
+  쿠버네티스 어디서 들어본거같은데?
+ </p>
+ <p>
+  라고 생각하시는 분들을 위하여 Container Orchestration에 대해 자세히 알아보는 시간을 가지겠습니다 (오늘은...시간이 늦어서....)
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p style="margin-left: 60.0px;">
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
+ <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   Docker Architecture :
+   <a class="external-link" href="https://www.docker.com/blog/docker-engine-1-11-runc/" rel="nofollow">
+    <span>
+     https://www.docker.com/blog/docker-engine-1-11-runc/
+    </span>
+   </a>
+  </p>
+  <p>
+   <span>
+    Docker Flow :
+    <span style="color: rgb(0,0,0);">
+     <a class="external-link" href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/docker-application-development-process/docker-app-development-workflow" rel="nofollow">
+      https://docs.microsoft.com/en-us/dotnet/architecture/microservices/docker-application-development-process/docker-app-development-workflow
+     </a>
+    </span>
+   </span>
+  </p>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/03/03/91690167/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/03/03/91690167/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/kbseo/">
+            <div id="author-image" style="background-image:url(/files/authors/kbseo);">
+                <span class="sr-only">kbseo's profile image</span>
+            </div>
+            <p id="author-name">kbseo</p>
+        </a>
+        <p id="post-date">2020-03-03</p>
+        <a id="post-more" href="/authors/kbseo/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/86046469/0.png);">
+            <div>
+                <h3><a href="/2020/02/10/86046469/">Influx DB 설치 및 Java 연동 가이드</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/91690190/);">
+            <div>
+                <h3><a href="/2020/03/03/91690190/">[Container 시리즈] 01. 도커를 설치하고 실행해보자! Docker on Amazon Linux</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

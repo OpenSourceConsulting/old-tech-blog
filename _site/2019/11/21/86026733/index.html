@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법</title>
+<meta name="title" content="Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법" />
+<meta name="author" content="jacobbaek"/>
+<meta name="description" content="kubernetes상에 동작하는 application에 대한 Build 를 위한 pipeline 작성방법에 대하여 알아보도록 하겠습니다. 가정사항 다음과 같은 상황을 가정하고 Pipeline을 작성할 예정입니다. kubernetes 상에서 Jenkins가 배포되어있고 jenkins slave가 pod로 동작되며 job완료시 Termination React을 사용하여 build 되는 환경 maven으로 package되며 war 파일 생성 Dockerfile을 통해 Docker build 가능 INFO 해당 pipeline은 scripted 방식으로 작성되었습니다. 이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다. ( https://issues.jenkins-ci.org/browse/JENKINS-48421 ) Pipeline 작성법 우선 첫째로 kubernetes 상에서 jenkins slave를 pod 형태로 띄우기..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법"/>
+<meta property="og:description" content="kubernetes상에 동작하는 application에 대한 Build 를 위한 pipeline 작성방법에 대하여 알아보도록 하겠습니다. 가정사항 다음과 같은 상황을 가정하고 Pipeline을 작성할 예정입니다. kubernetes 상에서 Jenkins가 배포되어있고 jenkins slave가 pod로 동작되며 job완료시 Termination React을 사용하여 build 되는 환경 maven으로 package되며 war 파일 생성 Dockerfile을 통해 Docker build 가능 INFO 해당 pipeline은 scripted 방식으로 작성되었습니다. 이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다. ( https://issues.jenkins-ci.org/browse/JENKINS-48421 ) Pipeline 작성법 우선 첫째로 kubernetes 상에서 jenkins slave를 pod 형태로 띄우기..."/>
+<meta property="og:url" content="https://tech.osci.kr/2019/11/21/86026733/"/>
+<meta property="og:image" content="/assets/images/86026733/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법"/>
+<meta name="twitter:description" content="kubernetes상에 동작하는 application에 대한 Build 를 위한 pipeline 작성방법에 대하여 알아보도록 하겠습니다. 가정사항 다음과 같은 상황을 가정하고 Pipeline을 작성할 예정입니다. kubernetes 상에서 Jenkins가 배포되어있고 jenkins slave가 pod로 동작되며 job완료시 Termination React을 사용하여 build 되는 환경 maven으로 package되며 war 파일 생성 Dockerfile을 통해 Docker build 가능 INFO 해당 pipeline은 scripted 방식으로 작성되었습니다. 이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다. ( https://issues.jenkins-ci.org/browse/JENKINS-48421 ) Pipeline 작성법 우선 첫째로 kubernetes 상에서 jenkins slave를 pod 형태로 띄우기..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="jacobbaek"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/86026733/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="jenkins,kubernetes,jenkinsfile"/>
+
+<meta property="article:tag" content="jenkins"/>
+
+<meta property="article:tag" content="kubernetes"/>
+
+<meta property="article:tag" content="jenkinsfile"/>
+
+
+
+<meta property="article:published_time" content="2019-11-21T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/jacobbaek"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2019/11/21/86026733/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/86026733/0.png);">
+    <div>
+        <h1>Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                jenkins
+                ,
+            
+                kubernetes
+                ,
+            
+                jenkinsfile
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ kubernetes상에 동작하는 application에 대한 Build 를 위한 pipeline 작성방법에 대하여 알아보도록 하겠습니다.
+</p>
+<h1 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-가정사항">
+ 가정사항
+</h1>
+<p>
+ 다음과 같은 상황을 가정하고 Pipeline을 작성할 예정입니다.
+</p>
+<ol>
+ <li>
+  kubernetes 상에서 Jenkins가 배포되어있고 jenkins slave가 pod로 동작되며 job완료시 Termination
+ </li>
+ <li>
+  React을 사용하여 build 되는 환경
+ </li>
+ <li>
+  maven으로 package되며 war 파일 생성
+ </li>
+ <li>
+  Dockerfile을 통해 Docker build 가능
+ </li>
+</ol>
+<p>
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <blockquote>
+  <p>
+   <b style="color:blue">
+    INFO
+   </b>
+   <br/>
+   <strong>
+    해당 pipeline은 scripted 방식으로 작성되었습니다.
+   </strong>
+   <br/>
+   이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다.
+   <br/>
+   (
+   <a href="https://issues.jenkins-ci.org/browse/JENKINS-48421">
+    https://issues.jenkins-ci.org/browse/JENKINS-48421
+   </a>
+   )
+  </p>
+ </blockquote>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<h1 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-Pipeline작성법">
+ Pipeline 작성법
+</h1>
+<p>
+ 우선 첫째로 kubernetes 상에서 jenkins slave를 pod 형태로 띄우기 위한 pipeline 을 작성해보도록 하겠습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">podTemplate</span><span class="o">(</span><span class="nl">label:</span> <span class="s1">'jenkins-slave-pod'</span><span class="o">,</span> 
+  <span class="nl">containers:</span> <span class="o">[</span>
+    <span class="n">containerTemplate</span><span class="o">(</span>
+      <span class="nl">name:</span> <span class="s1">'git'</span><span class="o">,</span>
+      <span class="nl">image:</span> <span class="s1">'alpine/git'</span><span class="o">,</span>
+      <span class="nl">command:</span> <span class="s1">'cat'</span><span class="o">,</span>
+      <span class="nl">ttyEnabled:</span> <span class="kc">true</span>
+    <span class="o">),</span>
+    <span class="n">containerTemplate</span><span class="o">(</span>
+      <span class="nl">name:</span> <span class="s1">'maven'</span><span class="o">,</span>
+      <span class="nl">image:</span> <span class="s1">'maven:3.6.2-jdk-8'</span><span class="o">,</span>
+      <span class="nl">command:</span> <span class="s1">'cat'</span><span class="o">,</span>
+      <span class="nl">ttyEnabled:</span> <span class="kc">true</span>
+    <span class="o">),</span>
+    <span class="n">containerTemplate</span><span class="o">(</span>
+      <span class="nl">name:</span> <span class="s1">'node'</span><span class="o">,</span>
+      <span class="nl">image:</span> <span class="s1">'node:8.16.2-alpine3.10'</span><span class="o">,</span>
+      <span class="nl">command:</span> <span class="s1">'cat'</span><span class="o">,</span>
+      <span class="nl">ttyEnabled:</span> <span class="kc">true</span>
+    <span class="o">),</span>
+    <span class="n">containerTemplate</span><span class="o">(</span>
+      <span class="nl">name:</span> <span class="s1">'docker'</span><span class="o">,</span>
+      <span class="nl">image:</span> <span class="s1">'docker'</span><span class="o">,</span>
+      <span class="nl">command:</span> <span class="s1">'cat'</span><span class="o">,</span>
+      <span class="nl">ttyEnabled:</span> <span class="kc">true</span>
+    <span class="o">),</span>
+  <span class="o">],</span>
+  <span class="nl">volumes:</span> <span class="o">[</span> 
+    <span class="n">hostPathVolume</span><span class="o">(</span><span class="nl">mountPath:</span> <span class="s1">'/var/run/docker.sock'</span><span class="o">,</span> <span class="nl">hostPath:</span> <span class="s1">'/var/run/docker.sock'</span><span class="o">),</span> 
+  <span class="o">]</span>
+<span class="o">)</span></code></pre></figure>
+ </div>
+</div>
+<p>
+ 앞서 가정했던 react 를 위한 node와 maven 개발환경을 사용할수 있는 maven, 그리고 docker command를 이용하여 build, push 할수 있는 docker image를
+</p>
+<p>
+ 지정하여 사용할 수 있는 환경을 kubernetes 상에서 준비하게 됩니다.
+</p>
+<p>
+ 또한 volumes 항목에서 볼수 있듯이 container에 docker engine을 추가로 설치 및 구동하여 연결하는 방식이 아닌 host의 docker 그대로 사용하는 방식을 사용합니다.
+</p>
+<p>
+ 다음링크를 통해 좀더 상세한 podTemplate 사용법을 확인해볼 수 있습니다.
+</p>
+<ul>
+ <li>
+  <a class="external-link" href="https://jenkins.io/doc/pipeline/steps/kubernetes/#podtemplate-define-a-podtemplate-to-use-in-the-kubernetes-plugin" rel="nofollow">
+   https://jenkins.io/doc/pipeline/steps/kubernetes/#podtemplate-define-a-podtemplate-to-use-in-the-kubernetes-plugin
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ 이후 위에서 지정했던 image별로 수행할 build 명령어들에 대한 pipeline을 작성해보도록 하겠습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+   <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="o">{</span>
+    <span class="n">node</span><span class="o">(</span><span class="s1">'jenkins-slave-pod'</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="kt">def</span> <span class="n">registry</span> <span class="o">=</span> <span class="s2">"192.168.194.129:5000"</span>
+        <span class="kt">def</span> <span class="n">registryCredential</span> <span class="o">=</span> <span class="s2">"nexus3-docker-registry"</span>
+
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Clone repository'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'git'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// https://gitlab.com/gitlab-org/gitlab-foss/issues/38910</span>
+                <span class="n">checkout</span><span class="o">([</span><span class="n">$class</span><span class="o">:</span> <span class="s1">'GitSCM'</span><span class="o">,</span>
+                    <span class="nl">branches:</span> <span class="o">[[</span><span class="nl">name:</span> <span class="s1">'*/dockerizing'</span><span class="o">]],</span>
+                    <span class="nl">userRemoteConfigs:</span> <span class="o">[</span>
+                        <span class="o">[</span><span class="nl">url:</span> <span class="s1">'http://192.168.194.132/root/sampleapp.git'</span><span class="o">,</span> <span class="nl">credentialsId:</span> <span class="s1">'gitlab-account'</span><span class="o">]</span>
+                    <span class="o">],</span>
+                <span class="o">])</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'build the source code via npm'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'node'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sh</span> <span class="s1">'cd frontend &amp;amp;&amp;amp; npm install &amp;amp;&amp;amp; npm run build:production'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'build the source code via maven'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'maven'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sh</span> <span class="s1">'mvn package'</span>
+                <span class="n">sh</span> <span class="s1">'bash build.sh'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Build docker image'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'docker'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">withDockerRegistry</span><span class="o">([</span> <span class="nl">credentialsId:</span> <span class="s2">"$registryCredential"</span><span class="o">,</span> <span class="nl">url:</span> <span class="s2">"http://$registry"</span> <span class="o">])</span> <span class="o">{</span>
+                    <span class="n">sh</span> <span class="s2">"docker build -t $registry/sampleapp:1.0 -f ./Dockerfile ."</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Push docker image'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'docker'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">withDockerRegistry</span><span class="o">([</span> <span class="nl">credentialsId:</span> <span class="s2">"$registryCredential"</span><span class="o">,</span> <span class="nl">url:</span> <span class="s2">"http://$registry"</span> <span class="o">])</span> <span class="o">{</span>
+                    <span class="n">docker</span><span class="o">.</span><span class="na">image</span><span class="o">(</span><span class="s2">"$registry/sampleapp:1.0"</span><span class="o">).</span><span class="na">push</span><span class="o">()</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>   
+<span class="o">}</span></code></pre></figure>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 위 pipeline을 좀더 상세히 보도록 하겠습니다.
+</p>
+<p>
+ 먼저, git clone 진행 과정을 담은 pipeline 입니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+    <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy">       <span class="n">stage</span><span class="o">(</span><span class="s1">'Clone repository'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'git'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// https://gitlab.com/gitlab-org/gitlab-foss/issues/38910</span>
+                <span class="n">checkout</span><span class="o">([</span><span class="n">$class</span><span class="o">:</span> <span class="s1">'GitSCM'</span><span class="o">,</span>
+                    <span class="nl">branches:</span> <span class="o">[[</span><span class="nl">name:</span> <span class="s1">'*/dockerizing'</span><span class="o">]],</span>
+                    <span class="nl">userRemoteConfigs:</span> <span class="o">[</span>
+                        <span class="o">[</span><span class="nl">url:</span> <span class="s1">'http://192.168.194.132/root/sampleapp.git'</span><span class="o">,</span> <span class="nl">credentialsId:</span> <span class="s1">'gitlab-account'</span><span class="o">]</span>
+                    <span class="o">],</span>
+                <span class="o">])</span>
+            <span class="o">}</span>
+        <span class="o">}</span></code></pre></figure>
+ </div>
+</div>
+<p>
+ branches를 사용하여 지정된 branch를 가져오게 할수 있습니다.
+</p>
+<p>
+ UserRemoteConfigs를 통해 url 및 인증정보를 지정할수 있으며 지정된 인증정보는 Jenkins Credential ID로 사전에 지정해놓은 ID/Password를 활용한 방식입니다.
+</p>
+<p>
+ 그 외에도 submodule 관련 사항 및 timeout 설정등 아래 링크에 다양한 옵션 정보가 존재하니 해당 옵션을 활용하여 좀더 사용자 입맛에 맞추어 작성이 가능합니다.
+</p>
+<ul>
+ <li>
+  <a class="external-link" href="https://jenkins.io/doc/pipeline/steps/workflow-scm-step/" rel="nofollow">
+   https://jenkins.io/doc/pipeline/steps/workflow-scm-step/
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ 다음으로는 앞서 지정했던 image인 node, maven 이미지를 활용한 Build 과정에 대한 pipeline입니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+    <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy">        <span class="n">stage</span><span class="o">(</span><span class="s1">'build the source code via npm'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'node'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sh</span> <span class="s1">'cd frontend &amp;amp;&amp;amp; npm install &amp;amp;&amp;amp; npm run build:production'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'build the source code via maven'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'maven'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sh</span> <span class="s1">'mvn package'</span>
+                <span class="n">sh</span> <span class="s1">'bash build.sh'</span>
+            <span class="o">}</span>
+        <span class="o">}</span></code></pre></figure>
+ </div>
+</div>
+<p>
+ 해당 pipeline의 경우 sh(shell script)을 사용하는 방식으로 기존에 사용하던 build command를 그대로 사용하면 됩니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이후 docker command를 이용한 docker image build 와 docker image push 과정을 담은 pipeline입니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+    <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy">        <span class="n">stage</span><span class="o">(</span><span class="s1">'Build docker image'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'docker'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">withDockerRegistry</span><span class="o">([</span> <span class="nl">credentialsId:</span> <span class="s2">"$registryCredential"</span><span class="o">,</span> <span class="nl">url:</span> <span class="s2">"http://$registry"</span> <span class="o">])</span> <span class="o">{</span>
+                    <span class="n">sh</span> <span class="s2">"docker build -t $registry/sampleapp:1.0 -f ./Dockerfile ."</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Push docker image'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'docker'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">withDockerRegistry</span><span class="o">([</span> <span class="nl">credentialsId:</span> <span class="s2">"$registryCredential"</span><span class="o">,</span> <span class="nl">url:</span> <span class="s2">"http://$registry"</span> <span class="o">])</span> <span class="o">{</span>
+                    <span class="n">docker</span><span class="o">.</span><span class="na">image</span><span class="o">(</span><span class="s2">"$registry/sampleapp:1.0"</span><span class="o">).</span><span class="na">push</span><span class="o">()</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span></code></pre></figure>
+ </div>
+</div>
+<p>
+ 아래와 같이 앞서 지정했던 registry 정보를 활용하여 docker image에 대한 build 및 push를 진행합니다.
+</p>
+<p>
+ 여기서는 직접 구축한 Nexus를 활용하여 docker image를 지정하는 방식을 사용하고 있기 때문에 withDockerRegistry를 통해 인증정보를 활용하여 연결되어지도록
+ <span style="letter-spacing: 0.0px;">
+  합니다.
+  <br/>
+  (여기서 사용한 nexus3-docker-registry 또한 Jenkins Credential ID로 사전에 생성해 놓았습니다.)
+ </span>
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+    <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy">      <span class="kt">def</span> <span class="n">registry</span> <span class="o">=</span> <span class="s2">"192.168.194.129:5000"</span>
+        <span class="kt">def</span> <span class="n">registryCredential</span> <span class="o">=</span> <span class="s2">"nexus3-docker-registry"</span></code></pre></figure>
+ </div>
+</div>
+<p>
+ withDockerRegistry 관련된 정보는 다음링크를 참조합니다.
+</p>
+<ul>
+ <li>
+  <a class="external-link" href="https://jenkins.io/doc/pipeline/steps/docker-workflow/#-withdockerregistry-sets-up-docker-registry-endpoint" rel="nofollow">
+   https://jenkins.io/doc/pipeline/steps/docker-workflow/#-withdockerregistry-sets-up-docker-registry-endpoint
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ 최종적으로 아래와 같은 pipeline 이 만들어지게 됩니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+    <figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">podTemplate</span><span class="o">(</span><span class="nl">label:</span> <span class="s1">'jenkins-slave-pod'</span><span class="o">,</span> 
+  <span class="nl">containers:</span> <span class="o">[</span>
+    <span class="n">containerTemplate</span><span class="o">(</span>
+      <span class="nl">name:</span> <span class="s1">'git'</span><span class="o">,</span>
+      <span class="nl">image:</span> <span class="s1">'alpine/git'</span><span class="o">,</span>
+      <span class="nl">command:</span> <span class="s1">'cat'</span><span class="o">,</span>
+      <span class="nl">ttyEnabled:</span> <span class="kc">true</span>
+    <span class="o">),</span>
+    <span class="n">containerTemplate</span><span class="o">(</span>
+      <span class="nl">name:</span> <span class="s1">'maven'</span><span class="o">,</span>
+      <span class="nl">image:</span> <span class="s1">'maven:3.6.2-jdk-8'</span><span class="o">,</span>
+      <span class="nl">command:</span> <span class="s1">'cat'</span><span class="o">,</span>
+      <span class="nl">ttyEnabled:</span> <span class="kc">true</span>
+    <span class="o">),</span>
+    <span class="n">containerTemplate</span><span class="o">(</span>
+      <span class="nl">name:</span> <span class="s1">'node'</span><span class="o">,</span>
+      <span class="nl">image:</span> <span class="s1">'node:8.16.2-alpine3.10'</span><span class="o">,</span>
+      <span class="nl">command:</span> <span class="s1">'cat'</span><span class="o">,</span>
+      <span class="nl">ttyEnabled:</span> <span class="kc">true</span>
+    <span class="o">),</span>
+    <span class="n">containerTemplate</span><span class="o">(</span>
+      <span class="nl">name:</span> <span class="s1">'docker'</span><span class="o">,</span>
+      <span class="nl">image:</span> <span class="s1">'docker'</span><span class="o">,</span>
+      <span class="nl">command:</span> <span class="s1">'cat'</span><span class="o">,</span>
+      <span class="nl">ttyEnabled:</span> <span class="kc">true</span>
+    <span class="o">),</span>
+  <span class="o">],</span>
+  <span class="nl">volumes:</span> <span class="o">[</span> 
+    <span class="n">hostPathVolume</span><span class="o">(</span><span class="nl">mountPath:</span> <span class="s1">'/var/run/docker.sock'</span><span class="o">,</span> <span class="nl">hostPath:</span> <span class="s1">'/var/run/docker.sock'</span><span class="o">),</span> 
+  <span class="o">]</span>
+<span class="o">)</span>
+
+<span class="o">{</span>
+    <span class="n">node</span><span class="o">(</span><span class="s1">'jenkins-slave-pod'</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="kt">def</span> <span class="n">registry</span> <span class="o">=</span> <span class="s2">"192.168.194.129:5000"</span>
+        <span class="kt">def</span> <span class="n">registryCredential</span> <span class="o">=</span> <span class="s2">"nexus3-docker-registry"</span>
+
+        <span class="c1">// https://jenkins.io/doc/pipeline/steps/git/</span>
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Clone repository'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'git'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// https://gitlab.com/gitlab-org/gitlab-foss/issues/38910</span>
+                <span class="n">checkout</span><span class="o">([</span><span class="n">$class</span><span class="o">:</span> <span class="s1">'GitSCM'</span><span class="o">,</span>
+                    <span class="nl">branches:</span> <span class="o">[[</span><span class="nl">name:</span> <span class="s1">'*/dockerizing'</span><span class="o">]],</span>
+                    <span class="nl">userRemoteConfigs:</span> <span class="o">[</span>
+                        <span class="o">[</span><span class="nl">url:</span> <span class="s1">'http://192.168.194.132/root/stlapp.git'</span><span class="o">,</span> <span class="nl">credentialsId:</span> <span class="s1">'jacobbaek-privategitlab'</span><span class="o">]</span>
+                    <span class="o">],</span>
+                <span class="o">])</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'build the source code via npm'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'node'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sh</span> <span class="s1">'cd frontend &amp;amp;&amp;amp; npm install &amp;amp;&amp;amp; npm run build:production'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'build the source code via maven'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'maven'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sh</span> <span class="s1">'mvn package'</span>
+                <span class="n">sh</span> <span class="s1">'bash build.sh'</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Build docker image'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'docker'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">withDockerRegistry</span><span class="o">([</span> <span class="nl">credentialsId:</span> <span class="s2">"$registryCredential"</span><span class="o">,</span> <span class="nl">url:</span> <span class="s2">"http://$registry"</span> <span class="o">])</span> <span class="o">{</span>
+                    <span class="n">sh</span> <span class="s2">"docker build -t $registry/stlapp:1.0 -f ./Dockerfile ."</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="n">stage</span><span class="o">(</span><span class="s1">'Push docker image'</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">container</span><span class="o">(</span><span class="s1">'docker'</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">withDockerRegistry</span><span class="o">([</span> <span class="nl">credentialsId:</span> <span class="s2">"$registryCredential"</span><span class="o">,</span> <span class="nl">url:</span> <span class="s2">"http://$registry"</span> <span class="o">])</span> <span class="o">{</span>
+                    <span class="n">docker</span><span class="o">.</span><span class="na">image</span><span class="o">(</span><span class="s2">"$registry/stlapp:1.0"</span><span class="o">).</span><span class="na">push</span><span class="o">()</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>   
+<span class="o">}</span></code></pre></figure>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 마지막으로 해당 jenkins pipeline 파일을 관련된 repository에 commit and push 하여 관리하도록 합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img width=800, src="/assets/images/86026733/0.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 위와 같이 작성된 pipeline을 Jenkins내 pipeline으로 생성된 job에
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img width=800, src="/assets/images/86026733/1.png"/>
+ </span>
+</p>
+<p>
+ 연동을 수행하면 push와 같은 event가 발생될 때마다 작성한 Jenkins pipeline을 통한 build가 이루어지게 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img width=800, src="/assets/images/86026733/2.png"/>
+ </span>
+</p>
+<h1 id="Kubernetes상의application빌드를위한Jenkinspipeline작성법-참고사이트">
+ 참고사이트
+</h1>
+<ul>
+ <li>
+  <a class="external-link" href="https://akomljen.com/set-up-a-jenkins-ci-cd-pipeline-with-kubernetes/" rel="nofollow">
+   https://akomljen.com/set-up-a-jenkins-ci-cd-pipeline-with-kubernetes/
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2019/11/21/86026733/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2019/11/21/86026733/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/jacobbaek/">
+            <div id="author-image" style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p id="author-name">jacobbaek</p>
+        </a>
+        <p id="post-date">2019-11-21</p>
+        <a id="post-more" href="/authors/jacobbaek/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/86022870/0.png);">
+            <div>
+                <h3><a href="/2019/11/05/86022870/">Containerized application을 Bamboo docker task를 이용하여 빌드하기</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/86027123/0.png);">
+            <div>
+                <h3><a href="/2019/11/23/86027123/">Helm Chart를 이용한 Kubernetes배포/관리</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

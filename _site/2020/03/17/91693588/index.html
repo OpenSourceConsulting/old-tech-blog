@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Jenkins에서 anchore를 이용한 docker image scanning</title>
+<meta name="title" content="Jenkins에서 anchore를 이용한 docker image scanning" />
+<meta name="author" content="jacobbaek"/>
+<meta name="description" content=""앤코어"라고 불리우는 DevSecOps 도구의 사용법과 Jenkins상에서 Anchore와 연계된 CICD pipeline을 만드는 과정에 대해 알아보도록 하겠습니다. Anchore 는? 컨테이너 이미지에 대한 검증, 분석, 검사에 대한 중앙화된 서비스를 제공하는 오픈소스 프로젝트입니다. Docker V2 호환 컨테이너 저장소들로부터 컨테이너 이미지를 다운로드 받고 분석합니다. 그리고 사용자가 지정한 정책에 기반해 평가를 수행합니다. CI/CD와 통합된 서비스로 빌드 파이프라인 상에서 보안 및 규정에 대한 체크를 시행할수 있고 RESTful API와의 연동을 통해 컨테이너 모니터링과의 연동의 구성요소로도 사용될수 있습니다. https://github.com/anchore/anchore-engine Anchore Engine 은? Anchore는 상용버전과..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Jenkins에서 anchore를 이용한 docker image scanning"/>
+<meta property="og:description" content=""앤코어"라고 불리우는 DevSecOps 도구의 사용법과 Jenkins상에서 Anchore와 연계된 CICD pipeline을 만드는 과정에 대해 알아보도록 하겠습니다. Anchore 는? 컨테이너 이미지에 대한 검증, 분석, 검사에 대한 중앙화된 서비스를 제공하는 오픈소스 프로젝트입니다. Docker V2 호환 컨테이너 저장소들로부터 컨테이너 이미지를 다운로드 받고 분석합니다. 그리고 사용자가 지정한 정책에 기반해 평가를 수행합니다. CI/CD와 통합된 서비스로 빌드 파이프라인 상에서 보안 및 규정에 대한 체크를 시행할수 있고 RESTful API와의 연동을 통해 컨테이너 모니터링과의 연동의 구성요소로도 사용될수 있습니다. https://github.com/anchore/anchore-engine Anchore Engine 은? Anchore는 상용버전과..."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/03/17/91693588/"/>
+<meta property="og:image" content="/assets/images/91693588/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Jenkins에서 anchore를 이용한 docker image scanning"/>
+<meta name="twitter:description" content=""앤코어"라고 불리우는 DevSecOps 도구의 사용법과 Jenkins상에서 Anchore와 연계된 CICD pipeline을 만드는 과정에 대해 알아보도록 하겠습니다. Anchore 는? 컨테이너 이미지에 대한 검증, 분석, 검사에 대한 중앙화된 서비스를 제공하는 오픈소스 프로젝트입니다. Docker V2 호환 컨테이너 저장소들로부터 컨테이너 이미지를 다운로드 받고 분석합니다. 그리고 사용자가 지정한 정책에 기반해 평가를 수행합니다. CI/CD와 통합된 서비스로 빌드 파이프라인 상에서 보안 및 규정에 대한 체크를 시행할수 있고 RESTful API와의 연동을 통해 컨테이너 모니터링과의 연동의 구성요소로도 사용될수 있습니다. https://github.com/anchore/anchore-engine Anchore Engine 은? Anchore는 상용버전과..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="jacobbaek"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/91693588/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="anchore,jenkins,anchore_jenkinsfile,jenkinsfile,security,container_image_scanning,컨테이너,이미지,스캐닝"/>
+
+<meta property="article:tag" content="anchore"/>
+
+<meta property="article:tag" content="jenkins"/>
+
+<meta property="article:tag" content="anchore_jenkinsfile"/>
+
+<meta property="article:tag" content="jenkinsfile"/>
+
+<meta property="article:tag" content="security"/>
+
+<meta property="article:tag" content="container_image_scanning"/>
+
+<meta property="article:tag" content="컨테이너"/>
+
+<meta property="article:tag" content="이미지"/>
+
+<meta property="article:tag" content="스캐닝"/>
+
+
+
+<meta property="article:published_time" content="2020-03-17T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/jacobbaek"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/03/17/91693588/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/91693588/0.png);">
+    <div>
+        <h1>Jenkins에서 anchore를 이용한 docker image scanning</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                anchore
+                ,
+            
+                jenkins
+                ,
+            
+                anchore_jenkinsfile
+                ,
+            
+                jenkinsfile
+                ,
+            
+                security
+                ,
+            
+                container_image_scanning
+                ,
+            
+                컨테이너
+                ,
+            
+                이미지
+                ,
+            
+                스캐닝
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+ "앤코어"라고 불리우는 DevSecOps 도구의 사용법과 Jenkins상에서 Anchore와 연계된 CICD pipeline을</br>
+ 만드는 과정에 대해 알아보도록 하겠습니다.
+ </p>
+ <h1>
+  <a href="#anchore-는" id="anchore-는">
+   Anchore 는?
+  </a>
+ </h1>
+ <p>
+  컨테이너 이미지에 대한 검증, 분석, 검사에 대한 중앙화된 서비스를 제공하는 오픈소스 프로젝트입니다.
+  <br/>
+  Docker V2 호환 컨테이너 저장소들로부터 컨테이너 이미지를 다운로드 받고 분석합니다. 
+  <br/>
+  그리고 사용자가 지정한 정책에 기반해 평가를 수행합니다.
+  <br/>
+  CI/CD와 통합된 서비스로 빌드 파이프라인 상에서 보안 및 규정에 대한 체크를 시행할수 있고
+  <br/>
+  RESTful API와의 연동을 통해 컨테이너 모니터링과의 연동의 구성요소로도 사용될수 있습니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://github.com/anchore/anchore-engine">
+    https://github.com/anchore/anchore-engine
+   </a>
+  </li>
+ </ul>
+ <h1>
+  <a href="#anchore-engine-은" id="anchore-engine-은">
+   Anchore Engine 은?
+  </a>
+ </h1>
+ <p>
+ Anchore는 상용버전과 open source 버전이 있는데 Anchore Engine은 오픈소스 버전으로 <br/>
+ 깊이있는 이미지 검사와 취약점 스캐닝을 수행할수 있고 Anchore Enterprise 버전은 상용버전으로 <br/>
+  대규모 팀을 위한 포괄적인 워크 플로우 및 감사를 수행하는 솔루션 입니다.
+  <br/>
+ </p>
+ <ul>
+  <li>
+   <a href="https://anchore.com/resources/">
+    https://anchore.com/resources/
+   </a>
+  </li>
+ </ul>
+ <p>
+  Anchore Engine은 다음과 같은 component들로 구성되어 있습니다.
+ </p>
+ <ul style="font-weight:bold">
+  <li>
+   API service
+  </li>
+  <li>
+   catalog service
+  </li>
+  <li>
+   queuing service
+  </li>
+  <li>
+   policy engine service
+  </li>
+  <li>
+   kubernetes webhook service
+  </li>
+ </ul>
+ <p>
+  실제 동작은 다음과 같은 행위를 기반으로 수행됩니다.
+  <br/>
+  <b style="color:blue">
+   이미지를 가져와 -&gt; 분석하고 -&gt; 데이터베이스에 저장하고 -&gt; 평가를 수행 -&gt; 평가결과에 대한 알림 -&gt; 반복
+  </b>
+ </p>
+ <p>
+  아래 링크들은 anchore 공식 문서들로 위 내용들을 좀더 상세히 알아볼수 있습니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://docs.anchore.com/current/docs/engine/general/">
+    https://docs.anchore.com/current/docs/engine/general/
+   </a>
+  </li>
+  <li>
+   <a href="https://docs.anchore.com/current/docs/engine/engine_installation/">
+    https://docs.anchore.com/current/docs/engine/engine_installation/
+   </a>
+  </li>
+  <li>
+   <a href="https://github.com/anchore/anchore-engine">
+    https://github.com/anchore/anchore-engine
+   </a>
+  </li>
+ </ul>
+ <h1>
+  <a href="#anchore-engine-설치" id="anchore-engine-설치">
+   Anchore Engine 설치
+  </a>
+ </h1>
+ <p>
+  우리는 kubernetes 환경을 사용할 예정이기에 helm chart를 사용하여 배포를 진행해보도록 하겠습니다.
+  <br/>
+  반갑게도 helm3를 지원하고 있고 helm3를 통한 배포예제도 제공되고 있으니 참고하여 배포를 진행합니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://github.com/helm/charts/tree/master/stable/anchore-engine">
+    https://github.com/helm/charts/tree/master/stable/anchore-engine
+   </a>
+  </li>
+ </ul>
+ <p>
+ helm chart의 value 값을 변경하기 위해 아래와 같이 values.yaml template 파일을 가져옵니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash">jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests<span class="nv">$ </span>helm fetch stable/anchore-engine
+jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests<span class="nv">$ </span>ll
+total 60
+drwxr-xr-x 2 jacob jacob  4096  3월 16 18:17 ./
+drwxr-xr-x 9 jacob jacob  4096  3월 16 18:16 ../
+<span class="nt">-rw-r--r--</span> 1 jacob jacob 52937  3월 16 18:17 anchore-engine-1.4.2.tgz
+jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests<span class="nv">$ </span><span class="nb">tar </span>xvzf anchore-engine-1.4.2.tgz 
+anchore-engine/Chart.yaml
+anchore-engine/values.yaml
+...
+jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests<span class="nv">$ </span><span class="nb">cd </span>anchore-engine/
+jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>vim values.yaml 
+<span class="c">## OR</span>
+jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests<span class="nv">$ </span>curl <span class="nt">-O</span> https://raw.githubusercontent.com/helm/charts/master/stable/anchore-engine/values.yaml</code></pre></figure>
+ <p>
+  가져온 values.yaml 파일의 내용을 아래와 같이 수정합니다.
+  <br/>
+(개인적으로 필요한 정보만을 넣어준것이기에 추가적으로 변경이 필요한 부분은 확인하여 변경하시기를 권장합니다.)
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash">...
+  <span class="c">#defaultAdminPassword: foobar</span>
+  defaultAdminPassword: password
+...
+anchoreApi:
+  replicaCount: 1
+
+  <span class="c"># Set extra environment variables. These will be set on all api containers.</span>
+  extraEnv: <span class="o">[]</span>
+    <span class="c"># - name: foo</span>
+    <span class="c">#   value: bar</span>
+
+  <span class="c"># kubernetes service configuration for anchore external API</span>
+  service:
+    <span class="c">#type: ClusterIP</span>
+    <span class="nb">type</span>: LoadBalancer
+    port: 8228</code></pre></figure>
+ <p>
+  이제 배포를 진행합니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash">jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>k create ns anchore
+namespace/anchore created
+jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>helm install anchore <span class="nt">-f</span> values.yaml stable/anchore-engine <span class="nt">-n</span> anchore
+NAME: anchore
+LAST DEPLOYED: Mon Mar 16 18:20:01 2020
+NAMESPACE: anchore
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+To use Anchore Engine you need the URL, username, and password to access the API.
+
+Anchore Engine can be accessed via port 8228 on the following DNS name from within the cluster:
+anchore-anchore-engine-api.anchore.svc.cluster.local
+
+Here are the steps to configure the anchore-cli <span class="o">(</span><span class="sb">`</span>pip install anchorecli<span class="sb">`</span><span class="o">)</span><span class="nb">.</span> Use these same values <span class="k">for </span>direct API access as well.
+
+To configure your anchore-cli run:
+
+    <span class="nv">ANCHORE_CLI_USER</span><span class="o">=</span>admin
+    <span class="nv">ANCHORE_CLI_PASS</span><span class="o">=</span><span class="k">$(</span>kubectl get secret <span class="nt">--namespace</span> anchore anchore-anchore-engine <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{.data.ANCHORE_ADMIN_PASSWORD}"</span> | base64 <span class="nt">--decode</span><span class="p">;</span> <span class="nb">echo</span><span class="k">)</span>
+
+Using the service endpoint from within the cluster you can use:
+    <span class="nv">ANCHORE_CLI_URL</span><span class="o">=</span>http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
+
+
+To verify the service is up and running, you can run container <span class="k">for </span>the Anchore Engine CLI:
+
+    kubectl run <span class="nt">-i</span> <span class="nt">--tty</span> anchore-cli <span class="nt">--restart</span><span class="o">=</span>Always <span class="nt">--image</span> anchore/engine-cli  <span class="nt">--env</span> <span class="nv">ANCHORE_CLI_USER</span><span class="o">=</span>admin <span class="nt">--env</span> <span class="nv">ANCHORE_CLI_PASS</span><span class="o">=</span><span class="k">${</span><span class="nv">ANCHORE_CLI_PASS</span><span class="k">}</span> <span class="nt">--env</span> <span class="nv">ANCHORE_CLI_URL</span><span class="o">=</span>http://anchore-anchore-engine-api.anchore.svc.cluster.local:8228/v1/
+
+from within the container you can use <span class="s1">'anchore-cli'</span> commands.
+
+<span class="k">*</span> NOTE: On first startup of anchore-engine, it performs a CVE data sync which may take several minutes to complete. During this <span class="nb">time </span>the system status will report <span class="s1">'partially_down'</span> and any images added <span class="k">for </span>analysis will stay <span class="k">in </span>the <span class="s1">'not_analyzed'</span> state.
+Once the sync is <span class="nb">complete</span>, any queued images will be analyzed and the system status will change to <span class="s1">'all_up'</span><span class="nb">.</span>
+
+Initial setup <span class="nb">time </span>can be &amp;gt<span class="p">;</span>120sec <span class="k">for </span>postgresql setup and readiness checks to pass <span class="k">for </span>the services as indicated by pod state. You can check with:
+    kubectl get pods <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>anchore-anchore-engine,component<span class="o">=</span>api
+
+
+A quick primer on using the Anchore Engine CLI follows. For more info see: https://github.com/anchore/anchore-engine/wiki/Getting-Started
+
+View system status:
+
+    anchore-cli system status
+
+Add an image to be analyzed:
+
+    anchore-cli image add &amp;lt<span class="p">;</span>imageref&amp;gt<span class="p">;</span>
+
+List images and see the analysis status <span class="o">(</span>not_analyzed initially<span class="o">)</span>:
+
+    anchore-cli image list
+
+Once the image is analyzed you<span class="s1">'ll see status change to '</span>analyzed<span class="s1">'. This may take some time on first execution with a new database because
+the system must first do a CVE data sync which can take several minutes. Once complete, the image will transition to '</span>analyzing<span class="s1">' state.
+
+When the image reaches '</span>analyzed<span class="s1">' state, you can view policy evaluation output with:
+
+    anchore-cli evaluate check &amp;lt;imageref&amp;gt;
+
+List CVEs found in the image with:
+
+    anchore-cli image vuln &amp;lt;imageref&amp;gt; os
+
+List OS packages found in the image with:
+    anchore-cli image content &amp;lt;imageref&amp;gt; os
+
+List files found in the image with:
+    anchore-cli image content &amp;lt;imageref&amp;gt; files</span></code></pre></figure>
+ <ul>
+  <li>
+   <a href="https://github.com/helm/charts/tree/master/stable/anchore-engine">
+    https://github.com/helm/charts/tree/master/stable/anchore-engine
+   </a>
+  </li>
+ </ul>
+ <p>
+ anchore 설치후 동작하는데 약 5분의 시간이 소요되었습니다.</br>
+anchore document에는 약3분정도 소요된다고 했는데 시스템에 따라 다를수 있으니 최소 3분이상 대기가 필요할것으로 보입니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash">jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>k get po <span class="nt">-n</span> anchore
+NAME                                                  READY   STATUS    RESTARTS   AGE
+anchore-anchore-engine-analyzer-8659dccb4b-sdfpd      1/1     Running   0          5m8s
+anchore-anchore-engine-api-658ff56945-5jgxc           1/1     Running   0          5m8s
+anchore-anchore-engine-catalog-5786dd8986-dkdjn       1/1     Running   0          5m8s
+anchore-anchore-engine-policy-6fcb868764-v5n48        1/1     Running   0          5m8s
+anchore-anchore-engine-simplequeue-7689ff844f-rbkrw   1/1     Running   0          5m8s
+anchore-postgresql-7d8f988b7-kdc4z                    1/1     Running   0          5m6s</code></pre></figure>
+ <p>
+  위와 같은 anchore engine의 각 구성요소들이 정상적으로 동작하는지를 확인하여 설치를 완료합니다.
+ </p>
+ <p>
+  또한 실제 외부 IP를 확인하여 해당 IP로 anchore가 정상적으로 running 하는지 확인해봅니다.
+  </br>
+(loadbalancer type으로 생성하여 진행하였습니다.)
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash">jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>k get svc <span class="nt">-n</span> anchore
+NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP       PORT<span class="o">(</span>S<span class="o">)</span>          AGE
+anchore-anchore-engine-api           LoadBalancer   10.233.33.72    192.168.197.140   8228:32182/TCP   6m59s
+anchore-anchore-engine-catalog       ClusterIP      10.233.61.226   &amp;lt<span class="p">;</span>none&amp;gt<span class="p">;</span>            8082/TCP         6m58s
+anchore-anchore-engine-policy        ClusterIP      10.233.13.102   &amp;lt<span class="p">;</span>none&amp;gt<span class="p">;</span>            8087/TCP         6m59s
+anchore-anchore-engine-simplequeue   ClusterIP      10.233.10.236   &amp;lt<span class="p">;</span>none&amp;gt<span class="p">;</span>            8083/TCP         7m1s
+anchore-postgresql                   ClusterIP      10.233.39.237   &amp;lt<span class="p">;</span>none&amp;gt<span class="p">;</span>            5432/TCP         6m58s</code></pre></figure>
+ <p>
+  아래와 같이 api 호출에 대한 json 결과를 확인할수 있는 페이지가 확인되어집니다.
+  <br/>
+  <img src="/assets/images/91693588/0.png" width=60%/>
+ </p>
+ <p>
+  참고로 docker-compose를 이용하여 설치도 가능하니 참고하면 좋을 것 같습니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://geekflare.com/anchore-container-security-scanner/">
+    https://geekflare.com/anchore-container-security-scanner/
+   </a>
+  </li>
+ </ul>
+ <blockquote>
+  <p>
+   <strong style="color:red;font-weight:bold">
+    WARNING
+   </strong>
+   <br/>
+   UI는 Enterprise 버전에서만 가능합니다.
+   <br/>
+   물론 UI가 꼭 필요하지는 않지만 좀더 UI를 통해 정보를 확인하고자할 경우
+   <br/>
+   enterprise 라이센스구매에 대해서도 고민해볼 필요는 있을것 같습니다.
+  </p>
+ </blockquote>
+ <h3>
+  <a href="#api-정보-확인" id="api-정보-확인">
+   API 정보 확인
+  </a>
+ </h3>
+ <p>
+  swagger UI를 통해 api spec을 확인해볼수 있습니다.
+  <br/>
+  접속 경로는 v1/swagger.json으로 접속하면 됩니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash">http://192.168.197.140:8228/v1/swagger.json</code></pre></figure>
+ <blockquote>
+  <p>
+   <strong style="color:red;font-weight:bold">
+    WARNING
+   </strong>
+   <br/>
+   실제 v1/ui로 안내되고 있는데 해당 정보는 업데이트가 아직안된것으로 보여집니다.
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <a href="https://docs.anchore.com/current/docs/engine/usage/api_usage/">
+     https://docs.anchore.com/current/docs/engine/usage/api_usage/
+    </a>
+   </li>
+  </ul>
+ </blockquote>
+ <h1>
+  <a href="#anchore-cli-설치" id="anchore-cli-설치">
+   anchore-cli 설치
+  </a>
+ </h1>
+ <p>
+  실제 anchore 를 사용하기 위해서는 anchore-cli를 설치해서 사용해야 합니다.
+   </br>
+하여 다음 링크를 참고하여 anchore-cli를 설치합니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://github.com/anchore/anchore-cli">
+    https://github.com/anchore/anchore-cli
+   </a>
+  </li>
+ </ul>
+ <p>
+  필자는 ubuntu 환경이어서 아래와 같이 설치를 진행했습니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash">jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span><span class="nb">.</span> venv/bin/activate
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>pip install anchorecli
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. A future version of pip will drop support <span class="k">for </span>Python 2.7. More details about Python 2 support <span class="k">in </span>pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Collecting anchorecli
+  Downloading anchorecli-0.6.1.tar.gz <span class="o">(</span>36 kB<span class="o">)</span>
+Requirement already satisfied: <span class="nv">certifi</span><span class="o">==</span>2019.11.28 <span class="k">in</span> ./venv/lib/python2.7/site-packages <span class="o">(</span>from anchorecli<span class="o">)</span> <span class="o">(</span>2019.11.28<span class="o">)</span>
+Collecting <span class="nv">Click</span><span class="o">==</span>7.0
+  Downloading Click-7.0-py2.py3-none-any.whl <span class="o">(</span>81 kB<span class="o">)</span>
+     |████████████████████████████████| 81 kB 260 kB/s 
+Requirement already satisfied: <span class="nv">prettytable</span><span class="o">==</span>0.7.2 <span class="k">in</span> ./venv/lib/python2.7/site-packages <span class="o">(</span>from anchorecli<span class="o">)</span> <span class="o">(</span>0.7.2<span class="o">)</span>
+...
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli 
+Usage: anchore-cli <span class="o">[</span>OPTIONS] COMMAND <span class="o">[</span>ARGS]...
+
+Options:
+...
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span><span class="nb">cat</span> ~/.bash_profile 
+<span class="nb">export </span><span class="nv">ANCHORE_CLI_URL</span><span class="o">=</span>http://192.168.197.140:8228/v1
+<span class="nb">export </span><span class="nv">ANCHORE_CLI_USER</span><span class="o">=</span>admin
+<span class="nb">export </span><span class="nv">ANCHORE_CLI_PASS</span><span class="o">=</span>password
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image list</code></pre></figure>
+ <p>
+  위와 같이 image list 를 출력해보았을때 아무 결과가 나오지 않으면 설치 및 인증이 정상적으로 된것이라 보면 됩니다.
+ </p>
+ <h1>
+  <a href="#anchore-cli-사용법" id="anchore-cli-사용법">
+   anchore-cli 사용법
+  </a>
+ </h1>
+ <p>
+  이제부터 anchore-cli를 사용하여 이미지를 추가하고 분석하는 작업을 수행해보도록 하겠습니다.
+ </p>
+ <h3>
+  <a href="#기본-사용법" id="기본-사용법">
+   기본 사용법
+  </a>
+ </h3>
+ <p>
+  우선 anchore document에서 소개되고 있는 debian image를 가져와 분석하는 과정을 수행해보도록 하겠습니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image add docker.io/library/debian:latest
+Image Digest: sha256:121dd2a723be1c8aa8b116684d66157c93c801f2f5107b60287937e88c13ab89
+Parent Digest: sha256:a63d0b2ecbd723da612abf0a8bdb594ee78f18f691d7dc652ac305a490c9b71a
+Analysis Status: not_analyzed
+Image Type: docker
+Analyzed At: None
+Image ID: 971452c943760ab769134f22db8d3381b09ea000a6c459fbfa3603bb99115f62
+Dockerfile Mode: None
+Distro: None
+Distro Version: None
+Size: None
+Architecture: None
+Layer Count: None
+
+Full Tag: docker.io/library/debian:latest
+Tag Detected At: 2020-03-16T07:58:44Z
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image list
+Full Tag                               Image Digest                                                                   Analysis Status        
+docker.io/library/debian:latest        sha256:121dd2a723be1c8aa8b116684d66157c93c801f2f5107b60287937e88c13ab89        analyzing                        
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image <span class="nb">wait </span>docker.io/library/debian:latest
+Status: analyzing
+Waiting 5.0 seconds <span class="k">for </span>next retry.
+Image Digest: sha256:121dd2a723be1c8aa8b116684d66157c93c801f2f5107b60287937e88c13ab89
+Parent Digest: sha256:a63d0b2ecbd723da612abf0a8bdb594ee78f18f691d7dc652ac305a490c9b71a
+Analysis Status: analyzed
+Image Type: docker
+Analyzed At: 2020-03-16T07:59:27Z
+Image ID: 971452c943760ab769134f22db8d3381b09ea000a6c459fbfa3603bb99115f62
+Dockerfile Mode: Guessed
+Distro: debian
+Distro Version: 10
+Size: 126607360
+Architecture: amd64
+Layer Count: 1
+
+Full Tag: docker.io/library/debian:latest
+Tag Detected At: 2020-03-16T07:58:44Z</code></pre></figure>
+ <p>
+  아래와 같이 api service를 통해 업로드된 image 정보를 확인할 수 있습니다.
+  <br/>
+  <img src="/assets/images/91693588/1.png" width=100%/>
+ </p>
+ <h3>
+  <a href="#policy-hub-사용" id="policy-hub-사용">
+   policy hub 사용
+  </a>
+ </h3>
+ <p>
+  사전에 정의된 anchore 정책 번들의 저장소라는 개념으로 policy hub가 사용되어집니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli policy hub list
+Name                           Description                                                         
+anchore_security_only          Single policy, single whitelist bundle <span class="k">for </span>performing               
+                               security checks, including example blacklist known malicious        
+                               packages by name.                                                   
+anchore_default_bundle         Default policy bundle that comes installed with vanilla             
+                               anchore-engine deployments.  Mixture of light vulnerability         
+                               checks, dockerfiles checks, and warning triggers <span class="k">for </span>common         
+                               best practices.                                                     
+anchore_cis_1.13.0_base        Docker CIS 1.13.0 image content checks, from section 4 and          
+                               5. NOTE: some parameters <span class="o">(</span>generally are named <span class="s1">'example...'</span><span class="o">)</span>         
+                               must be modified as they require site-specific settings         
+<span class="c">### https://github.com/anchore/hub/tree/master/sources/bundles    </span>
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli policy hub install anchore_cis_1.13.0_base
+Policy ID: anchore_cis_1.13.0_base
+Active: False
+Source: <span class="nb">local
+</span>Created: 2020-03-16T08:28:33Z
+Updated: 2020-03-16T08:28:33Z
+
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli policy activate anchore_cis_1.13.0_base
+Success: anchore_cis_1.13.0_base activated
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli policy list
+Policy ID                                   Active        Created                     Updated                     
+anchore_cis_1.13.0_base                     True          2020-03-17T01:34:06Z        2020-03-17T01:34:20Z        
+2c53a13c-1765-11e8-82ef-23527761d060        False         2020-03-16T09:25:06Z        2020-03-17T01:34:20Z        </code></pre></figure>
+ <ul>
+  <li>
+   <a href="https://github.com/anchore/hub">
+    https://github.com/anchore/hub
+   </a>
+  </li>
+ </ul>
+ <p>
+ 개인 repository에 있는 이미지를 실제 upload 및 scan해보도록 하겠습니다.</br>
+anchore-cli를 통해 이미지를 가져오고 분석하여 평가하는 과정을 아래 명령어들을 통해 수행해볼수 있습니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image add dubaek/samplejavaweb:latest
+Image Digest: sha256:164b91f591beec2f6452f222024e825a1b845686f41796ab18f9ff653c91926e
+Parent Digest: sha256:164b91f591beec2f6452f222024e825a1b845686f41796ab18f9ff653c91926e
+Analysis Status: not_analyzed
+Image Type: docker
+Analyzed At: None
+Image ID: 5fcdc5f418ee9d480cd8dc6f3f74938277614e4ac7a1f7176cf0a29818cef132
+Dockerfile Mode: None
+Distro: None
+Distro Version: None
+Size: None
+Architecture: None
+Layer Count: None
+
+Full Tag: docker.io/dubaek/samplejavaweb:latest
+Tag Detected At: 2020-03-17T01:35:18Z
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image <span class="nb">wait </span>dubaek/samplejavaweb:latest
+Status: analyzing
+Waiting 5.0 seconds <span class="k">for </span>next retry.
+Status: analyzing
+Waiting 5.0 seconds <span class="k">for </span>next retry.
+Image Digest: sha256:164b91f591beec2f6452f222024e825a1b845686f41796ab18f9ff653c91926e
+Parent Digest: sha256:164b91f591beec2f6452f222024e825a1b845686f41796ab18f9ff653c91926e
+Analysis Status: analyzed
+Image Type: docker
+Analyzed At: 2020-03-17T01:38:17Z
+Image ID: 5fcdc5f418ee9d480cd8dc6f3f74938277614e4ac7a1f7176cf0a29818cef132
+Dockerfile Mode: Guessed
+Distro: debian
+Distro Version: 9
+Size: 549058560
+Architecture: amd64
+Layer Count: 12
+
+Full Tag: docker.io/dubaek/samplejavaweb:latest
+Tag Detected At: 2020-03-17T01:35:18Z
+
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli evaluate check docker.io/dubaek/samplejavaweb:latest <span class="nt">--detail</span>
+Image Digest: sha256:164b91f591beec2f6452f222024e825a1b845686f41796ab18f9ff653c91926e
+Full Tag: docker.io/dubaek/samplejavaweb:latest
+Image ID: 5fcdc5f418ee9d480cd8dc6f3f74938277614e4ac7a1f7176cf0a29818cef132
+Status: fail
+Last Eval: 2020-03-17T01:39:11Z
+Policy ID: anchore_cis_1.13.0_base
+Final Action: stop
+Final Action Reason: policy_evaluation
+
+Gate                   Trigger                               Detail                                                                                                                                                    Status                             
+vulnerabilities        stale_feed_data                       The vulnerability feed <span class="k">for </span>this image distro is older than MAXAGE <span class="o">(</span>2<span class="o">)</span> days                                                                                stop                               
+vulnerabilities        vulnerability_data_unavailable        Feed data unavailable, cannot perform CVE scan <span class="k">for </span>distro: debian:9                                                                                       stop                               
+dockerfile             exposed_ports                         Dockerfile exposes port <span class="o">(</span>8080<span class="o">)</span> which is not <span class="k">in </span>policy file ALLOWEDPORTS list                                                                              stop                               
+dockerfile             instruction                           Dockerfile directive <span class="s1">'ADD'</span> check <span class="s1">'exists'</span> matched against <span class="s1">''</span> <span class="k">for </span>line <span class="s1">'file:fdf0128645db4c8b990073dc4fe3fabad50411032c9aa4f86538d46e0e8f158f in /'</span>        warn                               
+dockerfile             instruction                           Dockerfile directive <span class="s1">'HEALTHCHECK'</span> not found, matching condition <span class="s1">'not_exists'</span> check                                                                       stop                               
+dockerfile             instruction                           Dockerfile directive <span class="s1">'FROM'</span> check <span class="s1">'not_in'</span> matched against <span class="s1">'example_trusted_base1,example_trusted_base2'</span> <span class="k">for </span>line <span class="s1">'scratch'</span>                               stop                               
+...</code></pre></figure>
+ <p>
+  파일, 운영체제, 패키지, npm, gem 등 docker image의 모든 산출물에 대한 content를 분석하고 이에 대한 결과를 확인할 수 있습니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image content docker.io/dubaek/samplejavaweb:latest
+os: available
+files: available
+npm: available
+gem: available
+python: available
+java: available
+
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image content docker.io/dubaek/samplejavaweb:latest python
+Package          Version           Location                                
+Python           2.7.13            /usr/lib/python2.7/lib-dynload          
+argparse         1.2.1             /usr/lib/python2.7                      
+bzr              2.8.0.dev1        /usr/lib/python2.7/dist-packages        
+configobj        5.0.6             /usr/lib/python2.7/dist-packages        
+mercurial        4.0               /usr/lib/python2.7/dist-packages        
+six              1.10.0            /usr/lib/python2.7/dist-packages        
+wsgiref          0.1.2             /usr/lib/python2.7                      </code></pre></figure>
+ <ul>
+  <li>
+   <a href="https://docs.anchore.com/current/docs/using/cli_usage/images/inspecting_image_content/">
+    https://docs.anchore.com/current/docs/using/cli_usage/images/inspecting_image_content/
+   </a>
+  </li>
+ </ul>
+ <p>
+  아래 명령을 이용하여 컨테이너 이미지의 발견된 취약점목록을 확인할 수 있습니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image vuln docker.io/library/debian:latest os
+
+Vulnerability ID        Package                            Severity          Fix         CVE Refs        Vulnerability URL                                                   
+CVE-2005-2541           tar-1.30+dfsg-6                    Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2005-2541           
+CVE-2007-5686           login-1:4.5-1.1                    Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2007-5686           
+CVE-2007-5686           passwd-1:4.5-1.1                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2007-5686           
+CVE-2010-4051           libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2010-4051           
+CVE-2010-4051           libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2010-4051           
+CVE-2010-4052           libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2010-4052           
+CVE-2010-4052           libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2010-4052           
+CVE-2010-4756           libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2010-4756           
+CVE-2010-4756           libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2010-4756           
+CVE-2011-3374           apt-1.8.2                          Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2011-3374           
+CVE-2011-3374           libapt-pkg5.0-1.8.2                Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2011-3374           
+CVE-2011-3389           libgnutls30-3.6.7-4+deb10u2        Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2011-3389           
+CVE-2011-4116           perl-base-5.28.1-6                 Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2011-4116           
+CVE-2012-2663           libxtables12-1.8.2-4               Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2012-2663           
+CVE-2013-4235           login-1:4.5-1.1                    Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2013-4235           
+CVE-2013-4235           passwd-1:4.5-1.1                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2013-4235           
+CVE-2013-4392           libsystemd0-241-7~deb10u3          Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2013-4392           
+CVE-2013-4392           libudev1-241-7~deb10u3             Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2013-4392           
+CVE-2017-11164          libpcre3-2:8.39-12                 Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2017-11164          
+CVE-2017-16231          libpcre3-2:8.39-12                 Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2017-16231          
+CVE-2017-18018          coreutils-8.30-3                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2017-18018          
+CVE-2017-7245           libpcre3-2:8.39-12                 Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2017-7245           
+CVE-2017-7246           libpcre3-2:8.39-12                 Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2017-7246           
+CVE-2018-1000654        libtasn1-6-4.13-3                  Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2018-1000654        
+CVE-2018-20796          libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2018-20796          
+CVE-2018-20796          libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2018-20796          
+CVE-2018-6829           libgcrypt20-1.8.4-5                Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2018-6829           
+CVE-2019-1010022        libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-1010022        
+CVE-2019-1010022        libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-1010022        
+CVE-2019-1010023        libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-1010023        
+CVE-2019-1010023        libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-1010023        
+CVE-2019-1010024        libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-1010024        
+CVE-2019-1010024        libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-1010024        
+CVE-2019-1010025        libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-1010025        
+CVE-2019-1010025        libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-1010025        
+CVE-2019-11360          libxtables12-1.8.2-4               Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-11360          
+CVE-2019-19882          login-1:4.5-1.1                    Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-19882          
+CVE-2019-19882          passwd-1:4.5-1.1                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-19882          
+CVE-2019-9192           libc-bin-2.28-10                   Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-9192           
+CVE-2019-9192           libc6-2.28-10                      Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-9192           
+CVE-2019-9893           libseccomp2-2.3.3-4                Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-9893           
+CVE-2019-9923           tar-1.30+dfsg-6                    Negligible        None                        https://security-tracker.debian.org/tracker/CVE-2019-9923           
+CVE-2020-1712           libsystemd0-241-7~deb10u3          Unknown           None                        https://security-tracker.debian.org/tracker/CVE-2020-1712           
+CVE-2020-1712           libudev1-241-7~deb10u3             Unknown           None                        https://security-tracker.debian.org/tracker/CVE-2020-1712           </code></pre></figure>
+ <ul>
+  <li>
+   <a href="https://docs.anchore.com/current/docs/using/cli_usage/images/viewing_security_vulnerabilities/">
+    https://docs.anchore.com/current/docs/using/cli_usage/images/viewing_security_vulnerabilities/
+   </a>
+  </li>
+ </ul>
+ <blockquote>
+  <p>
+   <strong style="color:red;font-weight:bold">
+    WARNING
+   </strong>
+   <br/>
+   system feeds sync가 되어 있어야 취약점 결과가 출력될수 있습니다.
+   <br/>
+   system feeds list에 출력결과가 없을 경우 sync를 수행한후 진행하는것을 권장합니다.
+  </p>
+  <ul>
+   <li>
+    <a href="https://mydeveloperplanet.com/2019/02/13/check-docker-images-for-vulnerabilities-with-anchore-engine/">
+     https://mydeveloperplanet.com/2019/02/13/check-docker-images-for-vulnerabilities-with-anchore-engine/
+    </a>
+   </li>
+  </ul>
+ </blockquote>
+ <p>
+  앞서 명령들은 컨테이너 이미지의 tag 하나하나를 직접 지정하여 사용하는 방식이었고
+  <br/>
+  아래는 저장소의 특정 컨테이너 이미지의 모든 tag의 변화를 감지하는 방식입니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli repo add docker.io/dubaek/samplejavaweb
+Repository                            Watched        TagCount        
+docker.io/dubaek/samplejavaweb        True           1               
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image list
+Full Tag                                     Image Digest                                                                   Analysis Status        
+192.168.197.130:5000/stlapp:1.0              sha256:5b307c4254ec86e8043a42037b254ffb3ff5cccab5f6c5002fceb885443579c8        analyzed               
+docker.io/dubaek/samplejavaweb:latest        sha256:164b91f591beec2f6452f222024e825a1b845686f41796ab18f9ff653c91926e        analyzed               
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>docker tag dubaek/samplejavaweb:latest dubaek/samplejavaweb:1.0
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>docker push dubaek/samplejavaweb:1.0
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image list
+Full Tag                                     Image Digest                                                                   Analysis Status        
+192.168.197.130:5000/stlapp:1.0              sha256:5b307c4254ec86e8043a42037b254ffb3ff5cccab5f6c5002fceb885443579c8        analyzed               
+docker.io/dubaek/samplejavaweb:1.0           sha256:164b91f591beec2f6452f222024e825a1b845686f41796ab18f9ff653c91926e        analyzed               
+docker.io/dubaek/samplejavaweb:latest        sha256:164b91f591beec2f6452f222024e825a1b845686f41796ab18f9ff653c91926e        analyzed               
+ </code></pre></figure>
+ <p>
+  실제로 특정 이미지(samplejavaweb)에 tag를 추가하여 push한 결과 cycle time(60초)에 기반하여
+  <br/>
+  새로 push된 tag에 맞는 컨테이너 이미지를 가져옴을 확인할수 있습니다.
+ </p>
+ <ul>
+  <li>
+   <a href="https://docs.anchore.com/current/docs/using/cli_usage/repositories/">
+    https://docs.anchore.com/current/docs/using/cli_usage/repositories/
+   </a>
+  </li>
+ </ul>
+ <h3>
+  <a href="#image-삭제" id="image-삭제">
+   image 삭제
+  </a>
+ </h3>
+ <p>
+  image 삭제는 관련된 subscription이 inactive 상태가 되어야 삭제가 가능합니다.
+  <br/>
+  subscription active 상태가 true로 남아 있다면 다음과 같이 에러가 나게 됩니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image del docker.io/debian:latest
+Error: cannot delete image that is the latest of its tags, and has active subscription
+HTTP Code: 409
+Detail: <span class="o">{</span>u<span class="s1">'error_codes'</span>: <span class="o">[]}</span></code></pre></figure>
+ <p>
+  하여 아래와 같이 관련된 subscription을 inactive 로 변경하여 삭제를 진행합니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli subscription list
+Tag                                    Subscription Type        Active        
+192.168.197.130:5000/stlapp:1.0        analysis_update          True          
+192.168.197.130:5000/stlapp:1.0        policy_eval              False         
+192.168.197.130:5000/stlapp:1.0        tag_update               True          
+192.168.197.130:5000/stlapp:1.0        vuln_update              False         
+docker.io/debian:latest                analysis_update          True          
+docker.io/debian:latest                policy_eval              False         
+docker.io/debian:latest                tag_update               True          
+docker.io/debian:latest                vuln_update              False         
+docker.io/library/debian:latest        analysis_update          True          
+docker.io/library/debian:latest        policy_eval              False         
+docker.io/library/debian:latest        tag_update               True          
+docker.io/library/debian:latest        vuln_update              False         
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli subscription deactivate analysis_update docker.io/debian:latest
+Success
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli subscription deactivate tag_update docker.io/debian:latest
+Success
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli subscription list
+Tag                                    Subscription Type        Active        
+192.168.197.130:5000/stlapp:1.0        analysis_update          True          
+192.168.197.130:5000/stlapp:1.0        policy_eval              False         
+192.168.197.130:5000/stlapp:1.0        tag_update               True          
+192.168.197.130:5000/stlapp:1.0        vuln_update              False         
+docker.io/debian:latest                analysis_update          False         
+docker.io/debian:latest                policy_eval              False         
+docker.io/debian:latest                tag_update               False         
+docker.io/debian:latest                vuln_update              False         
+docker.io/library/debian:latest        analysis_update          False         
+docker.io/library/debian:latest        policy_eval              False         
+docker.io/library/debian:latest        tag_update               False         
+docker.io/library/debian:latest        vuln_update              False         
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image del docker.io/debian:latest
+Success
+
+<span class="c">## 혹은 --force option을 통한 강제 삭제</span>
+<span class="o">(</span>venv<span class="o">)</span> jacob@jacob-laptop:~/workspace/openlabs/openlabs-manifests/anchore-engine<span class="nv">$ </span>anchore-cli image del docker.io/library/debian:latest <span class="nt">--force</span>
+Success</code></pre></figure>
+ <blockquote>
+  <p>
+   <strong style="color:yellowgreen;font-weight:bold">
+    NOTE
+   </strong>
+   <br/>
+   참고로 anchore engine내부에서 사용되는 component로는 skopeo 입니다.
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <a href="https://github.com/containers/skopeo">
+     https://github.com/containers/skopeo
+    </a>
+   </li>
+  </ul>
+ </blockquote>
+ <h1>
+  <a href="#anchore-cli를-사용하는-jenkins-plugin" id="anchore-cli를-사용하는-jenkins-plugin">
+   anchore-cli를 사용하는 jenkins plugin
+  </a>
+ </h1>
+ <p>
+  이제부터는 jenkins를 통해 pipeline 상에서 자동으로 image scanning을 수행하고
+  <br/>
+  그결과를 확인할 수 있는 방법에 대하여 알아보도록 하겠습니다.
+ </p>
+ <p>
+  workflow는 다음과 같습니다.
+  <br/>
+  <img src="/assets/images/91693588/2.png" width=100%/>
+ </p>
+ <p>
+  anchore를 jenkins에서 사용하기 위해서는 plugin을 설치해야 합니다.
+  <br/>
+  설치될 plugin은 다음과 같습니다.
+ </p>
+ <ul>
+  <li>
+   <a href="http://plugins.jenkins.io/anchore-container-scanner/">
+    http://plugins.jenkins.io/anchore-container-scanner/
+   </a>
+  </li>
+ </ul>
+ <p>
+  plugin설치가 완료된후 jenkins의 configuration system 메뉴에서 Anchore Container Image Scanner 설정을 추가합니다.
+  <br/>
+  해당 정보는 앞서 anchore-cli에서 export 했던 정보를 그대로 입력하면 됩니다.
+  <br/>
+  <img src="/assets/images/91693588/3.png" width=60%/>
+ </p>
+ <p>
+  이후 kubernetes 환경에서 jenkins를 사용중이기에 scripted pipeline으로 작성을 진행합니다.
+  <br/>
+  kubernetes 환경의 jenkins에서는 docker image를 사용할수 있고 anchore를 사용하기 위해서는
+  <br/>
+  (Jenkins pipeline을 kubernetes에서 사용하는 방법은
+  <a href="https://tech.osci.kr/2019/11/21/86026733/">
+   https://tech.osci.kr/2019/11/21/86026733/
+  </a>
+  블로그 참고)
+  <br/>
+  다음 anchore-cli container image를 사용합니다.
+  <br/>
+ </p>
+ <ul>
+  <li>
+   <a href="https://hub.docker.com/r/anchore/engine-cli">
+    https://hub.docker.com/r/anchore/engine-cli
+   </a>
+   참고로 찾다보면 anchore/cli와 같은 이전 버전의 cli image가 있는데 이를 사용하면 안되고
+   <br/>
+   API를 사용해 engine과 통신하여 scanning을 수행하는 방식으로 변경되었고 그에 맞는 이미지를 사용해야 합니다.
+  </li>
+ </ul>
+ <p>
+  이제 jenkins pipeline을 작성해보도록 하겠습니다.
+  <br/>
+  아래는 간단한 예제입니다.
+ </p>
+ <figure class="highlight"><pre><code class="language-bash" data-lang="bash">            stage<span class="o">(</span><span class="s1">'check security'</span><span class="o">)</span> <span class="o">{</span>
+                // container<span class="o">(</span><span class="s1">'anchore-cli'</span><span class="o">)</span> <span class="o">{</span>
+                //     def imageLine <span class="o">=</span> <span class="s1">'debian:latest'</span>
+                //     writeFile file: <span class="s1">'anchore_images'</span>, text: imageLine
+                //     anchore name: <span class="s1">'anchore_images'</span>
+                // <span class="o">}</span>
+                container<span class="o">(</span><span class="s1">'anchore-cli'</span><span class="o">)</span> <span class="o">{</span>
+                    def imageLine <span class="o">=</span> <span class="s1">'192.168.197.130:5000/stlapp:1.0'</span>
+                    writeFile file: <span class="s1">'anchore_images'</span>, text: imageLine
+                    anchore name: <span class="s1">'anchore_images'</span>
+                <span class="o">}</span>
+            <span class="o">}</span></code></pre></figure>
+ <blockquote>
+  <p>
+   <strong style="color:yellowgreen;font-weight:bold">
+    NOTE
+   </strong>
+   <br/>
+   jenkins pipeline에 의해 실행된 anchore 결과 중 image 정보를 확인해볼수 있습니다.
+   <br/>
+   <img src="/assets/images/91693588/4.png" width=100%/>
+   <br/>
+   또한 jenkinsfile example은 다음과 같습니다.
+  </p>
+  <ul>
+   <li>
+    <a href="https://github.com/nightfurys/anchore-jenkins-example/blob/master/Jenkinsfile">
+     https://github.com/nightfurys/anchore-jenkins-example/blob/master/Jenkinsfile
+    </a>
+   </li>
+  </ul>
+ </blockquote>
+ <p>
+  실제 jenkins pipeline에 의해 실행된 결과는 다음과 같이 출력됩니다.
+  <br/>
+  <img src="/assets/images/91693588/5.png" width=100%/>
+ </p>
+ <p>
+  Jenkins plugin을 통해 다음과 같은 파일들이 생성됨을 확인할 수 있으며 각 파일은 json 형태로 생성됩니다.
+  <br/>
+  <img src="/assets/images/91693588/6.png" width=100%/>
+ </p>
+ <p>
+  Anchore Policy에 기반한 평가 결과에 대해서도 Jenkins UI상에서 확인해볼수 있습니다.
+  <br/>
+  <img src="/assets/images/91693588/7.png" width=100%/>
+ </p>
+ <p>
+  Dockerfile의 HEALTHCHECK 지시어 사용에대한 권장안도 출력되었고 CVE를 기반으로 하기에 CVE의 취약점에 대한 경고도
+  <br/>
+  함께 출력됨을 확인할 수 있습니다.
+ </p>
+ <h1>
+  <a href="#참고사이트" id="참고사이트">
+   참고사이트
+  </a>
+ </h1>
+ <ul>
+  <li>
+   <a href="https://docs.anchore.com/current/docs/engine/general/">
+    https://docs.anchore.com/current/docs/engine/general/
+   </a>
+  </li>
+  <li>
+   <a href="https://bcho.tistory.com/1309">
+    https://bcho.tistory.com/1309
+   </a>
+  </li>
+  <li>
+   <a href="https://anchore.com/integrating-anchore-scanning-into-jenkins-pipeline-via-jenkinsfile/">
+    https://anchore.com/integrating-anchore-scanning-into-jenkins-pipeline-via-jenkinsfile/
+   </a>
+  </li>
+  <li>
+   <a href="https://wiki.jenkins.io/display/JENKINS/Anchore+Container+Image+Scanner+Plugin">
+    https://wiki.jenkins.io/display/JENKINS/Anchore+Container+Image+Scanner+Plugin
+   </a>
+  </li>
+ </ul>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/03/17/91693588/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/03/17/91693588/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/jacobbaek/">
+            <div id="author-image" style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p id="author-name">jacobbaek</p>
+        </a>
+        <p id="post-date">2020-03-17</p>
+        <a id="post-more" href="/authors/jacobbaek/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/91691404/0.svg);">
+            <div>
+                <h3><a href="/2020/03/06/91691404/">재택 근무를 위해 꼭 필요한 세 가지 Tips, 이것만 기억하세요!</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+        <div id="post-next"
+             style="background-image: url(/assets/images/91695235/0.png);">
+            <div>
+                <h3><a href="/2020/03/22/91695235/">Kubernetes1.17 Hard Way using docker,flannel</a></h3>
+                <p>NEXT POST</p>
+            </div>
+        </div>
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

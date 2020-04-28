@@ -5,6 +5,357 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tech.osci.kr/2020/04/09/94568500/</loc>
+    
+    <lastmod>2020-04-09T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/04/09/94568493/</loc>
+    
+    <lastmod>2020-04-09T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/04/04/91699412/</loc>
+    
+    <lastmod>2020-04-04T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/03/25/91696364/</loc>
+    
+    <lastmod>2020-03-25T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/03/23/91695884/</loc>
+    
+    <lastmod>2020-03-23T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/03/22/91695235/</loc>
+    
+    <lastmod>2020-03-22T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/03/17/91693588/</loc>
+    
+    <lastmod>2020-03-17T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/03/06/91691404/</loc>
+    
+    <lastmod>2020-03-06T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/03/03/91690192/</loc>
+    
+    <lastmod>2020-03-03T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/03/03/91690190/</loc>
+    
+    <lastmod>2020-03-03T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/03/03/91690167/</loc>
+    
+    <lastmod>2020-03-03T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/02/10/86046469/</loc>
+    
+    <lastmod>2020-02-10T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/02/07/86045772/</loc>
+    
+    <lastmod>2020-02-07T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/01/16/86039236/</loc>
+    
+    <lastmod>2020-01-16T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/01/09/86037490/</loc>
+    
+    <lastmod>2020-01-09T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2020/01/09/86037485/</loc>
+    
+    <lastmod>2020-01-09T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/12/30/86034539/</loc>
+    
+    <lastmod>2019-12-30T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/12/23/86033468/</loc>
+    
+    <lastmod>2019-12-23T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/12/18/86032520/</loc>
+    
+    <lastmod>2019-12-18T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/12/06/86030002/</loc>
+    
+    <lastmod>2019-12-06T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/12/03/86029411/</loc>
+    
+    <lastmod>2019-12-03T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/11/29/86028454/</loc>
+    
+    <lastmod>2019-11-29T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/11/25/86027582/</loc>
+    
+    <lastmod>2019-11-25T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/11/23/86027123/</loc>
+    
+    <lastmod>2019-11-23T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/11/21/86026733/</loc>
+    
+    <lastmod>2019-11-21T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/11/05/86022870/</loc>
+    
+    <lastmod>2019-11-05T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/11/04/86022417/</loc>
+    
+    <lastmod>2019-11-04T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/10/29/86020075/</loc>
+    
+    <lastmod>2019-10-29T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/10/19/86017664/</loc>
+    
+    <lastmod>2019-10-19T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/10/10/82068584/</loc>
+    
+    <lastmod>2019-10-10T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/09/10/82061622/</loc>
+    
+    <lastmod>2019-09-10T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/09/04/82059625/</loc>
+    
+    <lastmod>2019-09-04T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/09/02/82058383/</loc>
+    
+    <lastmod>2019-09-02T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/08/30/82057526/</loc>
+    
+    <lastmod>2019-08-30T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/08/19/82052850/</loc>
+    
+    <lastmod>2019-08-19T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/08/07/78623021/</loc>
+    
+    <lastmod>2019-08-07T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/07/16/78618943/</loc>
+    
+    <lastmod>2019-07-16T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/07/01/78615723/</loc>
+    
+    <lastmod>2019-07-01T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/2019/06/10/78611423/</loc>
+    
+    <lastmod>2019-06-10T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
     <loc>https://tech.osci.kr/2019/05/31/77140128/</loc>
     
     <lastmod>2019-05-31T00:00:00+09:00</lastmod>
@@ -618,6 +969,26 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://tech.osci.kr/authors/bje</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <url>
     <loc>https://tech.osci.kr/authors/brian</loc>
     <changefreq>monthly</changefreq>
@@ -637,6 +1008,24 @@
   </url>
   
   <url>
+    <loc>https://tech.osci.kr/authors/cyyoon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/authors/eomhy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/authors/gjkim</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>https://tech.osci.kr/authors/hjkim</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -650,6 +1039,18 @@
   
   <url>
     <loc>https://tech.osci.kr/authors/it2seiyon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/authors/jacobbaek</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/authors/jchoi</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -692,6 +1093,12 @@
   
   <url>
     <loc>https://tech.osci.kr/authors/songhr</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://tech.osci.kr/authors/soo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
