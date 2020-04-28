@@ -108,6 +108,16 @@ ruby 2.3.3p222 (2016-11-21 revision 56859) [universal.x86_64-darwin17]
  ```
 
 
+### docker env
+
+```
+script/jekyll-serve.sh
+```
+
+```
+script/jekyll-clean.sh
+```
+
 ### 글 쓰기 (Windows & macOS)
 에디터는 Atom으로 진행하지만 편하신걸로 아무거나 괜찮습니다!  
 `Jira Issue key`로 `브랜치를 생성`하여 글을 작성하고 `Pull Request`로 작성한 글을 승인 받고 웹에 퍼블리싱하는 과정을 설명하겠습니다.                   
