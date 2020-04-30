@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>[Container 시리즈] 04. 실행중인 App 서비스를 컨테이너화 해보자!</title>
+<meta name="title" content="[Container 시리즈] 04. 실행중인 App 서비스를 컨테이너화 해보자!" />
+<meta name="author" content="kbseo"/>
+<meta name="description" content="Sample application으로 dockerized 하는 과정에 대해 기술 안녕하세요! 굉장히 오랜만에 블로그로 다시 찾아온 것 같습니다. 지난시간에 Docker의 기본적인 개념과 어떻게 동작했는지를 알아봤는데요, 이번에는 실질적으로 사용하고있는 Application을 어떻게 Containerized 할지에 관련된 주제 를 가지고 돌아왔습니다. 순서는 다음과 같습니다. 1. Source code clone 2. npm build 3. docker file 생성 4. docker file을 통한 docker image 생성 5. docker run을 이용한 컨테이너 실행 1. Source Code Clone. 해당 Source 들은 GitLab에 올려져 있으며. 해당 애플리케이션 같은경우 Hostname과..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="[Container 시리즈] 04. 실행중인 App 서비스를 컨테이너화 해보자!"/>
+<meta property="og:description" content="Sample application으로 dockerized 하는 과정에 대해 기술 안녕하세요! 굉장히 오랜만에 블로그로 다시 찾아온 것 같습니다. 지난시간에 Docker의 기본적인 개념과 어떻게 동작했는지를 알아봤는데요, 이번에는 실질적으로 사용하고있는 Application을 어떻게 Containerized 할지에 관련된 주제 를 가지고 돌아왔습니다. 순서는 다음과 같습니다. 1. Source code clone 2. npm build 3. docker file 생성 4. docker file을 통한 docker image 생성 5. docker run을 이용한 컨테이너 실행 1. Source Code Clone. 해당 Source 들은 GitLab에 올려져 있으며. 해당 애플리케이션 같은경우 Hostname과..."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/04/30/97455310/"/>
+<meta property="og:image" content="/assets/images/97455310/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="[Container 시리즈] 04. 실행중인 App 서비스를 컨테이너화 해보자!"/>
+<meta name="twitter:description" content="Sample application으로 dockerized 하는 과정에 대해 기술 안녕하세요! 굉장히 오랜만에 블로그로 다시 찾아온 것 같습니다. 지난시간에 Docker의 기본적인 개념과 어떻게 동작했는지를 알아봤는데요, 이번에는 실질적으로 사용하고있는 Application을 어떻게 Containerized 할지에 관련된 주제 를 가지고 돌아왔습니다. 순서는 다음과 같습니다. 1. Source code clone 2. npm build 3. docker file 생성 4. docker file을 통한 docker image 생성 5. docker run을 이용한 컨테이너 실행 1. Source Code Clone. 해당 Source 들은 GitLab에 올려져 있으며. 해당 애플리케이션 같은경우 Hostname과..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="kbseo"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/97455310/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="docker,kubernetes,dockerize,containerize,도커,컨테이너"/>
+
+<meta property="article:tag" content="docker"/>
+
+<meta property="article:tag" content="kubernetes"/>
+
+<meta property="article:tag" content="dockerize"/>
+
+<meta property="article:tag" content="containerize"/>
+
+<meta property="article:tag" content="도커"/>
+
+<meta property="article:tag" content="컨테이너"/>
+
+
+
+<meta property="article:published_time" content="2020-04-30T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/kbseo"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/04/30/97455310/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/97455310/0.png);">
+    <div>
+        <h1>[Container 시리즈] 04. 실행중인 App 서비스를 컨테이너화 해보자!</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                docker
+                ,
+            
+                kubernetes
+                ,
+            
+                dockerize
+                ,
+            
+                containerize
+                ,
+            
+                도커
+                ,
+            
+                컨테이너
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ <br/>
+</p>
+<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
+ <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   Sample application으로 dockerized 하는 과정에 대해 기술
+  </p>
+ </div>
+</div>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  안녕하세요! 굉장히 오랜만에 블로그로 다시 찾아온 것 같습니다.
+ </p>
+ <p>
+  지난시간에 Docker의 기본적인 개념과 어떻게 동작했는지를 알아봤는데요,
+  <br/>
+  이번에는
+  <u>
+   실질적으로 사용하고있는 Application을 어떻게 Containerized 할지에 관련된 주제
+  </u>
+  를 가지고 돌아왔습니다.
+  <br/>
+ </p>
+ <br/>
+ <p>
+  <strong>
+   순서는 다음과 같습니다.
+  </strong>
+ </p>
+ <pre><code>1. Source code clone
+2. npm build
+3. docker file 생성
+4. docker file을 통한 docker image 생성
+5. docker run을 이용한 컨테이너 실행
+</code></pre>
+ <h2>
+  <a href="#1-source-code-clone" id="1-source-code-clone">
+   1. Source Code Clone.
+  </a>
+ </h2>
+ <p>
+  해당 Source 들은 GitLab에 올려져 있으며.
+  <br/>
+  해당 애플리케이션 같은경우 Hostname과 현재 시간을 출력해주는 simple application입니다.
+  <br/>
+  <br/>
+ </p>
+ <p>
+  자 그럼 Giblab에 올려진 코드들을 가지고 와봅니다.
+ </p>
+ <pre><code>[root@kbseo-test1 stl]# git clone http://192.168.197.132/root/stlapp.git
+Cloning into 'stlapp'...
+Username for 'http://192.168.197.132': kbseo
+Password for 'http://kbseo@192.168.197.132': 
+remote: Enumerating objects: 131, done.
+remote: Counting objects: 100% (131/131), done.
+remote: Compressing objects: 100% (69/69), done.
+remote: Total 217 (delta 70), reused 112 (delta 56), pack-reused 86
+Receiving objects: 100% (217/217), 564.33 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (84/84), done.
+</code></pre>
+ <p>
+  소스들을 서버로 잘 데리고 왔습니다.
+  <br/>
+  참고로 말씀드리자면 해당 Application은 React와 Spring Boot로 만들어졌고 maven을 통해 build하도록 되어져있습니다.
+  <br/>
+  추가로 Maven내에 npm build가 가능하도록 한 상태여서 maven 명령을 통해서 빌드가 가능합니다.
+ </p>
+ <h2>
+  <a href="#2-npm-build" id="2-npm-build">
+   2. npm build
+  </a>
+ </h2>
+ <pre><code>[root@kbseo-test1 stlapp]# ./mvnw package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------&lt; no.kantega:stlapp &gt;--------------------------
+[INFO] Building spring-and-react 0.1
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- frontend-maven-plugin:1.6:install-node-and-npm (install node and npm) @ stlapp ---
+[INFO] Installing node version v6.17.1
+[INFO] Unpacking /root/.m2/repository/com/github/eirslett/node/6.17.1/node-6.17.1-linux-x64.tar.gz into /root/stl/stlapp/target/node/tmp
+[INFO] Copying node binary from /root/stl/stlapp/target/node/tmp/node-v6.17.1-linux-x64/bin/node to /root/stl/stlapp/target/node/node
+[INFO] Installed node locally.
+[INFO] Installing npm version 3.10.10
+[INFO] Unpacking /root/.m2/repository/com/github/eirslett/npm/3.10.10/npm-3.10.10.tar.gz into /root/stl/stlapp/target/node/node_modules
+.....
+[INFO] --- spring-boot-maven-plugin:2.0.1.RELEASE:repackage (default) @ stlapp ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:22 min
+[INFO] Finished at: 2020-04-24T18:30:05+09:00
+[INFO] ------------------------------------------------------------------------
+[root@kbseo-test1 stlapp]# 
+
+</code></pre>
+ <p>
+  빌드를 완료해주었습니다!
+ </p>
+ <h2>
+  <a href="#3-docker-file-생성" id="3-docker-file-생성">
+   3. docker file 생성
+  </a>
+ </h2>
+ <p>
+  이렇게 가지고 온 source를 컨테이너화 하기위하여 docker file을 먼저 생성해 줘야겠죠?
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# vim Dockerfile
+FROM tomcat:8.5.50-jdk8-openjdk
+
+MAINTAINER kbseo@osci.kr
+
+ENV TZ=Asia/Seoul
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
+
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
+COPY target/stlapp-0.1.war /usr/local/tomcat/webapps/ROOT.war
+
+</code></pre>
+ <p>
+  Simple application은 hostname과 time zone을 출력해주는 간단한 동작을 하는 애플리케이션 이기에
+  <br/>
+  docker file안에 timezone을 설정해주고 tomcat상에서 동작될 war파일을 복사해줍니다.
+ </p>
+ <h2>
+  <a href="#4-docker-file을-통한-docker-image-생성" id="4-docker-file을-통한-docker-image-생성">
+   4. docker file을 통한 docker image 생성
+  </a>
+ </h2>
+ <p>
+  이전 글에서 설정해드린것과 같이 docker는 image로 배포를 하기 때문에
+  <br/>
+  만들어두었던 docker file을 image화 해 줍니다.
+ </p>
+ <pre><code># 현재 가지고있는 이미지가 있나 확인을 해줍니다
+[root@kbseo-test1 stlapp]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+[root@kbseo-test1 stlapp]# 
+</code></pre>
+ <p>
+  이미지가 한개도 없는것을 확인하실수 있습니다.
+ </p>
+ <p>
+  이미지 형태로 빌드를 해줍니다!
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker build -t stlapp:1.0 .
+Sending build context to Docker daemon 252.2 MB
+Step 1/6 : FROM tomcat:8.5.50-jdk8-openjdk
+Trying to pull repository docker.io/library/tomcat ... 
+8.5.50-jdk8-openjdk: Pulling from docker.io/library/tomcat
+dc65f448a2e2: Pull complete 
+346ffb2b67d7: Pull complete 
+dea4ecac934f: Pull complete 
+8ac92ddf84b3: Pull complete 
+d8ef64070a18: Pull complete 
+6577248b0d6e: Pull complete 
+576c0a3a6af9: Pull complete 
+6e0159bd18db: Pull complete 
+944191e51caa: Pull complete 
+9ee6a5ca751e: Pull complete 
+Digest: sha256:d53c2079ea67db92f6d7c39e9450f641610336016fdddef5392c5afd41518e5e
+Status: Downloaded newer image for docker.io/tomcat:8.5.50-jdk8-openjdk
+ ---&gt; b56d8850aed5
+Step 2/6 : MAINTAINER jacobbaek@osci.kr
+ ---&gt; Running in 148cd746d772
+ ---&gt; 3b0a94a52842
+Removing intermediate container 148cd746d772
+Step 3/6 : ENV TZ Asia/Seoul
+ ---&gt; Running in 7398ad9609a2
+ ---&gt; 706e8669d2d6
+Removing intermediate container 7398ad9609a2
+Step 4/6 : RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
+ ---&gt; Running in 1bcb6e658984
+
+ ---&gt; 453ac37a79dd
+Removing intermediate container 1bcb6e658984
+Step 5/6 : RUN rm -rf /usr/local/tomcat/webapps/ROOT
+ ---&gt; Running in f3c3bf4eb17b
+
+ ---&gt; 32f3bddc0334
+Removing intermediate container f3c3bf4eb17b
+Step 6/6 : COPY target/stlapp-0.1.war /usr/local/tomcat/webapps/ROOT.war
+ ---&gt; 3f24f0f7deaa
+Removing intermediate container 134e07409a14
+Successfully built 3f24f0f7deaa
+</code></pre>
+ <p>
+  docker build 같은경우 지난시간의 글에서 좀 더 자세히 확인 가능하십니다 ㅎ.ㅎ
+  <br/>
+ </p>
+ <p>
+  명령어에 대해서 간단히 설명을 다시 드리자면,
+  <br/>
+  <strong>
+   $ docker build &lt;옵션&gt; &lt;dockerfile 경로&gt;
+  </strong>
+  <br/>
+  저는 태그를 지정해주기 위하여 -t옵션을 사용해주었습니다.
+  <br/>
+  태그는 &lt;저장소이름&gt;/&lt;이미지이름&gt;:&lt;태그&gt; 형식입니다.
+  <br/>
+ </p>
+ <p>
+  다시 이미지를 확인해보면 좀전에 build한 이미지가 올라온 것을 확인 하실 수 있습니다!
+  <br/>
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker images
+REPOSITORY          TAG                   IMAGE ID            CREATED             SIZE
+stlapp              1.0                   3f24f0f7deaa        3 minutes ago       545 MB
+docker.io/tomcat    8.5.50-jdk8-openjdk   b56d8850aed5        2 months ago        529 MB
+</code></pre>
+ <p>
+  어라? 왜 두개의 이미지가 올라가져있을까요....?
+분명히 도커 빌드는 한번만 실행했는데..
+도커파일을 다시 살펴볼까요?
+ </p>
+ <pre><code>FROM tomcat:8.5.50-jdk8-openjdk
+</code></pre>
+ <p>
+  첫줄에서 답이 나왔습니다!
+  <br/>
+  FROM 을 통해 tomcat이미지를 먼저 받아서 그 위에 차례대로 레이어를 쌓아가면서 도커파일을 실행하기에
+  <br/>
+  이미지가 두개가 만들어지게 됩니다.
+  <br/>
+ </p>
+ <ol start="5">
+  <li>
+   docker run을 이용한 컨테이너 실행
+  </li>
+ </ol>
+ <p>
+  이제 Image를 만들었으니 실행해봅시다!
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+[root@kbseo-test1 stlapp]#
+</code></pre>
+ <p>
+  아직까지 실행되고있는 컨테이너가 없네요
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker run -d -p 8081:8080 --name=stlapp stlapp:1.0
+fc16ba3e9f3f03ba22a2ca0b7eb12909a8311b555ef34bcf9b0f591537a76d2a
+</code></pre>
+ <p>
+  명령어에 대해 간단히 설명드리자면
+  <br/>
+  <strong>
+   $ docker run &lt;옵션&gt; &lt;이미지이름, ID &gt; &lt;명령&gt; &lt;매개변수&gt;
+  </strong>
+ </p>
+ <p>
+  이렇게 구성되어있습니다.
+ </p>
+ <p>
+  <code>
+   docker run -d -p 8081:8080 --name=stlapp stlapp:1.0
+  </code>
+  이 명령어를 보자면
+  <br/>
+ </p>
+ <ul>
+  <li>
+   <p>
+    -d 데몬모드로 컨테이너를 실행하고,
+   </p>
+  </li>
+  <li>
+   <p>
+    -p 옵션을 이용하여 외부포트를 연결해줍니다
+    &lt;호스트포트&gt;:&lt;컨테이너포트&gt; -&gt; 8080컨테이너 포트를 8081포트를 이용해 외부로 연결시킵니다.
+   </p>
+  </li>
+  <li>
+   <p>
+    --name 컨테이너 이름을 지정해줍니다.
+    여기에서는 stlapp이라는 이름을 달아주었습니다.
+   </p>
+  </li>
+  <li>
+   <p>
+    실행시킬 컨테이너와 태그정보를 입력해줍니다.
+   </p>
+  </li>
+ </ul>
+ <p>
+  결과를 한번 봐볼까요?
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
+fc16ba3e9f3f        stlapp:1.0          "catalina.sh run"   11 minutes ago      Up 11 minutes       0.0.0.0:8081-&gt;8080/tcp   stlapp
+[root@kbseo-test1 stlapp]# 
+
+</code></pre>
+ <p>
+  실행되고있는 컨테이너를 확인하실 수 있습니다.
+ </p>
+ <p>
+  브라우저를 통해 확인해볼까요?
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/97455310/0.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  컨테이너 이미지의 ID와 현재 시간이 잘 출력되는것을 보실 수 있습니다.
+  <br/>
+ </p>
+ <p>
+  하지만 빨간색이라 눈이 너무나 아픈것같은 느낌적인 느낌입니다
+  <br/>
+  그래서 검은색으로 바꾸고 재 배포를 해볼까요??
+ </p>
+ <p>
+  순서는 간단합니다!
+ </p>
+ <ol>
+  <li>
+   실행되고 있는 컨테이너 중지
+  </li>
+  <li>
+   해당 컨테이너 삭제
+  </li>
+  <li>
+   소스수정
+  </li>
+  <li>
+   소스빌드, 컨테이너 빌드
+  </li>
+  <li>
+   컨테이너 실행
+  </li>
+ </ol>
+ <h3>
+  <a href="#1-실행되고-있는-컨테이너-중지" id="1-실행되고-있는-컨테이너-중지">
+   1. 실행되고 있는 컨테이너 중지
+  </a>
+ </h3>
+ <p>
+  단칼에 중지시켜 줍니다.
+ </p>
+ <pre><code>[root@kbseo-test1 src]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
+fc16ba3e9f3f        stlapp:1.0          "catalina.sh run"   29 minutes ago      Up 29 minutes       0.0.0.0:8081-&gt;8080/tcp   stlapp
+
+ 
+[root@kbseo-test1 src]# docker kill stlapp
+stlapp
+
+
+[root@kbseo-test1 src]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                       PORTS               NAMES
+fc16ba3e9f3f        stlapp:1.0          "catalina.sh run"   29 minutes ago      Exited (137) 3 seconds ago                       stlapp
+</code></pre>
+ <p>
+  docker kill 명령어를 통해 중지시켜준 후
+  <br/>
+  docker ps 를 통해 확인해보면 상태가 바뀐것을 보실 수 있습니다.
+  <br/>
+  브라우저를 통해 접속해봐도 접속이 안되는것을 보실 수 있죠
+ </p>
+ <h3>
+  <a href="#2-해당-컨테이너-삭제" id="2-해당-컨테이너-삭제">
+   2. 해당 컨테이너 삭제
+  </a>
+ </h3>
+ <p>
+  프로세스를 삭제시켜 줍니다.
+ </p>
+ <pre><code>[root@kbseo-test1 src]# docker rm stlapp
+stlapp
+
+[root@kbseo-test1 src]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+</code></pre>
+ <h3>
+  <a href="#3-소스수정" id="3-소스수정">
+   3. 소스수정
+  </a>
+ </h3>
+ <p>
+  css코드를 수정하여 색상을 변경해줍니다.
+  <del>
+   저는 블랙블랙으로 바꿨습니다.(TMI)
+  </del>
+ </p>
+ <h3>
+  <a href="#4-소스빌드" id="4-소스빌드">
+   4. 소스빌드
+  </a>
+ </h3>
+ <p>
+  소스를 수정했으니 재빌드를 해줘야겠죠?
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# ./mvnw package
+INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------&lt; no.kantega:stlapp &gt;--------------------------
+[INFO] Building spring-and-react 0.1
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- frontend-maven-plugin:1.6:install-node-and-npm (install node and npm) @ stlapp ---
+[INFO] Node v6.17.1 is already installed.
+[INFO] NPM 3.10.10 is already installed.
+[INFO] 
+[INFO] --- frontend-maven-plugin:1.6:npm (npm install) @ stlapp ---
+[INFO] Running 'npm install' in /root/stl/stlapp/frontend
+...
+...
+[INFO] --- spring-boot-maven-plugin:2.0.1.RELEASE:repackage (default) @ stlapp ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 43.467 s
+[INFO] Finished at: 2020-04-27T20:10:43+09:00
+[INFO] ------------------------------------------------------------------------
+</code></pre>
+ <p>
+  소스를 빌드했으니 도커를 빌드해봅시다!
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker build -t stlapp .
+Sending build context to Docker daemon 252.2 MB
+Step 1/6 : FROM tomcat:8.5.50-jdk8-openjdk
+ ---&gt; b56d8850aed5
+Step 2/6 : MAINTAINER jacobbaek@osci.kr
+ ---&gt; Using cache
+ ---&gt; 3b0a94a52842
+Step 3/6 : ENV TZ Asia/Seoul
+ ---&gt; Using cache
+ ---&gt; 706e8669d2d6
+Step 4/6 : RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
+ ---&gt; Using cache
+ ---&gt; 453ac37a79dd
+Step 5/6 : RUN rm -rf /usr/local/tomcat/webapps/ROOT
+ ---&gt; Using cache
+ ---&gt; 32f3bddc0334
+Step 6/6 : COPY target/stlapp-0.1.war /usr/local/tomcat/webapps/ROOT.war
+ ---&gt; Using cache
+ ---&gt; 3f24f0f7deaa
+Successfully built 3f24f0f7deaa
+</code></pre>
+ <p>
+  이미지가 만들어졌는지 확인해볼까요?
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker images
+REPOSITORY          TAG                   IMAGE ID            CREATED             SIZE
+stlapp              1.0                   3f24f0f7deaa        3 hours ago         545 MB
+stlapp              latest                3f24f0f7deaa        3 hours ago         545 MB
+docker.io/tomcat    8.5.50-jdk8-openjdk   b56d8850aed5        2 months ago        529 MB
+</code></pre>
+ <p>
+  하나의 이미지가 추가로 생성된 것을 보실 수 있습니다!
+ </p>
+ <h3>
+  <a href="#5-컨테이너-실행" id="5-컨테이너-실행">
+   5. 컨테이너 실행
+  </a>
+ </h3>
+ <p>
+  돌려봅니다
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker run -d -p 8081:8080 --name=stlapp stlapp
+5140e8332057ed23c4bf491a36d2d63fa0d09f0ffc4378073e145c2626075c30
+</code></pre>
+ <p>
+  잘 올라가져있는지 확인해볼까요?
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
+dd58841261fa        stlapp              "catalina.sh run"   55 seconds ago      Up 55 seconds       0.0.0.0:8081-&gt;8080/tcp   stlapp
+</code></pre>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper">
+  <img src="/assets/images/97455310/1.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  이제 깔끔한 BLACK 색상으로 바뀌었습니다.
+ </p>
+ <p>
+  이렇게 제 local환경에서 테스트한 컨테이너들에게 TAG를 지정하여서 버전관리도 할 수 있습니다.
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker tag stlapp:latest 192.168.197.130:5000/stlapp_kb:1.2.0
+
+[root@kbseo-test1 stlapp]# docker images
+REPOSITORY                       TAG                   IMAGE ID            CREATED             SIZE
+192.168.197.130:5000/stlapp_kb   1.2.0                 3e72ae5de27a        5 minutes ago       545 MB
+stlapp                           latest                3e72ae5de27a        5 minutes ago       545 MB
+docker.io/tomcat                 8.5.50-jdk8-openjdk   b56d8850aed5        2 months ago        529 MB
+[root@kbseo-test1 stlapp]# 
+</code></pre>
+ <p>
+  테스트를 끝냈으니 registry에 올려줄 차례죠
+ </p>
+ <pre><code>[root@kbseo-test1 stlapp]# docker push 192.168.197.130:5000/stlapp_kb:1.2.0
+The push refers to a repository [192.168.197.130:5000/stlapp_kb]
+The push refers to a repository [192.168.197.130:5000/stlapp_kb]
+Get https://192.168.197.130:5000/v1/_ping: http: server gave HTTP response to HTTPS client
+</code></pre>
+ <p>
+  어랏? 안돼네요?
+  <br/>
+  이유는 바로 도커는 https 통신을 하기 때문입니다.
+  <br/>
+ </p>
+ <p>
+  고로 저는 http 통신을 하기위해
+  <br/>
+  docker에게 직접 친절히 사용하고자 하는 ip를 등록해주도록 하겠습니다.
+ </p>
+ <h3>
+  <a href="#docker-insecure" id="docker-insecure">
+   docker insecure
+  </a>
+ </h3>
+ <p>
+  여러가지의 방법이 있지만
+  <br/>
+  저는 daemon.json 파일 안에 등록을 해주도록 하겠습니다.
+  <br/>
+  (가장 간단해서 이방법으로 하였습니다 히힛)
+  <br/>
+ </p>
+ <ol>
+  <li>
+   /etc/docker/daemon.json 수정
+  </li>
+ </ol>
+ <pre><code>[root@kbseo-test1 stlapp]# cat /etc/docker/daemon.json 
+{
+"insecure-registries":["192.168.197.130:5000"]
+}
+</code></pre>
+ <p>
+  사용할 registry 주소와 포트를 입력해줍니다.
+  <br/>
+ </p>
+ <ol start="2">
+  <li>
+   dpcker 데몬 재기동
+  </li>
+ </ol>
+ <pre><code>[root@kbseo-test1 stlapp]# service docker restart
+Redirecting to /bin/systemctl restart docker.service
+</code></pre>
+ <ol start="3">
+  <li>
+   레지스트리에 login
+  </li>
+ </ol>
+ <pre><code>[root@kbseo-test1 stlapp]# docker login http://192.168.197.130:5000
+Username: admin
+Password: 
+Login Succeeded
+</code></pre>
+ <ol start="4">
+  <li>
+   레지스트리에 push
+  </li>
+ </ol>
+ <pre><code>[root@kbseo-test1 stlapp]# docker push 192.168.197.130:5000/stlapp_kb:1.2.0
+The push refers to a repository [192.168.197.130:5000/stlapp_kb]
+c20036844421: Pushed 
+64bc7cab37ab: Pushed 
+caeac141f483: Layer already exists 
+5245df7d360d: Layer already exists 
+78f5460c83b5: Layer already exists 
+c601709dd5d2: Layer already exists 
+72ce39f2b7f6: Layer already exists 
+33783834b288: Layer already exists 
+5c813a85f7f0: Layer already exists 
+bdca38f94ff0: Layer already exists 
+faac394a1ad3: Layer already exists 
+ce8168f12337: Layer already exists 
+1.2.0: digest: sha256:93e8b021981faed5cb1e5b22f4c0694f841afc1aa4502fff78d7edf9ffdb97cf size: 2840
+[root@kbseo-test1 stlapp]#
+</code></pre>
+ <p>
+  <br/>
+  <br/>
+ </p>
+ <p>
+  짜잔! 등록이 되었습니다
+ </p>
+ <p>
+  이번시간에는 간단한 Application을 컨테이너화 하여 실행하는거 까지 함께 했는데요
+  <br/>
+ </p>
+ <p>
+  간단하다고 했지만 실질적으로 여러 작업이 들어갔었습니다
+  <br/>
+ </p>
+ <p>
+  그래서 다음시간에는 이를 좀 더 간단히 수행하기위해
+  <br/>
+ </p>
+ <p>
+  젠킨스를 이용하여 작업을 해보도록 하겠습니다!
+  <br/>
+ </p>
+ <p>
+  뿅!
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/04/30/97455310/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/04/30/97455310/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/kbseo/">
+            <div id="author-image" style="background-image:url(/files/authors/kbseo);">
+                <span class="sr-only">kbseo's profile image</span>
+            </div>
+            <p id="author-name">kbseo</p>
+        </a>
+        <p id="post-date">2020-04-30</p>
+        <a id="post-more" href="/authors/kbseo/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/94568500/0.png);">
+            <div>
+                <h3><a href="/2020/04/09/94568500/">오픈소스에 기여하는 방법에 대하여 - #2 새로운 프로젝트 시작하기</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

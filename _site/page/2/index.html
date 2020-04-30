@@ -101,6 +101,49 @@ Sharing Tech. Growing Together.<br />
         <ul id="post-list">
     
         <li class="post-item post ">
+    <a href="/2020/03/23/91695884/">
+        <h3 class="post-title">[Container 시리즈] 03. Docker File, Docker Image - 도커파일 및 이미지에 대하여</h3>
+        <p class="post-excerpt">  도커를 설치하고 컨테이너를 실행해봤으니 이제는 도커 이미지를 만들고 서버에 배포해볼 차례! 도커 개념에서도 다뤄봤듯이, 도커는 도커 파일을 가지고 도커 이미지를 만들게 되는데요, 다시 한번 말씀드리자면, Docker File이란 Docker Image를 만들기 위한 여러가지 명렁어의 집합입니다. 프로페셔널한 엔지니어라면 뚝딱뚝딱 Dockerfile을 만들 수 있지만 저는 초보자이기 때문에 서버에 명령어를 입력하고 버그를 잡아가면서 Dockerfile을 한 땀 한 땀 만듭니다. 만약에 여러분이 우분투 서버에서 nginx를 설치해서 실행한다고 가정했을 시 순서는 다음과 같습니다. ubuntu 설치 패키지 업데이트 nginx 설치 경로설정 (필요한...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-docker">docker</a>
+        
+            <a class="tag tag-dockerbasic">dockerbasic</a>
+        
+            <a class="tag tag-dockerfile">dockerfile</a>
+        
+            <a class="tag tag-dockerimage">dockerimage</a>
+        
+            <a class="tag tag-container">container</a>
+        
+            <a class="tag tag-도커">도커</a>
+        
+            <a class="tag tag-컨테이너">컨테이너</a>
+        
+            <a class="tag tag-도커파일">도커파일</a>
+        
+            <a class="tag tag-도커이미지">도커이미지</a>
+        
+            <a class="tag tag-dockercommand">dockercommand</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/kbseo">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/kbseo);">
+                <span class="sr-only">kbseo's profile image</span>
+            </div>
+            <p class="author-name">kbseo</p>
+        </a>
+        <p class="post-date">2020-03-23</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+    
+        <li class="post-item post ">
     <a href="/2020/03/22/91695235/">
         <h3 class="post-title">Kubernetes1.17 Hard Way using docker,flannel</h3>
         <p class="post-excerpt">  Kubernetes1.17 Hard Way (Libvirt) using docker,flannel 해당 문서는 https://github.com/alosadagrande/kubernetes-the-hard-way-libvirt-kvm/blob/master/docs/01-prerequisites.md , https://veerendra2.github.io/kubernetes-the-hard-way-3/ 를 기반으로 테스트된 문서 입니다. Prerequisites 호스트 서버에서 설정되어 있는 인스턴스는 아래와 같이 배포를 위한 서버기반으로 master 인스턴스3개와 worker 인스턴스 3개로 구성된다. 이중 master 인스턴스틑 worker의 역할과 같이 진행 할 수 있도록 한다. kubernetes 배포를 위한 인증서 및 kubeconfg 파일의 설정은 kube-hard-deploy 호스트에서 진행 된다. master와 woker로 각 설정의 편의를 위하여 kube-hard-deploy 인스턴스에서 ansible로 진행 하도록 한다. /opt/kubernetes 디렉토리를 생성하여 ansible inventory파일을 설정 한다....</p>
@@ -219,47 +262,6 @@ Sharing Tech. Growing Together.<br />
             <a class="tag tag-도커">도커</a>
         
             <a class="tag tag-도커명령어">도커명령어</a>
-        
-    </p>
-    <div class="post-meta">
-        
-        <a href="/authors/kbseo">
-            <div class="author-image"
-                 style="background-image:url(/files/authors/kbseo);">
-                <span class="sr-only">kbseo's profile image</span>
-            </div>
-            <p class="author-name">kbseo</p>
-        </a>
-        <p class="post-date">2020-03-03</p>
-    </div>
-    <!--<div class="clearfix"></div>-->
-</li>
-
-    
-        <li class="post-item post ">
-    <a href="/2020/03/03/91690190/">
-        <h3 class="post-title">[Container 시리즈] 01. 도커를 설치하고 실행해보자! Docker on Amazon Linux</h3>
-        <p class="post-excerpt">  기존에 테스트용으로 사용하던 서버위에 설치 서버 환경 : Amazon Linux 2 서버 스펙 : t3.micro 안녕하세요 저번시간에 Container와 Docker에 대해서 간략하게 알아보는 시간을 가졌는데요 지난 시간 글 [Container 시리즈] 00. Container/ Docker란 뭔가요? 아무래도 엔지니어분들은 직접 명령어를 쳐야 몸이 풀리기때문에 도커 설치하는 법 부터 가져왔습니다! 자 한번 설치를 시작해볼까요??? 1. 테스트 서버를 간만에 접속해서 업데이트를 먼저 해줍니다. $ sudo yum -y upgrade [ec2-user@ip-172-20-1-221 ~]$ sudo yum -y upgrade Loaded plugins: extras_suggestions, langpacks, priorities, update-motd amzn2-core...</p>
-    </a>
-    <p class="post-tags">
-        
-            <a class="tag tag-container">container</a>
-        
-            <a class="tag tag-containerized">containerized</a>
-        
-            <a class="tag tag-docker">docker</a>
-        
-            <a class="tag tag-dockerinstall">dockerinstall</a>
-        
-            <a class="tag tag-dockeronaws">dockeronaws</a>
-        
-            <a class="tag tag-aws">aws</a>
-        
-            <a class="tag tag-컨테이너">컨테이너</a>
-        
-            <a class="tag tag-도커">도커</a>
-        
-            <a class="tag tag-도커설치">도커설치</a>
         
     </p>
     <div class="post-meta">

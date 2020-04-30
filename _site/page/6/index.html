@@ -101,6 +101,35 @@ Sharing Tech. Growing Together.<br />
         <ul id="post-list">
     
         <li class="post-item post ">
+    <a href="/2019/11/21/86026733/">
+        <h3 class="post-title">Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법</h3>
+        <p class="post-excerpt">  kubernetes상에 동작하는 application에 대한 Build 를 위한 pipeline 작성방법에 대하여 알아보도록 하겠습니다. 가정사항 다음과 같은 상황을 가정하고 Pipeline을 작성할 예정입니다. kubernetes 상에서 Jenkins가 배포되어있고 jenkins slave가 pod로 동작되며 job완료시 Termination React을 사용하여 build 되는 환경 maven으로 package되며 war 파일 생성 Dockerfile을 통해 Docker build 가능 INFO 해당 pipeline은 scripted 방식으로 작성되었습니다. 이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다. ( https://issues.jenkins-ci.org/browse/JENKINS-48421 ) Pipeline 작성법 우선 첫째로 kubernetes 상에서 jenkins slave를 pod 형태로 띄우기...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-kubernetes">kubernetes</a>
+        
+            <a class="tag tag-jenkinsfile">jenkinsfile</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2019-11-21</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+    
+        <li class="post-item post ">
     <a href="/2019/11/05/86022870/">
         <h3 class="post-title">Containerized application을 Bamboo docker task를 이용하여 빌드하기</h3>
         <p class="post-excerpt">  소개 Bamboo task중 Docker task를 이용하여 Docker build 부터 Docker push를 통한 Docker Hub에 등록하는 과정까지를 알아보도록 하겠습니다. 사전준비 Spring boot application을 sample로 하여 war로 package된 application을 대상으로 진행합니다. 하여 아래와 같은 상황을 가정합니다. spring-boot 를 이용한 web application 이 war로 build되도록. Dockerfile에 해당 war가 tomcat image를 통해 구동되도록(좀더 쉽게 spring batch로 실행하여도 무방) Sample은 다음 repository에서 확인해볼수 있습니다. https://git.osci.kr/projects/JBPRJ/repos/samplejavadocker/browse 사용법 사전준비사항에서 언급된 docker image 준비가 완료되면 Dockerfile을 해당 repository에 함께 push한후 Docker task 추가를...</p>
@@ -221,29 +250,6 @@ Sharing Tech. Growing Together.<br />
             <p class="author-name">jacobbaek</p>
         </a>
         <p class="post-date">2019-10-19</p>
-    </div>
-    <!--<div class="clearfix"></div>-->
-</li>
-
-    
-        <li class="post-item post ">
-    <a href="/2019/10/10/82068584/">
-        <h3 class="post-title">React에서 Ref 사용하기</h3>
-        <p class="post-excerpt">  React는 컴포넌트 트리 선언과 props 사용을 통해서, DOM 노드에 레퍼런스를 걸지 않고도 UI 제어가 대부분 가능합니다. 하지만 개발 중에는 특정 노드에 레퍼런스를 걸고 접근해야할 경우도 가끔씩 있습니다. React Ref는 특정한 DOM 노드, 혹은 컴포넌트 인스턴스에 reference를 걸어주는 것입니다. Ref를 통해서 render 메서드에서 만든 DOM 노드나 React 요소에 접근해서, 값을 얻거나 수정할 수 있습니다. 이 글의 내용은 React v.16.7로 프로젝트를 하는 동안 제가 ref 를 사용하기위해 알아야만 했던 내용들을 모은 것입니다. 여기 나오는 소스들은 ref 를 사용한것을 재구성했습니다....</p>
-    </a>
-    <p class="post-tags">
-        
-    </p>
-    <div class="post-meta">
-        
-        <a href="/authors/eomhy">
-            <div class="author-image"
-                 style="background-image:url(/files/authors/eomhy.jpg);">
-                <span class="sr-only">eomhy's profile image</span>
-            </div>
-            <p class="author-name">eomhy</p>
-        </a>
-        <p class="post-date">2019-10-10</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>
