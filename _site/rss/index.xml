@@ -9,9 +9,477 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Apr 2020 19:25:02 +0900</pubDate>
-    <lastBuildDate>Thu, 30 Apr 2020 19:25:02 +0900</lastBuildDate>
+    <pubDate>Wed, 13 May 2020 17:50:56 +0900</pubDate>
+    <lastBuildDate>Wed, 13 May 2020 17:50:56 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>아틀라시안 클라우드 마이그레이션에 대한 10가지 오해와 진실</title>
+        <description>&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97456877/0.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 안녕하세요, 오픈소스컨설팅 한진규상무입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 지라와 컨플루언스 같은 아틀라시안 제품을 사용할 때 아직은 직접 서버에 설치형으로 사용하시는 경우가 많은데요, 작년부터는 클라우드 제품을 활용하시는 분들이 늘어가는 것 같습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 최근 아틀라시안을 구매하는 신규 고객의 90%이상이 클라우드 제품을 사용하는 걸 보면, 앞으로는 클라우드 제품이 더 많은 비중을 차지 하지 않을까 하는 생각이 드네요.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  아, 혹시 모르시는 분들을 위해 설명드리면, 아틀라시안의 대부분의 제품은 자사 서버에 설치 할 수 있는 설치형 제품(서버, 데이터센터)과 클라우드에 접속해서 사용할수 있는 클라우드형(SaaS) 제품 두가지로 공급이 되고 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 자, 그럼 본론으로 들어가서
+&lt;/p&gt;
+&lt;p&gt;
+ 오늘 이야기할 내용은, 아틀라시안 클라우드로 이전하는데 있어서 사람들이 흔히 알고 있는 오해와 그에 대한 진실에 대해 이야기 해보려고 합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 이 내용은 아틀라시안 블로그에 게재된 내용인데, 편안하게 읽으시라고
+ &lt;s&gt;
+  오역과
+ &lt;/s&gt;
+ 의역을 담아 한글로 전달하는데 목적을 두고 적는 것이니,
+ &lt;s&gt;
+  오역과
+ &lt;/s&gt;
+ 의역이 불편하신 경우 상큼하게 영어 원본을 읽으시길 권장 드립니다 ㅎㅎ
+&lt;/p&gt;
+&lt;p&gt;
+ 그 마음 충분히 이해하거든요. 워낙 발번역이라.....흠흠..
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;em&gt;
+  &lt;strong&gt;
+   원본 링크 :
+  &lt;/strong&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/blog/platform/myths-about-moving-to-atlassian-cloud&quot; rel=&quot;nofollow&quot;&gt;
+   https://www.atlassian.com/blog/platform/myths-about-moving-to-atlassian-cloud
+  &lt;/a&gt;
+ &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 일단 그럼 어떤 오해가 있는지 한번 알아볼까요?
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 오해1. 클라우드와 서버 제품은 동일하다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해2. 온프레미스(On-premise)가 클라우드보다 더 안전하게 데이터를 보관한다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해3. 온프레미스(On-premise) 관리 비용이 클라우드보다 더 싸다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해4. 대기업은 클라우드를 사용하지 않는다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해5. 운영서버 마이그레이션이 핵심이다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해6. 클라우드 마이그레션 전에 '정리'작업은 필요없다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해7. 클라우드에서는 애드온을 사용할 수 없다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해8. 애드온은 클라우드로 이관되지 않는다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해9. 클라우드 마이그레이션은 우리 조직의 니즈에 부합 할 만큼 유연하지 못하다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오해10. 클라우드 마이그레이션은 우리 조직에서 수행하기에 너무 번거로운 일이다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 어떠세요? 맞다~ 맞다~ 하고 계신가요??
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 그렇다면 진실은 무엇일까요??
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해1.클라우드제품과서버제품은똑같은거아녀?지라가그놈이그놈이지....&quot;&gt;
+ 오해1. 클라우드제품과 서버제품은 똑같은거 아녀? 지라가 그놈이 그놈이지....
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  아닙니다. 아틀라시안 클라우드 제품들이 서버 제품과 동일한 이점을 제공하긴 하지만 서버제품과는 기능과 고객경험에 있어서 약간의 차이가 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 즉, Jira Cloud 및 Confluence Cloud 고유의 차이점 뿐만 아니라 플랫폼 차이에서 오는 특징들이 있거든요.
+&lt;/p&gt;
+&lt;p&gt;
+ 일단, 클라우드 제품들은 서버제품과 메뉴바 등도 다르고, 애드온이나, 사용자관리 등 다양한 차이가 있습니다.
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  Jira Cloud는 새로운 이슈보기 및 '차세대 프로젝트'를 제공하고 Confluence Cloud에는 서버제품에는 없는 새로운 페이지 편집기가 있습니다. 또한 iOS 및 Android 용 무료 모바일 앱을 사용하여 어디서나 이슈와 페이지에 쉽게 액세스하고 업데이트 할 수 있습니다. 특히, 차세대 프로젝트는 지라를 마치 트렐로처럼 쓸수 있게 해주는데요 즉, 복잡한 설정 없이 클릭만으로 워크플로우를 생성/편집/삭제 할 수 있어서 엄청 편리합니다. 서버제품에는 제공할 생각이 없는 듯 해서 좀 아쉽네요.
+ &lt;/li&gt;
+ &lt;li&gt;
+  클라우드에서는 제품 관리 및 사용자 계정이 중앙 집중화되어 관리 됩니다. 저희가 서버 제품을 쓸때는 주로 크라우드(Crowd)라는 제품을 통해서 계정을 관리하는데요, 클라우드에서는 Atlassian Access라는 제품을 통해 비슷한 역할을 합니다. 하지만 좀 더 강력하죠. Atlassian Access는 Atlassian의 클라우드 제품 전체에 추가적인 엔터프라이즈급 보안 및 강화 된 관리 도구를 제공합니다. 클라우드 별 비용 플랜 및 청구 / 라이센스모델을 관리 할수 있습니다.
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ 이러한 기능을 익히는 가장 좋은 방법은 사용해 보는 거겠죠? 현재 서버 및 데이터센터 고객이라면, 해당 라이센스 기간동안
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  클라우드 평가판을 무료로 제공
+ &lt;/span&gt;
+ 해 줍니다. (자세한 사항은 파트너사에 문의해 주세요)
+&lt;/p&gt;
+&lt;p&gt;
+ 그리고 저희 오픈소스컨설팅과 같은 파트너사를 통해서도 연단위/월단 빌링이 가능하기 때문에 담당자는 관리에 신경쓰지 않고 편하게 사용하실 수 있다는점. 다시한번 강조드립니다. ㅎㅎ
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해2.온프레미스(On-premise)가당연히클라우드보다더안전하게데이터를보관하겠지.중요한데이터는무조건온프레미스야!!마이프레셔~스~&quot;&gt;
+ 오해2. 온프레미스(On-premise)가 당연히 클라우드보다 더 안전하게 데이터를 보관하겠지. 중요한 데이터는 무조건 온프레미스야!! 마이 프레셔~스~
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  아닙니다. Atlassian 클라우드 플랫폼의 핵심은 보안, 안정성, 개인 정보 및 규정 준수입니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 여러분의 회사가 Atlassian 클라우드로 전환하면, 그 순간부터 아틀라시안이 여러분 회사의 보안팀이 됩니다. 클라우드로 전환했을뿐인데, 보안팀이 딸려왔네? 요런느낌적인 느낌
+&lt;/p&gt;
+&lt;p&gt;
+ Atlassian의 클라우드 제품은 전 세계적으로 업계에서 승인 된 규정 준수 및 데이터 개인 정보 보호 표준을 능가하며 전송 및 저장시 암호화를 통해 데이터를 보호하거든요.
+&lt;/p&gt;
+&lt;p&gt;
+ Atlassian Access는 관리자에게 클라우드 제품을 사용하는 모든 사람을 파악하고 관리 할 수 있는 중앙 위치를 제공합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 그렇게 때문에 많은 기업이 마이그레이션의 첫 단계로 Atlassian Access에 가입합니다. 이를 통해 기존 클라우드 사용량에 대한 가시성이 향상되고 보안 기준이 설정됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ Atlassian이 사용자를 보호하는 방법에 대해 자세히 알아 보려면
+ &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/trust&quot; rel=&quot;nofollow&quot;&gt;
+  Atlassian 보안 센터
+ &lt;/a&gt;
+ 를 방문해보시길 권장합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해3.온프레미스(On-premise)관리비용이클라우드보다훨씬쌀껄?클라우드로가면비싸다던데...&quot;&gt;
+ 오해3. 온프레미스(On-premise) 관리 비용이 클라우드보다 훨씬 쌀껄? 클라우드로가면 비싸다던데...
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  아닙니다. TCO (Total cost of ownership)로 보면 클라우드 제품이 온프레미스보다 저렴합니다. 온프레미스를 관리하는데 들어가는 숨은 비용이 많거든요.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97456877/1.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 클라우드로의 원활한 전환을 위해서 아틀라시안이 제공하는 비용절감 방안을 활용하는 것도 좋은 방법입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/cloud-migration/explore-cloud&quot; rel=&quot;nofollow&quot;&gt;
+  무료 확장 클라우드 평가판 라이센스
+ &lt;/a&gt;
+ , 미사용 서버 메인터넌스 할인,
+ &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/licensing/cloud/cloudmigrationfaq&quot; rel=&quot;nofollow&quot;&gt;
+  기업 고객에 대한 로열티 요금정책
+ &lt;/a&gt;
+ 등을 제공하고 있으며, 특히 학교나 비영리단체에는 할인된 가격으로 제품을 공급하고 있으니 참고하세요!
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해4.대기업은클라우드를사용하지않는다?&quot;&gt;
+ 오해4. 대기업은 클라우드를 사용하지 않는다?
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  아닙니다. 많은 수의 대기업이 클라우드로 옮겨가고 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 포춘 500대 기업 중 80% 이상(ARM, Oracle 등)이 아틀라시안 클라우드 라이센스를 사용 중이며, 신규 고객의 90%가 클라우드 제품을 선택하고 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 아틀라시안의 Maren Hotvedt에 따르면,
+&lt;/p&gt;
+&lt;p&gt;
+ 그 어느때보다 많은 수의 Atlassian 서버 및 데이터센터 고객이 클라우드로 마이그레이션하고 있으며 새로운 엔터프라이즈 고객도 클라우드를 선택하고 있다고 합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 소규모 고객만이 아니라, Redfin, Nestle, Lululemon, Pfizer, Unilever 등의 엔터프라이즈 회사도 많다고 하네요.
+&lt;/p&gt;
+&lt;p&gt;
+ 엔터프라이즈 마이그레이션에 대한 자세한 내용은 1,000유저 규모의 북미에 위치한 부동산 전문 회사
+ &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/customers/redfin&quot; rel=&quot;nofollow&quot;&gt;
+  Redfin이 최근 Atlassian 클라우드로 마이그레이션
+ &lt;/a&gt;
+ 하고 6 만 달러 이상을 절약하여 경쟁력을 유지하고 미션에 집중할 수 있었던 사례를 확인해 보시기 바랍니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해5.운영서버마이그레이션이핵심이다?&quot;&gt;
+ 오해5. 운영서버 마이그레이션이 핵심이다?
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  아닙니다. 오히려 계획 및 준비 과정이 마이그레이션에서 가장 크고 중요한 부분이며, 이러한 과정이 얼마나 잘 준비되느냐가 마이그레이션 성공에 가장 큰 영향을 미칩니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 특히, 여러 인스턴스를 통합하거나 많은 수의 앱이 설치된 경우 클라우드로 마이그레이션하는 데 6개월 이상이 걸릴 수 있어요.
+&lt;/p&gt;
+&lt;p&gt;
+ 이때 운영서버 이전은 하나의 과정일 뿐이며, 오히려 마이그레이션과 관련된 대부분의 작업은 운영서버  마이그레이션전과 마이그레이션 후에 유저들이 새로운 시스템에 적응하면서 이루어집니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 그 과정을 살펴보면 다음과 같습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97456877/2.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해6.클라우드마이그레션전에'정리'작업은필요없다?&quot;&gt;
+ 오해6. 클라우드 마이그레션 전에 '정리'작업은 필요없다?
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  아닙니다. 클라우드로 이전하기 전에 이주 전에 소위 말하는 &quot;봄맞이 대청소&quot;와 같은 시간을 갖는다면 훨씬 좋은 효과를 가질 수 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 많은 조직에서 마이그레이션 전 정리작업이 필수가 아니라 &quot;하면 좋은&quot;것 정도로 간주하는데요,  Atlassian 클라우드 마이그레이션 전에 자체 관리 형 인스턴스를 구성하는 것이 중요합니다. 여기에는 사용되지 않은 공간(Space) 및 프로젝트 아카이빙, 사용자 계정 정리, Add-on Test, 커스터마이징 검토 및 최소화, 중복 제거 및 사용되지 않은 스키마, 필드 및 이슈 유형 삭제가 포함됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 이러한 봄맞이 대청소를 실시하면 두 가지 이점이 있습니다. 첫째, 마이그레이션을 더 빠르고 원활하게 하며, 둘째, 클라우드 마이그레이션이 완료되었을 때 시스템의 데이터 및 볼륨 감소 덕분에 성능도 향상되는 경우가 많습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해7.클라우드에서는앱(애드온)을사용할수없다.&quot;&gt;
+ 오해7. 클라우드에서는 앱(애드온)을 사용할 수 없다.
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  아닙니다. 앱(아틀라시안에서는 애드온을 App이라고 표현) 개발자들은 더 좋고 더 많은 클라우드용 앱을 빠르게 만들어내고 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ Atlassian Marketplace는 클라우드 제품의 사용성 확장을 지원하는 1,000 개 이상의 앱을 클라우드 고객에게 제공합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 가장 인기있는 서버용 앱인 Insight Asset Management(자산관리), Jira Workflow Toolbox, JSU Automation for Jira, Structure(간트챠트 및 시각화 지원) 및 ConfiForms들은 이미 클라우드 버전을 공급하고 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 이 뿐이 아니라 매일 새로운 앱이 나옵니다. Atlassian은 2019 년에만 250 개의 새로운 클라우드 앱을 추가했습니다. 특히 내가 사랑하는 서버용 앱이 클라우드에는 아직 없을 경우 공급 업체에 문의하여 개발중인 제품을 확인하는 것이 좋습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해8.앱(애드온)은클라우드로이관되지않는다.&quot;&gt;
+ 오해8. 앱(애드온)은 클라우드로 이관되지 않는다.
+&lt;/h2&gt;
+&lt;p&gt;
+ 사실, 앱 마이그레이션은 Atlassian 및 앱 공급 업체의 주요 관심사입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 고객의 60 % 이상이 Atlassian Marketplace에서 앱을 사용하므로 마이그레이션 팀은 앱 평가 및 마이그레이션을 단순화하기 위해 노력하고 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 앱 평가 도구를 사용하면 서버의 앱 사용 공간과 사용량을보다 쉽게 ​​이해할 수 있습니다. 이 정보는 클라우드에서 필요할 앱에 대한 마이그레이션 계획을 작성하는 데 사용될 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ Atlassian의 Migration Assistant 도구는 팀이 앱을 얼마나 자주 사용 하는지를 표시합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 클라우드 버전을 사용할 수 있으며 마이그레이션 경로가 있는지 여부 이 기능은 현재
+ &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1219672/confluence-cloud-migration-assistant?hosting=server&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+  Confluence Cloud Migration Assistant
+ &lt;/a&gt;
+ 및
+ &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1222010/jira-cloud-migration-assistant?hosting=server&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+  Jira Cloud Migration Assistant
+ &lt;/a&gt;
+ 에서 사용할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 그러나 평가는 과정의 절반에 불과합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 현재 앱 데이터는 핵심 제품 데이터와 클라우드로 마이그레이션되지 않습니다. 앱 데이터 마이그레이션은 공급 업체와 직접 작업해야 할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 이는 마이그레이션 계획 기간과 프로덕션 마이그레이션을 연장하고 복잡하게 만들 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+  이러한 어려움을 완화하기 위해 Atlassian은 오버 헤드를 최소화하고 안정성을 극대화하는 앱 마이그레이션 도구를 개발하고 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해9.클라우드마이그레이션은우리조직의니즈에부합할만큼유연하지못하다.&quot;&gt;
+ 오해9. 클라우드 마이그레이션은 우리 조직의 니즈에 부합 할 만큼 유연하지 못하다.
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;color: rgb(255,0,0);&quot;&gt;
+  아닙니다.
+ &lt;/span&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  Atlassian은 조직이 원하는 속도로 클라우드로 이동하거나 단계별로 마이그레이션하거나 하이브리드 방식을 사용할 수 있는
+  &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+   유연한 마이그레이션 도구를 공급하고 있습니다.
+  &lt;/span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  처음에는 이러한 도구가 없어서 진짜 어려웠지만, 컨플루언스같은 경우는 거의 문제 없이 이관이 가능해졌고, 지라도 점점 마이그레이션 도구가 업데이트 되면서 상당부분 스트레스 받지 않고 마이그레이션이 가능하게 되었어요.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  아틀라시안에서 제공중인 무료 마이그레이션 도구 :
+  &lt;br/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  ·
+  &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1219672/confluence-cloud-migration-assistant?hosting=server&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+   Confluence Migration Assistant
+  &lt;/a&gt;
+  - 이 무료 서버 앱은 2018 년에 출시되었습니다. Confluence Server 또는 Data Center에서 클라우드로 데이터 및 사용자를 쉽게 마이그레이션 할 수 있습니다. 이 도구를 사용하여 관리자는 마이그레이션 대상, 방법 및시기를 선택할 수 있습니다.
+  &lt;br/&gt;
+  ·
+  &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1222010/jira-cloud-migration-assistant?hosting=server&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+   Jira Cloud Migration Assistant
+  &lt;/a&gt;
+  - 조직은 사용자 및 그룹과 함께 프로젝트별로 Jira 인스턴스를 마이그레이션 할 수 있습니다. Migration Assistant는 조직이 클라우드 마이그레이션에보다 전략적으로 접근 할 수 있도록 도와줍니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/97456877/3.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;id-아틀라시안클라우드마이그레이션에대한10가지오해와진실-오해10.클라우드마이그레이션은우리조직에서수행하기에너무번거로운일이다.&quot;&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  오해10. 클라우드 마이그레이션은 우리 조직에서 수행하기에 너무 번거로운 일이다.
+ &lt;/span&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;http://www.osci.kr&quot; rel=&quot;nofollow&quot;&gt;
+   오픈소스컨설팅
+  &lt;/a&gt;
+  과 같은 아틀라시안 파트너사는 이러한 문제를 해결하고 고객이 무리없이 클라우드로 이전할 수 있도록 기획 단계부터 컨설팅을 지원합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  초기 단계에서 부터 함께 이야기를 나누다면, 더 완벽한 클라우드로의 이전이 가능해 집니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+  이렇게 10가지 오해와 진실에 대해서 알아봤는데요, 클라우드제품도 편리하게 무료 트라이얼이 가능하니까 고민만 하지 마시고 한번 사용해보시길 권해 드립니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/ko/software/free&quot; rel=&quot;nofollow&quot;&gt;
+   https://www.atlassian.com/ko/software/free
+  &lt;/a&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  클라우드 사용 및 이전과 관련한 더 궁금한 사항은 오픈소스컨설팅으로 문의 주세요!
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot;&gt;
+  atlassian@osci.kr
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Fri, 08 May 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/05/08/97456877/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/05/08/97456877/</guid>
+        
+        <category>아틀라시안</category>
+        
+        <category>atlassian</category>
+        
+        <category>cloud</category>
+        
+        
+      </item>
     
       <item>
         <title>[Container 시리즈] 04. 실행중인 App 서비스를 컨테이너화 해보자!</title>
@@ -7517,459 +7985,6 @@ AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(
         <category>마이그레이션</category>
         
         <category>신종코로나</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>[Container 시리즈] 02. Docker사용법 Docker Basic Command</title>
-        <description>&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   nginx docker image를 여 registry로 부터 image pull, run, 그리고 삭제하는 과정에 대해 기술
-  &lt;/p&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 안녕하세요 ^^
-&lt;/p&gt;
-&lt;p&gt;
- 저번시간에 설치만 해서 너무 간질간질 하셨을 여러분을 위해
-&lt;/p&gt;
-&lt;p&gt;
- 지난 글에 이어서 Docker 기본 명령어에 대해 알아보는 시간을 가지도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a href=&quot;/pages/viewpage.action?pageId=91690167&quot;&gt;
-  [Container 시리즈] 00. Container/ Docker란 뭔가요?
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a href=&quot;/pages/viewpage.action?pageId=91690190&quot;&gt;
-  [Container 시리즈] 01. 도커를 설치하고 실행해보자! Docker on Amazon Linux
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;id-[Container시리즈]02.Docker사용법DockerBasicCommand-1.Image가져오기&quot;&gt;
- 1. Image 가져오기
-&lt;/h1&gt;
-&lt;p&gt;
- : 기본 개념에서와 같이 도커는 저장소(registry)에서 이미지를 가져와 사용을 합니다
-&lt;/p&gt;
-&lt;p&gt;
- $ docker pull nginx:latest
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# docker images 명령어를 통해 현재 가지고 있는 이미지 확인
-[kbseo@ip-172-20-1-221 ~]$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-
-# docker login
-[kbseo@ip-172-20-1-221 ~]$ docker login
-Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
-Username: kbseo
-Password: 
-WARNING! Your password will be stored unencrypted in /home1/kbseo/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 이미지를 땡겨 봅시다
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# tag를 지정해주지 않으면 default로 latest 버전을 가져옵니다.
-# tag를 지정할 경우 
-# docker pull nginx:latest 
-# 위의 명령어 대로 pull 가능
-
-[kbseo@ip-172-20-1-221 ~]$ docker pull nginx
-Using default tag: latest
-latest: Pulling from library/nginx
-bc51dd8edc1b: Pull complete 
-66ba67045f57: Pull complete 
-bf317aa10aa5: Pull complete 
-Digest: sha256:ad5552c786f128e389a0263104ae39f3d3c7895579d45ae716f528185b36bc6f
-Status: Downloaded newer image for nginx:latest
-[kbseo@ip-172-20-1-221 ~]$ 
-
-# 이미지 확인
-[kbseo@ip-172-20-1-221 ~]$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nginx               latest              2073e0bcb60e        3 weeks ago         127MB
-[kbseo@ip-172-20-1-221 ~]$ 
-
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 이미지를 가져왔으니 이제 실행시켜봐야죠!
-&lt;/p&gt;
-&lt;h1 class=&quot;auto-cursor-target&quot; id=&quot;id-[Container시리즈]02.Docker사용법DockerBasicCommand-2.RunContainer&quot;&gt;
- 2. Run Container
-&lt;/h1&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# docker ps 라는 명령어로 현재 실행중인 컨테이너를 확인합니다.
-# docker ps -a -&amp;gt; 중지된 컨테이너까지 모두 출력
-
-[kbseo@ip-172-20-1-221 ~]$ docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 실행중인 컨테이너가 없네요
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# docker run 이라는 명령어로 컨테이너를 실행시켜줍니다.
-# docker run &amp;lt;옵션&amp;gt; &amp;lt;이미지 이름&amp;gt; &amp;lt;실행할 파일&amp;gt;
-
-[kbseo@ip-172-20-1-221 ~]$ docker run -it -d -p 8080:80 --name=nginx nginx:latest
-57c8f50ce8c565e7b8fcfbe3a730b4be9c7c0221606ee0ba7dc22295d1b8ae04
-
-# 옵션 -i(interactive), -t(Pseudo-tty) -&amp;gt; Bash Shell에 입력 및 출력을 할 수 있습니다.
-# 옵션 --name -&amp;gt; 컨테이너의 이름을 지정해 줍니다.
-# 옵션 -d -&amp;gt; daemonized
-# 옵션 -p -&amp;gt; 포트포워딩
-
-[kbseo@ip-172-20-1-221 ~]$ docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-57c8f50ce8c5        nginx:latest        &quot;nginx -g 'daemon of…&quot;   4 seconds ago       Up 3 seconds        0.0.0.0:8080-&amp;gt;80/tcp   nginx
-[kbseo@ip-172-20-1-221 ~]$ 
-
-[kbseo@ip-172-20-1-221 ~]$ curl http://localhost:8080
-&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head&amp;gt;
-&amp;lt;title&amp;gt;Welcome to nginx!&amp;lt;/title&amp;gt;
-&amp;lt;style&amp;gt;
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
-&amp;lt;/style&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;h1&amp;gt;Welcome to nginx!&amp;lt;/h1&amp;gt;
-&amp;lt;p&amp;gt;If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.&amp;lt;/p&amp;gt;
-
-&amp;lt;p&amp;gt;For online documentation and support please refer to
-&amp;lt;a href=&quot;http://nginx.org/&quot;&amp;gt;nginx.org&amp;lt;/a&amp;gt;.&amp;lt;br/&amp;gt;
-Commercial support is available at
-&amp;lt;a href=&quot;http://nginx.com/&quot;&amp;gt;nginx.com&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
-
-&amp;lt;p&amp;gt;&amp;lt;em&amp;gt;Thank you for using nginx.&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-[kbseo@ip-172-20-1-221 ~]$ 
-
-
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/91690192/0.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot; style=&quot;text-align: center;&quot;&gt;
- 잘 뜨네요. 기쁩니다.
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 컨테이너를 실행했으니 내부로 들어가 봅시다.
-&lt;/p&gt;
-&lt;h1 class=&quot;auto-cursor-target&quot; id=&quot;id-[Container시리즈]02.Docker사용법DockerBasicCommand-3.Container내부탐험&quot;&gt;
- 3. Container 내부탐험
-&lt;/h1&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- $ docker exec
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# 내부장벽진입
-[kbseo@ip-172-20-1-221 ~]$ docker exec -it nginx /bin/bash
-root@57c8f50ce8c5:/# 
-
-# 진입완료
-# 컨테이너의 hostname을 알아봅시다 
-root@57c8f50ce8c5:/# hostname
-57c8f50ce8c5
-
-root@57c8f50ce8c5:/# cat /etc/issue
-Debian GNU/Linux 10 \n \l
-
-root@57c8f50ce8c5:/# 
-
-# Shell을 빠져나오려면 Ctrl + D 혹은 exit를 입력합니다.
-
-# exit로 나왔을 경우 container 도 쉘 종료메세지(exit 0)을 받고 자연스럽게 종료 되기때문에 docker start [컨테이더 ID ] 명령어로 재시작 혹은 ctrl+ p 혹은 ctrl + q 로 실행을 유지한 채 터미널로 빠져 나올 수 있습니다.&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h1 class=&quot;auto-cursor-target&quot; id=&quot;id-[Container시리즈]02.Docker사용법DockerBasicCommand-4.Image삭제&quot;&gt;
- 4. Image 삭제
-&lt;/h1&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- : 보통은 이미지를 삭제하기 전 컨테이너를 먼저 삭제한 후 진행됩니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# docker rm 명령어를 통해 삭제합니다
-# 컨테이너 삭제 
-[kbseo@ip-172-20-1-221 ~]$ docker rm nginx
-Error response from daemon: You cannot remove a running container 57c8f50ce8c565e7b8fcfbe3a730b4be9c7c0221606ee0ba7dc22295d1b8ae04. Stop the container before attempting removal or force remove
-
-# 어라? 삭제가 안되네요
-# 먼저 중지를 해줍니다.
-
-# I will find you and I will kill you...
-
-[kbseo@ip-172-20-1-221 ~]$ docker kill nginx
-nginx
-
-# 다시삭제를 해봅니다.
-[kbseo@ip-172-20-1-221 ~]$ docker rm nginx
-nginx
-[kbseo@ip-172-20-1-221 ~]$ docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-[kbseo@ip-172-20-1-221 ~]$ 
-
-# 잘 삭제가 되네요
-
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 이미지도 지워버립시다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# docker rmi 명령어를 통해 이미지를 삭제해줍니다.
-
-[kbseo@ip-172-20-1-221 ~]$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nginx               latest              2073e0bcb60e        3 weeks ago         127MB
-[kbseo@ip-172-20-1-221 ~]$ 
-
-# $ docker rmi nginx:latest 혹은 $ docker rmi [ 이미지 ID ] 
-
-[kbseo@ip-172-20-1-221 ~]$ docker rmi nginx:latest
-Untagged: nginx:latest
-Untagged: nginx@sha256:ad5552c786f128e389a0263104ae39f3d3c7895579d45ae716f528185b36bc6f
-Deleted: sha256:2073e0bcb60ee98548d313ead5eacbfe16d9054f8800a32bedd859922a99a6e1
-Deleted: sha256:a3136fbf38691346715cac8360bcdfca0fff812cede416469653670f04e2cab0
-Deleted: sha256:99360ffcb2da18fd9ede194efaf5d4b90e7aee99f45737e918113e6833dcf278
-Deleted: sha256:488dfecc21b1bc607e09368d2791cb784cf8c4ec5c05d2952b045b3e0f8cc01e
-[kbseo@ip-172-20-1-221 ~]$ 
-[kbseo@ip-172-20-1-221 ~]$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 컨테이너를 삭제하기 전 이미지를 삭제할 경우 -f옵션으로 한꺼번에 삭제할 수 있습니다.
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- $ docker rmi -f [이미지 ID]
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- &amp;gt; 컨테이너도 강제삭제
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 이렇게 끝내면 너무 아쉬우니 부가적으로 이미지를 저장할때 aws s3로 저장하는 방법도 슬쩍 소개해 드리겠습니다.
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- &lt;s&gt;
-  aws가 좋아서 그런거는 아닙니다.
- &lt;/s&gt;
-&lt;/p&gt;
-&lt;h1 class=&quot;auto-cursor-target&quot; id=&quot;id-[Container시리즈]02.Docker사용법DockerBasicCommand-+AWSS3에컨테이너이미지저장&quot;&gt;
- + AWS S3에 컨테이너 이미지 저장
-&lt;/h1&gt;
-&lt;ul style=&quot;list-style-type: square;&quot;&gt;
- &lt;li&gt;
-  Docker registry 이미지를 가져옵니다.
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# docker pull registry:latest
-[kbseo@ip-172-20-1-221 ~]$ docker pull registry:latest
-latest: Pulling from library/registry
-486039affc0a: Pull complete 
-ba51a3b098e6: Pull complete 
-8bb4c43d6c8e: Pull complete 
-6f5f453e5f2d: Pull complete 
-42bc10b72f42: Pull complete 
-Digest: sha256:7d081088e4bfd632a88e3f3bcd9e007ef44a796fddfe3261407a3f9f04abe1e7
-Status: Downloaded newer image for registry:latest
-[kbseo@ip-172-20-1-221 ~]$ 
-
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul style=&quot;list-style-type: square;&quot;&gt;
- &lt;li&gt;
-  이미지를 컨테이너로 실행해줍니다.
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# 다운받은 이미지 Run
-[kbseo@ip-172-20-1-221 ~]$  docker run -d -p 5000:5000 --restart=always --name docker-registry \
-&amp;gt;   -e REGISTRY_STORAGE=s3 \
-&amp;gt;   -e REGISTRY_STORAGE_S3_BUCKET=kbseo-s3 \
-&amp;gt;   -e REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJMYYWQIA******* \
-&amp;gt;   -e REGISTRY_STORAGE_S3_SECRETKEY=YTOwsm0lDgghwjRHtR************ \
-&amp;gt;   -e REGISTRY_STORAGE_S3_REGION=ap-northeast-2 \
-&amp;gt;   registry
-274a07c0c008d866e44215eb4b3626448e5ef11fa573acd69ecb3e000ebde7b2
-
-[kbseo@ip-172-20-1-221 ~]$ 
-
-# docker run -d -p 5000:5000 --restart=always --name docker-registr -&amp;gt; s3-registry 이미지 이름 지정 후 registry 기본포트 5000번으로 실행해줍니다
-# -e SETTINGS_FLAVOR=s3  -&amp;gt; SETTINGS_FLAVOR는 s3로 설정해줍니다.
-# -e AWS_BUCKET=kbseo-s3 -&amp;gt; 저장할 버킷이름을 지정해주세요
-# -e STORAGE_PATH=/registry -&amp;gt; 저장될 경로입니다.
-# -e AWS_KEY=AKIAJMYYWQIA******* -&amp;gt; IAM 혹은 루트계정의 Access Key를 입력해주세요
-# -e AWS_SECRET=YTOwsm0lDgghwjRHtR************ -&amp;gt;  IAM 혹은 루트계정의 Secret Key를 입력해주세요
-
- docker run -d -p 5000:5000 --restart=always --name docker-registry \
-  -e REGISTRY_STORAGE=s3 \
-  -e REGISTRY_STORAGE_S3_BUCKET=kbseo-s3 \
-  -e REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJMYYWQIA****** \
-  -e REGISTRY_STORAGE_S3_SECRETKEY=YTOwsm0lDgghwjRHtR************ \
-  -e REGISTRY_STORAGE_S3_REGION=ap-northeast-2 \
-  registry&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;ul style=&quot;list-style-type: square;&quot;&gt;
- &lt;li&gt;
-  이제 s3로 푸시해볼 차례입니다.
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Eclipse&quot; data-theme=&quot;Eclipse&quot;&gt;# 어떤 이미지를 푸시해볼까....
-[kbseo@ip-172-20-1-221 ~]$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-registry            latest              708bc6af7e5e        4 weeks ago         25.8MB
-[kbseo@ip-172-20-1-221 ~]$ 
-
-# 음.. 이미지를 다 지워서 push할 이미지가 없네요
-# 만만한 hello-world 이미지를 받아봅니다.
-
-[kbseo@ip-172-20-1-221 ~]$ docker pull hello-world
-Using default tag: latest
-latest: Pulling from library/hello-world
-1b930d010525: Pull complete 
-Digest: sha256:fc6a51919cfeb2e6763f62b6d9e8815acbf7cd2e476ea353743570610737b752
-Status: Downloaded newer image for hello-world:latest
-[kbseo@ip-172-20-1-221 ~]$ 
-[kbseo@ip-172-20-1-221 ~]$ docker images
-REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-registry                     latest              708bc6af7e5e        4 weeks ago         25.8MB
-hello-world                  latest              fce289e99eb9        14 months ago       1.84kB
-localhost:5000/hello-world   latest              fce289e99eb9        14 months ago       1.84kB
-
-
-# tag를 지정해줍니다
-# tag에 대해선 다음시간에 좀 더 자세히 다뤄보도록 하겠습니다.
-[kbseo@ip-172-20-1-221 ~]$ docker tag hello-world localhost:5000/hello-world
-
-# registry가 잘 돌아가고있네요
-[kbseo@ip-172-20-1-221 ~]$ docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-274a07c0c008        registry            &quot;/entrypoint.sh /etc…&quot;   7 seconds ago       Up 6 seconds        0.0.0.0:5000-&amp;gt;5000/tcp   docker-registry
-[kbseo@ip-172-20-1-221 ~]$ 
-
-
-
-# s3에 올려볼 차례
-[kbseo@ip-172-20-1-221 ~]$ docker push localhost:5000/hello-world
-The push refers to repository [localhost:5000/hello-world]
-af0b15c8625b: Pushed 
-latest: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524
-[kbseo@ip-172-20-1-221 ~]$ 
-
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul style=&quot;list-style-type: square;&quot;&gt;
- &lt;li&gt;
-  확인
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- 잘 올라갔는지 s3로 가봅시다 총총총
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91690192/1.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 요기 올라와져있네여
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 사실상 Code →  Docker file → Docker Image 형태이기 때문에  이러한 과정에서 수정사항이 있으면 Docker file을 재작성 후 재빌드하고 이를 다시 Image화 하야하는데
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 천리길도 한걸음부터 라는 말이 있듯이!
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 이러한 과정은 다음시간에 이어서 소개해 드리겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;</description>
-        <pubDate>Tue, 03 Mar 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/03/03/91690192/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/03/03/91690192/</guid>
-        
-        <category>docker</category>
-        
-        <category>dockerbasic</category>
-        
-        <category>dockercommand</category>
-        
-        <category>도커</category>
-        
-        <category>도커명령어</category>
         
         
       </item>
