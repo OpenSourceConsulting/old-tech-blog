@@ -9,9 +9,910 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 May 2020 19:27:56 +0900</pubDate>
-    <lastBuildDate>Wed, 13 May 2020 19:27:56 +0900</lastBuildDate>
+    <pubDate>Sat, 06 Jun 2020 17:51:13 +0900</pubDate>
+    <lastBuildDate>Sat, 06 Jun 2020 17:51:13 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>[Container 시리즈] 05. Kuberbetes란?</title>
+        <description>&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
+ &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
+  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Confluence&quot; data-theme=&quot;Confluence&quot;&gt;쿠버네티스를 들어는봤는데... 컨테이너를 관리하는거라고 알고는 있는데...
+정확히 이 녀석이 무엇을 하는건지 이해가 잘 안가는 분들을 위한 
+Kubernetes 기초개념!&lt;/pre&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  안녕하세요!
+지난시간에 Container와 Docker에 대한 글을 작성하였었는데 Kubernetes가 과연 무엇인지?
+왜 컨테이너를 이야기하면 쿠버네티스가 나오는지?
+그럼 컨테이너와 쿠버네티스가 같은것인지?
+이번시간에 자세히 다뤄보도록 하겠습니다!
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  지난글에서 설명드린 Container와 Docker가 기억나시나요?
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  예를들어 여러분이 새롭게 오픈한 신규 서비스가 있다고 가정해보겠습니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  개발자들이 열씸히 코드를 개발하여 요즘 핫하디 핫한 컨테이너화 하게 구축을 한 후 서버에 이 컨테이너를 배포를 하였습니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/0.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  대망의 오픈 첫날! 사용자가 신규 서비스로 접속을 하기 시작합니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  가장 떨리는 순간이죠
+  &lt;br/&gt;
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  하지만? 너무나 핫한 신규서비스이기에 저희가 예측했던 사용자보다 훨씬 더 많은 사용자가 몰리기 시작하네요...
+  &lt;br/&gt;
+  즐거운 비명입니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/1.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  음... 사용자가 몰리니...
+  &lt;br/&gt;
+  scale out을 해야할 시점인 것 같습니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  서버의 확장? 자신있습니다!
+  &lt;br/&gt;
+  클라우드 환경이라면 더더욱 간단하죠
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/2.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  서버를 확장하였어요!!!
+ &lt;/p&gt;
+ &lt;p&gt;
+  근데 잠시만....
+  &lt;br/&gt;
+  저희 신규서비스는 컨테이너 환경인데......
+  &lt;br/&gt;
+  안에있는 컨테이너들은..... 어떻게 옮겨야하지....?
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/3.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  여차저차해서 새롭게 확장한 서버에 컨테이너를 가져왔습니다!!
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  하지만.....
+  &lt;br/&gt;
+  이렇게 가져온 컨테이너를 어떻게 적절하게 배치를 해야하는걸까요......
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  이렇게해서
+  &lt;br/&gt;
+  다수의 컨테이너를 관리해주는
+  &lt;br/&gt;
+  Container Orchestration 이라는 개념이 나오게 되었습니다!
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/4.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  즉,
+  &lt;br/&gt;
+  오케스트레이션 이란 단어를 들으면 다음의 이미지를 떠올리신 분들이 계시리라 생각되는데
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/5.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;auto-cursor-target&quot; style=&quot;text-align: center;&quot;&gt;
+ 출처 : KBS 교향악단
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;br/&gt;
+ 저희 컨테이너 환경에서의 오케스트레이션은
+ &lt;br/&gt;
+ 다음의 이미지라 생각하시면 조금 쉬우실 것 같습니다!
+ &lt;br/&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/6.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;br/&gt;
+ 쿠버네티스도 이러한 컨테이너 오케스트레이션 중 하나의 툴인데
+쿠버네티스 뿐만아니라, Docker Swarm, Rancher, Apache Mesos 등등 여러가지 툴이 존재하고 있습니다.
+ &lt;p&gt;
+  그중에서 이번 글에서는 대표적인, De facto(사실상 업계표준) Kubernetes에 대하여 알아보겠습니다!!
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/7.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;h2&gt;
+  &lt;a href=&quot;#kubernetes란&quot; id=&quot;kubernetes란&quot;&gt;
+   Kubernetes란?
+  &lt;/a&gt;
+ &lt;/h2&gt;
+ &lt;blockquote&gt;
+  &lt;p&gt;
+   Kubernetes
+  &lt;/p&gt;
+  &lt;blockquote&gt;
+   &lt;p&gt;
+    쿠버네티스는 컨테이너화된 워크로드와 서비스를 관리하기 위한 이식성이 있고, 확장가능한 오픈소스 플랫폼이다.
+    &lt;br/&gt;
+    쿠버네티스는 선언적 구성과 자동화를 모두 용이하게 해준다. 쿠버네티스는 크고, 빠르게 성장하는 생태계를 가지고 있다.
+    &lt;br/&gt;
+    쿠버네티스 서비스, 기술 지원 및 도구는 어디서나 쉽게 이용할 수 있다.
+    &lt;br/&gt;
+   &lt;/p&gt;
+  &lt;/blockquote&gt;
+ &lt;/blockquote&gt;
+ &lt;blockquote&gt;
+  &lt;blockquote&gt;
+   &lt;p&gt;
+    쿠버네티스란 명칭은 키잡이(helmsman)나 파일럿을 뜻하는 그리스어에서 유래했다.
+    &lt;br/&gt;
+    구글이 2014년에 쿠버네티스 프로젝트를 오픈소스화했다.
+    &lt;br/&gt;
+    쿠버네티스는 프로덕션 워크로드를 대규모로 운영하는 15년 이상의 구글 경험과 커뮤니티의 최고의 아이디어와 적용 사례가 결합되어 있다.
+    &lt;br/&gt;
+    &lt;del&gt;
+     라고 kubernetes의 공식 문서에 나와있습니다 ㅎ_ㅎ
+    &lt;/del&gt;
+   &lt;/p&gt;
+  &lt;/blockquote&gt;
+ &lt;/blockquote&gt;
+ &lt;p&gt;
+  즉 쿠버네티스는 앞에서 설명드린대로 컨테이너를 관리를 위해 나온 오픈소스 플랫폼입니다! (갓구글이 만듬)
+ &lt;/p&gt;
+ &lt;p&gt;
+  쿠버네티스 특징이라고 하면 굉장히 많은 정보들이 쏟아져 나오는데요
+대표적으로 아래의 3가지 특징이 있습니다.
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/8.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  &lt;strong&gt;
+   1. 확장성
+  &lt;/strong&gt;
+  &lt;br/&gt;
+  Google에서 만든것의 명성에 걸맞게 일주일에 수십억 개의 컨테이너들을 운영하게 해준 경험에 따라 쿠버네티스가 디자인되었기 때문에, 손쉽게 확장될 수 있습니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  &lt;strong&gt;
+   2. 유연성
+  &lt;/strong&gt;
+  &lt;br/&gt;
+  로컬 테스트, 프로덕트 운영이든 환경에 상관없이, 사용자의 복잡한 니즈를 모두 수용할 수 있는 유연성을 가지기에 사용자의 애플리케이션들을 끊임없고 쉽게 전달할 수 있습니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  &lt;strong&gt;
+   3. 이식성
+  &lt;/strong&gt;
+  &lt;br/&gt;
+  쿠버네티스는 오픈소스로서 on-prem, 하이브리드, 또는 퍼블릭 클라우드 인프라스트럭처등 여러 환경에서 기동됩니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  그 밖에 수 많은 장점, 특징을 가지고 있는 쿠버네티스 이지만 굉장히 단순한 로직을 가지고있습니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  현재상태를 모니터링하면서 관리자가 설정한 상태의 값과 다르면, 관리자가 설정한값으로 바꿔주는 3단계의 심플한 법칙
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  그렇기에 관리자는 명령어로 관리하는것이 아니라,
+  &lt;strong&gt;
+   설정한 값이 들어있는 yaml 파일
+  &lt;/strong&gt;
+  등으로 관리를 해 줍니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;h2&gt;
+  &lt;a href=&quot;#kubernetes-workflow&quot; id=&quot;kubernetes-workflow&quot;&gt;
+   Kubernetes workflow
+  &lt;/a&gt;
+ &lt;/h2&gt;
+ &lt;p&gt;
+  쿠버네티스는 다음과 같은 흐름을 가지고 있습니다.
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/9.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  보통은 조직마다 다르겠지만 협업사 혹은 협업부서에서 서비스에 해당하는 요청을 관리자 에게 전달합니다.
+  &lt;br/&gt;
+  관리자는 이 명렁을
+  &lt;strong&gt;
+   Master Node
+  &lt;/strong&gt;
+  에 전달하고
+  &lt;br/&gt;
+  Master Node는
+  &lt;strong&gt;
+   Worker Node
+  &lt;/strong&gt;
+  에게 명령어를 전달함과 동시에 트래픽을 분배해줍니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  위와같은 다이어그램을 조금 더 자세히 살펴보자면
+  &lt;br/&gt;
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/10.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  위와 같은 아키텍처가 나옵니다!
+  &lt;br/&gt;
+  기본적으로 쿠버네티스는 하나의 마스터노드와 여러개의 워커노드로 구성이 되어져있는데
+  &lt;br/&gt;
+  &lt;del&gt;
+   굉장히 복잡하고 뭐가 내부에 있는지 궁금하지도, 알고싶지도 않게 생겼지만
+  &lt;/del&gt;
+  &lt;br/&gt;
+  해당 아키텍처에 있는 Kubernetes의 컴포넌트에 대해서 하나하나 간략하게 살펴보겠습니다
+  &lt;sup&gt;
+   0
+  &lt;/sup&gt;
+  (해맑)
+ &lt;/p&gt;
+ &lt;h2&gt;
+  &lt;a href=&quot;#kubernetes-components&quot; id=&quot;kubernetes-components&quot;&gt;
+   Kubernetes Components
+  &lt;/a&gt;
+ &lt;/h2&gt;
+ &lt;h3&gt;
+  &lt;a href=&quot;#master-node&quot; id=&quot;master-node&quot;&gt;
+   Master Node
+   &lt;br/&gt;
+  &lt;/a&gt;
+ &lt;/h3&gt;
+ &lt;p&gt;
+  : 쿠버네티스의 주요 컨트롤 유닛으로서 Worker Nodes를 관리하는 주체입니다.
+  &lt;br/&gt;
+  클러스터에 관한 전반적인 결정을 하고 이벤트를 감지, 반응하는 역할을 합니다
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;table class=&quot;confluenceTable&quot;&gt;
+  &lt;thead&gt;
+   &lt;tr&gt;
+    &lt;th align=&quot;left&quot;&gt;
+     Component
+    &lt;/th&gt;
+    &lt;th align=&quot;left&quot;&gt;
+     설명
+    &lt;/th&gt;
+   &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     &lt;strong&gt;
+      Kubectl
+     &lt;/strong&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     -마스터 노드와 통신하는 명령어로서 쿠버네티스 API를 사용해서 마스터노드와 상호작용을 합니다.
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     &lt;strong&gt;
+      API Server
+     &lt;/strong&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     - REST API 요청을 처리하고 쿠버네티스 클러스터를 구성하는 각 컴포넌트들과 통신을 담당합니다.
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     &lt;strong&gt;
+      Scheduler
+     &lt;/strong&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     - 노드들의 리소스 상태를 파악하여 pod가 배치될 적절한 노드를 선택해 주는 역할.
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     &lt;strong&gt;
+      Controller Manager
+     &lt;/strong&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     - 쿠버네티스 클러스터 상태 감시, 설정한 상태로 유지하는 역할.
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     &lt;strong&gt;
+      ETCD
+     &lt;/strong&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     - 오픈소스 key-value 저장소로서 Kubernetes에서는 Master Node의 API Server가 HTTP/JSON API를 이용하여 접근할 수 있는 구성 데이터를 저장하는 용도로 사용됩니다.
+    &lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+ &lt;h3&gt;
+  &lt;a href=&quot;#worker-node&quot; id=&quot;worker-node&quot;&gt;
+   Worker Node
+   &lt;br/&gt;
+  &lt;/a&gt;
+ &lt;/h3&gt;
+ &lt;p&gt;
+  : 워커노드는 할당된 task를 요청대로 수행하는 시스템입니다.
+  &lt;br/&gt;
+  예전에는 Minions 라고도 불렸으며 컨테이너들간의 네트워크 등 서비스에 필요한 전반적인 일들을 마스터 노드와 통신하며 수행합니다.
+ &lt;/p&gt;
+ &lt;table class=&quot;confluenceTable&quot;&gt;
+  &lt;thead&gt;
+   &lt;tr&gt;
+    &lt;th align=&quot;left&quot;&gt;
+     Component
+    &lt;/th&gt;
+    &lt;th align=&quot;left&quot;&gt;
+     설명
+    &lt;/th&gt;
+   &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     &lt;strong&gt;
+      Kubelet
+     &lt;/strong&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     - 쿠버네티스 마스터 노드간의 통신을 담당하는 에이전트로서 노드에서 동작하는 pod들을 관리합니다
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     &lt;strong&gt;
+      Kube-proxy
+     &lt;/strong&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     - 각 노드별로 탑재되며 네트워크 프록시 및 로드밸런서 역할을 해줍니다.
+    &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     &lt;strong&gt;
+      Pod
+     &lt;/strong&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;
+     - Pod는 컨테이너의 그룹으로 한 개 또는 여러 개의 컨테이너를 포함하는 쿠버네티스의 작업단위 입니다.
+    &lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+ &lt;p&gt;
+  각각의 컴포넌트들이 굉장히 복잡해 보이는데 조금 더 쉬운 다이어그램을 가지고 왔습니다.
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;p class=&quot;auto-cursor-target&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper&quot;&gt;
+  &lt;img src=&quot;/assets/images/97465347/11.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
+ &lt;p&gt;
+  Kuberenetes 도큐먼트에 한번쯤 들어가보셨다면 익숙하실 그림일겁니다.
+ &lt;/p&gt;
+ &lt;p&gt;
+  조금더 쉽게 말씀드리자면,
+  &lt;br/&gt;
+  마스터노드는 쿠버네티스 클러스터를 관리하며
+  &lt;br/&gt;
+  워커노드는 실질적인 업무를 수행하는 주체입니다.
+  &lt;del&gt;
+   열일하는 worker node 친근하네요
+  &lt;/del&gt;
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  또한 이 워커노드를 확대하면 오른쪽 다이어그램처럼 되는데요,
+  &lt;br/&gt;
+  워커노드안에는 pod가 들어가게 되고
+  &lt;br/&gt;
+  이 pod안에는 containerized된 application이 들어가게됩니다!
+ &lt;/p&gt;
+ &lt;p&gt;
+  이 pod는 쿠버네티스의 가장작은 작업단위 요소로서,
+  &lt;br/&gt;
+  필요에 따라 쉽게 생성되고 쉽게 버려지는 비교적 짧은 수명을 가지는 것이 특징입니다.
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  또한, 각각의 pod마다 다른 ip를 가지고 있고 pod 안에 있는 컨테이너끼리 는 내부 통신이 가능합니다.
+  &lt;br/&gt;
+  &lt;em&gt;
+   (DNS로 통신 (coredns))
+  &lt;/em&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  Pod안에 있는 컨테이너들 끼리 볼륨을 공유하며
+  &lt;br/&gt;
+  컨테이너가 죽고 재시작 되어도 pod가 살아있는 한 shared volume은 유지됩니다.
+ &lt;/p&gt;
+ &lt;p&gt;
+  여러분의 Application을 컨테이너로 이쁘게 만들고 이를 사용자들에게 서비스를 하려면
+  &lt;br/&gt;
+  실질적으로 동일한 pod가 지속적으로 올라와져 있어야하는데요~
+  &lt;br/&gt;
+  (좀 전에 pod는 쉽게 죽는 특징을 가지고 있다고 했는데 ....)
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  우리의 쿠버네티스는 똑똑한 친구이니 이런 빅픽쳐를 계산해두었습니다.
+  &lt;br/&gt;
+  &lt;br/&gt;
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  어디에서 많이들어본...
+  &lt;br/&gt;
+  Replica Set, Deployment, Service, Ingress 등등
+  &lt;br/&gt;
+  모임에서 한번 쯤 들었던거같은 이름들..
+  &lt;br/&gt;
+  다음시간에는 이런 Kubernetes의 구성요소들에 대하여 더 깊게 알아보는 시간을 가지도록 하겠습니다!
+  &lt;br/&gt;
+ &lt;/p&gt;
+ &lt;p&gt;
+  &lt;del&gt;
+   뜬금없지만
+  &lt;/del&gt;
+  다들 코로나 조심하세요!
+ &lt;/p&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]&gt;
+ &lt;/script&gt;
+ &lt;style&gt;
+  .hljs {display: inline;}
+pre &gt; code {display: block !important;}
+ &lt;/style&gt;
+ &lt;script&gt;
+  //&lt;![CDATA[
+ AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
+    block.classList.add(&quot;confluenceTh&quot;);
+});
+
+AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
+    block.classList.add(&quot;confluenceTd&quot;);
+});
+//]]&gt;
+ &lt;/script&gt;
+&lt;/div&gt;
+&lt;div class=&quot;confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
+ &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
+  &lt;p&gt;
+   참고 URL
+  &lt;/p&gt;
+  &lt;p&gt;
+   Container Orchestration Image :
+   &lt;a class=&quot;external-link&quot; href=&quot;https://www.awsforbusiness.com/what-is-container-orchestration/&quot; rel=&quot;nofollow&quot;&gt;
+    https://www.awsforbusiness.com/what-is-container-orchestration/
+   &lt;/a&gt;
+  &lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Sat, 06 Jun 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/06/06/97465347/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/06/06/97465347/</guid>
+        
+        <category>docker</category>
+        
+        <category>kubernetes</category>
+        
+        <category>k8s</category>
+        
+        <category>kubernetes기초</category>
+        
+        <category>container</category>
+        
+        
+      </item>
     
       <item>
         <title>아틀라시안 클라우드 마이그레이션에 대한 10가지 오해와 진실</title>
@@ -7687,304 +8588,6 @@ AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(
         <category>이미지</category>
         
         <category>스캐닝</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>재택 근무를 위해 꼭 필요한 세 가지 Tips, 이것만 기억하세요!</title>
-        <description>&lt;p&gt;
- 안녕하세요,
-&lt;/p&gt;
-&lt;p&gt;
- 오픈소스컨설팅 마케팅팀 박현수입니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 신종 코로나 바이러스로 인한 감염병 위험 단계가  &quot;심각&quot; 으로 격상되면서, 국내 많은 기업들이 구성원과 고객의 안전을 위해 재택 근무를 도입하고 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
-  유연한 조직 문화가 잘 형성되어 있던 스타트업뿐 만 아니라 카카오, SK텔레콤, KT 등 대기업들도 빠르게 재택 근무를 도입하여 눈길을 끌었습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
-  업무 효율성과 내부 만족도를 위해 잘 구축해 놓았던 원격 근무 시스템 덕분에, 예상치 못한 재난 사태에도 구성원들의 안전을 챙기기위한 조치를 취할 수 있었습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 신종 코로나 바이러스 사태가 잠잠해지더라도, 재택 근무와 같은 비대면 근무 형태는 점점 보편화될 것이라고 전문가들은 예측하고 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 오픈소스컨설팅은 지난 2012년부터 업무 공유, 의사소통 체계를 갖추고 여러 팀에서 재량에 맞게 재택을 해 온 경험이 있어, 이번 사태에도 빠르게 재택 근무 시스템을 채택하여 안전한 근무 생활을 지속해나가고 있습니다
- &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/91691404/0.svg&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 재택 근무를 위해서는 여러 가지 솔루션을 기반으로 효율적인 업무 처리를 위한 툴과 좋은 문화가 수반되어야 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/91691404/1.jpeg&quot;/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;id-재택근무를위해꼭필요한세가지Tips,이것만기억하세요!-첫번째팁,안정적인인프라를구축할것!&quot;&gt;
- &lt;span style=&quot;color: rgb(60,62,64);&quot;&gt;
-  첫번째 팁, 안정적인 인프라를 구축할 것!
- &lt;/span&gt;
-&lt;/h1&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;hr/&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(60,62,64);&quot;&gt;
-  -중소 기업 간 재택근무 여력도 여실히 드러났다. 2~3년 전부터 공유오피스를 도입해 운영 중인 대기업들은 갑작스러운 재택근무 상황에도 순조롭게 적응 중이다. SK그룹의 한 매니저급 직원은 “공유오피스를 도입하면서 업무 자체가 클라우드 기반으로 바뀌었다”며 “집 컴퓨터로도 개인정보만 입력하면 사무실에서 일하는 것과 동일하게 사내 메신저 등을 이용할 수 있다&quot;고 말했다. 반면 IT 인프라 투자 여력이 없는 중소기업은 재택근무가 사실상 불가능하다.
- &lt;/span&gt;
- &lt;br/&gt;
- &lt;br/&gt;
- &lt;span style=&quot;color: rgb(60,62,64);&quot;&gt;
-  [출처: 중앙일보] 코로나 재택근무 표정…대리 &quot;일할맛&quot; 과장 &quot;감옥&quot; 상무 &quot;심심&quot;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;hr/&gt;
-&lt;p&gt;
- 재택 근무를 하고 싶어도 못하는 첫번째 이유는 위와 같은 상황처럼 사내 인프라 접속이 집에서 어려워 사무실로의 출근이 불가피하기 때문입니다. 디지털 트랜스포메이션이 도래하면서, 많은 기업들이 클라우드 환경으로의 이전을 고민하고 있지만, 비용이나 기술 등 현실적인 여건때문에 도입을 주저하고 있는 현실입니다. 오픈소스컨설팅 열린기술공방에서는 실제 업무를 클라우드 환경으로 직접 마이그레이션해봄으로써, 마이그레이션 시의 고려 사항에 대해 이해하고 관련된 기술과 지식을 직접 익힐 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 클라우드로 향하는 첫걸음,
- &lt;span&gt;
- &lt;/span&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;http://bit.ly/3cCBbob&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
-  더 알아보기
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;id-재택근무를위해꼭필요한세가지Tips,이것만기억하세요!-두번째팁,적절한툴을사용할것!&quot;&gt;
- 두번째 팁, 적절한 툴을 사용할 것!
-&lt;/h1&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;_5mfr&quot; style=&quot;color: rgb(23,43,77);&quot;&gt;
-  &lt;span class=&quot;_6qdm&quot; style=&quot;text-decoration: none;&quot;&gt;
-   ✅
-  &lt;/span&gt;
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  &lt;strong&gt;
-   일정 공유, 외부 회의 : G-Suite
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- Google Calendar로 전체 구성원의 일정을 한번에 확인해볼 수 있으며, 사내 회의가 아닌 외부 회의 일정은 Hangouts 미팅을 활용할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;_5mfr&quot; style=&quot;color: rgb(23,43,77);&quot;&gt;
-  &lt;span class=&quot;_6qdm&quot; style=&quot;text-decoration: none;&quot;&gt;
-   ✅
-  &lt;/span&gt;
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  &lt;strong&gt;
-   전
-   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-    사 영업 회의 : Salesforce
-   &lt;/span&gt;
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  전세계 1위 CRM 툴로 주목받고 있는 Salesforce! 아래와 같은 대시보드를 통해 영업 목표 달성률 및 진행 현황을 공유할 수 있는데요. 이러한 기능은 재택근무 기간동안에 더욱 유용하게 활용됩니다. 굳이 대면 보고를 하지 않아도 영업현황을 실시간으로 파악할 수 있고, 영업 회의 또한 편리하게 진행할 수 있었답니다. 또한, 마케팅 캠페인으로 들어온 리드의 진행 상황도 한 눈에 볼 수 있어 마케팅-영업 간 긴밀한 협업도 가능합니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/91691404/2.jpeg&quot;/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  &lt;span class=&quot;_5mfr&quot; style=&quot;color: rgb(23,43,77);&quot;&gt;
-   &lt;span class=&quot;_6qdm&quot; style=&quot;text-decoration: none;&quot;&gt;
-    ✅
-   &lt;/span&gt;
-  &lt;/span&gt;
-  &lt;strong&gt;
-   커뮤니케이션, 화상 회의 : Slack
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  팀 주간 회의나 Scrum 미팅은 Slack을 통해 진행합니다. 오픈소스컨설팅은 기존에도 내부 커뮤니케이션 도구로 Slack (이하, 슬랙)을 사용하고 있는데요. 사내 메신저처럼 공지 사항 등을 실시간으로 알리기도 하는 등 커뮤니케이션하고, 업무 논의는 부서별, 프로젝트별로 구성된 &quot;Channel&quot;에서 협의합니다. 마케팅팀 소속인 글쓴이 같은 경우에는 &quot;marketing&quot; 팀 채널 뿐만 아니라, &quot;sales_mkt&quot;, &quot;mkt_rnd&quot;등 채널에 소속되어 다른 팀과도 간편하게 협업하고 있습니다.  또한, 슬랙은 Google Calendar뿐만 아니라, 아래 소개할 협업 툴인 Jira, Confluence와도 찰떡 궁합이라 업무를 더욱 효율적으로 수행할 수 있도록 돕습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  (아래 사진은 슬랙을 통해 화상 회의를 하면서, Confluence에 작성하고 있는 회의록 화면을 공유하는 장면입니다.)
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/91691404/3.jpeg&quot;/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  &lt;span class=&quot;_5mfr&quot; style=&quot;color: rgb(23,43,77);&quot;&gt;
-   &lt;span class=&quot;_6qdm&quot; style=&quot;text-decoration: none;&quot;&gt;
-    ✅
-   &lt;/span&gt;
-  &lt;/span&gt;
-  &lt;strong&gt;
-   프로젝트 수행, 이슈 관리 : Jira
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
-  진행 중인 프로젝트와 다양한 업무들은 별도 이슈로 생성해서 관리할 수 있습니다. 바로 Jira에서요!
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
-  `To do` → `In Progress' → 'Done' 의 칸반 보드로 팀별 태스크 및 진행 현황을 관리하여, 굳이 물어보거나 답하지 않아도 Jira를 통해 한눈에 파악할 수 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  &lt;span class=&quot;_5mfr&quot; style=&quot;color: rgb(23,43,77);&quot;&gt;
-   &lt;span class=&quot;_6qdm&quot; style=&quot;text-decoration: none;&quot;&gt;
-    ✅
-   &lt;/span&gt;
-  &lt;/span&gt;
-  &lt;strong&gt;
-   산출물 관리, 회의록 작성 : Confluence
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  회의록 작성이나 Checklist 등 문서 작성이 필요할 때는 Confluence를 이용합니다. Confluence는 wiki라고 부르기도 할만큼 사내의 다양한 정보를 담고 있으며, 또한 필요한 만큼 Space를 생성해서 팀별/프로젝트별로 활용할 수 있습니다. (아래 사진은 회의 참석자들이 공동 편집 기능으로 회의록을 작성하는 장면이예요! 모바일 환경에서도 실시간으로 편집 기능을 사용할 수 있답니다.) 또, Confluence는 링크만 있으면 구성원들이 쉽게 접속해 볼 수 있고, pdf, excel, powerpoint 등 많이 사용하는 파일도 매크로를 통해 쉽게 연동이 가능한 장점이 있어, Jira 이슈의 최종 산출물을 쉽게 관리할 수 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/91691404/4.jpeg&quot;/&gt;
-   &lt;/span&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &amp;gt;&amp;gt;재택 근무를 가능하게 하는 강력한 협업 툴 Jira &amp;amp; Confluence,
- &lt;span&gt;
- &lt;/span&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;http://bit.ly/2VPhSSE&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
-  무료 교육 만나보기
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;id-재택근무를위해꼭필요한세가지Tips,이것만기억하세요!-세번째팁,유연한문화를형성할것!&quot;&gt;
- 세번째 팁, 유연한 문화를 형성할 것!
-&lt;/h1&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  Agile
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 애자일(Agile) 방법론은 작업 계획을 짧은 단위로 세우고, 작업 및 사이클을 반복함으로써 고객 요구의 변화에도 유연하고 신속하게 대응하는 개발 방법론입니다. 소프트웨어 개발 방식의 하나로 통용되던 말이었으나, 최근 개발 분야에 국한되지 않고 조직과 사업 등 기업 경영 전반으로 범위가 확대되고 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 오픈소스컨설팅은 Agile한 문화 형성을 위해, Sprint와 Scrum Meeting을 도입하고 있습니다. Scrum Meeting 동안은 매일 주어진 시간에 5분동안 서로의 DDL (Daily Did List)와 이슈를 공유합니다. 각 팀에는 Scrum Master가 팀의 이슈 해결을 돕고 스프린트를 장려하기도 하죠. 매일 공유하는 시간을 갖는 습관 덕분에, 오픈소스컨설팅은 급작스럽게 재택 근무를 하게 되어도 Daily Scrum Meeting을 통해 팀 내부 업무를 투명하게 공유하고, Sprint를 지속해 나갈 수 있었답니다.
-&lt;/p&gt;
-&lt;p&gt;
- &amp;gt;&amp;gt; 조직에 Agile을 도입하는 방법에 대해
- &lt;a class=&quot;external-link&quot; href=&quot;http://bit.ly/3cty3uS&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
-  더 알아보기
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  공유 문화
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 매주 월요일 10시, 오픈소스컨설팅인들은 열린기술공방으로 모입니다. 월요일 아침을
- &lt;span&gt;
-  Tech Session으로 열고, 각자 스터디한 것을 공유하고 함께 의견을 나누는 시간을 가집니다.
- &lt;/span&gt;
- 블로그 글을 작성해서, 다른 커뮤니티나 교육 등에서 보고 느낀 것, 배우고 공유한 것을 나눕니다.
- &lt;span&gt;
-  그러한 결과물들이 모여 현재의 오픈소스컨설팅을 만든 것이죠.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 함께 머리를 맞대고 고민하여 더 나은 것으로 나아가는 공유 문화,
- &lt;a class=&quot;external-link&quot; href=&quot;http://bit.ly/2vKT6Zj&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
-  열린기술공방
- &lt;/a&gt;
- 에서 직접 만나보실 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 감사합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;</description>
-        <pubDate>Fri, 06 Mar 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/03/06/91691404/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/03/06/91691404/</guid>
-        
-        <category>재택근무</category>
-        
-        <category>agile</category>
-        
-        <category>devops</category>
-        
-        <category>cloud</category>
-        
-        <category>마이그레이션</category>
-        
-        <category>신종코로나</category>
         
         
       </item>

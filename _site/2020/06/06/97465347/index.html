@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>[Container 시리즈] 05. Kuberbetes란?</title>
+<meta name="title" content="[Container 시리즈] 05. Kuberbetes란?" />
+<meta name="author" content="kbseo"/>
+<meta name="description" content="쿠버네티스를 들어는봤는데... 컨테이너를 관리하는거라고 알고는 있는데... 정확히 이 녀석이 무엇을 하는건지 이해가 잘 안가는 분들을 위한 Kubernetes 기초개념! 안녕하세요! 지난시간에 Container와 Docker에 대한 글을 작성하였었는데 Kubernetes가 과연 무엇인지? 왜 컨테이너를 이야기하면 쿠버네티스가 나오는지? 그럼 컨테이너와 쿠버네티스가 같은것인지? 이번시간에 자세히 다뤄보도록 하겠습니다! 지난글에서 설명드린 Container와 Docker가 기억나시나요? 예를들어 여러분이 새롭게 오픈한 신규 서비스가 있다고 가정해보겠습니다. 개발자들이 열씸히 코드를 개발하여 요즘 핫하디 핫한 컨테이너화 하게 구축을 한 후 서버에 이 컨테이너를 배포를 하였습니다. 대망의 오픈 첫날! 사용자가..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="[Container 시리즈] 05. Kuberbetes란?"/>
+<meta property="og:description" content="쿠버네티스를 들어는봤는데... 컨테이너를 관리하는거라고 알고는 있는데... 정확히 이 녀석이 무엇을 하는건지 이해가 잘 안가는 분들을 위한 Kubernetes 기초개념! 안녕하세요! 지난시간에 Container와 Docker에 대한 글을 작성하였었는데 Kubernetes가 과연 무엇인지? 왜 컨테이너를 이야기하면 쿠버네티스가 나오는지? 그럼 컨테이너와 쿠버네티스가 같은것인지? 이번시간에 자세히 다뤄보도록 하겠습니다! 지난글에서 설명드린 Container와 Docker가 기억나시나요? 예를들어 여러분이 새롭게 오픈한 신규 서비스가 있다고 가정해보겠습니다. 개발자들이 열씸히 코드를 개발하여 요즘 핫하디 핫한 컨테이너화 하게 구축을 한 후 서버에 이 컨테이너를 배포를 하였습니다. 대망의 오픈 첫날! 사용자가..."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/06/06/97465347/"/>
+<meta property="og:image" content="/assets/images/97465347/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="[Container 시리즈] 05. Kuberbetes란?"/>
+<meta name="twitter:description" content="쿠버네티스를 들어는봤는데... 컨테이너를 관리하는거라고 알고는 있는데... 정확히 이 녀석이 무엇을 하는건지 이해가 잘 안가는 분들을 위한 Kubernetes 기초개념! 안녕하세요! 지난시간에 Container와 Docker에 대한 글을 작성하였었는데 Kubernetes가 과연 무엇인지? 왜 컨테이너를 이야기하면 쿠버네티스가 나오는지? 그럼 컨테이너와 쿠버네티스가 같은것인지? 이번시간에 자세히 다뤄보도록 하겠습니다! 지난글에서 설명드린 Container와 Docker가 기억나시나요? 예를들어 여러분이 새롭게 오픈한 신규 서비스가 있다고 가정해보겠습니다. 개발자들이 열씸히 코드를 개발하여 요즘 핫하디 핫한 컨테이너화 하게 구축을 한 후 서버에 이 컨테이너를 배포를 하였습니다. 대망의 오픈 첫날! 사용자가..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="kbseo"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/97465347/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="docker,kubernetes,k8s,kubernetes기초,container"/>
+
+<meta property="article:tag" content="docker"/>
+
+<meta property="article:tag" content="kubernetes"/>
+
+<meta property="article:tag" content="k8s"/>
+
+<meta property="article:tag" content="kubernetes기초"/>
+
+<meta property="article:tag" content="container"/>
+
+
+
+<meta property="article:published_time" content="2020-06-06T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/kbseo"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/06/06/97465347/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/97465347/0.png);">
+    <div>
+        <h1>[Container 시리즈] 05. Kuberbetes란?</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                docker
+                ,
+            
+                kubernetes
+                ,
+            
+                k8s
+                ,
+            
+                kubernetes기초
+                ,
+            
+                container
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">쿠버네티스를 들어는봤는데... 컨테이너를 관리하는거라고 알고는 있는데...
+정확히 이 녀석이 무엇을 하는건지 이해가 잘 안가는 분들을 위한 
+Kubernetes 기초개념!</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  안녕하세요!
+지난시간에 Container와 Docker에 대한 글을 작성하였었는데 Kubernetes가 과연 무엇인지?
+왜 컨테이너를 이야기하면 쿠버네티스가 나오는지?
+그럼 컨테이너와 쿠버네티스가 같은것인지?
+이번시간에 자세히 다뤄보도록 하겠습니다!
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  지난글에서 설명드린 Container와 Docker가 기억나시나요?
+  <br/>
+ </p>
+ <p>
+  예를들어 여러분이 새롭게 오픈한 신규 서비스가 있다고 가정해보겠습니다.
+  <br/>
+ </p>
+ <p>
+  개발자들이 열씸히 코드를 개발하여 요즘 핫하디 핫한 컨테이너화 하게 구축을 한 후 서버에 이 컨테이너를 배포를 하였습니다.
+  <br/>
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/0.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  대망의 오픈 첫날! 사용자가 신규 서비스로 접속을 하기 시작합니다.
+  <br/>
+ </p>
+ <p>
+  가장 떨리는 순간이죠
+  <br/>
+  <br/>
+ </p>
+ <p>
+  하지만? 너무나 핫한 신규서비스이기에 저희가 예측했던 사용자보다 훨씬 더 많은 사용자가 몰리기 시작하네요...
+  <br/>
+  즐거운 비명입니다.
+  <br/>
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/1.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  음... 사용자가 몰리니...
+  <br/>
+  scale out을 해야할 시점인 것 같습니다.
+  <br/>
+ </p>
+ <p>
+  서버의 확장? 자신있습니다!
+  <br/>
+  클라우드 환경이라면 더더욱 간단하죠
+  <br/>
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/2.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  서버를 확장하였어요!!!
+ </p>
+ <p>
+  근데 잠시만....
+  <br/>
+  저희 신규서비스는 컨테이너 환경인데......
+  <br/>
+  안에있는 컨테이너들은..... 어떻게 옮겨야하지....?
+  <br/>
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/3.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  여차저차해서 새롭게 확장한 서버에 컨테이너를 가져왔습니다!!
+  <br/>
+ </p>
+ <p>
+  하지만.....
+  <br/>
+  이렇게 가져온 컨테이너를 어떻게 적절하게 배치를 해야하는걸까요......
+  <br/>
+ </p>
+ <p>
+  이렇게해서
+  <br/>
+  다수의 컨테이너를 관리해주는
+  <br/>
+  Container Orchestration 이라는 개념이 나오게 되었습니다!
+  <br/>
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/4.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  즉,
+  <br/>
+  오케스트레이션 이란 단어를 들으면 다음의 이미지를 떠올리신 분들이 계시리라 생각되는데
+  <br/>
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/97465347/5.png"/>
+ </span>
+</p>
+<p class="auto-cursor-target" style="text-align: center;">
+ 출처 : KBS 교향악단
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <br/>
+ 저희 컨테이너 환경에서의 오케스트레이션은
+ <br/>
+ 다음의 이미지라 생각하시면 조금 쉬우실 것 같습니다!
+ <br/>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/6.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <br/>
+ 쿠버네티스도 이러한 컨테이너 오케스트레이션 중 하나의 툴인데
+쿠버네티스 뿐만아니라, Docker Swarm, Rancher, Apache Mesos 등등 여러가지 툴이 존재하고 있습니다.
+ <p>
+  그중에서 이번 글에서는 대표적인, De facto(사실상 업계표준) Kubernetes에 대하여 알아보겠습니다!!
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/97465347/7.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <h2>
+  <a href="#kubernetes란" id="kubernetes란">
+   Kubernetes란?
+  </a>
+ </h2>
+ <blockquote>
+  <p>
+   Kubernetes
+  </p>
+  <blockquote>
+   <p>
+    쿠버네티스는 컨테이너화된 워크로드와 서비스를 관리하기 위한 이식성이 있고, 확장가능한 오픈소스 플랫폼이다.
+    <br/>
+    쿠버네티스는 선언적 구성과 자동화를 모두 용이하게 해준다. 쿠버네티스는 크고, 빠르게 성장하는 생태계를 가지고 있다.
+    <br/>
+    쿠버네티스 서비스, 기술 지원 및 도구는 어디서나 쉽게 이용할 수 있다.
+    <br/>
+   </p>
+  </blockquote>
+ </blockquote>
+ <blockquote>
+  <blockquote>
+   <p>
+    쿠버네티스란 명칭은 키잡이(helmsman)나 파일럿을 뜻하는 그리스어에서 유래했다.
+    <br/>
+    구글이 2014년에 쿠버네티스 프로젝트를 오픈소스화했다.
+    <br/>
+    쿠버네티스는 프로덕션 워크로드를 대규모로 운영하는 15년 이상의 구글 경험과 커뮤니티의 최고의 아이디어와 적용 사례가 결합되어 있다.
+    <br/>
+    <del>
+     라고 kubernetes의 공식 문서에 나와있습니다 ㅎ_ㅎ
+    </del>
+   </p>
+  </blockquote>
+ </blockquote>
+ <p>
+  즉 쿠버네티스는 앞에서 설명드린대로 컨테이너를 관리를 위해 나온 오픈소스 플랫폼입니다! (갓구글이 만듬)
+ </p>
+ <p>
+  쿠버네티스 특징이라고 하면 굉장히 많은 정보들이 쏟아져 나오는데요
+대표적으로 아래의 3가지 특징이 있습니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/8.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  <strong>
+   1. 확장성
+  </strong>
+  <br/>
+  Google에서 만든것의 명성에 걸맞게 일주일에 수십억 개의 컨테이너들을 운영하게 해준 경험에 따라 쿠버네티스가 디자인되었기 때문에, 손쉽게 확장될 수 있습니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   2. 유연성
+  </strong>
+  <br/>
+  로컬 테스트, 프로덕트 운영이든 환경에 상관없이, 사용자의 복잡한 니즈를 모두 수용할 수 있는 유연성을 가지기에 사용자의 애플리케이션들을 끊임없고 쉽게 전달할 수 있습니다.
+  <br/>
+ </p>
+ <p>
+  <strong>
+   3. 이식성
+  </strong>
+  <br/>
+  쿠버네티스는 오픈소스로서 on-prem, 하이브리드, 또는 퍼블릭 클라우드 인프라스트럭처등 여러 환경에서 기동됩니다.
+  <br/>
+ </p>
+ <p>
+  그 밖에 수 많은 장점, 특징을 가지고 있는 쿠버네티스 이지만 굉장히 단순한 로직을 가지고있습니다.
+  <br/>
+ </p>
+ <p>
+  현재상태를 모니터링하면서 관리자가 설정한 상태의 값과 다르면, 관리자가 설정한값으로 바꿔주는 3단계의 심플한 법칙
+  <br/>
+ </p>
+ <p>
+  그렇기에 관리자는 명령어로 관리하는것이 아니라,
+  <strong>
+   설정한 값이 들어있는 yaml 파일
+  </strong>
+  등으로 관리를 해 줍니다.
+  <br/>
+ </p>
+ <h2>
+  <a href="#kubernetes-workflow" id="kubernetes-workflow">
+   Kubernetes workflow
+  </a>
+ </h2>
+ <p>
+  쿠버네티스는 다음과 같은 흐름을 가지고 있습니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/9.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  보통은 조직마다 다르겠지만 협업사 혹은 협업부서에서 서비스에 해당하는 요청을 관리자 에게 전달합니다.
+  <br/>
+  관리자는 이 명렁을
+  <strong>
+   Master Node
+  </strong>
+  에 전달하고
+  <br/>
+  Master Node는
+  <strong>
+   Worker Node
+  </strong>
+  에게 명령어를 전달함과 동시에 트래픽을 분배해줍니다.
+  <br/>
+ </p>
+ <p>
+  위와같은 다이어그램을 조금 더 자세히 살펴보자면
+  <br/>
+  <br/>
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/10.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  위와 같은 아키텍처가 나옵니다!
+  <br/>
+  기본적으로 쿠버네티스는 하나의 마스터노드와 여러개의 워커노드로 구성이 되어져있는데
+  <br/>
+  <del>
+   굉장히 복잡하고 뭐가 내부에 있는지 궁금하지도, 알고싶지도 않게 생겼지만
+  </del>
+  <br/>
+  해당 아키텍처에 있는 Kubernetes의 컴포넌트에 대해서 하나하나 간략하게 살펴보겠습니다
+  <sup>
+   0
+  </sup>
+  (해맑)
+ </p>
+ <h2>
+  <a href="#kubernetes-components" id="kubernetes-components">
+   Kubernetes Components
+  </a>
+ </h2>
+ <h3>
+  <a href="#master-node" id="master-node">
+   Master Node
+   <br/>
+  </a>
+ </h3>
+ <p>
+  : 쿠버네티스의 주요 컨트롤 유닛으로서 Worker Nodes를 관리하는 주체입니다.
+  <br/>
+  클러스터에 관한 전반적인 결정을 하고 이벤트를 감지, 반응하는 역할을 합니다
+  <br/>
+ </p>
+ <table class="confluenceTable">
+  <thead>
+   <tr>
+    <th align="left">
+     Component
+    </th>
+    <th align="left">
+     설명
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      Kubectl
+     </strong>
+    </td>
+    <td align="left">
+     -마스터 노드와 통신하는 명령어로서 쿠버네티스 API를 사용해서 마스터노드와 상호작용을 합니다.
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <strong>
+      API Server
+     </strong>
+    </td>
+    <td align="left">
+     - REST API 요청을 처리하고 쿠버네티스 클러스터를 구성하는 각 컴포넌트들과 통신을 담당합니다.
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <strong>
+      Scheduler
+     </strong>
+    </td>
+    <td align="left">
+     - 노드들의 리소스 상태를 파악하여 pod가 배치될 적절한 노드를 선택해 주는 역할.
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <strong>
+      Controller Manager
+     </strong>
+    </td>
+    <td align="left">
+     - 쿠버네티스 클러스터 상태 감시, 설정한 상태로 유지하는 역할.
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <strong>
+      ETCD
+     </strong>
+    </td>
+    <td align="left">
+     - 오픈소스 key-value 저장소로서 Kubernetes에서는 Master Node의 API Server가 HTTP/JSON API를 이용하여 접근할 수 있는 구성 데이터를 저장하는 용도로 사용됩니다.
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <h3>
+  <a href="#worker-node" id="worker-node">
+   Worker Node
+   <br/>
+  </a>
+ </h3>
+ <p>
+  : 워커노드는 할당된 task를 요청대로 수행하는 시스템입니다.
+  <br/>
+  예전에는 Minions 라고도 불렸으며 컨테이너들간의 네트워크 등 서비스에 필요한 전반적인 일들을 마스터 노드와 통신하며 수행합니다.
+ </p>
+ <table class="confluenceTable">
+  <thead>
+   <tr>
+    <th align="left">
+     Component
+    </th>
+    <th align="left">
+     설명
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td align="left">
+     <strong>
+      Kubelet
+     </strong>
+    </td>
+    <td align="left">
+     - 쿠버네티스 마스터 노드간의 통신을 담당하는 에이전트로서 노드에서 동작하는 pod들을 관리합니다
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <strong>
+      Kube-proxy
+     </strong>
+    </td>
+    <td align="left">
+     - 각 노드별로 탑재되며 네트워크 프록시 및 로드밸런서 역할을 해줍니다.
+    </td>
+   </tr>
+   <tr>
+    <td align="left">
+     <strong>
+      Pod
+     </strong>
+    </td>
+    <td align="left">
+     - Pod는 컨테이너의 그룹으로 한 개 또는 여러 개의 컨테이너를 포함하는 쿠버네티스의 작업단위 입니다.
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  각각의 컴포넌트들이 굉장히 복잡해 보이는데 조금 더 쉬운 다이어그램을 가지고 왔습니다.
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper">
+  <img src="/assets/images/97465347/11.png"/>
+ </span>
+</p>
+<div class="conf-macro output-block" data-hasbody="true" data-macro-name="markdown">
+ <p>
+  Kuberenetes 도큐먼트에 한번쯤 들어가보셨다면 익숙하실 그림일겁니다.
+ </p>
+ <p>
+  조금더 쉽게 말씀드리자면,
+  <br/>
+  마스터노드는 쿠버네티스 클러스터를 관리하며
+  <br/>
+  워커노드는 실질적인 업무를 수행하는 주체입니다.
+  <del>
+   열일하는 worker node 친근하네요
+  </del>
+  <br/>
+ </p>
+ <p>
+  또한 이 워커노드를 확대하면 오른쪽 다이어그램처럼 되는데요,
+  <br/>
+  워커노드안에는 pod가 들어가게 되고
+  <br/>
+  이 pod안에는 containerized된 application이 들어가게됩니다!
+ </p>
+ <p>
+  이 pod는 쿠버네티스의 가장작은 작업단위 요소로서,
+  <br/>
+  필요에 따라 쉽게 생성되고 쉽게 버려지는 비교적 짧은 수명을 가지는 것이 특징입니다.
+  <br/>
+ </p>
+ <p>
+  또한, 각각의 pod마다 다른 ip를 가지고 있고 pod 안에 있는 컨테이너끼리 는 내부 통신이 가능합니다.
+  <br/>
+  <em>
+   (DNS로 통신 (coredns))
+  </em>
+ </p>
+ <p>
+  Pod안에 있는 컨테이너들 끼리 볼륨을 공유하며
+  <br/>
+  컨테이너가 죽고 재시작 되어도 pod가 살아있는 한 shared volume은 유지됩니다.
+ </p>
+ <p>
+  여러분의 Application을 컨테이너로 이쁘게 만들고 이를 사용자들에게 서비스를 하려면
+  <br/>
+  실질적으로 동일한 pod가 지속적으로 올라와져 있어야하는데요~
+  <br/>
+  (좀 전에 pod는 쉽게 죽는 특징을 가지고 있다고 했는데 ....)
+  <br/>
+ </p>
+ <p>
+  우리의 쿠버네티스는 똑똑한 친구이니 이런 빅픽쳐를 계산해두었습니다.
+  <br/>
+  <br/>
+  <br/>
+ </p>
+ <p>
+  어디에서 많이들어본...
+  <br/>
+  Replica Set, Deployment, Service, Ingress 등등
+  <br/>
+  모임에서 한번 쯤 들었던거같은 이름들..
+  <br/>
+  다음시간에는 이런 Kubernetes의 구성요소들에 대하여 더 깊게 알아보는 시간을 가지도록 하겠습니다!
+  <br/>
+ </p>
+ <p>
+  <del>
+   뜬금없지만
+  </del>
+  다들 코로나 조심하세요!
+ </p>
+ <script>
+  //<![CDATA[
+
+AJS.$('[data-macro-name="markdown"] code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+//]]>
+ </script>
+ <style>
+  .hljs {display: inline;}
+pre > code {display: block !important;}
+ </style>
+ <script>
+  //<![CDATA[
+ AJS.$('[data-macro-name="markdown"] table thead th').each(function(i, block) {
+    block.classList.add("confluenceTh");
+});
+
+AJS.$('[data-macro-name="markdown"] table tbody tr td').each(function(i, block) {
+    block.classList.add("confluenceTd");
+});
+//]]>
+ </script>
+</div>
+<div class="confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
+ <div class="confluence-information-macro-body">
+  <p>
+   참고 URL
+  </p>
+  <p>
+   Container Orchestration Image :
+   <a class="external-link" href="https://www.awsforbusiness.com/what-is-container-orchestration/" rel="nofollow">
+    https://www.awsforbusiness.com/what-is-container-orchestration/
+   </a>
+  </p>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/06/06/97465347/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/06/06/97465347/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/kbseo/">
+            <div id="author-image" style="background-image:url(/files/authors/kbseo);">
+                <span class="sr-only">kbseo's profile image</span>
+            </div>
+            <p id="author-name">kbseo</p>
+        </a>
+        <p id="post-date">2020-06-06</p>
+        <a id="post-more" href="/authors/kbseo/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/97456877/0.png);">
+            <div>
+                <h3><a href="/2020/05/08/97456877/">아틀라시안 클라우드 마이그레이션에 대한 10가지 오해와 진실</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-4', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>
