@@ -205,3 +205,4 @@ Atom 에디터로 Post를 작성하기 위해서 Markdown을 습득했습니다.
 기술 블로그 글 작성을 통해서 `Git`의 기본 기능과 `Markdown`을 익혀보시면 좋을 것 같습니다.  
 글은 작성하고 싶은데 과정이 어려우시다면  회사 Wiki에 작성 부탁드립니다.
 글이 많이 작성 된다면 스크립트 만들어서 자동으로 넘기겠습니다.  `https://wiki.osci.kr/pages/viewpage.action?pageId=41553358`
+
