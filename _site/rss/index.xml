@@ -9,20 +9,28 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Aug 2020 14:43:58 +0900</pubDate>
-    <lastBuildDate>Wed, 05 Aug 2020 14:43:58 +0900</lastBuildDate>
+    <pubDate>Wed, 05 Aug 2020 14:47:18 +0900</pubDate>
+    <lastBuildDate>Wed, 05 Aug 2020 14:47:18 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
         <title>Atlassian 8월 Release Note</title>
         <description>&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
  &lt;br/&gt;
  이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Realese Note를 전해드리고자 합니다.
 &lt;/p&gt;
 &lt;h1 id=&quot;Atlassian8월ReleaseNote-Jira8.10.xReleaseNote&quot;&gt;
  &lt;br/&gt;
- Jira 8.10.x Release Note
+ &lt;strong&gt;
+  Jira 8.10.x Release Note
+ &lt;/strong&gt;
 &lt;/h1&gt;
 &lt;h3 id=&quot;Atlassian8월ReleaseNote-|OAuth2.0foryourmailserver/메일서버를위한OAuth2.0&quot;&gt;
  | OAuth 2.0 for your mail server  /
@@ -30,9 +38,6 @@ Sharing Tech. Growing Together.
   메일 서버를 위한 OAuth 2.0
  &lt;/span&gt;
 &lt;/h3&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
   &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
@@ -194,8 +199,22 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  &lt;br/&gt;
 &lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
 &lt;h1 id=&quot;Atlassian8월ReleaseNote-Confluence7.6ReleaseNote&quot;&gt;
- Confluence 7.6 Release Note
+ &lt;strong&gt;
+  Confluence 7.6 Release Note
+ &lt;/strong&gt;
 &lt;/h1&gt;
 &lt;h3 id=&quot;Atlassian8월ReleaseNote-|Capturemoreend-useractivityintheauditlog/감사로그에서엔드유저의더많은활동을확인가능&quot;&gt;
  | Capture more end-user activity in the audit log / 감사 로그에서 엔드 유저의 더 많은 활동을 확인 가능
@@ -245,8 +264,16 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  &lt;br/&gt;
 &lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
 &lt;h1 class=&quot;page-title&quot; id=&quot;Atlassian8월ReleaseNote-JiraServiceDesk4.11.xReleaseNote&quot;&gt;
- Jira Service Desk 4.11.xRelease Note
+ &lt;strong&gt;
+  Jira Service Desk 4.11.xRelease Note
+ &lt;/strong&gt;
 &lt;/h1&gt;
 &lt;h3 class=&quot;page-title&quot; id=&quot;Atlassian8월ReleaseNote-|Helpyourcustomersintheirpreferredlanguage/고객이선호하는언어로지원&quot;&gt;
  | Help your customers in their preferred language / 고객이 선호하는 언어로 지원
@@ -329,20 +356,11 @@ Sharing Tech. Growing Together.
   이 카테고리의 이벤트들은 Advanced coverage level에 있으며 Jira Data Center에서 사용 가능합니다.
  &lt;/span&gt;
 &lt;/p&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-tip conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;tip&quot;&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-    The following features live in the Jira platform, which means they’re available for the whole Jira family — Jira Core, Jira Software, and Jira Service Desk.
-    &lt;br/&gt;
-    다음 기능은 Jira 플랫폼에 라이브로 제공되며, 이는 Jira Core, Jira Software, Jira Service Desk 등 Jira 제품군 전체가 사용할 수 있습니다.
-    &lt;br/&gt;
-   &lt;/span&gt;
-  &lt;/p&gt;
- &lt;/div&gt;
-&lt;/div&gt;
+&lt;blockquote&gt;
+ &lt;p class=&quot;auto-cursor-target&quot;&gt;
+  Jira Core, Jira Software, and Jira Service Desk. 다음 기능은 Jira 플랫폼에 라이브로 제공되며, 이는 Jira Core, Jira Software, Jira Service Desk 등 Jira 제품군 전체가 사용할 수 있습니다.
+ &lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&quot;Atlassian8월ReleaseNote-|Managingprivatefiltersanddashboards/개인필터및대시보드관리&quot;&gt;
  | Managing private filters and dashboards / 개인 필터 및 대시보드 관리
 &lt;/h3&gt;
