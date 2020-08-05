@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Atlassian 8월 Release Note</title>
+<meta name="title" content="Atlassian 8월 Release Note" />
+<meta name="author" content="soohyeonlee"/>
+<meta name="description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Realese Note를 전해드리고자 합니다. Jira 8.10.x Release Note | OAuth 2.0 for your mail server  / 메일 서버를 위한 OAuth 2.0 구글과 마이크로소프트가 기존에 사용하던 인증방식을 비활성화할 계획인 가운데, 계속해서 이메일을 사용하여 Jira에 의견을 추가하고 이슈를 생성할 수 있도록 OAuth 2.0 지원을 추가했습니다. 비밀번호 대신 Gmail 또는 Microsoft Exchange 온라인의 인증 방법으로 이용 가능 합니다. | User anonymization (GDPR) improvements /..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Atlassian 8월 Release Note"/>
+<meta property="og:description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Realese Note를 전해드리고자 합니다. Jira 8.10.x Release Note | OAuth 2.0 for your mail server  / 메일 서버를 위한 OAuth 2.0 구글과 마이크로소프트가 기존에 사용하던 인증방식을 비활성화할 계획인 가운데, 계속해서 이메일을 사용하여 Jira에 의견을 추가하고 이슈를 생성할 수 있도록 OAuth 2.0 지원을 추가했습니다. 비밀번호 대신 Gmail 또는 Microsoft Exchange 온라인의 인증 방법으로 이용 가능 합니다. | User anonymization (GDPR) improvements /..."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/08/05/97477897/"/>
+<meta property="og:image" content="/assets/images/97477897/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Atlassian 8월 Release Note"/>
+<meta name="twitter:description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Realese Note를 전해드리고자 합니다. Jira 8.10.x Release Note | OAuth 2.0 for your mail server  / 메일 서버를 위한 OAuth 2.0 구글과 마이크로소프트가 기존에 사용하던 인증방식을 비활성화할 계획인 가운데, 계속해서 이메일을 사용하여 Jira에 의견을 추가하고 이슈를 생성할 수 있도록 OAuth 2.0 지원을 추가했습니다. 비밀번호 대신 Gmail 또는 Microsoft Exchange 온라인의 인증 방법으로 이용 가능 합니다. | User anonymization (GDPR) improvements /..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="soohyeonlee"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/97477897/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="releasenote,아틀라시안"/>
+
+<meta property="article:tag" content="releasenote"/>
+
+<meta property="article:tag" content="아틀라시안"/>
+
+
+
+<meta property="article:published_time" content="2020-08-05T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/soohyeonlee"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/08/05/97477897/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/97477897/0.png);">
+    <div>
+        <h1>Atlassian 8월 Release Note</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                releasenote
+                ,
+            
+                아틀라시안
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ 안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ <br/>
+ 이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Realese Note를 전해드리고자 합니다.
+</p>
+<h1 id="Atlassian8월ReleaseNote-Jira8.10.xReleaseNote">
+ <br/>
+ Jira 8.10.x Release Note
+</h1>
+<h3 id="Atlassian8월ReleaseNote-|OAuth2.0foryourmailserver/메일서버를위한OAuth2.0">
+ | OAuth 2.0 for your mail server  /
+ <span style="color: rgb(0,0,0);">
+  메일 서버를 위한 OAuth 2.0
+ </span>
+</h3>
+<p>
+ <br/>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  <span style="color: rgb(48,48,48);">
+   구글과 마이크로소프트가 기존에 사용하던 인증방식을 비활성화할 계획인 가운데,
+   <br/>
+  </span>
+ </span>
+ <span style="color: rgb(48,48,48);">
+  <span style="color: rgb(48,48,48);">
+   계속해서 이메일을 사용하여 Jira에 의견을 추가하고 이슈를 생성할 수 있도록 OAuth 2.0 지원을 추가했습니다.
+   <br/>
+   비밀번호 대신
+  </span>
+ </span>
+ <span style="color: rgb(48,48,48);">
+  <span style="color: rgb(48,48,48);">
+   Gmail 또는 Microsoft Exchange 온라인의 인증 방법으로 이용 가능
+  </span>
+  합니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/97477897/0.png"/>
+  </span>
+ </span>
+</p>
+<h3 id="Atlassian8월ReleaseNote-|Useranonymization(GDPR)improvements/사용자익명화개선">
+ | User anonymization (GDPR) improvements / 사용자 익명화 개선
+</h3>
+<p>
+ <span style="color: rgb(0,0,0);">
+  Jira 8.7에서 GDPR을 준수할 수 있도록 사용자 익명화를 도입 했었습니다.
+  <br/>
+  초기 기능에는 몇가지 제한이 있었지만 계속해서 새로운 버전으로 업데이트 중입니다.
+  <br/>
+  이번 릴리스에서는 익명화의 범위를 다음과 같은 항목을 포함하도록 확대하였습니다.
+ </span>
+</p>
+<ul>
+ <li>
+  <span style="color: rgb(0,0,0);">
+   이슈 수집기의 보고자 및 생성자
+  </span>
+ </li>
+ <li>
+  <span style="color: rgb(0,0,0);">
+   <span class="inline-comment-marker" data-ref="0917544c-d16e-4d1a-a475-a3d4e5a23fbb">
+    이슈 히스토리 탭의 이름 관련 필드 전체 (할당자, 보고자, 단일 및 다중 사용자 선택기 필드)
+   </span>
+  </span>
+ </li>
+ <li>
+  <span style="color: rgb(0,0,0);">
+   삭제된 사용자를 익명화 하는 기능
+  </span>
+ </li>
+</ul>
+<p>
+ <span style="color: rgb(0,0,0);">
+  *GDPR: 유럽연합 일반 데이터 보호 규칙
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h3 id="Atlassian8월ReleaseNote-|Moreinsightintoyourcustomfields/사용자정의필드에대한더자세한정보확인">
+ | More insight into your custom fields /
+ <span style="color: rgb(0,0,0);">
+  사용자 정의 필드에 대한 더 자세한 정보 확인
+ </span>
+</h3>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span style="color: rgb(23,43,77);">
+   특정 사용자 정의 필드가 JIRA 의 인덱싱 시간에 얼마나 영향을 미치는 지 확인할 수 있습니다.
+  </span>
+  <br/>
+ </span>
+ <span style="color: rgb(0,0,0);">
+  이제 해당 정보에 쉽게 접근 할 수 있어 로그를 일일히 검색할 필요가 없습니다.
+  <span>
+   <br/>
+  </span>
+  <span style="color: rgb(23,43,77);">
+   사용자 정의 필드 인덱싱 화면에서 인덱싱이 가장 오래 걸리는 사용자 정의 필드 10개가 표시되어 속도 문제를 분석하고 조치하는데 용이합니다.
+  </span>
+  <br/>
+ </span>
+ <span style="color: rgb(0,0,0);">
+  규모가 큰 환경에서는 사용자 정의 필드를 분석하는데 어려움을 겪을 수 있기 때문에
+  <span style="color: rgb(0,0,0);">
+   엔터프라이즈 환경에서 특히 유용합니다.
+  </span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span style="color: rgb(23,43,77);">
+   해당 정보는 다음 경로에서 확인할 수 있습니다.
+  </span>
+  <strong>
+   Jira Administration &gt; System &gt; Clustering &gt; Actions &gt; Custom field indexing
+  </strong>
+  <span style="color: rgb(23,43,77);">
+   .
+  </span>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span style="color: rgb(23,43,77);">
+   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+    <img src="/assets/images/97477897/1.png"/>
+   </span>
+  </span>
+ </span>
+</p>
+<h3 id="Atlassian8월ReleaseNote-|Stalenodesautomaticallyremoved/오래된노드들을자동으로제거">
+ | Stale nodes automatically removed / 오래된 노드들을 자동으로 제거
+</h3>
+<p>
+ <span style="color: rgb(48,48,48);">
+  클러스터 관리에 자동화를 도입했습니다. 이제 클러스터에서 오프라인 노드들을  제거하거나 하트비트 신호가 없는 노드들을 오프라인으로 이동시키는 것들을 수동으로 할 필요가 없습니다.
+  <br/>
+ </span>
+ <span style="color: rgb(48,48,48);">
+  하트비트 신호가 없다고 보고된 노드는 이틀 뒤에 자동으로 오프라인으로 이동되며, 오프라인 상태로 유지된 후 이틀 뒤에 클러스터에서 자동으로 제거됩니다.
+ </span>
+</p>
+<h3 id="Atlassian8월ReleaseNote-|Optimizedcustomfields/최적화된사용자정의필드">
+ | Optimized custom fields /
+ <span style="color: rgb(0,0,0);">
+  최적화된 사용자 정의 필드
+ </span>
+</h3>
+<p>
+ 많은 수의 사용자 정의 필드는 Jira의 성능 및 인덱싱 시간에 부정적인 영향을 미칠 수 있습니다.
+ <span>
+  <br/>
+ </span>
+ 이러한 영향을 최소화하기 위해 필드 인덱서 수를 줄이는 새로운 최적화 방법을 도입했습니다.
+ <br/>
+ <span>
+  <span style="color: rgb(23,43,77);">
+   이제 지라의 이슈에서 사용자 정의 필드를 사용하지 않는 경우 인덱싱의 정렬을 위한 Marker 를 저장하지 않습니다.
+   <br/>
+   즉, 지라의 이슈에서 사용되지 않는 사용자 정의 필드는 인덱싱 작업에 포함되지 않도록 바뀌었습니다.
+  </span>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h1 id="Atlassian8월ReleaseNote-Confluence7.6ReleaseNote">
+ Confluence 7.6 Release Note
+</h1>
+<h3 id="Atlassian8월ReleaseNote-|Capturemoreend-useractivityintheauditlog/감사로그에서엔드유저의더많은활동을확인가능">
+ | Capture more end-user activity in the audit log / 감사 로그에서 엔드 유저의 더 많은 활동을 확인 가능
+</h3>
+<p>
+ <span style="color: rgb(23,43,77);">
+  많은 분들이 Compliance 와 Regulation 충족을 위해 많은 경우 감사 로그를 저장해야 할 필요가 있다는 것을 알고 있습니다.
+ </span>
+ <br/>
+ 이제 감사 로그는 다음과 같은 경우에도 이벤트를 기록할 수 있습니다
+</p>
+<ul>
+ <li>
+  페이지 또는 블로그 게시물로 이동
+ </li>
+ <li>
+  페이지 또는 블로그 게시물을 공유.
+ </li>
+ <li>
+  페이지 또는 블로그 게시물에 대한 액세스 요청
+ </li>
+ <li>
+  페이지 또는 블로그 게시물에 대한 액세스 권한 부여(액세스 요청으로부터)
+ </li>
+</ul>
+<p>
+ 이러한 이벤트는 데이터 센터 라이센스에서 적용할 수 있는 고급 적용 범위 수준입니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/97477897/2.png"/>
+ </span>
+</p>
+<h3 id="Atlassian8월ReleaseNote-|TrusteddomainsforCompanionapp/Companion앱의신뢰할수있는도메인">
+ | Trusted domains for Companion app / Companion앱의 신뢰할 수 있는 도메인
+</h3>
+<p>
+ 이제 Companion 앱을 모든 사용자에게 출시하기 전에 신뢰할 수 있는 도메인/사이트를 설정할 수 있습니다.
+ <br/>
+ Confluence URL을 신뢰할 수 있는 도메인으로 설정하면 추후 사용자가 파일을 처음 편집할 때 '이 도메인 신뢰'를 선택할 필요가 없어집니다.
+ <br/>
+ 환경 변수를 사용하거나 MSI를 설치하는 중에 신뢰할 수 있는 도메인으로 설정할 수 있습니다.
+</p>
+<p>
+ <br/>
+</p>
+<h1 class="page-title" id="Atlassian8월ReleaseNote-JiraServiceDesk4.11.xReleaseNote">
+ Jira Service Desk 4.11.xRelease Note
+</h1>
+<h3 class="page-title" id="Atlassian8월ReleaseNote-|Helpyourcustomersintheirpreferredlanguage/고객이선호하는언어로지원">
+ | Help your customers in their preferred language / 고객이 선호하는 언어로 지원
+</h3>
+<p>
+ 지라 서비스 데스크는 이제 다국어 고객 포털과 헬프 센터를 함께 제공합니다. 고객이 원하는 언어로 고객에게 지원이 가능합니다.
+ <br/>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/97477897/3.jpeg"/>
+ </span>
+</p>
+<p>
+ 서비스 데스크에 언어를 추가하고 중요한 항목에 대한 번역을 제공할 수 있으며,
+ <br/>
+ 이러한 번역은 포털 이름, 요청 유형 및 공지 사항에 반영되어 표시됩니다.
+ <br/>
+ 이제는 고객이 자신에게 익숙한 언어로 서비스 데스크에 접근할 수 있습니다.
+</p>
+<p>
+ .
+</p>
+<h3 id="Atlassian8월ReleaseNote-|AdvancedauditinginJiraServiceDesk/JiraServiceDesk고급감사">
+ | Advanced auditing in Jira Service Desk / Jira Service Desk 고급 감사
+</h3>
+<p>
+ <span style="color: rgb(23,43,77);">
+  JIRA Service Desk (SR관리) 에만 특화된 메트릭 측정 및 보고서를 제공할 예정입니다.
+ </span>
+ <br/>
+ 이제 Jira 인스턴스와 관련된 일반 이벤트를 모니터링하는 것 외에도 다음과 같은 카테고리 및 이벤트를 확인 하실 수 있습니다.
+</p>
+<ul>
+ <li>
+  <span>
+   SLA(SLA 캘린더, SLA 목표, SLA 이름)
+  </span>
+ </li>
+ <li>
+  <span>
+   보고서(생성, 삭제)
+  </span>
+ </li>
+ <li>
+  <span>
+   에이전트(초대 또는 프로젝트에서 제거)
+  </span>
+ </li>
+ <li>
+  <span>
+   이메일 채널(활성화, 비활성화)
+  </span>
+ </li>
+ <li>
+  <span>
+   요청 유형(생성, 삭제)
+  </span>
+  <br/>
+  <span>
+  </span>
+ </li>
+ <li>
+  <span>
+   조직(생성, 삭제, 업데이트)
+  </span>
+  <br/>
+  <span>
+  </span>
+ </li>
+ <li>
+  <span>
+   일반 구성(공용 등록 사용 혹은 사용 안 함)
+  </span>
+ </li>
+</ul>
+<p>
+ <span>
+  이 카테고리의 이벤트들은 Advanced coverage level에 있으며 Jira Data Center에서 사용 가능합니다.
+ </span>
+</p>
+<div class="confluence-information-macro confluence-information-macro-tip conf-macro output-block" data-hasbody="true" data-macro-name="tip">
+ <span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon">
+ </span>
+ <div class="confluence-information-macro-body">
+  <p>
+   <span style="color: rgb(23,43,77);">
+    The following features live in the Jira platform, which means they’re available for the whole Jira family — Jira Core, Jira Software, and Jira Service Desk.
+    <br/>
+    다음 기능은 Jira 플랫폼에 라이브로 제공되며, 이는 Jira Core, Jira Software, Jira Service Desk 등 Jira 제품군 전체가 사용할 수 있습니다.
+    <br/>
+   </span>
+  </p>
+ </div>
+</div>
+<h3 id="Atlassian8월ReleaseNote-|Managingprivatefiltersanddashboards/개인필터및대시보드관리">
+ | Managing private filters and dashboards / 개인 필터 및 대시보드 관리
+</h3>
+<p>
+ Jira 관리자에게 개인 필터 및 대시 보드를 편집하고 삭제할 수있는 기능을 제공합니다.
+ <br/>
+ 이제 모든(공유 혹은 비공개) 기존 필터 및 대시 보드를 보고 처리 방법을 선택할 수 있습니다
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/97477897/4.jpeg"/>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(23,43,77);">
+  비효율적인 검색 기준들이 적용된 대시보드나 성능에 안좋은 영향을 끼칠 수 있는 가젯들로 구성된 대시보드를 관리자 권한으로 삭제할 수 있도록 했습니다.
+ </span>
+ <br/>
+ <span style="color: rgb(23,43,77);">
+  이제 대시보드나 필터로 인해 인스턴스가 느려지지 않도록 관리할 수 있습니다.
+ </span>
+</p>
+<h3 id="Atlassian8월ReleaseNote-|EmbeddedCrowdupgrade/지라에임배디드된CROWD모듈업그레이드">
+ | Embedded Crowd upgrade /
+ <span style="color: rgb(23,43,77);">
+  지라에 임배디드된 CROWD 모듈 업그레이드
+ </span>
+</h3>
+<p>
+ 임베디드 Crowd는 Jira에서 사용자 관리를 위해 사용되는 라이브러리이며 최신 버전인 4.0으로 업그레이드 되었습니다.
+ <br/>
+ 사용자 및 그룹과 관련된 페이지는 이 라이브러리에 의존하지만 필요한 사용자 인터페이스와 상호 작용은 기존과 동일하게 유지됩니다.
+ <br/>
+ 동시에 새 버전은 여러 가지 개선 사항을 제공하며 그 중 일부는 다음과 같습니다.
+</p>
+<ul>
+ <li>
+  <span>
+   성능 향상(시간 동기화 향상)
+  </span>
+  <br/>
+  <span>
+  </span>
+ </li>
+ <li>
+  <span>
+   클러스터링 지원
+  </span>
+  <br/>
+  <span>
+  </span>
+ </li>
+ <li>
+  <span>
+   향상된 디렉토리 장애 조치
+  </span>
+ </li>
+ <li>
+  <span>
+   많은 버그 및 제안 해결
+  </span>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<h3 id="Atlassian8월ReleaseNote-|MorestabilityintheFavoriteFiltersgadget/즐겨찾기필터가젯의안정성향상">
+ | More stability in the Favorite Filters gadget / 즐겨찾기 필터 가젯의 안정성향상
+</h3>
+<p>
+ 즐겨찾기 필터 가젯은 가장 인기있는 가젯으로 선호하는 필터의 목록과 각각의 필터에 포함된 이슈의 수를 표시해 줍니다.
+ <br/>
+ 큰 규모의 필터의 경우, 모든 이슈를 세는것은 성능에 영향을 미칠 수 있기 때문에 우리는 Jira 관리자에게 더 많은 권한을 주었습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/97477897/5.jpeg"/>
+ </span>
+</p>
+<p>
+ 가젯이 이슈를 불러들일 때 걸리는 최대 시간 값을 제어할 수 있는 글로벌 설정을 추가했습니다.
+ <br/>
+ 모든 대시보드에서 모든 가젯들에서 이슈가 카운트 되는 데 최대 시간보다 오래 걸린다면, 카운트를 중지하고 대신 "Too many issues" 메시지를 표시합니다.
+</p>
+<h3 id="Atlassian8월ReleaseNote-|Configurehowfaststalenodesaremovedoffline/오래된노드를오프라인으로이동시키는기간설정">
+ | Configure how fast stale nodes are moved offline / 오래된 노드를 오프라인으로 이동시키는 기간 설정
+</h3>
+<p>
+ Jira Service Desk 4.10에서는 이틀 동안 하트비트 신호가 없는 클러스터의 오래된 노드를 자동으로 오프라인으로 이동할 수 있도록 하였습니다.
+ <br/>
+ 이제는
+ <a class="external-link" href="http://jira.not.alive.active.nodes.retention.period.in/" rel="nofollow">
+  jira.not.alive.active.nodes.retention.period.in
+ </a>
+ .hours 의 시스템 속성을 수정하여 더 빠르게 오래된 노드들을 오프라인으로 옮길 수 있습니다.
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ 앞으로도 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+</p>
+<p>
+ 업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+</p>
+<p>
+ 궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 감사합니다!
+</p>
+<p>
+ <a class="external-link" href="mailto:atlassian@osci.kr" rel="nofollow">
+  atlassian@osci.kr
+ </a>
+</p>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/08/05/97477897/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/08/05/97477897/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/soohyeonlee/">
+            <div id="author-image" style="background-image:url(/files/authors/soohyeonlee.jpg);">
+                <span class="sr-only">soohyeonlee's profile image</span>
+            </div>
+            <p id="author-name">soohyeonlee</p>
+        </a>
+        <p id="post-date">2020-08-05</p>
+        <a id="post-more" href="/authors/soohyeonlee/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/97477266/0.png);">
+            <div>
+                <h3><a href="/2020/08/03/97477266/">openstack helm을 이용한 kubernetes환경에서 openstack 배포</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

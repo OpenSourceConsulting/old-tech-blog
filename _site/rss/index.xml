@@ -9,9 +9,483 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 03 Aug 2020 19:33:38 +0900</pubDate>
-    <lastBuildDate>Mon, 03 Aug 2020 19:33:38 +0900</lastBuildDate>
+    <pubDate>Wed, 05 Aug 2020 14:31:18 +0900</pubDate>
+    <lastBuildDate>Wed, 05 Aug 2020 14:31:18 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Atlassian 8월 Release Note</title>
+        <description>&lt;p&gt;
+ 안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ &lt;br/&gt;
+ 이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Realese Note를 전해드리고자 합니다.
+&lt;/p&gt;
+&lt;h1 id=&quot;Atlassian8월ReleaseNote-Jira8.10.xReleaseNote&quot;&gt;
+ &lt;br/&gt;
+ Jira 8.10.x Release Note
+&lt;/h1&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|OAuth2.0foryourmailserver/메일서버를위한OAuth2.0&quot;&gt;
+ | OAuth 2.0 for your mail server  /
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  메일 서버를 위한 OAuth 2.0
+ &lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+   구글과 마이크로소프트가 기존에 사용하던 인증방식을 비활성화할 계획인 가운데,
+   &lt;br/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+   계속해서 이메일을 사용하여 Jira에 의견을 추가하고 이슈를 생성할 수 있도록 OAuth 2.0 지원을 추가했습니다.
+   &lt;br/&gt;
+   비밀번호 대신
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+   Gmail 또는 Microsoft Exchange 온라인의 인증 방법으로 이용 가능
+  &lt;/span&gt;
+  합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/97477897/0.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Useranonymization(GDPR)improvements/사용자익명화개선&quot;&gt;
+ | User anonymization (GDPR) improvements / 사용자 익명화 개선
+&lt;/h3&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  Jira 8.7에서 GDPR을 준수할 수 있도록 사용자 익명화를 도입 했었습니다.
+  &lt;br/&gt;
+  초기 기능에는 몇가지 제한이 있었지만 계속해서 새로운 버전으로 업데이트 중입니다.
+  &lt;br/&gt;
+  이번 릴리스에서는 익명화의 범위를 다음과 같은 항목을 포함하도록 확대하였습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+   이슈 수집기의 보고자 및 생성자
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+   &lt;span class=&quot;inline-comment-marker&quot; data-ref=&quot;0917544c-d16e-4d1a-a475-a3d4e5a23fbb&quot;&gt;
+    이슈 히스토리 탭의 이름 관련 필드 전체 (할당자, 보고자, 단일 및 다중 사용자 선택기 필드)
+   &lt;/span&gt;
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+   삭제된 사용자를 익명화 하는 기능
+  &lt;/span&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  *GDPR: 유럽연합 일반 데이터 보호 규칙
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Moreinsightintoyourcustomfields/사용자정의필드에대한더자세한정보확인&quot;&gt;
+ | More insight into your custom fields /
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  사용자 정의 필드에 대한 더 자세한 정보 확인
+ &lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   특정 사용자 정의 필드가 JIRA 의 인덱싱 시간에 얼마나 영향을 미치는 지 확인할 수 있습니다.
+  &lt;/span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  이제 해당 정보에 쉽게 접근 할 수 있어 로그를 일일히 검색할 필요가 없습니다.
+  &lt;span&gt;
+   &lt;br/&gt;
+  &lt;/span&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   사용자 정의 필드 인덱싱 화면에서 인덱싱이 가장 오래 걸리는 사용자 정의 필드 10개가 표시되어 속도 문제를 분석하고 조치하는데 용이합니다.
+  &lt;/span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  규모가 큰 환경에서는 사용자 정의 필드를 분석하는데 어려움을 겪을 수 있기 때문에
+  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+   엔터프라이즈 환경에서 특히 유용합니다.
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   해당 정보는 다음 경로에서 확인할 수 있습니다.
+  &lt;/span&gt;
+  &lt;strong&gt;
+   Jira Administration &amp;gt; System &amp;gt; Clustering &amp;gt; Actions &amp;gt; Custom field indexing
+  &lt;/strong&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   .
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;img src=&quot;/assets/images/97477897/1.png&quot;/&gt;
+   &lt;/span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Stalenodesautomaticallyremoved/오래된노드들을자동으로제거&quot;&gt;
+ | Stale nodes automatically removed / 오래된 노드들을 자동으로 제거
+&lt;/h3&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  클러스터 관리에 자동화를 도입했습니다. 이제 클러스터에서 오프라인 노드들을  제거하거나 하트비트 신호가 없는 노드들을 오프라인으로 이동시키는 것들을 수동으로 할 필요가 없습니다.
+  &lt;br/&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  하트비트 신호가 없다고 보고된 노드는 이틀 뒤에 자동으로 오프라인으로 이동되며, 오프라인 상태로 유지된 후 이틀 뒤에 클러스터에서 자동으로 제거됩니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Optimizedcustomfields/최적화된사용자정의필드&quot;&gt;
+ | Optimized custom fields /
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  최적화된 사용자 정의 필드
+ &lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;
+ 많은 수의 사용자 정의 필드는 Jira의 성능 및 인덱싱 시간에 부정적인 영향을 미칠 수 있습니다.
+ &lt;span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+ 이러한 영향을 최소화하기 위해 필드 인덱서 수를 줄이는 새로운 최적화 방법을 도입했습니다.
+ &lt;br/&gt;
+ &lt;span&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   이제 지라의 이슈에서 사용자 정의 필드를 사용하지 않는 경우 인덱싱의 정렬을 위한 Marker 를 저장하지 않습니다.
+   &lt;br/&gt;
+   즉, 지라의 이슈에서 사용되지 않는 사용자 정의 필드는 인덱싱 작업에 포함되지 않도록 바뀌었습니다.
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h1 id=&quot;Atlassian8월ReleaseNote-Confluence7.6ReleaseNote&quot;&gt;
+ Confluence 7.6 Release Note
+&lt;/h1&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Capturemoreend-useractivityintheauditlog/감사로그에서엔드유저의더많은활동을확인가능&quot;&gt;
+ | Capture more end-user activity in the audit log / 감사 로그에서 엔드 유저의 더 많은 활동을 확인 가능
+&lt;/h3&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  많은 분들이 Compliance 와 Regulation 충족을 위해 많은 경우 감사 로그를 저장해야 할 필요가 있다는 것을 알고 있습니다.
+ &lt;/span&gt;
+ &lt;br/&gt;
+ 이제 감사 로그는 다음과 같은 경우에도 이벤트를 기록할 수 있습니다
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  페이지 또는 블로그 게시물로 이동
+ &lt;/li&gt;
+ &lt;li&gt;
+  페이지 또는 블로그 게시물을 공유.
+ &lt;/li&gt;
+ &lt;li&gt;
+  페이지 또는 블로그 게시물에 대한 액세스 요청
+ &lt;/li&gt;
+ &lt;li&gt;
+  페이지 또는 블로그 게시물에 대한 액세스 권한 부여(액세스 요청으로부터)
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ 이러한 이벤트는 데이터 센터 라이센스에서 적용할 수 있는 고급 적용 범위 수준입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97477897/2.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|TrusteddomainsforCompanionapp/Companion앱의신뢰할수있는도메인&quot;&gt;
+ | Trusted domains for Companion app / Companion앱의 신뢰할 수 있는 도메인
+&lt;/h3&gt;
+&lt;p&gt;
+ 이제 Companion 앱을 모든 사용자에게 출시하기 전에 신뢰할 수 있는 도메인/사이트를 설정할 수 있습니다.
+ &lt;br/&gt;
+ Confluence URL을 신뢰할 수 있는 도메인으로 설정하면 추후 사용자가 파일을 처음 편집할 때 '이 도메인 신뢰'를 선택할 필요가 없어집니다.
+ &lt;br/&gt;
+ 환경 변수를 사용하거나 MSI를 설치하는 중에 신뢰할 수 있는 도메인으로 설정할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h1 class=&quot;page-title&quot; id=&quot;Atlassian8월ReleaseNote-JiraServiceDesk4.11.xReleaseNote&quot;&gt;
+ Jira Service Desk 4.11.xRelease Note
+&lt;/h1&gt;
+&lt;h3 class=&quot;page-title&quot; id=&quot;Atlassian8월ReleaseNote-|Helpyourcustomersintheirpreferredlanguage/고객이선호하는언어로지원&quot;&gt;
+ | Help your customers in their preferred language / 고객이 선호하는 언어로 지원
+&lt;/h3&gt;
+&lt;p&gt;
+ 지라 서비스 데스크는 이제 다국어 고객 포털과 헬프 센터를 함께 제공합니다. 고객이 원하는 언어로 고객에게 지원이 가능합니다.
+ &lt;br/&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97477897/3.jpeg&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 서비스 데스크에 언어를 추가하고 중요한 항목에 대한 번역을 제공할 수 있으며,
+ &lt;br/&gt;
+ 이러한 번역은 포털 이름, 요청 유형 및 공지 사항에 반영되어 표시됩니다.
+ &lt;br/&gt;
+ 이제는 고객이 자신에게 익숙한 언어로 서비스 데스크에 접근할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ .
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|AdvancedauditinginJiraServiceDesk/JiraServiceDesk고급감사&quot;&gt;
+ | Advanced auditing in Jira Service Desk / Jira Service Desk 고급 감사
+&lt;/h3&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  JIRA Service Desk (SR관리) 에만 특화된 메트릭 측정 및 보고서를 제공할 예정입니다.
+ &lt;/span&gt;
+ &lt;br/&gt;
+ 이제 Jira 인스턴스와 관련된 일반 이벤트를 모니터링하는 것 외에도 다음과 같은 카테고리 및 이벤트를 확인 하실 수 있습니다.
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   SLA(SLA 캘린더, SLA 목표, SLA 이름)
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   보고서(생성, 삭제)
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   에이전트(초대 또는 프로젝트에서 제거)
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   이메일 채널(활성화, 비활성화)
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   요청 유형(생성, 삭제)
+  &lt;/span&gt;
+  &lt;br/&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   조직(생성, 삭제, 업데이트)
+  &lt;/span&gt;
+  &lt;br/&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   일반 구성(공용 등록 사용 혹은 사용 안 함)
+  &lt;/span&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  이 카테고리의 이벤트들은 Advanced coverage level에 있으며 Jira Data Center에서 사용 가능합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;confluence-information-macro confluence-information-macro-tip conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;tip&quot;&gt;
+ &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon&quot;&gt;
+ &lt;/span&gt;
+ &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+    The following features live in the Jira platform, which means they’re available for the whole Jira family — Jira Core, Jira Software, and Jira Service Desk.
+    &lt;br/&gt;
+    다음 기능은 Jira 플랫폼에 라이브로 제공되며, 이는 Jira Core, Jira Software, Jira Service Desk 등 Jira 제품군 전체가 사용할 수 있습니다.
+    &lt;br/&gt;
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Managingprivatefiltersanddashboards/개인필터및대시보드관리&quot;&gt;
+ | Managing private filters and dashboards / 개인 필터 및 대시보드 관리
+&lt;/h3&gt;
+&lt;p&gt;
+ Jira 관리자에게 개인 필터 및 대시 보드를 편집하고 삭제할 수있는 기능을 제공합니다.
+ &lt;br/&gt;
+ 이제 모든(공유 혹은 비공개) 기존 필터 및 대시 보드를 보고 처리 방법을 선택할 수 있습니다
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97477897/4.jpeg&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  비효율적인 검색 기준들이 적용된 대시보드나 성능에 안좋은 영향을 끼칠 수 있는 가젯들로 구성된 대시보드를 관리자 권한으로 삭제할 수 있도록 했습니다.
+ &lt;/span&gt;
+ &lt;br/&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  이제 대시보드나 필터로 인해 인스턴스가 느려지지 않도록 관리할 수 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|EmbeddedCrowdupgrade/지라에임배디드된CROWD모듈업그레이드&quot;&gt;
+ | Embedded Crowd upgrade /
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  지라에 임배디드된 CROWD 모듈 업그레이드
+ &lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;
+ 임베디드 Crowd는 Jira에서 사용자 관리를 위해 사용되는 라이브러리이며 최신 버전인 4.0으로 업그레이드 되었습니다.
+ &lt;br/&gt;
+ 사용자 및 그룹과 관련된 페이지는 이 라이브러리에 의존하지만 필요한 사용자 인터페이스와 상호 작용은 기존과 동일하게 유지됩니다.
+ &lt;br/&gt;
+ 동시에 새 버전은 여러 가지 개선 사항을 제공하며 그 중 일부는 다음과 같습니다.
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   성능 향상(시간 동기화 향상)
+  &lt;/span&gt;
+  &lt;br/&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   클러스터링 지원
+  &lt;/span&gt;
+  &lt;br/&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   향상된 디렉토리 장애 조치
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   많은 버그 및 제안 해결
+  &lt;/span&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|MorestabilityintheFavoriteFiltersgadget/즐겨찾기필터가젯의안정성향상&quot;&gt;
+ | More stability in the Favorite Filters gadget / 즐겨찾기 필터 가젯의 안정성향상
+&lt;/h3&gt;
+&lt;p&gt;
+ 즐겨찾기 필터 가젯은 가장 인기있는 가젯으로 선호하는 필터의 목록과 각각의 필터에 포함된 이슈의 수를 표시해 줍니다.
+ &lt;br/&gt;
+ 큰 규모의 필터의 경우, 모든 이슈를 세는것은 성능에 영향을 미칠 수 있기 때문에 우리는 Jira 관리자에게 더 많은 권한을 주었습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/97477897/5.jpeg&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 가젯이 이슈를 불러들일 때 걸리는 최대 시간 값을 제어할 수 있는 글로벌 설정을 추가했습니다.
+ &lt;br/&gt;
+ 모든 대시보드에서 모든 가젯들에서 이슈가 카운트 되는 데 최대 시간보다 오래 걸린다면, 카운트를 중지하고 대신 &quot;Too many issues&quot; 메시지를 표시합니다.
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Configurehowfaststalenodesaremovedoffline/오래된노드를오프라인으로이동시키는기간설정&quot;&gt;
+ | Configure how fast stale nodes are moved offline / 오래된 노드를 오프라인으로 이동시키는 기간 설정
+&lt;/h3&gt;
+&lt;p&gt;
+ Jira Service Desk 4.10에서는 이틀 동안 하트비트 신호가 없는 클러스터의 오래된 노드를 자동으로 오프라인으로 이동할 수 있도록 하였습니다.
+ &lt;br/&gt;
+ 이제는
+ &lt;a class=&quot;external-link&quot; href=&quot;http://jira.not.alive.active.nodes.retention.period.in/&quot; rel=&quot;nofollow&quot;&gt;
+  jira.not.alive.active.nodes.retention.period.in
+ &lt;/a&gt;
+ .hours 의 시스템 속성을 수정하여 더 빠르게 오래된 노드들을 오프라인으로 옮길 수 있습니다.
+ &lt;br/&gt;
+ &lt;br/&gt;
+ &lt;br/&gt;
+ &lt;br/&gt;
+ 앞으로도 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+&lt;/p&gt;
+&lt;p&gt;
+ 업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+&lt;/p&gt;
+&lt;p&gt;
+ 궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 감사합니다!
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot;&gt;
+  atlassian@osci.kr
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Wed, 05 Aug 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/08/05/97477897/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/08/05/97477897/</guid>
+        
+        <category>releasenote</category>
+        
+        <category>아틀라시안</category>
+        
+        
+      </item>
     
       <item>
         <title>openstack helm을 이용한 kubernetes환경에서 openstack 배포</title>
@@ -6266,1127 +6740,6 @@ hal deploy apply&lt;/pre&gt;
         <category>saml</category>
         
         <category>oidc</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>데이터센터의 클라우드 전환</title>
-        <description>&lt;h1 id=&quot;id-데이터센터의클라우드전환-1.클라우드전환개요&quot;&gt;
- &lt;strong&gt;
-  1.클라우드 전환 개요
- &lt;/strong&gt;
-&lt;/h1&gt;
-&lt;p&gt;
- 엔터프라이즈 기업의 데이터센터가 변화하고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 유닉스 기반의 경직된 시스템 환경에서 스케일 아웃을 통한 확장성 있는 인프라로의 변화를 위하여 많은 기업들이 소프트웨어 정의 데이터센터
- &lt;span&gt;
-  (SDDC:Software Defined Data Center)
- &lt;/span&gt;
- 를 외치고 있는 실정입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 현재 데이터센터를 자체적으로 보유한 기업들 조차도 신규 서비스 기획 시 사업에 대한 불명확성
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 시장 반응들을 살펴볼 수 있는 시스템을 만들기 위하여 하드웨어 박스를 구매하고
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 상용 소프트웨어로 도배된 데이터센터 기반 시스템의 사용에 대해 의문을 가지고 있으며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 일부 서비스를 클라우드 서비스 혹은 하이브리드 방식의 클라우드로의 전환을 검토 또는 진행 중에 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 퍼블릭 클라우드 인프라 시장도 급속도로 팽창을 하고 있으며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 아래의 표에서도 나타나지만
- &lt;span&gt;
-  IaaS, PaaS
- &lt;/span&gt;
- 시장은 계속
- &lt;span&gt;
-  4
- &lt;/span&gt;
- 대 업체로 통합되고 있다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이들 대형업체는 신규 서비스를 지속적으로 내놓고 있으며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 자신들의 강점 분야를 내세워 데이터센터 고객의 자사 클라우드 유도와 하이브리드 운영 방안에 대한 레퍼런스를 지속적으로 내놓고 있는 상황입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 가트너에 의하면 아마존은 2019년 7월 기준으로 전세계 IaaS 시장의 50% 이상을 여전히 차지하고 있는 것으로 발표하고 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/91696364/0.jpeg&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 참고
- &lt;span&gt;
-  URL:
-  &lt;a class=&quot;external-link&quot; href=&quot;https://www.zdnet.co.kr/view/?no=20190730175837&quot; rel=&quot;nofollow&quot;&gt;
-   https://www.zdnet.co.kr/view/?no=20190730175837
-  &lt;/a&gt;
-  (아마존 IaaS 시장 절반 이상 독식)
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span&gt;
-  국내의 경우 가장 먼저 진출한 아마존
- &lt;/span&gt;
- &lt;span&gt;
-  AWS
- &lt;/span&gt;
- &lt;span&gt;
-  가 시장에서 많이 적용되고 있으며
- &lt;/span&gt;
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- &lt;span&gt;
-  스타트업들에게는 사실상의 표준
- &lt;/span&gt;
- &lt;span&gt;
-  (DeFacto Standard)
- &lt;/span&gt;
- &lt;span&gt;
-  으로 자리를 잡았습니다
- &lt;/span&gt;
- &lt;span&gt;
-  .
- &lt;/span&gt;
- &lt;span&gt;
-  본 아티클에서는 엔터프라이즈 관점에서 데이터 센터을 어떻게 퍼블릭 클라우드로 전환하는지에 대해 살펴보려고 합니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  전환의 이유는 무엇인가
-  &lt;span&gt;
-   ?
-  &lt;/span&gt;
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 국내 대기업의 데이터센터는 그룹사의
- &lt;span&gt;
-  IT
- &lt;/span&gt;
- 를 담당하는 회사에서 관리를 주로 하고 있으며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 오픈스택 또는 가상화 기반 하의 클라우드라는 명칭으로 각 그룹 고객사에 서비스 제공하려 많은 노력들을 기울이고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 내부의
- &lt;span&gt;
-  IT
- &lt;/span&gt;
- 자원의 성능이 훨씬 더 압도적일 것이라 대부분 판단하지만 퍼블릭 클라우드 서비스 업체가 기반 물리 자원에 대한 액세스를 너무나 잘 관리하기 때문에 그 차이가 그렇게 극명하게 나지 않는 것이 일반적입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 또한 내부
- &lt;span&gt;
-  ITSM
- &lt;/span&gt;
- 시스템의 관제하에 들어가게 되므로 클라우드 컴퓨팅이 제공하는 가치의 많은 부분이 민첩성에서 나온다는 점에서 이를 포기하고 데이터 센터만을 고집하는 것도 좋은 결정은 아닐 것입니다.
- &lt;span&gt;
- &lt;/span&gt;
- 이로 인해 퍼블릭 클라우드에 대한 도입 검토와 개념검증
- &lt;span&gt;
-  (PoC),
- &lt;/span&gt;
- 실제 전환이 활발하게 이루어지고 있는 실정입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 일반적으로 전환 후 록인
- &lt;span&gt;
-  (lock-in)
- &lt;/span&gt;
- 에 대해서 우려를 하는 기업들도 있겠지만 그러한 록인은 데이터 센터가 훨씬 더 심하며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 기업은 다양한 서버와 운영체제
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 애플리케이션
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 어플라이언스를 선택하고 원하는 특정 결과를 얻기 위한 과정일 뿐입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  어떻게 전환할 것인가
-  &lt;span&gt;
-   ?
-  &lt;/span&gt;
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 클라우드 전환에 있어 중요한 한 가지는 클라우드라는 트렌드에 대한 기업의
- &lt;span&gt;
-  ‘
- &lt;/span&gt;
- 적응력
- &lt;span&gt;
-  ’
- &lt;/span&gt;
- 과
- &lt;span&gt;
-  ‘
- &lt;/span&gt;
- 변화에 대한 의지
- &lt;span&gt;
-  ’
- &lt;/span&gt;
- 가 가장 클 것입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 쿠팡
- &lt;span&gt;
-  (
- &lt;/span&gt;
- 쿠팡
- &lt;span&gt;
-  , IT
- &lt;/span&gt;
- 인프라 전체를
- &lt;span&gt;
-  AWS
- &lt;/span&gt;
- 클라우드로 이전했다
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 기사
- &lt;span&gt;
-  :
-  &lt;a class=&quot;external-link&quot; href=&quot;https://byline.network/2017/08/10-6/&quot; rel=&quot;nofollow&quot;&gt;
-   https://byline.network/2017/08/10-6/
-  &lt;/a&gt;
-  )
- &lt;/span&gt;
- 과 같이 모든 인프라를 퍼블릭 클라우드로 전환하는 경우도 있겠지만
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 대부분은 기존에 운영되던 시스템과 고객의 정보
- &lt;span&gt;
-  (
- &lt;/span&gt;
- 규제를 포함하는
- &lt;span&gt;
-  )
- &lt;/span&gt;
- 로 인하여
- &lt;span&gt;
-  100%
- &lt;/span&gt;
- 이전을 못하는 경우가 대다수이다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이로 인해 단계적인 클라우드 전환을 고려하게 되는데
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 아래와 같이 데이터 센터와 퍼블릭 클라우드를 연결하여 상호 통신을 할 수 있도록 서비스를 구성하게 됩니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/91696364/1.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &amp;lt;그림
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 데이터센터와 퍼블릭 클라우드
- &lt;span&gt;
-  &amp;gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 퍼블릭 클라우드로 전환할 수 있는 단계는 여러가지가 있을 수 있지만 우선 크게
- &lt;span&gt;
-  3
- &lt;/span&gt;
- 단계에 대한 전환 절차를 고려할 수 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 첫번째 단계로 대상 시스템 선정 및 기술입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 기존의 내부 시스템에 대한 조사를 통해 퍼블릭 클라우드의 유연성
- &lt;span&gt;
-  (
- &lt;/span&gt;
- 오토스케일링 같은
- &lt;span&gt;
-  )
- &lt;/span&gt;
- 을 통해 그 효과를 즉시 확인할 수 있는 시스템들이 그 대상이 될 수 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이러한 시스템에 대한
- &lt;span&gt;
-  AS-IS
- &lt;/span&gt;
- 현황 분석을 통해 클라우드 전환 시
- &lt;span&gt;
-  TO-BE
- &lt;/span&gt;
- 아키텍처를 그릴 수 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이 때 중요한 것은 전체 업무 대상 시스템이 아니며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 현재 가장 손쉽게 올릴 수 있는
- &lt;span&gt;
-  WEB-WAS-DB
- &lt;/span&gt;
- 아키텍처를 가진 트래픽의 양 변화가 큰 업무들이 대상이 될 수 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그 업무 시스템에서 사용하는 기술들이 클라우드로 전환됐을 때
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 그대로 옮겨갈 것인지
- &lt;span&gt;
-  AWS
- &lt;/span&gt;
- 와 같은 클라우드의 네이티브 서비스
- &lt;span&gt;
-  (
- &lt;/span&gt;
- 예
- &lt;span&gt;
-  : ELB, RDS, DynamoDB)
- &lt;/span&gt;
- 를 활용할 것인지도 중요한 결정 사항이 될 것입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 두번째 단계로는 시스템 전환입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 대부분의 큰 기업에서는 내부의 데이터센터와 클라우드를 연결하는 것을 기본 전제로 하고 있다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이 때 서비스를 어떻게 구성할지에 대한 부분의 검토를 하게 되는데
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 보통 퍼블릭 클라우드에서는 아래의 방식의 서비스들을 제공하고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &amp;lt;그림
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 기업의 퍼블릭 클라우드 연결 방식
- &lt;span&gt;
-  &amp;gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 기업 내의 데이터 센터와의 연결 시 전용선
- &lt;span&gt;
-  (
- &lt;/span&gt;
- 비용 상승
- &lt;span&gt;
-  )
- &lt;/span&gt;
- 방식과
- &lt;span&gt;
-  VPN
- &lt;/span&gt;
- 을 통한 퍼블릭 클라우드 네트워크 연결을 고려할 수 있으며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 비용과 안정성 측면에서 장단점이 존재하므로 전환 시 의사결정이 필요한 부분 중 하나이다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 이후 클라우드 시스템 내의 목표 시스템 설계
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 기술 아키텍처를 정의하고 기존의 베어메탈 방식에서 활용되던 개념을 스케일
- &lt;span&gt;
-  -
- &lt;/span&gt;
- 아웃형 시스템으로 전환 설계 후 전환 작업을 진행한다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 전환 단계 상에서 성능
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 안정성
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 확장성 테스트를 통해 해당 시스템이 처리할 수 있는 능력을 정확하게 파악하고 이를 기준으로 향후 신규 온디맨드 시스템들이 필요한 경우 지표로 삼을 수 있어야 한다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 전환의 방식은 크게 아래와 가지를 들 수 있다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  Life-and-Shift 방식
-  &lt;span&gt;
-   :
-  &lt;/span&gt;
-  기존 시스템의 기능
-  &lt;span&gt;
-   ,
-  &lt;/span&gt;
-  소프트웨어 등을 변경하지 않고 그대로 클라우드 이전
- &lt;/li&gt;
- &lt;li&gt;
-  Cloud-Native 방식
-  &lt;span&gt;
-   :
-  &lt;/span&gt;
-  퍼블릭 클라우드에서 운영할 수 있도록 초기 또는 전환 시점부터 클라우드가 제공하는 서비스 활용에 중점을 두어 이전
- &lt;/li&gt;
- &lt;li&gt;
-  오픈소스 전환 방식
-  &lt;span&gt;
-   :
-  &lt;/span&gt;
-  클라우드의 이점인 확장성과 비용 효율성을 최대한 살릴 수 있도록 대응 오픈소스로 변경하여 이전
-  &lt;span&gt;
-   (
-  &lt;/span&gt;
-  멀티 클라우드 대응
-  &lt;span&gt;
-   ,
-  &lt;/span&gt;
-  록인 방지
-  &lt;span&gt;
-   )
-  &lt;/span&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- 전환에 대한 목표와 시스템 소프트웨어의 변경에 대한 예시는 다음의 그림과 같습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-   &lt;img src=&quot;/assets/images/91696364/2.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &amp;lt;그림
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 클라우드 목표모델 레이어 및 시스템 소프트웨어 변화
- &lt;span&gt;
-  &amp;gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 마지막 단계로 운영 서비스로의 이행입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 전환 이후 전체 시스템에 대한 기능
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 성능에 대한 상세 모니터링을 진행하고 필요 시 인스턴스 개수 조절
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 사이즈 조정 등을 통해 비용최적화를 위한 작업을 진행합니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 이 때의 운영은
- &lt;span&gt;
-  DevOps
- &lt;/span&gt;
- 를 기반으로 한 운영 서비스를 전제로 하고
- &lt;span&gt;
-  DevOps
- &lt;/span&gt;
- 로의 전환
- &lt;span&gt;
-  (
- &lt;/span&gt;
- 클라우드와
- &lt;span&gt;
-  DevOps
- &lt;/span&gt;
- 툴을 통해 개발자 중심의 자동화 환경 구축
- &lt;span&gt;
-  -&amp;gt;
- &lt;/span&gt;
- 지속적인 배포
- &lt;span&gt;
-  (CD, Continuous Delivery)
- &lt;/span&gt;
- 가 가능하게 함으로써 효율성을 확보하고 개발자의 생산성과 비즈니스 민첩성 향상을 위한 기초를 만들 수 있도록 해야 합니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 기업이 가진 시스템에 대한 클라우드 전환은 빅뱅이 되어서는 안됩니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 현재는 차세대 개념의 빅뱅형이 아닌 점진형 방식의 전환을 통해 리스크를 최소화할 수 있는 전략을 구상해야 한다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 전환 이후에도 트렌드로 자리잡아가고 있는 마이크로서비스 아키텍처
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 컨테이너로의 확장과 자동화를 염두에 둔 전환이 필요한 시점이며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 이를 위한 조직
- &lt;span&gt;
-  /
- &lt;/span&gt;
- 운영의 관점도 달라져야 할 것입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;id-데이터센터의클라우드전환-2.클라우드기반의컨테이너서비스를활용한PaaS&quot;&gt;
- &lt;strong&gt;
-  2. 클라우드 기반의 컨테이너 서비스를 활용한
-  &lt;span&gt;
-   PaaS
-  &lt;/span&gt;
- &lt;/strong&gt;
-&lt;/h1&gt;
-&lt;p&gt;
- 컨테이너 서비스가 대세다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 컨테이너는 리소스 격리 프로세스에서 애플리케이션과 종속 항목을 실행하게 해주는 운영 시스템 가상화 방법입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 컨테이너를 사용하면 애플리케이션의 코드
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 구성 및 의존성에 대한 사용이 단순한 빌딩 블록 형태로 바로 패키징할 수 있으며 빌딩 블록은 환경 일관성
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 운영 효율성
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 개발자 생산성
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 버전 제어를 제공합니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이를 통해 애플리케이션이 보다 빠르고 안정적으로 배포와 운영이 될 수 있는 환경이 만들어질 수 있는 장점이 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 현재 프라이빗
- &lt;span&gt;
-  /
- &lt;/span&gt;
- 퍼블릭 클라우드 기반의 인프라를 구축하거나 이미 사용하고 있는 엔터프라이즈에서는
- &lt;span&gt;
-  DevOps,
- &lt;/span&gt;
- 시스템 간의 오케스트레이션을 위하여 적극적으로 컨테이너 서비스에 대한 조사와 도입 검토를 진행하고 있는 상황입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이러한 맥락과 함께 컨테이너 서비스 시장은 현재 엄청난 팽창을 하고 있으며 클라우드와 연계된 기술 영역에서 매년
- &lt;span&gt;
-  40%
- &lt;/span&gt;
- 이상의 높은 성장률을 통해
- &lt;span&gt;
-  2020
- &lt;/span&gt;
- 년까지
- &lt;span&gt;
-  27
- &lt;/span&gt;
- 억 달러 수준으로 커질 것으로 전망하고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-   &lt;img src=&quot;/assets/images/91696364/3.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그림
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 애플리케이션 컨테이너 서비스 시장 전망
- &lt;span&gt;
-  , 2017. 451 Research’s
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 출처
- &lt;span&gt;
-  :
-  &lt;a class=&quot;external-link&quot; href=&quot;https://451research.com/images/Marketing/press_releases/Application-container-market-will-reach-2-7bn-in-2020_final_graphic.pdf&quot; rel=&quot;nofollow&quot;&gt;
-   https://451research.com/images/Marketing/press_releases/Application-container-market-will-reach-2-7bn-in-2020_final_graphic.pdf
-  &lt;/a&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 현재 아마존
- &lt;span&gt;
-  , IBM,
- &lt;/span&gt;
- 마이크로소프트의 퍼블릭 클라우드에서도 이러한 컨테이너 서비스를 통한 애플리케이션 빌딩 블록을 만들 수 있는 서비스를 이미 내놓고 있는 상태이며
- &lt;span&gt;
-  , PaaS(Platform as a Service)
- &lt;/span&gt;
- 환경을 구축하는 부분에 대해 적극적으로 고객을 유도하고 있는 상황입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 현재 컨테이너 서비스들은 대부분 리눅스 환경에서 작동되고
- &lt;span&gt;
-  Linux
- &lt;/span&gt;
- 컨테이너를 활용하여 개발 팀과 운영 팀 간의 충돌을 줄일 수 있다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 또한
- &lt;span&gt;
-  , Linux
- &lt;/span&gt;
- 컨테이너는
- &lt;span&gt;
- &lt;/span&gt;
- &lt;span&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://www.redhat.com/ko/open-source&quot; rel=&quot;nofollow&quot;&gt;
-   오픈소스
-  &lt;/a&gt;
- &lt;/span&gt;
- 기술을 기반으로 하기 때문에 사용 즉시 최신 기술을 활용하여 회사 내부 인프라 및 애플리케이션에 대한 발전을 시킬 수 있는 특징을 가지고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- &lt;span&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;http://thenewstack.io/cri-o-make-kubernetes-center-container-ecosystem/&quot; rel=&quot;nofollow&quot;&gt;
-   CRI-O
-  &lt;/a&gt;
- &lt;/span&gt;
- ,
- &lt;span&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;http://kubernetes.io/&quot; rel=&quot;nofollow&quot;&gt;
-   Kubernetes
-  &lt;/a&gt;
- &lt;/span&gt;
- 및
- &lt;span&gt;
- &lt;/span&gt;
- &lt;span&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://www.redhat.com/ko/topics/containers/what-is-docker&quot; rel=&quot;nofollow&quot;&gt;
-   Docker
-  &lt;/a&gt;
- &lt;/span&gt;
- 등의 컨테이너 기술은 애플리케이션 개발 및 배포를 간소화하고 가속화하는 데 큰 도움이 됩니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  퍼블릭 클라우드의 컨테이너 서비스
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 퍼블릭 클라우드들은 컨테이너를 위한 다양한 서비스를 제공하여 고객들을 자사의 클라우드 서비스로 유도하기 위해 많은 노력을 기울이고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- IBM 클라우드에서는
- &lt;span&gt;
-  Blumix Container Service
- &lt;/span&gt;
- 를 통해 컨테이너 서비스를 제공하고 있으며,
- &lt;span&gt;
- &lt;/span&gt;
- 하위의 인프라 기반은
- &lt;span&gt;
-  Kubernetes
- &lt;/span&gt;
- 와
- &lt;span&gt;
-  Docker
- &lt;/span&gt;
- 기반으로 스케줄링
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 자체 복구
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 스케일
- &lt;span&gt;
-  -
- &lt;/span&gt;
- 아웃 기능을 제공하고
- &lt;span&gt;
-  IBM
- &lt;/span&gt;
- 의 인프라에서는 마스터 노드를 관리하며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 사용자들은 자신들의 서비스에 대한 작업 노드를 정의하는 구조로 되어 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 특징적인 부분은
- &lt;span&gt;
-  CLI
- &lt;/span&gt;
- 기반으로 클러스터 배치 등을 관리하고 강점으로 내세우는 왓슨
- &lt;span&gt;
-  (Watson)
- &lt;/span&gt;
- 을 활용하여 스토리지
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 분석
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 액세스 제어 등에 대한 서비스를 통합할 수 있는 기능을 제공하고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 아마존은
- &lt;span&gt;
-  ECS(Amazon EC2 Container Service)
- &lt;/span&gt;
- 서비스를 통해
- &lt;span&gt;
-  Docker
- &lt;/span&gt;
- 컨테이너를 제공하고 있으며
- &lt;span&gt;
-  , EKS(Elastic Kubernetes Service)의
- &lt;/span&gt;
- 자체 클러스터 관리 인프라를 구축하여 고객에게 제공하고 있습니다
- &lt;span&gt;
-  . SDK
- &lt;/span&gt;
- 를 통한
- &lt;span&gt;
-  API
- &lt;/span&gt;
- 호출을 통해 클러스터 상태관리
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 보안
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 엘라스틱 로드밸런싱
- &lt;span&gt;
-  , EBS
- &lt;/span&gt;
- 등에 대한 리소스 연계와 확장을 제공하고 있는 특징이 있으며
- &lt;span&gt;
-  , EC2
- &lt;/span&gt;
- 서비스 내에 포함되어 컨테이너 서비스에 대한 별도 비용이 필요없다는 특징이 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 마이크로소프트는 애저 컨테이너 서비스를 활용하여 아마치 메소스
- &lt;span&gt;
-  , Docker
- &lt;/span&gt;
- 등을 함께 사용할 수 있는 서비스를 제공하고 있으며
- &lt;span&gt;
-  , 2015
- &lt;/span&gt;
- 년에 서비스를 출시했습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 다른 퍼블릭 클라우드와는 다르게
- &lt;span&gt;
-  Docker
- &lt;/span&gt;
- 를 위한 비주얼 스튜디오
- &lt;span&gt;
-  (Visual Studio Tools for Docker)
- &lt;/span&gt;
- 를 통해 컨테이너 환경 하에서 윈도우용
- &lt;span&gt;
-  .NET
- &lt;/span&gt;
- 이나 리눅스용 코어 응용 프로그램을 빌드하여 배포할 수 있는 기능을 제공하고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 또한 비주얼 스튜디오 팀 서비스를 통해 애자일 및
- &lt;span&gt;
-  DevOps
- &lt;/span&gt;
- 를 위한 워크플로우에 컨테이너를 통합할 수 있는 기능을 제공하고 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  Docker
- &lt;/strong&gt;
- &lt;strong&gt;
-  를 통한 기술
-  &lt;span&gt;
-   /
-  &lt;/span&gt;
-  프로세스 표준화
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 프라이빗과 퍼블릭 클라우드의 방향성은
- &lt;span&gt;
-  IaaS
- &lt;/span&gt;
- 기반에서 컨테이너 서비스를 통한 플랫폼 유연성을 극대화하는 방법으로도 진화하고 있습니다
- &lt;span&gt;
-  . Docker
- &lt;/span&gt;
- 는 별도의 게스트
- &lt;span&gt;
-  OS
- &lt;/span&gt;
- 를 설치하지 않고 커널 레벨에서 격리된 가상의 공간을 제공한다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이의 장점은 호스트 운영체제와의 속도 차이가 거의 없고 가상머신보다 경량화된 상태에서 관리를 할 수 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/91696364/4.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그림
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 클라우드
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 컨테이너
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 마이크로서비스
- &lt;span&gt;
-  , DevOps
- &lt;/span&gt;
- 구조
- &lt;span&gt;
-  , DZone
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 출처
- &lt;span&gt;
-  :
-  &lt;a class=&quot;external-link&quot; href=&quot;https://dzone.com/articles/markus-eisele-answers-questions-about-java-ee-and&quot; rel=&quot;nofollow&quot;&gt;
-   https://dzone.com/articles/markus-eisele-answers-questions-about-java-ee-and
-  &lt;/a&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 현재 많은 기업들이 자사의 서비스 기반을 마이크로 아키텍처 서비스로 만들고자 하면서 컨테이너 서비스를 활용하고 이에 대한 내부 기술 표준화를 위한 시도를 많이 하고 있다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 또한 개발
- &lt;span&gt;
-  /
- &lt;/span&gt;
- 배포
- &lt;span&gt;
-  /
- &lt;/span&gt;
- 운영 프로세스에 대한 부분을 컨테이너 서비스를 통해 일원화하기 위한 노력도 병행하고 있습니다
- &lt;span&gt;
-  . MSA(Micro Service Architecture)
- &lt;/span&gt;
- 를 컨테이너 기반으로 구성하는데 있어 프로세스화 되어야 하는 부분은
- &lt;span&gt;
-  DevOps
- &lt;/span&gt;
- 영역입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 컨테이너는 이러한
- &lt;span&gt;
-  DevOps
- &lt;/span&gt;
- 영역에 대한 부분을 통합할 수 있도록 하는 좋은 방법 중의 하나입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 컨테이너는 개발과 운영이라는 두 팀간의 장벽을 허무는
- &lt;span&gt;
-  DevOps
- &lt;/span&gt;
- 의 가교 역할을 하게 되며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 두 팀이 함께 협업하여 개발자 생산성과 운영의 안정성이라는 두 마리 토끼를 잡게 해줍니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그러한 관점에서 인프라
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 컨테이너
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 미들웨어 컴포넌트를 컨테이너화함으로써 클라우드 네이티브 형태의 애플리케이션을 만들 수 있습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 또한 기업이 가진 업무 시스템을 최적화하는 방법으로 컨테이너화된 다양한 오픈소스 기술을 활용하여 비즈니스적인 목표를 달성할 수도 있다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 이를 도식화한 간략한 그림은 아래와 같습니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/91696364/5.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그림
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 클라우드 네이티브 영역 지도
- &lt;span&gt;
-  (
-  &lt;a class=&quot;external-link&quot; href=&quot;https://github.com/cncf/landscape&quot; rel=&quot;nofollow&quot;&gt;
-   https://github.com/cncf/landscape
-  &lt;/a&gt;
- &lt;/span&gt;
- 의 도식도를 축약한 것임
- &lt;span&gt;
-  )
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그림에서 보는 것처럼 컨테이너 서비스는 그 기반이 퍼블릭과 프라이빗과 상관없이 작동시키며 프로비저닝 자동화
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 프로세스 개선
- &lt;span&gt;
-  , DevOps
- &lt;/span&gt;
- 를 활용할 수 있는 기반을 마련해줍니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 또한 조직이 소프트웨어 개발과 인프라 관리 프로세스의 자동화 및 간소화를 통해 더 빠르게 혁신할 수 있도록 지원하며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 이를 통한 비즈니스 이익이 극대화될 수 있도록 도와줍니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 컨테이너
- &lt;span&gt;
-  , PaaS, DevOps
- &lt;/span&gt;
- 는 상호 연결된 밀접한 단어이다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 아직
- &lt;span&gt;
-  IaaS
- &lt;/span&gt;
- 를 기반으로 한 클라우드
- &lt;span&gt;
-  (
- &lt;/span&gt;
- 퍼블릭
- &lt;span&gt;
-  /
- &lt;/span&gt;
- 클라우드
- &lt;span&gt;
-  )
- &lt;/span&gt;
- 에 대한 경험이 없는 상태라 하더라도 기획을 해볼 수 있는 중요한 아이템이 바로 컨테이너 기반
- &lt;span&gt;
-  PaaS
- &lt;/span&gt;
- 영역이다
- &lt;span&gt;
-  .
- &lt;/span&gt;
- 인프라 자동화
- &lt;span&gt;
-  , DevOps, MSA
- &lt;/span&gt;
- 등의 단어를 의식하고 있다면 클라우드 기반의 컨테이너 서비스 대한 적극적 검토를 해보아야 하며
- &lt;span&gt;
-  ,
- &lt;/span&gt;
- 향후 펼쳐지게 될
- &lt;span&gt;
-  IT
- &lt;/span&gt;
- 시스템의 변화에 대한 준비를 해야 할 것입니다
- &lt;span&gt;
-  .
- &lt;/span&gt;
-&lt;/p&gt;</description>
-        <pubDate>Wed, 25 Mar 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/03/25/91696364/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/03/25/91696364/</guid>
-        
-        <category>클라우드</category>
-        
-        <category>docker</category>
-        
-        <category>cncf</category>
-        
-        <category>msa</category>
         
         
       </item>

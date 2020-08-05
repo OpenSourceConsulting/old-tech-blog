@@ -101,6 +101,39 @@ Sharing Tech. Growing Together.<br />
         <ul id="post-list">
     
         <li class="post-item post ">
+    <a href="/2020/01/16/86039236/">
+        <h3 class="post-title">Jenkins Build를 GitLab에 push와 함께 수행되도록 하기</h3>
+        <p class="post-excerpt">  GitLab을 사용하고 Jenkins를 통해 CI를 수행하는 환경에서 이를 연동해서 자동으로 빌드가 이루어지 도록 할때 몇가지 이슈사항을 어떻게 해결하면 좋을지와 실제화면상에 어떤 Value들을 입력하면 좋을지에 대해 정리해보았습니다. 실제 GitLab과 Jenkins를 연결하는 방법은 다음과 같은 순서로 진행되었습니다. GitLab에 Access Token 발급 Jenkins에서 GitLab과 연동을 위해 1에서 발급받았던 Access Token을 credential로 추가한다. Jenkins에서 추가한 credential을 global setting에서 gitlab 설정으로 추가한다. Jenkins에서 자동 Build Trigger가 진행되도록 설정한다. GitLab에서 Webhook을 생성한다. 연동 환경 Jenkins 2.204.1 GitLab 12.6.4 설정방법 1. GitLab에서...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-jenkins">jenkins</a>
+        
+            <a class="tag tag-gitlab">gitlab</a>
+        
+            <a class="tag tag-secret">secret</a>
+        
+            <a class="tag tag-token">token</a>
+        
+            <a class="tag tag-webhook">webhook</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2020-01-16</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+    
+        <li class="post-item post ">
     <a href="/2020/01/09/86037490/">
         <h3 class="post-title">Bitbucket webhook을 사용하여 Bamboo build plan trigger하기</h3>
         <p class="post-excerpt">  Bamboo를 사용하면서 특정한 경우 (예를 들어 Merge 상황에서만) Trigger를 받고 싶은 경우가 있는데 이러한 선택된 경우만 Trigger를 받는게 기본설정으로는 제공되지 않는다. 기본설정은 다음과 같이 Repository선택만 가능하여 Trigger를 선택적으로 받을 수 없다. 하여 특정한 경우만 Trigger를 받고자 할때는 난감한 상황이 될수 있다. 이러한 경우 Bamboo의 Remote Trigger를 통해 해결할 수 있는데 이에 대해 알아보도록 하자. Bamboo 설정 Bamboo에서는 앞서 이야기 했던 Trigger 메뉴에서 Remote trigger를 추가하여 선택적인 Trigger를 받을수 있는 준비를 한다. Bamboo의 Build Plan으로 이동하여...</p>
@@ -213,43 +246,6 @@ Sharing Tech. Growing Together.<br />
             <p class="author-name">bje</p>
         </a>
         <p class="post-date">2019-12-23</p>
-    </div>
-    <!--<div class="clearfix"></div>-->
-</li>
-
-    
-        <li class="post-item post ">
-    <a href="/2019/12/18/86032520/">
-        <h3 class="post-title">어서와, AWS re:Invent 2019는 처음이지?</h3>
-        <p class="post-excerpt">  AWS re:Invent 2019  @ Las Vegas (2019년 12월 2일 ~ 12월 6일) 안녕하세요, 오픈소스컨설팅 김혜진 입니다! 지난 12월 첫 주, 라스베가스에서 개최된 최대 규모의 AWS 행사인 re:Invent 2019에 저도 처음으로 참석하게 되었는데요, 올해로 8회 째 되는 행사이지만, 저처럼 이 행사가 처음이신 분들을 위해 간단한 행사 리뷰와 소소한 팁을 알려드리고자 합니다. 숫자로 보는 re:Invent 2019 65,000+ attendees 세계 최대의 클라우드 컴퓨팅 컨퍼런스라고 일컬어질 만큼 참석자와 규모 또한 계속해서 늘어가고 있는데요, 작년에는 50,000여명이 참석하였고, 올해에는 6만 5000명 이상이...</p>
-    </a>
-    <p class="post-tags">
-        
-            <a class="tag tag-aws">aws</a>
-        
-            <a class="tag tag-reinvent">reinvent</a>
-        
-            <a class="tag tag-awsreinvent">awsreinvent</a>
-        
-            <a class="tag tag-아마존웹서비스">아마존웹서비스</a>
-        
-            <a class="tag tag-클라우드">클라우드</a>
-        
-            <a class="tag tag-오픈소스컨설팅">오픈소스컨설팅</a>
-        
-            <a class="tag tag-reinvent2019">reinvent2019</a>
-        
-    </p>
-    <div class="post-meta">
-        
-        <a href="/authors/hjkim">
-            <div class="author-image"
-                 style="background-image:url(/files/authors/hjkim);">
-                <span class="sr-only">hjkim's profile image</span>
-            </div>
-            <p class="author-name">hjkim</p>
-        </a>
-        <p class="post-date">2019-12-18</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>
