@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 06 Aug 2020 11:25:10 +0900</pubDate>
-    <lastBuildDate>Thu, 06 Aug 2020 11:25:10 +0900</lastBuildDate>
+    <pubDate>Thu, 06 Aug 2020 17:51:01 +0900</pubDate>
+    <lastBuildDate>Thu, 06 Aug 2020 17:51:01 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -3850,7 +3850,7 @@ EOF
       </item>
     
       <item>
-        <title>[Container 시리즈] 05. Kuberbetes란?</title>
+        <title>[Container 시리즈] 05. Kubernetes란?</title>
         <description>&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
  &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
   &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Confluence&quot; data-theme=&quot;Confluence&quot;&gt;쿠버네티스를 들어는봤는데... 컨테이너를 관리하는거라고 알고는 있는데...
