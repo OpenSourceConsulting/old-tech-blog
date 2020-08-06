@@ -101,6 +101,37 @@ Sharing Tech. Growing Together.<br />
         <ul id="post-list">
     
         <li class="post-item post ">
+    <a href="/2020/02/07/86045772/">
+        <h3 class="post-title">Kubernetes 환경에서 sonarqube 설치 및 Jenkins pipeline 활용법</h3>
+        <p class="post-excerpt">  INFO sonarqube를 kubernetes 상에서 설치하고 이를 Jenkins pipeline으로 동작시키는 방법에 대하여 알아보도록 하겠습니다. 동작시켰던 환경은 다음과 같습니다. helm version 2.15.0 sonarqube Community EditionVersion 7.9.2 kubernetes v1.16.3 helm을 이용한 kubernetes 상에 sonarqube 설치 https://github.com/helm/charts/tree/master/stable/sonarqube와 같이 stable repo에 sonarqube가 제공되고 있습니다. 이를 활용한 설치 방법을 알아보도록 하겠습니다. helm 을 이용한 배포 몇가지 plugin을 설치하기 위해 바로 install 하지 않고 values.yaml 파일을 수정하여 install 해보도록 하겠습니다. [root@labs-kube-infra001 ~]# helm fetch stable/sonarqube [root@labs-kube-infra001 ~]# tar xvf sonarqube.tgz [root@labs-kube-infra001 ~]#...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-sonarqube">sonarqube</a>
+        
+            <a class="tag tag-jenkinsfile">jenkinsfile</a>
+        
+            <a class="tag tag-pipeline">pipeline</a>
+        
+            <a class="tag tag-kubernetes">kubernetes</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2020-02-07</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+    
+        <li class="post-item post ">
     <a href="/2020/01/16/86039236/">
         <h3 class="post-title">Jenkins Build를 GitLab에 push와 함께 수행되도록 하기</h3>
         <p class="post-excerpt">  GitLab을 사용하고 Jenkins를 통해 CI를 수행하는 환경에서 이를 연동해서 자동으로 빌드가 이루어지 도록 할때 몇가지 이슈사항을 어떻게 해결하면 좋을지와 실제화면상에 어떤 Value들을 입력하면 좋을지에 대해 정리해보았습니다. 실제 GitLab과 Jenkins를 연결하는 방법은 다음과 같은 순서로 진행되었습니다. GitLab에 Access Token 발급 Jenkins에서 GitLab과 연동을 위해 1에서 발급받았던 Access Token을 credential로 추가한다. Jenkins에서 추가한 credential을 global setting에서 gitlab 설정으로 추가한다. Jenkins에서 자동 Build Trigger가 진행되도록 설정한다. GitLab에서 Webhook을 생성한다. 연동 환경 Jenkins 2.204.1 GitLab 12.6.4 설정방법 1. GitLab에서...</p>
@@ -221,31 +252,6 @@ Sharing Tech. Growing Together.<br />
             <p class="author-name">soo</p>
         </a>
         <p class="post-date">2019-12-30</p>
-    </div>
-    <!--<div class="clearfix"></div>-->
-</li>
-
-    
-        <li class="post-item post ">
-    <a href="/2019/12/23/86033468/">
-        <h3 class="post-title">웹 소켓(WebSocket) 적용기</h3>
-        <p class="post-excerpt">  최근 적용한 WebSocket에 대해서 포스팅 해보려고 합니다. 프론트엔드 관련 내용은 기정님 이 작성해주셨습니다. :0 시작하며 최근 프로젝트 개발 및 유지보수 작업을 진행하면서, 알림 팝업창을 띄우는 방식에서 이슈가 있다는 것을 느꼈습니다. 그건 바로 폴링 방식으로 매번 프론트엔드 소스에서 신규 데이터가 있는지를 체크 하고 조회하는 형태로 구현이 되어 있었고, 바로 아래와 같이 신규 데이터가 있던 없던 간에 1초 마다 API를 call 하는 형태였습니다. 이런 형태의 폴링 방식은 부하를 가져올 것이라는 것을 예상했고, 이번 고도화 작업을 통해 웹...</p>
-    </a>
-    <p class="post-tags">
-        
-            <a class="tag tag-websocket">websocket</a>
-        
-    </p>
-    <div class="post-meta">
-        
-        <a href="/authors/bje">
-            <div class="author-image"
-                 style="background-image:url(/files/authors/bje.jpg);">
-                <span class="sr-only">bje's profile image</span>
-            </div>
-            <p class="author-name">bje</p>
-        </a>
-        <p class="post-date">2019-12-23</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>

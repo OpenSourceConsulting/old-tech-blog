@@ -9,9 +9,628 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Aug 2020 17:02:39 +0900</pubDate>
-    <lastBuildDate>Wed, 05 Aug 2020 17:02:39 +0900</lastBuildDate>
+    <pubDate>Thu, 06 Aug 2020 11:25:10 +0900</pubDate>
+    <lastBuildDate>Thu, 06 Aug 2020 11:25:10 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>DevOps with Atlassian</title>
+        <description>&lt;div class=&quot;contentLayout2&quot;&gt;
+ &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;h2 id=&quot;DevOpswithAtlassian-안녕하세요.아틀라시안플래티넘파트너,오픈소스컨설팅입니다.이번포스팅에서는아틀라시안솔루션을이용한DevOps에대해서전해드리고자합니다.&quot;&gt;
+     &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
+      안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+     &lt;/span&gt;
+     &lt;br style=&quot;text-align: justify;&quot;/&gt;
+     &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
+      이번 포스팅에서는 아틀라시안 솔루션을 이용한 DevOps에 대해서 전해드리고자 합니다.
+     &lt;/span&gt;
+    &lt;/h2&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;h1 id=&quot;DevOpswithAtlassian-|DevOpswithAtlassian:Aguidetocloudfeatures&quot;&gt;
+     &lt;span style=&quot;letter-spacing: -0.01em;&quot;&gt;
+      | DevOps with Atlassian: A guide to cloud features
+     &lt;/span&gt;
+    &lt;/h1&gt;
+    &lt;h2 id=&quot;DevOpswithAtlassian-Atlassian솔루션을이용해개발자가코드품질을지키며더욱빠르게제공할수있는방법&quot;&gt;
+     &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+      Atlassian 솔루션을 이용해 개발자가 코드 품질을 지키며 더욱 빠르게 제공할 수 있는 방법
+     &lt;/span&gt;
+    &lt;/h2&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h2 id=&quot;DevOpswithAtlassian-|Introduction&quot;&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      | Introduction
+     &lt;/span&gt;
+    &lt;/h2&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      협업이 증가하면 개발자들에게는 비용이 발생할 수 있습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      개발자들은 혁신적인 솔루션을 코딩하고 구축하는 대신 여러 도구를 통합하고 작업 상태를 업데이트하며 다른 팀과 작업내역을 공유하면서 하루 중 많은 시간을 보낼 수 있습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      최근 아틀라시안이 실시한 DevOps Trends Survey에 따르면 개발자의 80% 이상이 툴의 단절, 수동 프로세스, 그리고 끊임없이 변화하는 협업 프로세스가 방해가 되고 있다고 말합니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      개발자는 DevOps를위한 Atlassian의 새로운 기능, 자동화 및 통합을 통해 시간을 단축하고 코드를 더 빨리 제공 할 수 있습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      팀은 IT 보안사고에 대해서 적은 컨텍스트 전환, 적은 회의 및 ping 감소로 이점을 누릴 수 있습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      자사 제품 및 타사 툴 전반에 걸친 자동화를 통해 개발, IT운영, 비즈니스 팀을 연결함으로써 개발자들이 그들의 코드에 집중할 수 있도록 도와줍니다. Atlassian
+     &lt;/span&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      은 Jira를 중심으로 DevOps의 모든 업무를 통일하고 협업의 과부하를 줄입니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      Atlassian 도구가 개발자의 생산성 향상에 어떤 도움이되는지 알아보십시오.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/97478051/0.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;hr/&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;h2 id=&quot;DevOpswithAtlassian-|PLAN&quot;&gt;
+     | PLAN
+    &lt;/h2&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-코드컨텍스트에서바로프로젝트계획및추적&quot;&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      코드 컨텍스트에서 바로 프로젝트 계획 및 추적
+     &lt;/span&gt;
+    &lt;/h3&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/97478051/1.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      DevOps 툴 체인은 단일 크기 접근 방식이 아닙니다. DevOps는 서로 다른 애플리케이션과 팀에 걸친 툴박스로서, 개발자는 어떤 툴을 사용해야 하는지, 몇개의 툴을 사용하여야 하는지에 대해 가장 잘 알고 있습니다.
+     &lt;/span&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
+      그러나 이러한 유연성과 함께 작업의 조정에 대한 필요성이 중요해 집니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
+      Atlassian
+      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+       의 DevOps 조사 결과, 점점 더 많은 수의 DevOps 팀들이 프로젝트 상태를 이해하기 위해 5개 이상의 도구가 필요하다고 말하고 있는 것으로 나타났습니다. 이러한 도구에서 밀접하게 작업하지 않는 IT 운영 및 비즈니스 팀은 무슨 일이 언제 발생하는지 알아야합니다. 이때 필요한것이 Jira입니다. 지라는 팀과 도구에 걸쳐 작업을 자동으로 통합합니다.
+      &lt;/span&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      Jira Software Cloud와 Bitbucket Cloud, GitHub 및 GitLab 간의 통합을 통해 이슈 트래킹 및 코드를 작성하면 자동으로 프로젝트 업데이트가 수행되도록 할 수 있습니다.
+     &lt;/span&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
+      그리고 Bitbucket, GitHub 또는 GitLab에서의 당신의 작업이 자동으로 업데이트 되므로 프로젝트 관리자는 업데이트를 위해 코딩 흐름을 중단 할 필요가 없습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-|작업대시보드&quot;&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      | 작업 대시보드
+     &lt;/span&gt;
+    &lt;/h3&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      Bitbucket Cloud의 새로운 작업 대시 보드가 할당 된 Jira 이슈를 포함하도록 확장 되었으므로 도구간에 이동하지 않고도 한 작업에서 다음 작업으로 빠르게 이동할 수 있습니다. 또한 각 레포지토리 내부에서는 &quot;Jira issue&quot; 탭 내에서 연결된 프로젝트와 이슈에 대한 새로운 팀 차원의 뷰를 곧 볼 수 있습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-|DevOps자동화트리거&quot;&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      | DevOps 자동화 트리거
+     &lt;/span&gt;
+    &lt;/h3&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      Jira Software Cloud의 새로운 DevOps 자동화 트리거로 자동화 기능이 향상되었습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      클릭 몇 번만으로 연결된 코드 저장소에서 커밋 또는 꺼내기 요청 작업의 트리거를 통해 개발 활동과 작업을 동기화하는 자동화 규칙을 만들 수 있습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     기본적으로 관련 Jira 이슈의 상태를 자동으로 업데이트 할 수 있지만 이러한 새로운 자동화를 통해 QA 또는 코드 검토를 위해 Jira 이슈를 재 할당하거나 팀의 Slack 채널에 새 PR에 대한 메시지를 보내는 것과 같은 더 복잡한 규칙도 허용됩니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      이러한 자동화 규칙은 Bitbucket Cloud, GitHub, GitLab 및 Jira Software Cloud와 통합되는 다른 코드 리포지토리와 함께 작동합니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+       &lt;img src=&quot;/assets/images/97478051/2.png&quot;/&gt;
+      &lt;/span&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;hr/&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;h2 id=&quot;DevOpswithAtlassian-|BUILD&quot;&gt;
+     | BUILD
+    &lt;/h2&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-하던작업을잃지않고코드검토,테스트및배포&quot;&gt;
+     하던 작업을 잃지 않고 코드 검토, 테스트 및 배포
+    &lt;/h3&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/97478051/3.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      모든 팀이 코드를 작성하고 검토할 수 있는 최고의 도구를 원하는데, Atlassian이 Bitbucket Cloud를 통해서 충족시켜 줍니다.
+     &lt;/span&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
+      코드 작성 및 검토와 같이 매일 수행하는 가장 중요한 작업에서 개발자의 생산성을 극대화하십시오.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;div class=&quot;confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
+     &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
+      &lt;p&gt;
+       Bitbucket에서 작업하든 IDE에서 작업하든 관계없이 목표는 흐름을 유지하고 도구 사이의 불필요한 바운스를 줄이는 것입니다.
+      &lt;/p&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-|새로운PullRequest경험&quot;&gt;
+     | 새로운 Pull Request 경험
+    &lt;/h3&gt;
+    &lt;p&gt;
+     Bitbucket Cloud의 새로운 Pull Request 경험은 코드 변경을 보다 쉽고 빠르게 검토 할 수있는 혁신적인 설계를 제공합니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     통합 된 작업 목록, 통합 된 Jira 이슈 생성 및 활동 피드 필터와 같은 새로운 기능을 통해 개발자는 코드 검토를 더 빠르게 완료하고 여러 풀 요청을 한 번에 효율적으로 처리 할 수 있습니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-|VSCode통합&quot;&gt;
+     | VS Code 통합
+    &lt;/h3&gt;
+    &lt;p&gt;
+     Atlassian VS Code 통합은 Jira Software Cloud의 작업 목록, 완벽한 코드 검토 경험 및 Bitbucket Pipelines의 CI/CD 추적을 통해 전체 개발 파이프 라인을 편집기로 가져옵니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;hr/&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;h2 id=&quot;DevOpswithAtlassian-|CI/CD&quot;&gt;
+     | CI/CD
+    &lt;/h2&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-Shipfastwithoutbreakingthings&quot;&gt;
+     Ship fast without breaking things
+    &lt;/h3&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/97478051/4.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     DevOps 팀은 자동화 및 수동 점검의 &quot;shifting-left&quot;을 통해 CI / CD 프로세스로 파이프 라인을 가속화하려고합니다. 이를 지원하기 위해 Bitbucket Cloud 코드 검토 환경은 이제 코드 스캔 및 품질 보고서와 통합되므로 검토자는 프로덕션으로 전달되기 전에 잠재적인 문제에 대해 경고를 받습니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     또한 Jira Service Desk Cloud에서 CI/CD 파이프 라인을 손쉽게 변경 승인과 연결하는 새로운 자동 변경 관리 기능을 사용해 볼 수 있습니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-|CodeInsights&quot;&gt;
+     | Code Insights
+    &lt;/h3&gt;
+    &lt;p&gt;
+     Bitbucket Cloud의 Code Insights를 사용하면
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      코드 검토 프로세스에 대한 테스트 및 분석이 가능하며, 테스트 자동화를위한 Mabl과 자동화 된 모니터링을위한 Sentry를 포함하여
+     &lt;/span&gt;
+     최고의 DevOps 스캐닝을 할 수 있습니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     Snyk가 Sev-1 보안 사고로 전환되기 전에 중요한 보안 취약점을 조기에 검색하고 강조 할 수 있으므로 Atlassian의 새로운 Snyk와 DevSecOps 통합이 특히 중요합니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     이러한 모든 통합은 개방형 API를 기반으로하기 때문에 자체 도구에 대한 추가 코드 보고서를 사용하여 Bitbucket Cloud를 확장 할 수 있습니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/97478051/5.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-|자동화된변경관리&quot;&gt;
+     | 자동화된 변경 관리
+    &lt;/h3&gt;
+    &lt;p&gt;
+     Jira Service Desk Cloud 및 Bitbucket Pipelines(현재 초기 액세스 상태)를 통한 자동 변경 관리는 CI/CD 프로세스를 일시 중지하고 Jira Service Desk에서 변경 요청을 만든 다음 승인되면 배포를 트리거합니다.
+    &lt;/p&gt;
+    &lt;ul style=&quot;list-style-type: square;&quot;&gt;
+     &lt;li&gt;
+      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+       &lt;strong&gt;
+        Jira Service Desk Cloud의 Risk Assessment Engine은
+       &lt;/strong&gt;
+       변경 리스크를 신속하게 파악하여 리스크가 낮은 변경 사항을 자동으로 승인하고 배포합니다.
+      &lt;/span&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+       &lt;strong&gt;
+        Jira Service Desk Cloud의 변경 관리 뷰는
+       &lt;/strong&gt;
+       팀이 검토하고 필요한 경우 수동으로 승인 할 수있는 변경 가능한 변경 요청에서 모든 정보를 한꺼번에 모아 위험이 높은 변경에 대한 승인 프로세스를 간소화합니다.
+      &lt;/span&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+       &lt;strong&gt;
+        자동 변경 관리는
+       &lt;/strong&gt;
+       Bitbucket Pipelines, Jenkins, Circle CI 및 Octopus Deploy를 지원합니다
+      &lt;/span&gt;
+     &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+       &lt;img src=&quot;/assets/images/97478051/6.png&quot;/&gt;
+      &lt;/span&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;hr/&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;h2 id=&quot;DevOpswithAtlassian-|OPERATE&amp;amp;MONITOR&quot;&gt;
+     | OPERATE &amp;amp; MONITOR
+    &lt;/h2&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-Mitigatealertfatigueandresolveincidentsfaster&quot;&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      Mitigate alert fatigue and resolve incidents faster
+     &lt;/span&gt;
+    &lt;/h3&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/97478051/7.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      사건이 발생하면 신속한 해결의 핵심은 문제의 원인을 신속하게 파악하는 것입니다. 그리고 팀이 DevOps를 채택하고 구축 프로세스를 자동화함에 따라 변경 관련 실패가 점점 더 일반화되고 있습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
+      최근의 코드 변경으로 인해 문제가 발생했는지 여부를 알고, 즉시 적절한 개발자로부터 도움을 받을 수 있다면 좋지 않을까요?
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
+      오늘날 대부분의 팀은 Git 히스토리 및 Jira 티켓을 통해 트롤링하는 추적 작업이 필요합니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
+      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+       Opsgenie는 Jira Software Cloud와 Bitbucket Cloud에 새롭게 심층적으로 통합되어 팀이 이 모든 과정을 단축할 수 있도록 지원하며, 첫 번째 응답자에게 최근 배포된 Jira 티켓과 관련 Jira 티켓에 대한 감사 추적 정보를 제공합니다.
+      &lt;/span&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-|Opsgenie및BitbucketCloud통합&quot;&gt;
+     | Opsgenie 및 Bitbucket Cloud 통합
+    &lt;/h3&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      Opsgenie와 Bitbucket Cloud의 통합은 모든 경고를 중앙 집중화하고 노이즈를 걸러냄으로써 올바른 문제가 해결되고, 적절한 사람이 경고를 받으며 올바른 조치가 취해지도록 합니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+       &lt;img src=&quot;/assets/images/97478051/8.png&quot;/&gt;
+      &lt;/span&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-|IncidentInvestigationDashboard&quot;&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      | Incident Investigation Dashboard
+     &lt;/span&gt;
+    &lt;/h3&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      Incident Investigation Dashboard를 통해 팀은 사고 직전에 발생한 배포를보고 잠재적 원인으로 추가한 다음 변경을한 개발자에게 연락하여 롤백하고 사고를 해결할 수 있습니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/97478051/9.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;hr/&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;h2 id=&quot;DevOpswithAtlassian-|COMMUNICATION&amp;amp;COLLABORATION&quot;&gt;
+     | COMMUNICATION &amp;amp; COLLABORATION
+    &lt;/h2&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-DevOps는도구및사례/문화에관한것입니다.&quot;&gt;
+     DevOps는 도구 및 사례 / 문화에 관한 것입니다.
+    &lt;/h3&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/97478051/10.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     성공적인 DevOps 구현은 도구 연결로 끝나지 않습니다. 대부분의 DevOps 실무자들은 DevOps를 성공적으로 구현하는 데 사람과 문화를 가장 중요한 요소로 꼽습니다.
+    &lt;/p&gt;
+    &lt;p&gt;
+     이러한 균형을 맞추기 위해 Atlassian은 DevOps best practice를 배우고 공유 할 수있는 새로운 리소스 허브를 만들었습니다.
+    &lt;/p&gt;
+    &lt;ul style=&quot;list-style-type: square;&quot;&gt;
+     &lt;li&gt;
+      DevOps Community
+     &lt;/li&gt;
+     &lt;li&gt;
+      DevOps Confluence templates
+      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+       (DevOps 의식을 개선하고 장기적인 목표를 설정하기 위한)
+      &lt;/span&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      DevOps Guides(Jira와 같은 도구를 CI/CD와 같은 모범 사례와 연결하는 방법에 대해)
+     &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
+     &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
+      &lt;p&gt;
+       &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+        일상적인 커뮤니케이션을 위해 새로운 Slack 통합 및 Statuspage 통합은 내부 및 외부 커뮤니케이션 모두에서 DevOps 모범 사례를 채택하는 데 도움이 될 수 있습니다.
+       &lt;/span&gt;
+      &lt;/p&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
+  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
+   &lt;div class=&quot;innerCell&quot;&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;hr/&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     원문 PDF :
+     &lt;a class=&quot;external-link&quot; href=&quot;https://static.ziftsolutions.com/files/8a9983c372bab3890172cb343db53375/DevopsLaunchforChannelPartnerscustomizeversion.pdf&quot; rel=&quot;nofollow&quot;&gt;
+      DevOps with Atlassian
+     &lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     Atlassian 솔루션에 대해
+     &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+      궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+      감사합니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
+      &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+       atlassian@osci.kr
+      &lt;/a&gt;
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;br/&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</description>
+        <pubDate>Wed, 05 Aug 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/08/05/97478051/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/08/05/97478051/</guid>
+        
+        <category>atlassian</category>
+        
+        
+      </item>
     
       <item>
         <title>Atlassian 8월 Release Note</title>
@@ -5923,835 +6542,6 @@ AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(
         <category>커뮤니티</category>
         
         <category>기여방법</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Kubernetes상에서 Keycloak과 Jenkins 그리고 Spinnaker 연동하기</title>
-        <description>&lt;p&gt;
- keycloak이라는 SSO solution을 이용하여 Jenkins 그리고 Spinnaker를 SAML과 OIDC 방식으로 연동하고
-&lt;/p&gt;
-&lt;p&gt;
- 한번의 로그인으로 각 솔루션을 접근할수 있는 방법에 대하여 알아보도록 하겠습니다.
-&lt;/p&gt;
-&lt;h1 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Keycloak이란?&quot;&gt;
- Keycloak이란?
-&lt;/h1&gt;
-&lt;p&gt;
- 우선 Keycloak에 대하여 알아보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/0.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 현대의 Application과 Service들에 대한 오픈소스 계정 및 접근 관리 솔루션으로 기존에 서비스 되고 있었거나
-&lt;/p&gt;
-&lt;p&gt;
- 새로운 Application을 구현하고자할때 해당 코드의 변경없이(혹은 약간의 수정만으로) 인증과 자원보호의 기능을 제공하는 솔루션입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 해당 솔루션은 오픈소스로 제공되며 Community 버전의 경우 별도의 비용없이 사용이 가능하며 Red Hat Single Sign-On이라는 솔루션으로
-&lt;/p&gt;
-&lt;p&gt;
- 벤더의 지원을 구매하여 사용하실수도 있습니다.
-&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://www.keycloak.org/about.html&quot; rel=&quot;nofollow&quot;&gt;
-   https://www.keycloak.org/about.html
-  &lt;/a&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-기본적으로제공하는기능은다음과같습니다.&quot;&gt;
- 기본적으로 제공하는 기능은 다음과 같습니다.
-&lt;/h3&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  SSO (Single Sign On)
- &lt;/li&gt;
- &lt;li&gt;
-  ID 중개와 소셜 로그인 (OpenID, SAML, GitHub, facebook, google, twitter 등)
- &lt;/li&gt;
- &lt;li&gt;
-  사용자 연합 (LDAP, AD, RDMS와의 연동을 통해 중앙화된 계정통합을 제공)
- &lt;/li&gt;
- &lt;li&gt;
-  관리자 / 계정관리 콘솔
- &lt;/li&gt;
- &lt;li&gt;
-  표준 프로토콜 지원 (OpenID, SAML, OAuth 2.0)
- &lt;/li&gt;
- &lt;li&gt;
-  Client Adapters (다수의 platform과 프로그래밍 언어가 사용가능한 adapter를 가지고 있다.)
- &lt;/li&gt;
- &lt;li&gt;
-  권한부여 서비스
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 여기까지는 간단하게 Keycloak이라는 SSO에 대하여 알아보았고 이제부터 Keycloak을 Kubernetes 환경에 배포하고
-&lt;/p&gt;
-&lt;p&gt;
- 배포된 Keycloak을 이용하여 Jenkins, Spinnaker에 SSO 환경을 구성하는 방법에 대하여 알아보도록 하겠습니다.
-&lt;/p&gt;
-&lt;h1 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Keycloak배포및구성&quot;&gt;
- Keycloak 배포 및 구성
-&lt;/h1&gt;
-&lt;p&gt;
- 우선 간단하게 helm을 이용하여 Kubernetes환경에서 keycloak을 구성하는 방법에 대하여 알아보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 설치시 helm을 이용할 예정이기에 values.yaml내에 아래와 같은 몇가지 설정을 변경합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@labs-kube-infra001 keycloak]# kubectl create ns keycloak
-[root@labs-kube-infra001 keycloak]# helm repo add codecentric https://codecentric.github.io/helm-charts
-&quot;codecentric&quot; has been added to your repositories
-[root@labs-kube-infra001 keycloak]# mkdir keycloak &amp;amp;&amp;amp; cd keycloak
-[root@labs-kube-infra001 keycloak]# helm show values codecentric/keycloak &amp;gt; values.yaml
-[root@labs-kube-infra001 keycloak]# cat values.yaml
-...
-  ## Username for the initial Keycloak admin user
-  username: keycloak
-
-  ## Password for the initial Keycloak admin user. Applicable only if existingSecret is not set.
-  ## If not set, a random 10 characters password will be used
-  password: &quot;Pa55w0rd$#&quot;
-...
-  service:
-    annotations: {}
-    # service.beta.kubernetes.io/aws-load-balancer-internal: &quot;0.0.0.0/0&quot;
-
-    labels: {}
-    # key: value
-
-    ## ServiceType
-    ## ref: https://kubernetes.io/docs/user-guide/services/#publishing-services---service-types
-    type: LoadBalancer
-...
-  persistence:
-    # If true, the Postgres chart is deployed
-    deployPostgres: true
-
-    # The database vendor. Can be either &quot;postgres&quot;, &quot;mysql&quot;, &quot;mariadb&quot;, or &quot;h2&quot;
-    dbVendor: &quot;postgres&quot;
-...
-postgresql:
-...
-  persistence:
-    ## Enable PostgreSQL persistence using Persistent Volume Claims.
-    ##
-    enabled: true
-...
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 자 이제 설치를 진행해보도록 하겠습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@labs-kube-infra001 keycloak]# helm install --name keycloak -f values.yaml codecentric/keycloak --namespace keycloak
-NAME:   keycloak
-LAST DEPLOYED: Thu Mar 19 15:33:50 2020
-NAMESPACE: keycloak
-STATUS: DEPLOYED
-
-RESOURCES:
-==&amp;gt; v1/ConfigMap
-NAME              DATA  AGE
-keycloak-sh       1     2s
-keycloak-startup  1     2s
-keycloak-test     1     2s
-
-==&amp;gt; v1/Pod(related)
-NAME                   READY  STATUS    RESTARTS  AGE
-keycloak-0             0/1    Init:0/1  0         1s
-keycloak-postgresql-0  0/1    Pending   0         1s
-
-==&amp;gt; v1/Secret
-NAME                 TYPE    DATA  AGE
-keycloak-http        Opaque  1     3s
-keycloak-postgresql  Opaque  1     3s
-
-==&amp;gt; v1/Service
-NAME                          TYPE          CLUSTER-IP    EXTERNAL-IP      PORT(S)                      AGE
-keycloak-headless             ClusterIP     None          &amp;lt;none&amp;gt;           80/TCP,8443/TCP              2s
-keycloak-http                 LoadBalancer  10.233.3.82   192.168.197.141  80:32242/TCP,8443:31190/TCP  2s
-keycloak-postgresql           ClusterIP     10.233.7.200  &amp;lt;none&amp;gt;           5432/TCP                     2s
-keycloak-postgresql-headless  ClusterIP     None          &amp;lt;none&amp;gt;           5432/TCP                     2s
-
-==&amp;gt; v1/StatefulSet
-NAME                 READY  AGE
-keycloak             0/1    2s
-keycloak-postgresql  0/1    2s
-
-
-NOTES:
-
-Keycloak can be accessed:
-
-* Within your cluster, at the following DNS name at port 80:
-
-  keycloak-http.keycloak.svc.cluster.local
-
-* From outside the cluster, run these commands in the same shell:
-
-  NOTE:
-  It may take a few minutes for the LoadBalancer IP to be available.
-  You can watch the status of by running 'kubectl get svc -w keycloak'
-
-  export SERVICE_IP=$(kubectl get svc --namespace keycloak keycloak -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-  echo http://$SERVICE_IP:80
-
-Login with the following credentials:
-Username: keycloak
-
-To retrieve the initial user password run:
-kubectl get secret --namespace keycloak keycloak-http -o jsonpath=&quot;{.data.password}&quot; | base64 --decode; echo
-
-[root@labs-kube-infra001 keycloak]# k get po -n keycloak
-NAME                    READY   STATUS    RESTARTS   AGE
-keycloak-0              1/1     Running   0          6m42s
-keycloak-postgresql-0   1/1     Running   0          6m42s
-[root@labs-kube-infra001 keycloak]# k get svc -n keycloak
-NAME                           TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)                       AGE
-keycloak-headless              ClusterIP      None           &amp;lt;none&amp;gt;            80/TCP,8443/TCP               6m49s
-keycloak-http                  LoadBalancer   10.233.3.82    192.168.197.141   80:32242/TCP,8443:31190/TCP   6m49s
-keycloak-postgresql            ClusterIP      10.233.7.200   &amp;lt;none&amp;gt;            5432/TCP                      6m49s
-keycloak-postgresql-headless   ClusterIP      None           &amp;lt;none&amp;gt;            5432/TCP                      6m49s
-[root@labs-kube-infra001 keycloak]# k get statefulset -n keycloak
-NAME                  READY   AGE
-keycloak              1/1     7m6s
-keycloak-postgresql   1/1     7m6s&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 설치가 완료되고 keycloak 서비스에 접근하게 되면 아래와 같은 관리자 화면이 출력됩니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/1.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 로그인 계정은 앞서 helm values.yaml 파일에 설정했던 value를 사용하여 로그인을 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-note conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;note&quot;&gt;
- &lt;p class=&quot;title&quot;&gt;
-  참고사항
- &lt;/p&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   docker-compose를 사용할수 있는 예제도 존재하니 테스트를 해보고자 하는 경우 간단히 docker-compose 예제를 다운로드 받아
-  &lt;/p&gt;
-  &lt;p&gt;
-   설치 및 테스트를 수행해보기를 추천드립니다.
-  &lt;/p&gt;
-  &lt;ul&gt;
-   &lt;li&gt;
-    &lt;a class=&quot;external-link&quot; href=&quot;https://github.com/keycloak/keycloak-containers/tree/master/docker-compose-examples&quot; rel=&quot;nofollow&quot;&gt;
-     https://github.com/keycloak/keycloak-containers/tree/master/docker-compose-examples
-    &lt;/a&gt;
-   &lt;/li&gt;
-  &lt;/ul&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h1 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Keycloak연동하기전에기본적인용어들&quot;&gt;
- Keycloak 연동하기 전에 기본적인 용어들
-&lt;/h1&gt;
-&lt;p&gt;
- SSO 혹은 Keycloak이 처음이라면 아래의 용어에 우선 친숙해질 필요가 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 간단하게 설명된 용어들을 읽어보고 연동을 진행해보기를 추천드립니다.
-&lt;/p&gt;
-&lt;h5 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Realm&quot;&gt;
- Realm
-&lt;/h5&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  SSO로서 인증 대상의 범위를 지정한다라고 생각하면 됩니다.
- &lt;/li&gt;
- &lt;li&gt;
-  Realm을 통해 Namespace 형태로 관리할수 있으며 Metadata와 관련 설정에 대한 모든것을 관리하도록 도와줍니다.
- &lt;/li&gt;
- &lt;li&gt;
-  참고로 다수의 realm을 가질수 있고 일반적으로 master(default로 생성된 realm)는 관리자의 목적으로만 사용하고
-  &lt;br/&gt;
-  다른 realm을 생성하여 사용하기를 권장합니다.
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Client&quot;&gt;
- Client
-&lt;/h5&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  SSO를 사용할 각 Application입니다.
-  &lt;br/&gt;
-  (즉, 여기서는 Jenkins, Spinnaker가 Client라고 보시면 됩니다.)
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-User&quot;&gt;
- User
-&lt;/h5&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  앞서 설명드린 Client에 실제 로그인할 사용자계정이라 보면됩니다.
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-참고&quot;&gt;
- 참고
-&lt;/h5&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://jsonobject.tistory.com/445&quot; rel=&quot;nofollow&quot;&gt;
-   https://jsonobject.tistory.com/445
-  &lt;/a&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Keycloak과Jenkins연동하기&quot;&gt;
- Keycloak과 Jenkins 연동하기
-&lt;/h1&gt;
-&lt;p&gt;
- Keycloak과 Jenkins를 연결하여 인증을 Keycloak을 통해서 받을 수 있도록 해보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- Keycloak 연동에는 다양한 방식이 있고 역할기반의 제어도 가능하나 여기서는 Jenkins의 경우
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  SAML을 이용한 방식의 로그인만을 연동
- &lt;/strong&gt;
- 하는 방법에 대하여 알아볼 예정입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 참고로
- &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
-  Jenkins는 jenkins.openlabs:8080 으로 접속되는 환경으로 구성이 이미 완료된 상태입니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-KeycloakSide&quot;&gt;
- Keycloak Side
-&lt;/h3&gt;
-&lt;p&gt;
- 앞서 설명하였던대로 Master가 기본으로 설정되어 있지만 이를 사용하지 않고 새로운 Realm을 생성합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/2.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 생성된 Realm의 Realm Settings로 이동하여 Endpoint를 확인합니다.
-&lt;/p&gt;
-&lt;p&gt;
- (해당 Endpoint 정보는 Jenkins 의 Keycloak 관련 SAML 설정상에서 사용될 예정입니다.)
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/3.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 클릭해보면 다음과 같은 XML 형태의 문서가 출력되게 됩니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/4.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 해당 정보를 사전에 복사해둡니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- keycloak를 사용한 인증을 위한 Jenkins Client를 생성합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/5.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 설정은 아래 그림에 체크되어 있는 설정을 추가하여 설정을 마무리 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/6.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 위에 체크된 항목에 대해 추가를 진행한다.
-&lt;/p&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-note conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;note&quot;&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   만약 설정시 아래와 같은 이슈가 있다면 참고하시기 바랍니다.
-  &lt;/p&gt;
-  &lt;ul&gt;
-   &lt;li&gt;
-    invalid_redirect_url 에러 관련
-    &lt;ul&gt;
-     &lt;li&gt;
-      Valid Redirect URIs 에 IP 및 domain 정보가 추가되어 있지 않아서 발생된 이슈로 추가시 이슈해결됨.
-     &lt;/li&gt;
-    &lt;/ul&gt;
-   &lt;/li&gt;
-   &lt;li&gt;
-    로그인후에 자동 로그아웃되는 현상
-    &lt;ul&gt;
-     &lt;li&gt;
-      document signing enable 후에 자동로그아웃되는 현상 사라짐.
-     &lt;/li&gt;
-    &lt;/ul&gt;
-   &lt;/li&gt;
-  &lt;/ul&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-JenkinsSide&quot;&gt;
- Jenkins Side
-&lt;/h3&gt;
-&lt;p&gt;
- 이제 Keycloak SSO를 사용하기 위한 Jenkins의 설정을 추가해 보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- Jenkins의 경우 앞서 Keycloak에서 설정했듯이 SAML을 이용할 예정입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 하여 SAML plugin을 먼저 설치합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/7.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- SAML plugin 설치후 global security 설정에서 아래와 같은 설정을 진행합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/8.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 위에 체크된 항목을 변경하여 설정을 완료합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 이제 설정은 완료되었습니다. 아래와 같이 직접 Jenkins UI로 접근을 시도해봅니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/9.gif&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 이제 SSO 연동을 위한 Jenkins 로그인 과정을 완료하였습니다.
-&lt;/p&gt;
-&lt;p&gt;
- SSO의 경우 한번의 로그인을 통해 다수의 서비스를 사용할수 있는 것이기에 다음 Spinnaker를 SSO와 연동하여 두개의 서비스가
-&lt;/p&gt;
-&lt;p&gt;
- 한번의 로그인으로 이루어질수 있는지 추가로 알아보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-note conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;note&quot;&gt;
- &lt;p class=&quot;title&quot;&gt;
-  참고
- &lt;/p&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   Keycloak은 Login Page에 대한 customization을 제공하기 때문에 아래 링크를 활용하여 custom theme를 작성하고
-  &lt;/p&gt;
-  &lt;p&gt;
-   적용하여 자신만의 login page를 구성할수 있습니다.
-  &lt;/p&gt;
-  &lt;ul&gt;
-   &lt;li&gt;
-    &lt;a class=&quot;external-link&quot; href=&quot;https://medium.com/@auscunningham/create-a-custom-theme-for-keycloak-8781207be604&quot; rel=&quot;nofollow&quot;&gt;
-     https://medium.com/@auscunningham/create-a-custom-theme-for-keycloak-8781207be604
-    &lt;/a&gt;
-   &lt;/li&gt;
-   &lt;li&gt;
-    &lt;a class=&quot;external-link&quot; href=&quot;https://github.com/Alfresco/alfresco-keycloak-theme&quot; rel=&quot;nofollow&quot; style=&quot;letter-spacing: 0.0px;&quot;&gt;
-     https://github.com/Alfresco/alfresco-keycloak-theme
-    &lt;/a&gt;
-   &lt;/li&gt;
-  &lt;/ul&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h1 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-Spinnaker와Keycloak&quot;&gt;
- Spinnaker와 Keycloak
-&lt;/h1&gt;
-&lt;p&gt;
- 이번에는 Spinnaker 연동을 해보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 앞서 이야기 드렸듯이 Keycloak 연동에는 다양한 방식이 있고 역할기반의 제어도 가능하나 여기서는 spinnaker의 경우
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  OIDC를 이용한 방식의 로그인만을 연동
- &lt;/strong&gt;
- 하는 방법에 대하여 알아볼 예정입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 참고로
- &lt;span&gt;
-  spinnaker는 spinnaker.openlabs 으로 접속되는 환경으로 구성이 이미 완료된 상태입니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 또한 spinnaker-gate.openlabs:8084로 gate가 접속 가능한 환경입니다.
-&lt;/p&gt;
-&lt;h3 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-KeycloakSide.1&quot;&gt;
- Keycloak Side
-&lt;/h3&gt;
-&lt;p&gt;
- 이제 Keycloak에서 spinnaker를 위한 Client를 생성합니다.
-&lt;/p&gt;
-&lt;p&gt;
- 이번에는 keycloak에서 권장하는 OIDC(OpenID Connect)로 설정하여 Client를 생성해보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/10.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- Jenkins 연동시와 동일하게 Client을 생성합니다.
-&lt;/p&gt;
-&lt;p&gt;
- (Jenkins 에서 생성했던 Realm을 동일하게 사용하는 것을 가정하였습니다.)
-&lt;/p&gt;
-&lt;p&gt;
- 이후 아래와 같은 설정에 매칭되는 OIDC json 파일의 내용을 확인합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/11.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 실제 Json 내용은 다음과 같습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;{
-  &quot;realm&quot;: &quot;Openlabs&quot;,
-  &quot;auth-server-url&quot;: &quot;http://keycloak.openlabs/auth/&quot;,
-  &quot;ssl-required&quot;: &quot;external&quot;,
-  &quot;resource&quot;: &quot;spinnaker&quot;,
-  &quot;credentials&quot;: {
-    &quot;secret&quot;: &quot;d123150f-2879-4a99-9e22-e40fcaf02bdb&quot;
-  },
-  &quot;confidential-port&quot;: 0
-}&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 여기서 우리는 credentials 정보와 auth-server-url, realm 등을 사용할 예정입니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 또한 realm 의 endpoint 정보도 확인해놓습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 아래와 같이 앞서 생성했던 Realm 의 Settings에서 Endpoints 내에 OpenID Endpoint Configuration을 클릭하여 확인이 가능합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/12.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 클릭시 아래와 같은 Json 결과가 출력될 것이고 아래 정보는 spinnaker 설정에서 사용될 예정입니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/13.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 실제 사용될 url 정보는 다음과 같습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;authorization_endpoint: &quot;http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/auth&quot;,
-token_endpoint: &quot;http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/token&quot;,
-userinfo_endpoint: &quot;http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/userinfo&quot;&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-SpinnakerSide&quot;&gt;
- Spinnaker Side
-&lt;/h3&gt;
-&lt;p&gt;
- 이제 spinnaker에서 설정을 진행해보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 아시다시피 spinnaker의 경우 halyard pod에 접속하여 (혹은 hal command가 가능한 서버에 접속하여) 설정 변경을 수행해야 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- 하여 halyard pod에 접속하여 hal command를 수행해봅니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;jacob@jacob-laptop:~/workspace$ k get po
-NAME                                READY   STATUS      RESTARTS   AGE
-spin-clouddriver-5d569c94b8-ffmfs   1/1     Running     0          69d
-spin-deck-7754884b55-fq7r4          1/1     Running     0          69d
-spin-echo-c57577776-vz8zg           1/1     Running     0          69d
-spin-front50-79d4d69b45-klchv       1/1     Running     0          69d
-spin-gate-75c76579c4-dxnjp          1/1     Running     0          69d
-spin-igor-74d8c59858-zj4bt          1/1     Running     0          69d
-spin-orca-f7b8c4676-kfbwp           1/1     Running     0          69d
-spin-rosco-7d58898bd6-8h2g5         1/1     Running     0          69d
-spinnaker-install-using-hal-x9vds   0/1     Completed   0          70d
-spinnaker-minio-5dc587c6f-k9hsx     1/1     Running     0          70d
-spinnaker-redis-master-0            1/1     Running     0          70d
-spinnaker-redis-slave-0             1/1     Running     0          70d
-spinnaker-redis-slave-1             1/1     Running     0          70d
-spinnaker-spinnaker-halyard-0       1/1     Running     0          70d
-jacob@jacob-laptop:~/workspace$ k exec -it spinnaker-spinnaker-halyard-0 /bin/bash
-spinnaker@spinnaker-spinnaker-halyard-0:/workdir$ &lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 실제 halyard pod에서 수행될 명령어들은 다음과 같습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;echo &quot;server:
-  tomcat:
-    protocolHeader: X-Forwarded-Proto
-    remoteIpHeader: X-Forwarded-For
-    internalProxies: .*
-    httpsServerPort: X-Forwarded-Port
-security:
-  oauth2:
-    enabled: true
-    client: 
-      clientId: spinnaker
-      clientSecret: d123150f-2879-4a99-9e22-e40fcaf02bdb
-      userAuthorizationUri: http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/auth
-      accessTokenUri: http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/token
-      scope: roles,email,profile
-    resource:
-      userInfoUri: http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/userinfo
-    userInfoMapping:
-      email: email
-      firstName: given_name
-      lastName: family_name
-      username: preferred_username&quot; &amp;gt; .hal/default/profiles/gate-local.yml
-hal config security authn oauth2 edit \
---client-id spinnaker \
---client-secret d123150f-2879-4a99-9e22-e40fcaf02bdb \
---pre-established-redirect-uri http://spinnaker-api.openlabs:8084/login
-hal config security authn oauth2 enable
-hal config security ui edit --override-base-url http://spinnaker.openlabs:9000
-hal config security api edit --override-base-url http://spinnaker-api.openlabs:8084 
-hal deploy apply
-
-## 혹은 다음 명령 set 수행
-hal config security authn oauth2 edit \
---client-id spinnaker \
---client-secret d123150f-2879-4a99-9e22-e40fcaf02bdb \
---pre-established-redirect-uri http://spinnaker-api.openlabs:8084/login \
---access-token-uri http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/token \
---scope read:roles,email,profile \
---user-authorization-uri http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/auth \
---user-info-mapping-email email \
---user-info-mapping-first-name given_name \
---user-info-mapping-last-name family_name \
---user-info-mapping-username preferred_username \
---user-info-uri http://keycloak.openlabs/auth/realms/Openlabs/protocol/openid-connect/userinfo
-hal config security authn oauth2 enable
-hal config security ui edit --override-base-url http://spinnaker.openlabs:9000
-hal config security api edit --override-base-url http://spinnaker-api.openlabs:8084 
-hal deploy apply&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 물론 helm chart를 이용한 업그레이드 방법도 가능합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;   additionalProfileConfigMaps:
-     create: true
-     data:
-       gate-local.yml: |-
-         server:
-           tomcat:
-             protocolHeader: X-Forwarded-Proto
-             remoteIpHeader: X-Forwarded-For
-             internalProxies: .*
-             httpsServerPort: X-Forwarded-Port
-         security:
-           oauth2:
-             enabled: true
-             client:
-               clientId: spinnaker
-               clientSecret: xxxx00cc-xxxx-xxxx-xxxx-xxxx2515xxxx
-               userAuthorizationUri: http://keycloak.openlabs/auth/realms/openlabs/protocol/openid-connect/auth
-               accessTokenUri: http://keycloak.openlabs/auth/realms/openlabs/protocol/openid-connect/token
-               scope: roles,email,profile
-             resource:
-               userInfoUri: http://keycloak.openlabs/auth/realms/openlabs/protocol/openid-connect/userinfo
-             userInfoMapping:
-               email: email
-               firstName: given_name
-               lastName: family_name
-               username: preferred_username
-   additionalScripts:
-     create: true
-     data: 
-       override_baseurls.sh: |-
-           $HAL_COMMAND config security api edit --override-base-url http://spinnaker-gate.openlabs:8084/
-           $HAL_COMMAND config security ui edit --override-base-url http://spinnaker.openlabs/
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 위 명령 혹은 helm upgrade를 통한 설정 변경을 수행한 후 실제 로그인을 수행해보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/14.gif&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 로그인 완료후 아래와 같이 로그인 계정이 확인됩니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/15.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-확인&quot;&gt;
- 확인
-&lt;/h1&gt;
-&lt;p&gt;
- 자 이제 SSO 기능 검증을 위해 두개의 Application을 로그인시도해보도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/91699412/16.gif&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 두개의 Application을 한번의 로그인으로 사용할수 있도록 하는것을 확인할수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-warning conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;warning&quot;&gt;
- &lt;p class=&quot;title&quot;&gt;
-  참고사항
- &lt;/p&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   &lt;strong&gt;
-    keycloak에서 권장하는 사항들
-   &lt;/strong&gt;
-  &lt;/p&gt;
-  &lt;ul&gt;
-   &lt;li&gt;
-    SAML을 사용하는 경우
-    &lt;ul&gt;
-     &lt;li&gt;
-      XML 교환방식을 Post Binding 으로 사용하는것을 권장 (보안과 크기제한에 대한 이슈로 인하여)
-     &lt;/li&gt;
-    &lt;/ul&gt;
-   &lt;/li&gt;
-   &lt;li&gt;
-    SAML 보다는 OIDC를 권장
-    &lt;ul&gt;
-     &lt;li&gt;
-      &lt;a class=&quot;external-link&quot; href=&quot;https://www.keycloak.org/docs/latest/server_admin/#openid-connect-vs-saml&quot; rel=&quot;nofollow&quot;&gt;
-       https://www.keycloak.org/docs/latest/server_admin/#openid-connect-vs-saml
-      &lt;/a&gt;
-     &lt;/li&gt;
-    &lt;/ul&gt;
-   &lt;/li&gt;
-  &lt;/ul&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h1 id=&quot;Kubernetes상에서Keycloak과Jenkins그리고Spinnaker연동하기-참고사이트&quot;&gt;
- 참고사이트
-&lt;/h1&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://www.keycloak.org/docs/latest/getting_started/index.html&quot; rel=&quot;nofollow&quot;&gt;
-   https://www.keycloak.org/docs/latest/getting_started/index.html
-  &lt;/a&gt;
- &lt;/li&gt;
-&lt;/ul&gt;</description>
-        <pubDate>Sat, 04 Apr 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/04/04/91699412/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/04/04/91699412/</guid>
-        
-        <category>spinnaker</category>
-        
-        <category>jenkins</category>
-        
-        <category>keycloak</category>
-        
-        <category>sso</category>
-        
-        <category>saml</category>
-        
-        <category>oidc</category>
         
         
       </item>

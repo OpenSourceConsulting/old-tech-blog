@@ -5,6 +5,15 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tech.osci.kr/2020/08/05/97478051/</loc>
+    
+    <lastmod>2020-08-05T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
     <loc>https://tech.osci.kr/2020/08/05/97477897/</loc>
     
     <lastmod>2020-08-05T00:00:00+09:00</lastmod>
@@ -1049,6 +1058,12 @@
   
   
   
+  
+  <url>
+    <loc>https://tech.osci.kr/authors/azx1054</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   <url>
     <loc>https://tech.osci.kr/authors/bje</loc>
