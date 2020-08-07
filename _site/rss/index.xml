@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 06 Aug 2020 17:51:01 +0900</pubDate>
-    <lastBuildDate>Thu, 06 Aug 2020 17:51:01 +0900</lastBuildDate>
+    <pubDate>Fri, 07 Aug 2020 16:32:49 +0900</pubDate>
+    <lastBuildDate>Fri, 07 Aug 2020 16:32:49 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -481,9 +481,7 @@ Sharing Tech. Growing Together.
     &lt;/p&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
-       &lt;img src=&quot;/assets/images/97478051/8.png&quot;/&gt;
-      &lt;/span&gt;
+      &lt;br/&gt;
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
@@ -504,7 +502,7 @@ Sharing Tech. Growing Together.
     &lt;/p&gt;
     &lt;p&gt;
      &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/9.png&quot;/&gt;
+      &lt;img src=&quot;/assets/images/97478051/8.png&quot;/&gt;
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
@@ -534,9 +532,7 @@ Sharing Tech. Growing Together.
   &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
    &lt;div class=&quot;innerCell&quot;&gt;
     &lt;p&gt;
-     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/10.png&quot;/&gt;
-     &lt;/span&gt;
+     &lt;br/&gt;
     &lt;/p&gt;
    &lt;/div&gt;
   &lt;/div&gt;
@@ -628,6 +624,8 @@ Sharing Tech. Growing Together.
         <guid isPermaLink="true">https://tech.osci.kr/2020/08/05/97478051/</guid>
         
         <category>atlassian</category>
+        
+        <category>releasenote</category>
         
         
       </item>
