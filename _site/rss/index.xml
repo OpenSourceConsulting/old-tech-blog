@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 07 Aug 2020 16:32:49 +0900</pubDate>
-    <lastBuildDate>Fri, 07 Aug 2020 16:32:49 +0900</lastBuildDate>
+    <pubDate>Thu, 13 Aug 2020 11:20:47 +0900</pubDate>
+    <lastBuildDate>Thu, 13 Aug 2020 11:20:47 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -19,15 +19,20 @@ Sharing Tech. Growing Together.
  &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
   &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
    &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;h2 id=&quot;DevOpswithAtlassian-안녕하세요.아틀라시안플래티넘파트너,오픈소스컨설팅입니다.이번포스팅에서는아틀라시안솔루션을이용한DevOps에대해서전해드리고자합니다.&quot;&gt;
+    &lt;p&gt;
      &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
-      안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+      안녕하세요.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
+      아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
      &lt;/span&gt;
      &lt;br style=&quot;text-align: justify;&quot;/&gt;
      &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
       이번 포스팅에서는 아틀라시안 솔루션을 이용한 DevOps에 대해서 전해드리고자 합니다.
      &lt;/span&gt;
-    &lt;/h2&gt;
+    &lt;/p&gt;
     &lt;p&gt;
      &lt;br/&gt;
     &lt;/p&gt;
@@ -65,7 +70,7 @@ Sharing Tech. Growing Together.
     &lt;/p&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      개발자들은 혁신적인 솔루션을 코딩하고 구축하는 대신 여러 도구를 통합하고 작업 상태를 업데이트하며 다른 팀과 작업내역을 공유하면서 하루 중 많은 시간을 보낼 수 있습니다.
+      개발자들은 혁신적인 솔루션을 코딩하고 구축하는 것에 집중하기 보다, 여러 도구를 통합하고 작업 상태를 업데이트하고 다른 팀과 작업내역을 공유하면서 하루 중 많은 시간을 보낼 수 있습니다.
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
@@ -78,12 +83,12 @@ Sharing Tech. Growing Together.
     &lt;/p&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      개발자는 DevOps를위한 Atlassian의 새로운 기능, 자동화 및 통합을 통해 시간을 단축하고 코드를 더 빨리 제공 할 수 있습니다.
+      개발자는 DevOps를 위한 Atlassian의 새로운 기능, 자동화 및 통합을 통해 시간을 단축하고 코드를 더 빨리 제공 할 수 있습니다.
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      팀은 IT 보안사고에 대해서 적은 컨텍스트 전환, 적은 회의 및 ping 감소로 이점을 누릴 수 있습니다.
+      팀은 IT 보안사고에 대해서 적은 컨텍스트 전환, 적은 회의 및 ping 감소로 잇점을 누릴 수 있습니다.
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
@@ -148,10 +153,15 @@ Sharing Tech. Growing Together.
    &lt;div class=&quot;innerCell&quot;&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      DevOps 툴 체인은 단일 크기 접근 방식이 아닙니다. DevOps는 서로 다른 애플리케이션과 팀에 걸친 툴박스로서, 개발자는 어떤 툴을 사용해야 하는지, 몇개의 툴을 사용하여야 하는지에 대해 가장 잘 알고 있습니다.
+      DevOps 툴 체인은 단일 크기 접근 방식(one-size-fits-all approach)이 아닙니다.
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+      DevOps는 서로 다른 애플리케이션과 팀에 걸친 툴박스로서, 개발자는 어떤 툴을 사용해야 하는지, 몇개의 툴을 사용하여야 하는지에 대해 가장 잘 알고 있습니다.
      &lt;/span&gt;
      &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
-      그러나 이러한 유연성과 함께 작업의 조정에 대한 필요성이 중요해 집니다.
+      그러나 이러한 유연성과 함께 작업의 조정에 대한 필요성이 중요해집니다.
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
@@ -180,7 +190,7 @@ Sharing Tech. Growing Together.
     &lt;/h3&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Bitbucket Cloud의 새로운 작업 대시 보드가 할당 된 Jira 이슈를 포함하도록 확장 되었으므로 도구간에 이동하지 않고도 한 작업에서 다음 작업으로 빠르게 이동할 수 있습니다. 또한 각 레포지토리 내부에서는 &quot;Jira issue&quot; 탭 내에서 연결된 프로젝트와 이슈에 대한 새로운 팀 차원의 뷰를 곧 볼 수 있습니다.
+      Bitbucket Cloud의 새로운 작업 대시 보드가 할당 된 Jira 이슈를 포함하도록 확장 되었으므로 도구 간에 이동하지 않고도 한 작업에서 다음 작업으로 빠르게 이동할 수 있습니다. 또한 각 레포지토리 내부에서는 &quot;Jira issue&quot; 탭 내에서 연결된 프로젝트와 이슈에 대한 새로운 팀 차원의 뷰를 곧 볼 수 있습니다.
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
@@ -202,7 +212,7 @@ Sharing Tech. Growing Together.
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
-     기본적으로 관련 Jira 이슈의 상태를 자동으로 업데이트 할 수 있지만 이러한 새로운 자동화를 통해 QA 또는 코드 검토를 위해 Jira 이슈를 재 할당하거나 팀의 Slack 채널에 새 PR에 대한 메시지를 보내는 것과 같은 더 복잡한 규칙도 허용됩니다.
+     기본적으로 관련 Jira 이슈의 상태를 자동으로 업데이트 할 수 있지만 이러한 새로운 자동화를 통해 QA 또는 코드 검토를 위해 Jira 이슈를 재 할당하거나 팀의 Slack 채널에 새 PR에 대한 메시지를 보내는 것과 같은 더 복잡한 규칙도 사용할 수 있습니다.
     &lt;/p&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
@@ -258,7 +268,7 @@ Sharing Tech. Growing Together.
    &lt;div class=&quot;innerCell&quot;&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      모든 팀이 코드를 작성하고 검토할 수 있는 최고의 도구를 원하는데, Atlassian이 Bitbucket Cloud를 통해서 충족시켜 줍니다.
+      모든 팀은 코드를 작성하고 검토할 수 있는 최고의 도구를 원합니다.  Atlassian이 Bitbucket Cloud를 통해서 그 요구 사항을 충족시켜 줄 수 있습니다.
      &lt;/span&gt;
      &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
       코드 작성 및 검토와 같이 매일 수행하는 가장 중요한 작업에서 개발자의 생산성을 극대화하십시오.
@@ -423,9 +433,9 @@ Sharing Tech. Growing Together.
     &lt;h2 id=&quot;DevOpswithAtlassian-|OPERATE&amp;amp;MONITOR&quot;&gt;
      | OPERATE &amp;amp; MONITOR
     &lt;/h2&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-Mitigatealertfatigueandresolveincidentsfaster&quot;&gt;
+    &lt;h3 id=&quot;DevOpswithAtlassian-긴급한인시던트를진단하고,사고를더빠르게해결하기&quot;&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Mitigate alert fatigue and resolve incidents faster
+      긴급한 인시던트를 진단하고, 사고를 더 빠르게 해결하기
      &lt;/span&gt;
     &lt;/h3&gt;
    &lt;/div&gt;
@@ -480,11 +490,6 @@ Sharing Tech. Growing Together.
      &lt;br/&gt;
     &lt;/p&gt;
     &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      &lt;br/&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
      &lt;br/&gt;
     &lt;/p&gt;
     &lt;h3 id=&quot;DevOpswithAtlassian-|IncidentInvestigationDashboard&quot;&gt;
@@ -494,7 +499,7 @@ Sharing Tech. Growing Together.
     &lt;/h3&gt;
     &lt;p&gt;
      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Incident Investigation Dashboard를 통해 팀은 사고 직전에 발생한 배포를보고 잠재적 원인으로 추가한 다음 변경을한 개발자에게 연락하여 롤백하고 사고를 해결할 수 있습니다.
+      Incident Investigation Dashboard를 통해 팀은 사고 직전에 발생한 배포를보고 잠재적 원인으로 추가한 다음, 변경을 한 개발자에게 연락하여 롤백하고 사고를 해결할 수 있습니다.
      &lt;/span&gt;
     &lt;/p&gt;
     &lt;p&gt;
