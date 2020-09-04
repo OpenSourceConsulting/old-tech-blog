@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Sep 2020 17:16:40 +0900</pubDate>
-    <lastBuildDate>Fri, 04 Sep 2020 17:16:40 +0900</lastBuildDate>
+    <pubDate>Fri, 04 Sep 2020 17:51:17 +0900</pubDate>
+    <lastBuildDate>Fri, 04 Sep 2020 17:51:17 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -261,9 +261,13 @@ Sharing Tech. Growing Together.
  | Configure how fast stale nodes are moved offline - 오래된 노드의 오프라인 전환 시간 설정
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p&gt;
@@ -319,12 +323,19 @@ Sharing Tech. Growing Together.
  Take Confluence to the next level with webhooks - 웹훅으로 Confluence를 한 단계 업그레이드하세요
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  Server
- &lt;/span&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(0,204,255);&quot;&gt;
+   &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+    Server
+   &lt;/span&gt;
+  &lt;/span&gt;
+  ] [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p&gt;
@@ -387,12 +398,19 @@ Sharing Tech. Growing Together.
  Seamless editing experience - 원활한 편집 경험
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  Server
- &lt;/span&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(0,204,255);&quot;&gt;
+   &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+    Server
+   &lt;/span&gt;
+  &lt;/span&gt;
+  ] [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p class=&quot;p1&quot;&gt;
@@ -465,12 +483,19 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
 &lt;/h2&gt;
 &lt;p class=&quot;p1&quot;&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  Server
- &lt;/span&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(0,204,255);&quot;&gt;
+   &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+    Server
+   &lt;/span&gt;
+  &lt;/span&gt;
+  ] [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p class=&quot;p1&quot;&gt;
@@ -525,9 +550,13 @@ Sharing Tech. Growing Together.
  Reindex your cluster without downtime - 다운 타임없이 클러스터 재 인덱싱
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p&gt;
@@ -574,9 +603,13 @@ Sharing Tech. Growing Together.
  More control of your audit log - 감사 로그에 대한 제어 강화
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;h3 id=&quot;Atlassian9월ReleaseNote-카테고리로필터링&quot;&gt;
@@ -646,12 +679,19 @@ Sharing Tech. Growing Together.
  Page Properties Report macro performance improvements - 페이지 속성 보고서 매크로 성능 향상
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  Server
- &lt;/span&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(0,204,255);&quot;&gt;
+   &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+    Server
+   &lt;/span&gt;
+  &lt;/span&gt;
+  ] [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p class=&quot;p1&quot;&gt;
@@ -680,9 +720,13 @@ Sharing Tech. Growing Together.
  Just-in-time user provisioning - Just in time 사용자 프로비저닝
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p&gt;
@@ -874,11 +918,11 @@ Sharing Tech. Growing Together.
  &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
- Crowd에서 지원하는 전체 환경 목록은 다음을 참조하십시오.
+ Crowd에서 지원하는 전체 환경 목록은
  &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/crowd/supported-platforms-191851.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
   지원되는 플랫폼
  &lt;/a&gt;
- .
+ 을 확인해 보세요.
 &lt;/p&gt;
 &lt;p&gt;
  &lt;br/&gt;
@@ -923,12 +967,19 @@ Sharing Tech. Growing Together.
  통합 된 CI / CD 최적화
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  Server
- &lt;/span&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(0,204,255);&quot;&gt;
+   &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+    Server
+   &lt;/span&gt;
+  &lt;/span&gt;
+  ] [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p&gt;
@@ -1001,9 +1052,13 @@ Sharing Tech. Growing Together.
  Audit log filtering by summary - 요약별 로그 필터링 감사
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p&gt;
@@ -1048,9 +1103,13 @@ Sharing Tech. Growing Together.
  Just-in-time user provisioning - Just in time 사용자 프로비저닝
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p&gt;
@@ -1079,12 +1138,19 @@ Sharing Tech. Growing Together.
  Customize the default branch name - 기본 Branch 이름 사용자 지정
 &lt;/h2&gt;
 &lt;p&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  Server
- &lt;/span&gt;
- &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-current aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(0,82,204);text-decoration: none;&quot;&gt;
-  DAta Center
- &lt;/span&gt;
+ &lt;strong&gt;
+  [
+  &lt;span style=&quot;color: rgb(0,204,255);&quot;&gt;
+   &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+    Server
+   &lt;/span&gt;
+  &lt;/span&gt;
+  ] [
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   DATA Center
+  &lt;/span&gt;
+  ]
+ &lt;/strong&gt;
  에서 사용 가능
 &lt;/p&gt;
 &lt;p&gt;
