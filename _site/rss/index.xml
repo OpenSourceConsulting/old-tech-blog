@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Sep 2020 17:51:37 +0900</pubDate>
-    <lastBuildDate>Tue, 15 Sep 2020 17:51:37 +0900</lastBuildDate>
+    <pubDate>Thu, 17 Sep 2020 17:50:54 +0900</pubDate>
+    <lastBuildDate>Thu, 17 Sep 2020 17:50:54 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -2225,7 +2225,7 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
  &lt;br/&gt;
- 이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Realese Note를 전해드리고자 합니다.
+ 이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Release Note를 전해드리고자 합니다.
 &lt;/p&gt;
 &lt;h1 id=&quot;Atlassian8월ReleaseNote-Jira8.10.xReleaseNote&quot;&gt;
  &lt;br/&gt;
