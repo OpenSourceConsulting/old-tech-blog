@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Sep 2020 18:25:44 +0900</pubDate>
-    <lastBuildDate>Tue, 22 Sep 2020 18:25:44 +0900</lastBuildDate>
+    <pubDate>Thu, 24 Sep 2020 17:51:01 +0900</pubDate>
+    <lastBuildDate>Thu, 24 Sep 2020 17:51:01 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -62,7 +62,9 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  그 첫번째 시간으로,
  &lt;strong&gt;
-  오픈소스컨설팅의 개발자로 일하고 계시는 오훈님
+  &lt;u&gt;
+   오픈소스컨설팅의 개발자로 일하고 계시는 오훈님
+  &lt;/u&gt;
  &lt;/strong&gt;
  의 이야기를 전해드리겠습니다.
 &lt;/p&gt;
@@ -92,7 +94,12 @@ Sharing Tech. Growing Together.
 &lt;/h1&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅에서어떤업무를하고계신가요?👨‍💻&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅에서 어떤 업무를 하고 계신가요? 👨‍💻
+  &lt;strong&gt;
+   &lt;u&gt;
+    Q. 오픈소스컨설팅에서 어떤 업무를 하고 계신가요?
+   &lt;/u&gt;
+  &lt;/strong&gt;
+  👨‍💻
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -115,7 +122,10 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.PlayceRoRo제품을잘모르시는분들도계실텐데요,어떤제품인지설명해주세요.☁️&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. Playce RoRo 제품을 잘 모르시는 분들도 계실텐데요, 어떤 제품인지 설명해 주세요. ☁️
+  &lt;u&gt;
+   Q. Playce RoRo 제품을 잘 모르시는 분들도 계실텐데요, 어떤 제품인지 설명해 주세요.
+  &lt;/u&gt;
+  ☁️
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -138,7 +148,10 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅에서의하루일과는어떻게되시나요?⏰&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅에서의 하루 일과는 어떻게 되시나요? ⏰
+  &lt;u&gt;
+   Q. 오픈소스컨설팅에서의 하루 일과는 어떻게 되시나요?
+  &lt;/u&gt;
+  ⏰
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -178,7 +191,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.다른팀과의협업이많은편인가요?협업은주로어떻게이루어지나요?🙌🏽&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 다른 팀과의 협업이 많은 편인가요? 협업은 주로 어떻게 이루어지나요?
+  &lt;u&gt;
+   Q. 다른 팀과의 협업이 많은 편인가요? 협업은 주로 어떻게 이루어지나요?
+  &lt;/u&gt;
   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
    🙌🏽
   &lt;/span&gt;
@@ -211,7 +226,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.개발자로서직업병이란게있으신가요?👨‍⚕️&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 개발자로서 직업병이란게 있으신가요?
+  &lt;u&gt;
+   Q. 개발자로서 직업병이란게 있으신가요?
+  &lt;/u&gt;
   &lt;span&gt;
    👨‍⚕️
   &lt;/span&gt;
@@ -261,7 +278,10 @@ Sharing Tech. Growing Together.
 &lt;/h1&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅의채용과정은어땠나요?👨‍💼&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅의 채용 과정은 어땠나요? 👨‍💼
+  &lt;u&gt;
+   Q. 오픈소스컨설팅의 채용 과정은 어땠나요?
+  &lt;/u&gt;
+  👨‍💼
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -287,7 +307,10 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.개발자로서필요한역량이나자질이있다면어떤건가요?💪🏻&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 개발자로서 필요한 역량이나 자질이 있다면 어떤건가요? 💪🏻
+  &lt;u&gt;
+   Q. 개발자로서 필요한 역량이나 자질이 있다면 어떤건가요?
+  &lt;/u&gt;
+  💪🏻
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -308,7 +331,10 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.새로운동료가들어온다면어떤분과함께일하고싶으신가요?👬🏽&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q.  새로운 동료가 들어온다면 어떤 분과 함께 일하고 싶으신가요? 👬🏽
+  &lt;u&gt;
+   Q.  새로운 동료가 들어온다면 어떤 분과 함께 일하고 싶으신가요?
+  &lt;/u&gt;
+  👬🏽
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -336,7 +362,10 @@ Sharing Tech. Growing Together.
 &lt;/h1&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅을선택하신이유가궁금합니다.❓&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅을 선택하신 이유가 궁금합니다. ❓
+  &lt;u&gt;
+   Q. 오픈소스컨설팅을 선택하신 이유가 궁금합니다.
+  &lt;/u&gt;
+  ❓
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -369,7 +398,10 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.입사후기억에남는순간이있다면요?🍺&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 입사 후 기억에 남는 순간이 있다면요? 🍺
+  &lt;u&gt;
+   Q. 입사 후 기억에 남는 순간이 있다면요?
+  &lt;/u&gt;
+  🍺
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -387,7 +419,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅의재택근무는어떠셨나요?힘들거나불편한점은없으셨나요?🏠&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅의 재택 근무는 어떠셨나요? 힘들거나 불편한 점은 없으셨나요?
+  &lt;u&gt;
+   Q. 오픈소스컨설팅의 재택 근무는 어떠셨나요? 힘들거나 불편한 점은 없으셨나요?
+  &lt;/u&gt;
  &lt;/span&gt;
  &lt;a class=&quot;external-link&quot; href=&quot;https://emojipedia.org/house/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
   &lt;span class=&quot;emoji&quot;&gt;
@@ -410,7 +444,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.재택근무홍보영상도촬영하셨는데,어떠셨어요?촬영중재미있는에피소드가있다면공유해주세요.🎥&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 재택 근무 홍보 영상도 촬영하셨는데, 어떠셨어요? 촬영 중 재미있는 에피소드가 있다면 공유해 주세요.
+  &lt;u&gt;
+   Q. 재택 근무 홍보 영상도 촬영하셨는데, 어떠셨어요? 촬영 중 재미있는 에피소드가 있다면 공유해 주세요.
+  &lt;/u&gt;
   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
    🎥
   &lt;/span&gt;
@@ -438,7 +474,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅의자랑할만한점은?✏️&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅의 자랑할 만한 점은?
+  &lt;u&gt;
+   Q. 오픈소스컨설팅의 자랑할 만한 점은?
+  &lt;/u&gt;
   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
    ✏️
   &lt;/span&gt;
@@ -465,7 +503,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.앞으로의목표나계획이있으시다면?📑&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 앞으로의 목표나 계획이 있으시다면?
+  &lt;u&gt;
+   Q. 앞으로의 목표나 계획이 있으시다면?
+  &lt;/u&gt;
   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
    📑
   &lt;/span&gt;
