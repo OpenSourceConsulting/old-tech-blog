@@ -9,9 +9,284 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 24 Sep 2020 17:51:01 +0900</pubDate>
-    <lastBuildDate>Thu, 24 Sep 2020 17:51:01 +0900</lastBuildDate>
+    <pubDate>Thu, 08 Oct 2020 17:50:53 +0900</pubDate>
+    <lastBuildDate>Thu, 08 Oct 2020 17:50:53 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Five ways to make your Jira Amazing with Apps</title>
+        <description>&lt;p&gt;
+ &lt;span style=&quot;color: rgb(34,34,34);&quot;&gt;
+  You all know we could improve work efficiency and teamwork capacity through Atlassian.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(34,34,34);&quot;&gt;
+  Each team has different tools (like Atlassian), culture, even capacity.
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(34,34,34);&quot;&gt;
+  Apps from the Atlassian marketplace make your Atlassian more suitable for your team.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(34,34,34);&quot;&gt;
+  Here are five ways to make your Jira (or confluence) powerful to use APPs recommended by Open Source Consulting (Atlassian Platinum Partner in South Korea).
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(34,34,34);&quot;&gt;
+  It maybe could help you reduce your anxiety and worry, too.
+  &lt;span&gt;
+  &lt;/span&gt;
+  &lt;img src=&quot;/assets/images/104406013/0.svg&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;ol&gt;
+ &lt;li&gt;
+  &lt;strong&gt;
+   How to manage project in efficient way using Jira :  WBS (Work Breakdown Structure)
+  &lt;/strong&gt;
+ &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+ &lt;span lang=&quot;en&quot;&gt;
+  We need to distribute work resources by task, part, and period and to manage the progress schedule.
+  &lt;span&gt;
+  &lt;/span&gt;
+  &lt;span style=&quot;color: rgb(34,34,34);&quot;&gt;
+   We could make WBS on Jira making plan and manage projects. With WBS Gantt-Chart for Jira, you can
+   &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+    managing resources across teams and projects and Instantly see and manage dependencies.
+    &lt;span&gt;
+    &lt;/span&gt;
+   &lt;/span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span lang=&quot;en&quot;&gt;
+  &lt;span style=&quot;color: rgb(34,34,34);&quot;&gt;
+   &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+    &lt;span&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1211768/wbs-gantt-chart-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+       &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+        &lt;img src=&quot;/assets/images/104406013/1.png&quot;/&gt;
+       &lt;/span&gt;
+      &lt;/a&gt;
+     &lt;/span&gt;
+    &lt;/span&gt;
+   &lt;/span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span lang=&quot;en&quot;&gt;
+   &lt;span style=&quot;color: rgb(34,34,34);&quot;&gt;
+    2.  The way to automate Jira actions and manage workflow :
+   &lt;/span&gt;
+  &lt;/span&gt;
+  Workflow Management
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p class=&quot;with-hero&quot; style=&quot;text-align: left;&quot;&gt;
+ &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+  You can save time and reduce risk of error by automating Jira actions.
+ &lt;/span&gt;
+ With ScriptRunner for Jira, you can automate Workflows &amp;amp; Issues, Extend Jira.
+&lt;/p&gt;
+&lt;p class=&quot;with-hero&quot; style=&quot;text-align: left;&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/6820/scriptrunner-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;img src=&quot;/assets/images/104406013/2.png&quot;/&gt;
+   &lt;/span&gt;
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;with-hero&quot; style=&quot;text-align: left;&quot;&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p class=&quot;with-hero&quot; style=&quot;text-align: left;&quot;&gt;
+ &lt;strong&gt;
+  3. Wanna resolve license shortage?  : Efficient user management for Jira Admin
+ &lt;/strong&gt;
+ &lt;em&gt;
+  &lt;strong&gt;
+   &lt;br/&gt;
+  &lt;/strong&gt;
+ &lt;/em&gt;
+&lt;/p&gt;
+&lt;p class=&quot;with-hero&quot; style=&quot;text-align: left;&quot;&gt;
+ The user management app ‘Flexible User License’ allows user
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;strong&gt;
+  to resolve the license shortage without purchasing additional licenses.
+ &lt;/strong&gt;
+ (even using &quot;Starter&quot; tier) You don't
+ &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+  need to purchase additional licenses when the number of users exceeds the license usage of the purchased plan.
+  &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
+   You can check our customer
+  &lt;/span&gt;
+  &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
+  &lt;/span&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;https://tech.osci.kr/2020/07/21/97475714/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;text-align: left;&quot;&gt;
+   success story
+   &lt;span&gt;
+   &lt;/span&gt;
+  &lt;/a&gt;
+  &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
+   and Free Trial (Participate
+   &lt;a class=&quot;external-link&quot; href=&quot;https://bit.ly/3nrRLg4&quot; rel=&quot;nofollow&quot;&gt;
+    the free-trial event
+   &lt;/a&gt;
+   to win Amazon gift card though!)
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;with-hero&quot; style=&quot;text-align: left;&quot;&gt;
+ &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+  &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1222216/flexible-user-license-for-jira?hosting=server&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+      &lt;img src=&quot;/assets/images/104406013/3.png&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+   &lt;/span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;with-hero&quot; style=&quot;text-align: left;&quot;&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  4. Optimize user interface for teams or customer : Theme &amp;amp; Style
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+  You could
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+  build a customer-focused service experience on Jira also. Refined for Jira adds
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+  a customizable and easy to use interface for Jira and JSD to every team.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(9,30,66);&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1216711/refined-for-jira-sites-themes?hosting=datacenter&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+    &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+     &lt;img src=&quot;/assets/images/104406013/4.png&quot;/&gt;
+    &lt;/span&gt;
+   &lt;/a&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  5. Integration : Integration with various tools &amp;amp; system
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ It is very important to manage resources by connecting with the existing team system you are already using.
+&lt;/p&gt;
+&lt;p&gt;
+ You can integrate Git, google drive &amp;amp; docs with Jira with below apps.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/4984/git-integration-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104406013/5.jpeg&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1216787/google-drive-docs-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104406013/6.jpeg&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;
+ These apps definitely help make your team and Atlassian more efficient and powerful.
+&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;
+ If you have any idea,
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  le
+ &lt;/span&gt;
+ ave your comments and questions below ! I’d love to hear!
+&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;
+ Again, don't forget to
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+  enter to
+  &lt;span&gt;
+   get
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  a
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;strong&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;https://bit.ly/3nrRLg4&quot; rel=&quot;nofollow&quot;&gt;
+   &lt;span class=&quot;il&quot; style=&quot;color: rgb(0,0,0);&quot;&gt;
+    Amazon
+   &lt;/span&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    Gift Card event.
+   &lt;/span&gt;
+  &lt;/a&gt;
+ &lt;/strong&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  ;D
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Thu, 08 Oct 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/10/08/104406013/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/10/08/104406013/</guid>
+        
+        <category>atlassian</category>
+        
+        <category>devops</category>
+        
+        <category>agile</category>
+        
+        <category>jira</category>
+        
+        <category>confluence</category>
+        
+        <category>flexibleuserlicense</category>
+        
+        
+      </item>
     
       <item>
         <title>[Interview] 물어보는 용기를 가진 개발자 - 오훈님</title>
@@ -7394,714 +7669,6 @@ AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(
         <category>atlassian</category>
         
         <category>cloud</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>[Container 시리즈] 04. 실행중인 App 서비스를 컨테이너화 해보자!</title>
-        <description>&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   Sample application으로 dockerized 하는 과정에 대해 기술
-  &lt;/p&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
- &lt;p&gt;
-  안녕하세요! 굉장히 오랜만에 블로그로 다시 찾아온 것 같습니다.
- &lt;/p&gt;
- &lt;p&gt;
-  지난시간에 Docker의 기본적인 개념과 어떻게 동작했는지를 알아봤는데요,
-  &lt;br/&gt;
-  이번에는
-  &lt;u&gt;
-   실질적으로 사용하고있는 Application을 어떻게 Containerized 할지에 관련된 주제
-  &lt;/u&gt;
-  를 가지고 돌아왔습니다.
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;br/&gt;
- &lt;p&gt;
-  &lt;strong&gt;
-   순서는 다음과 같습니다.
-  &lt;/strong&gt;
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;1. Source code clone
-2. npm build
-3. docker file 생성
-4. docker file을 통한 docker image 생성
-5. docker run을 이용한 컨테이너 실행
-&lt;/code&gt;&lt;/pre&gt;
- &lt;h2&gt;
-  &lt;a href=&quot;#1-source-code-clone&quot; id=&quot;1-source-code-clone&quot;&gt;
-   1. Source Code Clone.
-  &lt;/a&gt;
- &lt;/h2&gt;
- &lt;p&gt;
-  해당 Source 들은 GitLab에 올려져 있으며.
-  &lt;br/&gt;
-  해당 애플리케이션 같은경우 Hostname과 현재 시간을 출력해주는 simple application입니다.
-  &lt;br/&gt;
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  자 그럼 Giblab에 올려진 코드들을 가지고 와봅니다.
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stl]# git clone http://192.168.197.132/root/stlapp.git
-Cloning into 'stlapp'...
-Username for 'http://192.168.197.132': kbseo
-Password for 'http://kbseo@192.168.197.132': 
-remote: Enumerating objects: 131, done.
-remote: Counting objects: 100% (131/131), done.
-remote: Compressing objects: 100% (69/69), done.
-remote: Total 217 (delta 70), reused 112 (delta 56), pack-reused 86
-Receiving objects: 100% (217/217), 564.33 KiB | 0 bytes/s, done.
-Resolving deltas: 100% (84/84), done.
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  소스들을 서버로 잘 데리고 왔습니다.
-  &lt;br/&gt;
-  참고로 말씀드리자면 해당 Application은 React와 Spring Boot로 만들어졌고 maven을 통해 build하도록 되어져있습니다.
-  &lt;br/&gt;
-  추가로 Maven내에 npm build가 가능하도록 한 상태여서 maven 명령을 통해서 빌드가 가능합니다.
- &lt;/p&gt;
- &lt;h2&gt;
-  &lt;a href=&quot;#2-npm-build&quot; id=&quot;2-npm-build&quot;&gt;
-   2. npm build
-  &lt;/a&gt;
- &lt;/h2&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# ./mvnw package
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------------------&amp;lt; no.kantega:stlapp &amp;gt;--------------------------
-[INFO] Building spring-and-react 0.1
-[INFO] --------------------------------[ war ]---------------------------------
-[INFO] 
-[INFO] --- frontend-maven-plugin:1.6:install-node-and-npm (install node and npm) @ stlapp ---
-[INFO] Installing node version v6.17.1
-[INFO] Unpacking /root/.m2/repository/com/github/eirslett/node/6.17.1/node-6.17.1-linux-x64.tar.gz into /root/stl/stlapp/target/node/tmp
-[INFO] Copying node binary from /root/stl/stlapp/target/node/tmp/node-v6.17.1-linux-x64/bin/node to /root/stl/stlapp/target/node/node
-[INFO] Installed node locally.
-[INFO] Installing npm version 3.10.10
-[INFO] Unpacking /root/.m2/repository/com/github/eirslett/npm/3.10.10/npm-3.10.10.tar.gz into /root/stl/stlapp/target/node/node_modules
-.....
-[INFO] --- spring-boot-maven-plugin:2.0.1.RELEASE:repackage (default) @ stlapp ---
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 02:22 min
-[INFO] Finished at: 2020-04-24T18:30:05+09:00
-[INFO] ------------------------------------------------------------------------
-[root@kbseo-test1 stlapp]# 
-
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  빌드를 완료해주었습니다!
- &lt;/p&gt;
- &lt;h2&gt;
-  &lt;a href=&quot;#3-docker-file-생성&quot; id=&quot;3-docker-file-생성&quot;&gt;
-   3. docker file 생성
-  &lt;/a&gt;
- &lt;/h2&gt;
- &lt;p&gt;
-  이렇게 가지고 온 source를 컨테이너화 하기위하여 docker file을 먼저 생성해 줘야겠죠?
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# vim Dockerfile
-FROM tomcat:8.5.50-jdk8-openjdk
-
-MAINTAINER kbseo@osci.kr
-
-ENV TZ=Asia/Seoul
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
-
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
-COPY target/stlapp-0.1.war /usr/local/tomcat/webapps/ROOT.war
-
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  Simple application은 hostname과 time zone을 출력해주는 간단한 동작을 하는 애플리케이션 이기에
-  &lt;br/&gt;
-  docker file안에 timezone을 설정해주고 tomcat상에서 동작될 war파일을 복사해줍니다.
- &lt;/p&gt;
- &lt;h2&gt;
-  &lt;a href=&quot;#4-docker-file을-통한-docker-image-생성&quot; id=&quot;4-docker-file을-통한-docker-image-생성&quot;&gt;
-   4. docker file을 통한 docker image 생성
-  &lt;/a&gt;
- &lt;/h2&gt;
- &lt;p&gt;
-  이전 글에서 설정해드린것과 같이 docker는 image로 배포를 하기 때문에
-  &lt;br/&gt;
-  만들어두었던 docker file을 image화 해 줍니다.
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;# 현재 가지고있는 이미지가 있나 확인을 해줍니다
-[root@kbseo-test1 stlapp]# docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-[root@kbseo-test1 stlapp]# 
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  이미지가 한개도 없는것을 확인하실수 있습니다.
- &lt;/p&gt;
- &lt;p&gt;
-  이미지 형태로 빌드를 해줍니다!
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker build -t stlapp:1.0 .
-Sending build context to Docker daemon 252.2 MB
-Step 1/6 : FROM tomcat:8.5.50-jdk8-openjdk
-Trying to pull repository docker.io/library/tomcat ... 
-8.5.50-jdk8-openjdk: Pulling from docker.io/library/tomcat
-dc65f448a2e2: Pull complete 
-346ffb2b67d7: Pull complete 
-dea4ecac934f: Pull complete 
-8ac92ddf84b3: Pull complete 
-d8ef64070a18: Pull complete 
-6577248b0d6e: Pull complete 
-576c0a3a6af9: Pull complete 
-6e0159bd18db: Pull complete 
-944191e51caa: Pull complete 
-9ee6a5ca751e: Pull complete 
-Digest: sha256:d53c2079ea67db92f6d7c39e9450f641610336016fdddef5392c5afd41518e5e
-Status: Downloaded newer image for docker.io/tomcat:8.5.50-jdk8-openjdk
- ---&amp;gt; b56d8850aed5
-Step 2/6 : MAINTAINER jacobbaek@osci.kr
- ---&amp;gt; Running in 148cd746d772
- ---&amp;gt; 3b0a94a52842
-Removing intermediate container 148cd746d772
-Step 3/6 : ENV TZ Asia/Seoul
- ---&amp;gt; Running in 7398ad9609a2
- ---&amp;gt; 706e8669d2d6
-Removing intermediate container 7398ad9609a2
-Step 4/6 : RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
- ---&amp;gt; Running in 1bcb6e658984
-
- ---&amp;gt; 453ac37a79dd
-Removing intermediate container 1bcb6e658984
-Step 5/6 : RUN rm -rf /usr/local/tomcat/webapps/ROOT
- ---&amp;gt; Running in f3c3bf4eb17b
-
- ---&amp;gt; 32f3bddc0334
-Removing intermediate container f3c3bf4eb17b
-Step 6/6 : COPY target/stlapp-0.1.war /usr/local/tomcat/webapps/ROOT.war
- ---&amp;gt; 3f24f0f7deaa
-Removing intermediate container 134e07409a14
-Successfully built 3f24f0f7deaa
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  docker build 같은경우 지난시간의 글에서 좀 더 자세히 확인 가능하십니다 ㅎ.ㅎ
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  명령어에 대해서 간단히 설명을 다시 드리자면,
-  &lt;br/&gt;
-  &lt;strong&gt;
-   $ docker build &amp;lt;옵션&amp;gt; &amp;lt;dockerfile 경로&amp;gt;
-  &lt;/strong&gt;
-  &lt;br/&gt;
-  저는 태그를 지정해주기 위하여 -t옵션을 사용해주었습니다.
-  &lt;br/&gt;
-  태그는 &amp;lt;저장소이름&amp;gt;/&amp;lt;이미지이름&amp;gt;:&amp;lt;태그&amp;gt; 형식입니다.
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  다시 이미지를 확인해보면 좀전에 build한 이미지가 올라온 것을 확인 하실 수 있습니다!
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker images
-REPOSITORY          TAG                   IMAGE ID            CREATED             SIZE
-stlapp              1.0                   3f24f0f7deaa        3 minutes ago       545 MB
-docker.io/tomcat    8.5.50-jdk8-openjdk   b56d8850aed5        2 months ago        529 MB
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  어라? 왜 두개의 이미지가 올라가져있을까요....?
-분명히 도커 빌드는 한번만 실행했는데..
-도커파일을 다시 살펴볼까요?
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;FROM tomcat:8.5.50-jdk8-openjdk
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  첫줄에서 답이 나왔습니다!
-  &lt;br/&gt;
-  FROM 을 통해 tomcat이미지를 먼저 받아서 그 위에 차례대로 레이어를 쌓아가면서 도커파일을 실행하기에
-  &lt;br/&gt;
-  이미지가 두개가 만들어지게 됩니다.
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;ol start=&quot;5&quot;&gt;
-  &lt;li&gt;
-   docker run을 이용한 컨테이너 실행
-  &lt;/li&gt;
- &lt;/ol&gt;
- &lt;p&gt;
-  이제 Image를 만들었으니 실행해봅시다!
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker ps -a
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-[root@kbseo-test1 stlapp]#
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  아직까지 실행되고있는 컨테이너가 없네요
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker run -d -p 8081:8080 --name=stlapp stlapp:1.0
-fc16ba3e9f3f03ba22a2ca0b7eb12909a8311b555ef34bcf9b0f591537a76d2a
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  명령어에 대해 간단히 설명드리자면
-  &lt;br/&gt;
-  &lt;strong&gt;
-   $ docker run &amp;lt;옵션&amp;gt; &amp;lt;이미지이름, ID &amp;gt; &amp;lt;명령&amp;gt; &amp;lt;매개변수&amp;gt;
-  &lt;/strong&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  이렇게 구성되어있습니다.
- &lt;/p&gt;
- &lt;p&gt;
-  &lt;code&gt;
-   docker run -d -p 8081:8080 --name=stlapp stlapp:1.0
-  &lt;/code&gt;
-  이 명령어를 보자면
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;ul&gt;
-  &lt;li&gt;
-   &lt;p&gt;
-    -d 데몬모드로 컨테이너를 실행하고,
-   &lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;p&gt;
-    -p 옵션을 이용하여 외부포트를 연결해줍니다
-    &amp;lt;호스트포트&amp;gt;:&amp;lt;컨테이너포트&amp;gt; -&amp;gt; 8080컨테이너 포트를 8081포트를 이용해 외부로 연결시킵니다.
-   &lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;p&gt;
-    --name 컨테이너 이름을 지정해줍니다.
-    여기에서는 stlapp이라는 이름을 달아주었습니다.
-   &lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-   &lt;p&gt;
-    실행시킬 컨테이너와 태그정보를 입력해줍니다.
-   &lt;/p&gt;
-  &lt;/li&gt;
- &lt;/ul&gt;
- &lt;p&gt;
-  결과를 한번 봐볼까요?
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker ps -a
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
-fc16ba3e9f3f        stlapp:1.0          &quot;catalina.sh run&quot;   11 minutes ago      Up 11 minutes       0.0.0.0:8081-&amp;gt;8080/tcp   stlapp
-[root@kbseo-test1 stlapp]# 
-
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  실행되고있는 컨테이너를 확인하실 수 있습니다.
- &lt;/p&gt;
- &lt;p&gt;
-  브라우저를 통해 확인해볼까요?
- &lt;/p&gt;
- &lt;script&gt;
-  //&lt;![CDATA[
-
-AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-
-//]]&gt;
- &lt;/script&gt;
- &lt;style&gt;
-  .hljs {display: inline;}
-pre &gt; code {display: block !important;}
- &lt;/style&gt;
- &lt;script&gt;
-  //&lt;![CDATA[
- AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
-    block.classList.add(&quot;confluenceTh&quot;);
-});
-
-AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
-    block.classList.add(&quot;confluenceTd&quot;);
-});
-//]]&gt;
- &lt;/script&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/97455310/0.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
- &lt;p&gt;
-  컨테이너 이미지의 ID와 현재 시간이 잘 출력되는것을 보실 수 있습니다.
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  하지만 빨간색이라 눈이 너무나 아픈것같은 느낌적인 느낌입니다
-  &lt;br/&gt;
-  그래서 검은색으로 바꾸고 재 배포를 해볼까요??
- &lt;/p&gt;
- &lt;p&gt;
-  순서는 간단합니다!
- &lt;/p&gt;
- &lt;ol&gt;
-  &lt;li&gt;
-   실행되고 있는 컨테이너 중지
-  &lt;/li&gt;
-  &lt;li&gt;
-   해당 컨테이너 삭제
-  &lt;/li&gt;
-  &lt;li&gt;
-   소스수정
-  &lt;/li&gt;
-  &lt;li&gt;
-   소스빌드, 컨테이너 빌드
-  &lt;/li&gt;
-  &lt;li&gt;
-   컨테이너 실행
-  &lt;/li&gt;
- &lt;/ol&gt;
- &lt;h3&gt;
-  &lt;a href=&quot;#1-실행되고-있는-컨테이너-중지&quot; id=&quot;1-실행되고-있는-컨테이너-중지&quot;&gt;
-   1. 실행되고 있는 컨테이너 중지
-  &lt;/a&gt;
- &lt;/h3&gt;
- &lt;p&gt;
-  단칼에 중지시켜 줍니다.
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 src]# docker ps -a
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
-fc16ba3e9f3f        stlapp:1.0          &quot;catalina.sh run&quot;   29 minutes ago      Up 29 minutes       0.0.0.0:8081-&amp;gt;8080/tcp   stlapp
-
- 
-[root@kbseo-test1 src]# docker kill stlapp
-stlapp
-
-
-[root@kbseo-test1 src]# docker ps -a
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                       PORTS               NAMES
-fc16ba3e9f3f        stlapp:1.0          &quot;catalina.sh run&quot;   29 minutes ago      Exited (137) 3 seconds ago                       stlapp
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  docker kill 명령어를 통해 중지시켜준 후
-  &lt;br/&gt;
-  docker ps 를 통해 확인해보면 상태가 바뀐것을 보실 수 있습니다.
-  &lt;br/&gt;
-  브라우저를 통해 접속해봐도 접속이 안되는것을 보실 수 있죠
- &lt;/p&gt;
- &lt;h3&gt;
-  &lt;a href=&quot;#2-해당-컨테이너-삭제&quot; id=&quot;2-해당-컨테이너-삭제&quot;&gt;
-   2. 해당 컨테이너 삭제
-  &lt;/a&gt;
- &lt;/h3&gt;
- &lt;p&gt;
-  프로세스를 삭제시켜 줍니다.
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 src]# docker rm stlapp
-stlapp
-
-[root@kbseo-test1 src]# docker ps -a
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-
-&lt;/code&gt;&lt;/pre&gt;
- &lt;h3&gt;
-  &lt;a href=&quot;#3-소스수정&quot; id=&quot;3-소스수정&quot;&gt;
-   3. 소스수정
-  &lt;/a&gt;
- &lt;/h3&gt;
- &lt;p&gt;
-  css코드를 수정하여 색상을 변경해줍니다.
-  &lt;del&gt;
-   저는 블랙블랙으로 바꿨습니다.(TMI)
-  &lt;/del&gt;
- &lt;/p&gt;
- &lt;h3&gt;
-  &lt;a href=&quot;#4-소스빌드&quot; id=&quot;4-소스빌드&quot;&gt;
-   4. 소스빌드
-  &lt;/a&gt;
- &lt;/h3&gt;
- &lt;p&gt;
-  소스를 수정했으니 재빌드를 해줘야겠죠?
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# ./mvnw package
-INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------------------&amp;lt; no.kantega:stlapp &amp;gt;--------------------------
-[INFO] Building spring-and-react 0.1
-[INFO] --------------------------------[ war ]---------------------------------
-[INFO] 
-[INFO] --- frontend-maven-plugin:1.6:install-node-and-npm (install node and npm) @ stlapp ---
-[INFO] Node v6.17.1 is already installed.
-[INFO] NPM 3.10.10 is already installed.
-[INFO] 
-[INFO] --- frontend-maven-plugin:1.6:npm (npm install) @ stlapp ---
-[INFO] Running 'npm install' in /root/stl/stlapp/frontend
-...
-...
-[INFO] --- spring-boot-maven-plugin:2.0.1.RELEASE:repackage (default) @ stlapp ---
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 43.467 s
-[INFO] Finished at: 2020-04-27T20:10:43+09:00
-[INFO] ------------------------------------------------------------------------
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  소스를 빌드했으니 도커를 빌드해봅시다!
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker build -t stlapp .
-Sending build context to Docker daemon 252.2 MB
-Step 1/6 : FROM tomcat:8.5.50-jdk8-openjdk
- ---&amp;gt; b56d8850aed5
-Step 2/6 : MAINTAINER jacobbaek@osci.kr
- ---&amp;gt; Using cache
- ---&amp;gt; 3b0a94a52842
-Step 3/6 : ENV TZ Asia/Seoul
- ---&amp;gt; Using cache
- ---&amp;gt; 706e8669d2d6
-Step 4/6 : RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
- ---&amp;gt; Using cache
- ---&amp;gt; 453ac37a79dd
-Step 5/6 : RUN rm -rf /usr/local/tomcat/webapps/ROOT
- ---&amp;gt; Using cache
- ---&amp;gt; 32f3bddc0334
-Step 6/6 : COPY target/stlapp-0.1.war /usr/local/tomcat/webapps/ROOT.war
- ---&amp;gt; Using cache
- ---&amp;gt; 3f24f0f7deaa
-Successfully built 3f24f0f7deaa
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  이미지가 만들어졌는지 확인해볼까요?
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker images
-REPOSITORY          TAG                   IMAGE ID            CREATED             SIZE
-stlapp              1.0                   3f24f0f7deaa        3 hours ago         545 MB
-stlapp              latest                3f24f0f7deaa        3 hours ago         545 MB
-docker.io/tomcat    8.5.50-jdk8-openjdk   b56d8850aed5        2 months ago        529 MB
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  하나의 이미지가 추가로 생성된 것을 보실 수 있습니다!
- &lt;/p&gt;
- &lt;h3&gt;
-  &lt;a href=&quot;#5-컨테이너-실행&quot; id=&quot;5-컨테이너-실행&quot;&gt;
-   5. 컨테이너 실행
-  &lt;/a&gt;
- &lt;/h3&gt;
- &lt;p&gt;
-  돌려봅니다
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker run -d -p 8081:8080 --name=stlapp stlapp
-5140e8332057ed23c4bf491a36d2d63fa0d09f0ffc4378073e145c2626075c30
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  잘 올라가져있는지 확인해볼까요?
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker ps -a
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
-dd58841261fa        stlapp              &quot;catalina.sh run&quot;   55 seconds ago      Up 55 seconds       0.0.0.0:8081-&amp;gt;8080/tcp   stlapp
-&lt;/code&gt;&lt;/pre&gt;
- &lt;script&gt;
-  //&lt;![CDATA[
-
-AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-
-//]]&gt;
- &lt;/script&gt;
- &lt;style&gt;
-  .hljs {display: inline;}
-pre &gt; code {display: block !important;}
- &lt;/style&gt;
- &lt;script&gt;
-  //&lt;![CDATA[
- AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
-    block.classList.add(&quot;confluenceTh&quot;);
-});
-
-AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
-    block.classList.add(&quot;confluenceTd&quot;);
-});
-//]]&gt;
- &lt;/script&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/97455310/1.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;div class=&quot;conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;markdown&quot;&gt;
- &lt;p&gt;
-  이제 깔끔한 BLACK 색상으로 바뀌었습니다.
- &lt;/p&gt;
- &lt;p&gt;
-  이렇게 제 local환경에서 테스트한 컨테이너들에게 TAG를 지정하여서 버전관리도 할 수 있습니다.
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker tag stlapp:latest 192.168.197.130:5000/stlapp_kb:1.2.0
-
-[root@kbseo-test1 stlapp]# docker images
-REPOSITORY                       TAG                   IMAGE ID            CREATED             SIZE
-192.168.197.130:5000/stlapp_kb   1.2.0                 3e72ae5de27a        5 minutes ago       545 MB
-stlapp                           latest                3e72ae5de27a        5 minutes ago       545 MB
-docker.io/tomcat                 8.5.50-jdk8-openjdk   b56d8850aed5        2 months ago        529 MB
-[root@kbseo-test1 stlapp]# 
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  테스트를 끝냈으니 registry에 올려줄 차례죠
- &lt;/p&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker push 192.168.197.130:5000/stlapp_kb:1.2.0
-The push refers to a repository [192.168.197.130:5000/stlapp_kb]
-The push refers to a repository [192.168.197.130:5000/stlapp_kb]
-Get https://192.168.197.130:5000/v1/_ping: http: server gave HTTP response to HTTPS client
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  어랏? 안돼네요?
-  &lt;br/&gt;
-  이유는 바로 도커는 https 통신을 하기 때문입니다.
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  고로 저는 http 통신을 하기위해
-  &lt;br/&gt;
-  docker에게 직접 친절히 사용하고자 하는 ip를 등록해주도록 하겠습니다.
- &lt;/p&gt;
- &lt;h3&gt;
-  &lt;a href=&quot;#docker-insecure&quot; id=&quot;docker-insecure&quot;&gt;
-   docker insecure
-  &lt;/a&gt;
- &lt;/h3&gt;
- &lt;p&gt;
-  여러가지의 방법이 있지만
-  &lt;br/&gt;
-  저는 daemon.json 파일 안에 등록을 해주도록 하겠습니다.
-  &lt;br/&gt;
-  (가장 간단해서 이방법으로 하였습니다 히힛)
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;ol&gt;
-  &lt;li&gt;
-   /etc/docker/daemon.json 수정
-  &lt;/li&gt;
- &lt;/ol&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# cat /etc/docker/daemon.json 
-{
-&quot;insecure-registries&quot;:[&quot;192.168.197.130:5000&quot;]
-}
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  사용할 registry 주소와 포트를 입력해줍니다.
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;ol start=&quot;2&quot;&gt;
-  &lt;li&gt;
-   dpcker 데몬 재기동
-  &lt;/li&gt;
- &lt;/ol&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# service docker restart
-Redirecting to /bin/systemctl restart docker.service
-&lt;/code&gt;&lt;/pre&gt;
- &lt;ol start=&quot;3&quot;&gt;
-  &lt;li&gt;
-   레지스트리에 login
-  &lt;/li&gt;
- &lt;/ol&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker login http://192.168.197.130:5000
-Username: admin
-Password: 
-Login Succeeded
-&lt;/code&gt;&lt;/pre&gt;
- &lt;ol start=&quot;4&quot;&gt;
-  &lt;li&gt;
-   레지스트리에 push
-  &lt;/li&gt;
- &lt;/ol&gt;
- &lt;pre&gt;&lt;code&gt;[root@kbseo-test1 stlapp]# docker push 192.168.197.130:5000/stlapp_kb:1.2.0
-The push refers to a repository [192.168.197.130:5000/stlapp_kb]
-c20036844421: Pushed 
-64bc7cab37ab: Pushed 
-caeac141f483: Layer already exists 
-5245df7d360d: Layer already exists 
-78f5460c83b5: Layer already exists 
-c601709dd5d2: Layer already exists 
-72ce39f2b7f6: Layer already exists 
-33783834b288: Layer already exists 
-5c813a85f7f0: Layer already exists 
-bdca38f94ff0: Layer already exists 
-faac394a1ad3: Layer already exists 
-ce8168f12337: Layer already exists 
-1.2.0: digest: sha256:93e8b021981faed5cb1e5b22f4c0694f841afc1aa4502fff78d7edf9ffdb97cf size: 2840
-[root@kbseo-test1 stlapp]#
-&lt;/code&gt;&lt;/pre&gt;
- &lt;p&gt;
-  &lt;br/&gt;
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  짜잔! 등록이 되었습니다
- &lt;/p&gt;
- &lt;p&gt;
-  이번시간에는 간단한 Application을 컨테이너화 하여 실행하는거 까지 함께 했는데요
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  간단하다고 했지만 실질적으로 여러 작업이 들어갔었습니다
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  그래서 다음시간에는 이를 좀 더 간단히 수행하기위해
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  젠킨스를 이용하여 작업을 해보도록 하겠습니다!
-  &lt;br/&gt;
- &lt;/p&gt;
- &lt;p&gt;
-  뿅!
- &lt;/p&gt;
- &lt;script&gt;
-  //&lt;![CDATA[
-
-AJS.$('[data-macro-name=&quot;markdown&quot;] code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
-
-//]]&gt;
- &lt;/script&gt;
- &lt;style&gt;
-  .hljs {display: inline;}
-pre &gt; code {display: block !important;}
- &lt;/style&gt;
- &lt;script&gt;
-  //&lt;![CDATA[
- AJS.$('[data-macro-name=&quot;markdown&quot;] table thead th').each(function(i, block) {
-    block.classList.add(&quot;confluenceTh&quot;);
-});
-
-AJS.$('[data-macro-name=&quot;markdown&quot;] table tbody tr td').each(function(i, block) {
-    block.classList.add(&quot;confluenceTd&quot;);
-});
-//]]&gt;
- &lt;/script&gt;
-&lt;/div&gt;</description>
-        <pubDate>Thu, 30 Apr 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/04/30/97455310/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/04/30/97455310/</guid>
-        
-        <category>docker</category>
-        
-        <category>kubernetes</category>
-        
-        <category>dockerize</category>
-        
-        <category>containerize</category>
-        
-        <category>도커</category>
-        
-        <category>컨테이너</category>
         
         
       </item>

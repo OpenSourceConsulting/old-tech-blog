@@ -5,6 +5,15 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tech.osci.kr/2020/10/08/104406013/</loc>
+    
+    <lastmod>2020-10-08T00:00:00+09:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
     <loc>https://tech.osci.kr/2020/09/22/104399500/</loc>
     
     <lastmod>2020-09-22T00:00:00+09:00</lastmod>
@@ -1030,6 +1039,8 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  
   
   
   
