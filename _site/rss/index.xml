@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Oct 2020 10:23:24 +0900</pubDate>
-    <lastBuildDate>Tue, 20 Oct 2020 10:23:24 +0900</lastBuildDate>
+    <pubDate>Tue, 20 Oct 2020 17:51:02 +0900</pubDate>
+    <lastBuildDate>Tue, 20 Oct 2020 17:51:02 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -44,7 +44,7 @@ Sharing Tech. Growing Together.
  )
 &lt;/p&gt;
 &lt;p class=&quot;with-breadcrumbs&quot;&gt;
- &lt;a href=&quot;https://wiki.osci.kr/pages/viewpage.action?pageId=104398968&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://tech.osci.kr/2020/09/22/104399500/&quot; rel=&quot;nofollow&quot;&gt;
   [Interview] 물어보는 용기를 가진 개발자 - 오훈님
  &lt;/a&gt;
 &lt;/p&gt;
@@ -59,9 +59,11 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;p&gt;
  지난 번 '개발자 오훈님'의 인터뷰에 이어, 오늘은
- &lt;strong&gt;
-  '엔지니어 강미경님'의 이야기를 전해드리겠습니다.
- &lt;/strong&gt;
+ &lt;u&gt;
+  &lt;strong&gt;
+   '엔지니어 강미경님'의 이야기를 전해드리겠습니다.
+  &lt;/strong&gt;
+ &lt;/u&gt;
 &lt;/p&gt;
 &lt;p&gt;
  &lt;br/&gt;
@@ -94,9 +96,18 @@ Sharing Tech. Growing Together.
   &lt;/strong&gt;
  &lt;/span&gt;
 &lt;/h1&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.오픈소스컨설팅에서어떤업무를하고계신가요?👨‍💻&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅에서 어떤 업무를 하고 계신가요? 👨‍💻
+  &lt;u&gt;
+   Q. 오픈소스컨설팅에서 어떤 업무를 하고 계신가요?
+  &lt;/u&gt;
+  👨‍💻
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -118,9 +129,11 @@ Sharing Tech. Growing Together.
  &lt;br/&gt;
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.원래개발자였던것으로알고있는데,엔지니어로전향하신계기가궁금합니다.❓&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 원래 개발자였던 것으로 알고 있는데, 엔지니어로 전향하신 계기가 궁금합니다.
- &lt;/span&gt;
+ &lt;u&gt;
+  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+   Q. 원래 개발자였던 것으로 알고 있는데, 엔지니어로 전향하신 계기가 궁금합니다.
+  &lt;/span&gt;
+ &lt;/u&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
   ❓
  &lt;/span&gt;
@@ -144,9 +157,11 @@ Sharing Tech. Growing Together.
  &lt;br/&gt;
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.잦은외근업무,힘든점은없으신가요?👨‍💼&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 잦은 외근 업무, 힘든 점은 없으신가요?
- &lt;/span&gt;
+ &lt;u&gt;
+  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+   Q. 잦은 외근 업무, 힘든 점은 없으신가요?
+  &lt;/span&gt;
+ &lt;/u&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
   👨‍💼
  &lt;/span&gt;
@@ -179,7 +194,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.어떤동호회에서활동하고계신가요?📘&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 어떤 동호회에서 활동하고 계신가요?
+  &lt;u&gt;
+   Q. 어떤 동호회에서 활동하고 계신가요?
+  &lt;/u&gt;
  &lt;/span&gt;
  &lt;span class=&quot;emoji&quot;&gt;
   📘
@@ -198,9 +215,6 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
   &lt;img src=&quot;/assets/images/104408646/5.jpeg&quot;/&gt;
- &lt;/span&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104408646/6.jpeg&quot;/&gt;
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;p&gt;
@@ -221,7 +235,9 @@ Sharing Tech. Growing Together.
 &lt;/h1&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.아틀라시안솔루션,사내에서는어떻게활용하고있나요?💻&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 아틀라시안 솔루션, 사내에서는 어떻게 활용하고 있나요?
+  &lt;u&gt;
+   Q. 아틀라시안 솔루션, 사내에서는 어떻게 활용하고 있나요?
+  &lt;/u&gt;
   &lt;a class=&quot;external-link&quot; href=&quot;https://emojipedia.org/laptop/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;text-align: left;&quot;&gt;
    &lt;span class=&quot;emoji&quot;&gt;
     💻
@@ -246,7 +262,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.엔지니어로서아틀라시안솔루션은어떤가요?⚒&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 엔지니어로서 아틀라시안 솔루션은 어떤가요?
+  &lt;u&gt;
+   Q. 엔지니어로서 아틀라시안 솔루션은 어떤가요?
+  &lt;/u&gt;
   &lt;a class=&quot;external-link&quot; href=&quot;https://emojipedia.org/hammer-and-pick/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;text-align: left;&quot;&gt;
    &lt;span class=&quot;emoji&quot;&gt;
     ⚒
@@ -272,7 +290,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.아틀라시안을이제막공부하려는분께쉽게접할수있는방법을추천해주신다면요?💡&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q.  아틀라시안을 이제 막 공부하려는 분께 쉽게 접할 수 있는 방법을 추천해 주신다면요?
+  &lt;u&gt;
+   Q.  아틀라시안을 이제 막 공부하려는 분께 쉽게 접할 수 있는 방법을 추천해 주신다면요?
+  &lt;/u&gt;
   &lt;a class=&quot;external-link&quot; href=&quot;https://emojipedia.org/light-bulb/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;text-align: left;&quot;&gt;
    &lt;span class=&quot;emoji&quot;&gt;
     💡
@@ -300,7 +320,7 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
   무료 교육도 제공하고 있으니 가볍게 들어보시는 것도 추천 드립니다.
-  &lt;img src=&quot;/assets/images/104408646/7.svg&quot;/&gt;
+  &lt;img src=&quot;/assets/images/104408646/6.svg&quot;/&gt;
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;p&gt;
@@ -313,8 +333,11 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104408646/8.png&quot;/&gt;
+  &lt;img src=&quot;/assets/images/104408646/7.png&quot;/&gt;
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;p&gt;
@@ -329,7 +352,10 @@ Sharing Tech. Growing Together.
 &lt;/h1&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.엔지니어로서필요한역량이나자질이있다면어떤건가요?💪🏻&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 엔지니어로서 필요한 역량이나 자질이 있다면 어떤건가요? 💪🏻
+  &lt;u&gt;
+   Q. 엔지니어로서 필요한 역량이나 자질이 있다면 어떤건가요?
+  &lt;/u&gt;
+  💪🏻
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -355,7 +381,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.요새하고있는스터디가있다면요?✏️&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 요새 하고 있는 스터디가 있다면요?
+  &lt;u&gt;
+   Q. 요새 하고 있는 스터디가 있다면요?
+  &lt;/u&gt;
   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
    ✏️
   &lt;/span&gt;
@@ -369,15 +397,17 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;p&gt;
  회사 동료분께서 관련 교육을 추천해 주셔서 수강하게 되었고, 최근에 ITIL 4 foundation 자격증까지 취득하게 되었습니다.
- &lt;img src=&quot;/assets/images/104408646/9.svg&quot;/&gt;
+ &lt;img src=&quot;/assets/images/104408646/8.svg&quot;/&gt;
 &lt;/p&gt;
 &lt;p&gt;
  &lt;br/&gt;
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.오픈소스컨설팅지원자들에게해주고싶은말이있다면?🤭&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅 지원자들에게 해주고 싶은 말이 있다면?
- &lt;/span&gt;
+ &lt;u&gt;
+  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+   Q. 오픈소스컨설팅 지원자들에게 해주고 싶은 말이 있다면?
+  &lt;/span&gt;
+ &lt;/u&gt;
  &lt;a class=&quot;external-link&quot; href=&quot;https://emojipedia.org/face-with-hand-over-mouth/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
   &lt;span class=&quot;emoji&quot;&gt;
    🤭
@@ -414,7 +444,10 @@ Sharing Tech. Growing Together.
 &lt;/h1&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.오픈소스컨설팅을선택하신이유가궁금합니다.❓&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅을 선택하신 이유가 궁금합니다. ❓
+  &lt;u&gt;
+   Q. 오픈소스컨설팅을 선택하신 이유가 궁금합니다.
+  &lt;/u&gt;
+  ❓
  &lt;/span&gt;
 &lt;/h3&gt;
 &lt;p&gt;
@@ -428,7 +461,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.입사후기억에남는순간이있다면요?🎈&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 입사 후 기억에 남는 순간이 있다면요?
+  &lt;u&gt;
+   Q. 입사 후 기억에 남는 순간이 있다면요?
+  &lt;/u&gt;
   &lt;a class=&quot;external-link&quot; href=&quot;https://emojipedia.org/balloon/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;text-align: left;&quot;&gt;
    &lt;span class=&quot;emoji&quot;&gt;
     🎈
@@ -457,7 +492,9 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.오픈소스컨설팅의자랑할만한점은?✏️&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 오픈소스컨설팅의 자랑할 만한 점은?
+  &lt;u&gt;
+   Q. 오픈소스컨설팅의 자랑할 만한 점은?
+  &lt;/u&gt;
   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
    ✏️
   &lt;/span&gt;
@@ -474,14 +511,16 @@ Sharing Tech. Growing Together.
   엔지니어를 배려하는 유연한 정책
  &lt;/strong&gt;
  을 시행해 주셔서 회사에 감사한 마음을 갖고 있습니다.
- &lt;img src=&quot;/assets/images/104408646/10.svg&quot;/&gt;
+ &lt;img src=&quot;/assets/images/104408646/9.svg&quot;/&gt;
 &lt;/p&gt;
 &lt;p&gt;
  &lt;br/&gt;
 &lt;/p&gt;
 &lt;h3 id=&quot;id-[Interview]공유를실천하는엔지니어-강미경님-Q.앞으로의목표나계획이있으시다면?📑&quot;&gt;
  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Q. 앞으로의 목표나 계획이 있으시다면?
+  &lt;u&gt;
+   Q. 앞으로의 목표나 계획이 있으시다면?
+  &lt;/u&gt;
   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
    📑
   &lt;/span&gt;
@@ -514,7 +553,7 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;p&gt;
  공유 문화를 몸소 실천 &amp;amp; 전파하고 계신 엔지니어, 미경님의 이야기를 들을 수 있었던 소중한 시간이었습니다!
- &lt;img src=&quot;/assets/images/104408646/11.svg&quot;/&gt;
+ &lt;img src=&quot;/assets/images/104408646/10.svg&quot;/&gt;
 &lt;/p&gt;
 &lt;p&gt;
  &lt;br/&gt;
@@ -541,7 +580,7 @@ Sharing Tech. Growing Together.
  &lt;a class=&quot;external-link&quot; href=&quot;https://osci.kr/page/view.php?m_id=50&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
    &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/104408646/12.png&quot;/&gt;
+    &lt;img src=&quot;/assets/images/104408646/11.png&quot;/&gt;
    &lt;/span&gt;
   &lt;/span&gt;
  &lt;/a&gt;
