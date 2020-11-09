@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 09 Nov 2020 11:05:38 +0900</pubDate>
-    <lastBuildDate>Mon, 09 Nov 2020 11:05:38 +0900</lastBuildDate>
+    <pubDate>Mon, 09 Nov 2020 17:50:58 +0900</pubDate>
+    <lastBuildDate>Mon, 09 Nov 2020 17:50:58 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -630,19 +630,6 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper conf-macro output-inline&quot; data-hasbody=&quot;false&quot; data-macro-name=&quot;view-file&quot;&gt;
-  &lt;a class=&quot;confluence-embedded-file&quot; data-file-src=&quot;/download/attachments/104412769/2020-10-22_10-10-25.mp4?version=1&amp;amp;modificationDate=1604851535271&amp;amp;api=v2&quot; data-has-thumbnail=&quot;false&quot; data-linked-resource-container-id=&quot;104412769&quot; data-linked-resource-default-alias=&quot;2020-10-22_10-10-25.mp4&quot; data-linked-resource-id=&quot;104412781&quot; data-linked-resource-type=&quot;attachment&quot; data-linked-resource-version=&quot;1&quot; data-mime-type=&quot;video/mp4&quot; data-nice-type=&quot;Multimedia&quot; href=&quot;/download/attachments/104412769/2020-10-22_10-10-25.mp4?version=1&amp;amp;modificationDate=1604851535271&amp;amp;api=v2&quot;&gt;
-   &lt;img src=&quot;/assets/images/104412769/4.png&quot;/&gt;
-   &lt;span class=&quot;title&quot;&gt;
-    2020-10-22_10-10-25.mp4
-   &lt;/span&gt;
-  &lt;/a&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
  &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/commenting-on-a-pull-request-1027119882.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
   pull request에 대한 설명
  &lt;/a&gt;
@@ -703,7 +690,7 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;p&gt;
  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104412769/5.png&quot;/&gt;
+  &lt;img src=&quot;/assets/images/104412769/4.png&quot;/&gt;
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;h2 id=&quot;Atlassian11월ReleaseNote-|Automaticallydeclineinactivepullrequests/비활성pullrequest들을자동으로거부&quot;&gt;
@@ -739,7 +726,7 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;p&gt;
  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104412769/6.png&quot;/&gt;
+  &lt;img src=&quot;/assets/images/104412769/5.png&quot;/&gt;
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;p&gt;
@@ -780,7 +767,7 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;p&gt;
  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104412769/7.png&quot;/&gt;
+  &lt;img src=&quot;/assets/images/104412769/6.png&quot;/&gt;
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;p&gt;
@@ -815,7 +802,7 @@ Sharing Tech. Growing Together.
   추가 리액션 버튼
   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline&quot;&gt;
    &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/104412769/8.png&quot;/&gt;
+    &lt;img src=&quot;/assets/images/104412769/7.png&quot;/&gt;
    &lt;/span&gt;
   &lt;/span&gt;
  &lt;/strong&gt;
@@ -850,7 +837,7 @@ Sharing Tech. Growing Together.
 &lt;/p&gt;
 &lt;p&gt;
  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104412769/9.png&quot;/&gt;
+  &lt;img src=&quot;/assets/images/104412769/8.png&quot;/&gt;
  &lt;/span&gt;
 &lt;/p&gt;
 &lt;h2 id=&quot;Atlassian11월ReleaseNote-|Updatestosupportedplatforms/지원되는플랫폼업데이트&quot;&gt;
