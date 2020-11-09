@@ -9,9 +9,942 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Oct 2020 17:51:02 +0900</pubDate>
-    <lastBuildDate>Tue, 20 Oct 2020 17:51:02 +0900</lastBuildDate>
+    <pubDate>Mon, 09 Nov 2020 11:05:38 +0900</pubDate>
+    <lastBuildDate>Mon, 09 Nov 2020 11:05:38 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Atlassian 11월 Release Note</title>
+        <description>&lt;p&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ &lt;/span&gt;
+ &lt;br/&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  이번 포스팅에서는 아틀라시안 제품군의 Release Note를 전해드리고자 합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian11월ReleaseNote-JiraSoftware8.13.x릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Jira Software 8.13.x 릴리즈 노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|GettheJiraServerapponmanageddevices/관리되는장치에서Jira서버앱가져오기&quot;&gt;
+ &lt;strong&gt;
+  | Get the Jira Server app on managed devices / 관리되는 장치에서 Jira 서버 앱 가져오기
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 이제 MDM(Mobile Device Management) 솔루션을 사용하여 Jira Server 모바일 앱을 팀에 배포할 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이 기능은 앱을 회사에서 승인한 장치 또는 특정 사용자로 제한해야할 경우에 유용합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104412769/0.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ MDM 솔루션이
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://www.appconfig.org/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  AppConfig
+ &lt;/a&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ 표준을 지원하는 경우 앱에 사이트 URL을 미리 입력하여 사용자의 시간을 절약하고 실수를 방지할 수 있습니다. 사이트가 많다면 여러 사이트 URL을 미리 등록하여 로그인이 더 간편해집니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/jirasoftwareserver/mobile-device-management-mdm-979410052.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Hungryfornewfeatures?/새로운기능을원하시나요?&quot;&gt;
+ &lt;strong&gt;
+  | Hungry for new features? / 새로운 기능을 원하시나요?
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 장기 지원 릴리즈였던 지라 8.5.x를 출시한 이후 많은 변화가 있었습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이슈 아카이빙, 향상된 성능 및 접근성, 그리고 지라에서 더 나은 서비스를 제공하기 위해 많은것들을 변경하였습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/jiracore/jira-8-13-long-term-support-release-change-log-1018788437.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  변경 로그
+ &lt;/a&gt;
+ 에서 JIRA 7.13에서 8.13 사이의 모든 변경 및 수정사항을 확인하실 수 있습니다.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|APIchangelog/API변경로그&quot;&gt;
+ &lt;strong&gt;
+  | API change log / API 변경 로그
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 지난번 장기지원 (Long Term Support) 릴리즈 이후로 변경된 사항에 대한 전체 정보를 얻을 수 있도록 REST API 변경 로그를 준비했습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/jiracore/jira-8-13-rest-api-change-log-1019408011.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|LongTermSupportreleases,performance-wise/장기지원릴리스,성능측면&quot;&gt;
+ &lt;strong&gt;
+  | Long Term Support releases, performance-wise / 장기 지원 릴리스, 성능 측면
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p class=&quot;p1&quot;&gt;
+ 모든 지라 릴리스에 대해 최신 버전을 이전 버전과 비교하기 위해 광범위한 성능 테스트를 실행합니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 새로운 기능이 지라에게 어떤 영향을 미치는지 알아보기 위한 것이며, 성능의 저하가 있지는 않은지 확인하기 위한 것입니다.
+&lt;/p&gt;
+&lt;p class=&quot;p1&quot;&gt;
+ Jira 장기 지원 릴리즈 간의 성능도 비교하고 있습니다. 많은 변경점이 있었기 때문에  개선 사항이 훨씬 더 눈에 띕니다.
+&lt;/p&gt;
+&lt;p class=&quot;p1&quot;&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/adminjiraserver/performance-and-scale-testing-965568707.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  성능 및 스케일 테스트
+ &lt;/a&gt;
+ 에서 Jira 8.5 LTS, Jira 8.13 LTS 간의 성능 비교 결과를 볼 수 있습니다.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|AlwaysagoodtimetocleanupJira/언제나지라를정리하기좋은시간&quot;&gt;
+ &lt;strong&gt;
+  | Always a good time to clean up Jira / 언제나 지라를 정리하기 좋은 시간
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 지라가 느려지고 있고, 사용자들이 원하는 것을 찾을 수 없다고 느낀다면 정리 프로젝트를 시작하고 팀 생산성을 높여보세요. 이에 대한 팁과 요령은
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/clean/jira-cleanup-guide-1018788576.html&quot; rel=&quot;nofollow&quot;&gt;
+  Jira 정리 가이드
+ &lt;/a&gt;
+ 를 확인해보세요.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian11월ReleaseNote-JiraServiceDesk4.13.x릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Jira Service Desk 4.13.x 릴리즈 노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Hungryfornewfeatures?/새로운기능을원하시나요?.1&quot;&gt;
+ &lt;strong&gt;
+  | Hungry for new features? / 새로운 기능을 원하시나요?
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 장기 지원 릴리즈였던 지라 8.5.x, 지라 서비스 데스크 4.5 를 출시한 이후 많은 변화가 있었습니다.
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+  Opsgenie와 Conluence Cloud와의 통합을 소개하고, 에이전트 대기열을 개선하고, 새로운 플랫폼을 추가하고, 일부를 제거 하였습니다.
+ &lt;/span&gt;
+ 또한 지라에서 더 나은 서비스를 제공하기 위해 많은것들을 변경하였습니다.
+ &lt;span&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   마지막 장기 지원 (LTS) 릴리스 간에 발생한 모든 변경 및 수정 사항을 확인해보세요.
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;ul class=&quot;ak-ul&quot;&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/jiracore/jira-service-desk-4-13-long-term-support-release-change-log-1026032383.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+    Jira Service Desk 4.13 LTS 릴리스 변경 로그
+   &lt;/a&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/jiracore/jira-8-13-long-term-support-release-change-log-1018788437.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+    Jira Software 8.13 LTS 릴리스 변경 로그
+   &lt;/a&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian11월ReleaseNote-Confluence7.8릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Confluence 7.8 릴리즈 노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Capturemoreend-useractivityintheauditlog/감사로그에서최종사용자의더많은활동기록캡처&quot;&gt;
+ &lt;strong&gt;
+  | Capture more end-user activity in the audit log / 감사 로그에서 최종 사용자의
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  더 많은
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  활동기록 캡처
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 이제 누군가 검색을 수행할 때 감사 로그에 기록될 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이 이벤트는 검색 필드, 고급 검색 및 라이브 검색, 페이지 트리 검색과 같은 검색 매크로에 입력한 검색어를 기록합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ '수행된 검색' 이벤트는 전체 적용 범위 수준에 포함되며, 데이터 센터 라이센스에서 제공됩니다.  검색어 데이터를 수집하지 않으려면 시스템 속성에서 이 이벤트를 비활성화할 수 있습니다.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|IncreasedlabellimitforPagePropertiesReportmacro/페이지속성리포트매크로의레이블한계수치증가&quot;&gt;
+ &lt;strong&gt;
+  | Increased label limit for Page Properties Report macro / 페이지 속성 리포트 매크로의 레이블 한계수치 증가
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Server ] [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;p1&quot;&gt;
+ &lt;span class=&quot;s1&quot;&gt;
+  페이지 속성 보고서 매크로는 레이블에 의존하여 여러 공간에 걸쳐 페이지를 구성합니다.
+  &lt;span&gt;
+   기존
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;span class=&quot;s2&quot;&gt;
+  매크로에는 레이블은 20개로 제한되어 있어 공간과 페이지의 설계가 제한되어 있었습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;
+ &lt;span class=&quot;s1&quot;&gt;
+  매크로 브라우저에 최대 60개의 레이블을 입력할 수 있도록 제한을 늘렸습니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  이제 모든 페이지를 Reporting하는것이 더 쉬워졌습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 class=&quot;p3&quot; id=&quot;Atlassian11월ReleaseNote-|Disabledmacroswillpreserveyourcontent/비활성화된매크로가콘텐츠를보존합니다.&quot;&gt;
+ &lt;strong&gt;
+  &lt;span class=&quot;s1&quot;&gt;
+   |
+  &lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;
+   Disabled macros will preserve your content /
+  &lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;
+   비활성화된 매크로가 콘텐츠를 보존합니다.
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Server ] [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;p1&quot;&gt;
+ &lt;span class=&quot;s1&quot;&gt;
+  매크로는 가장 강력한 Confluence의 기능 중 하나입니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  이전에는 본문 내용이 있는 매크로를 사용하지 않도록 설정하면 내용이 손실되었었지만.
+  &lt;span&gt;
+  &lt;/span&gt;
+  이제 비활성화된 매크로가 본문 내용을 유지하면서 편집기에 표시할 수 있도록 지원합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;p1&quot;&gt;
+ &lt;span class=&quot;s1&quot;&gt;
+  뷰 페이지 모드에서 비활성화된 매크로는 여전히 placeholder image(알 수 없는 매크로)를 표시합니다. 뷰
+  &lt;span&gt;
+  &lt;/span&gt;
+  모드로 콘텐츠를 표시하려면
+  &lt;span&gt;
+  &lt;/span&gt;
+  편집기에서 비활성화된 매크로를 선택하고 내용을 표시할
+  &lt;span&gt;
+  &lt;/span&gt;
+  수
+  &lt;span&gt;
+  &lt;/span&gt;
+  있는
+  &lt;span&gt;
+  &lt;/span&gt;
+  새
+  &lt;span&gt;
+  &lt;/span&gt;
+  매크로로 변경하시면 됩니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  본문 내용이 새
+  &lt;span&gt;
+  &lt;/span&gt;
+  매크로에서 유지되고 보기 모드로 표시됩니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 class=&quot;p1&quot; id=&quot;Atlassian11월ReleaseNote-|Allowlistandblocklistreplacewhitelistandblacklist/용어변경&quot;&gt;
+ &lt;strong&gt;
+  | Allowlist and blocklist replace whitelist and blacklist / 용어 변경
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Server ] [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;s1&quot;&gt;
+  단어의 선택은 우리의 다양한 팀들을 하나로 묶어주는 구성 요소들중 하나입니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  '블랙리스트' '화이트리스트' 등의 용어는 흑백은 반대, 하나는 나쁘고 다른 하나는 좋다는 개념을 강화하므로 이를 변경하였습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;s1&quot;&gt;
+  &quot;허용리스트&quot;와 &quot;차단리스트&quot;는  &quot;화이트리스트&quot;와 &quot;블랙리스트&quot; 보다 명확하고 직접적인 용어입니다.
+ &lt;/span&gt;
+ &lt;span class=&quot;s2&quot;&gt;
+  사용자 인터페이스에서 확인할 수 있습니다.
+ &lt;/span&gt;
+ &lt;span class=&quot;s1&quot;&gt;
+  API는 변경되지 않았으므로 화이트리스트 및 블랙리스트는 코드베이스에 남아 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian11월ReleaseNote-Crowd4.2릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Crowd 4.2 릴리즈 노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Passwordstoexternalsystemsnowencrypted/이제외부시스템의암호가암호화됩니다.&quot;&gt;
+ &lt;strong&gt;
+  | Passwords to external systems now encrypted / 이제 외부 시스템의 암호가 암호화됩니다.
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 보안을 강화하기 위해 지금까지 Crowd 데이터베이스에 일반 텍스트로 보관되어 온 외부 시스템의 모든 비밀번호는 Crowd 4.2부터 암호화됩니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 업그레이드 예정인 사용자일 경우 업그레이드 중에 암호 암호화가 수행됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 다음은 암호화된 중요한 데이터 목록입니다.
+&lt;/p&gt;
+&lt;ul class=&quot;ak-ul&quot;&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   LDAP 디렉토리 암호
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   원격 Crowd 디렉터리 응용 프로그램 암호
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   Azure AD 웹 응용 프로그램 키
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   SMTP 메일 암호
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   프록시 암호
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ Crowd의 암호 암호화에 대한 자세한 내용은
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/crowd/password-encryption-1026041234.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  암호 암호화
+ &lt;/a&gt;
+ 를 참조하십시오.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|NewattributemappingwhenimportingusersviaCSV/CSV를통해사용자를가져올때의새특성매핑&quot;&gt;
+ &lt;strong&gt;
+  | New attribute mapping when importing users via CSV / CSV를 통해 사용자를 가져올 때의 새 특성 매핑
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 불필요한 라이센스 사용을 방지하기 위해 Crowd 4.2를 사용하면 CSV 파일을 사용하여 사용자를 활성 또는 비활성 상태로 가져올 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ CSV 파일을 사용하여 사용자를 가져올때 다음 세 가지 상태 중 하나를 선택할 수 있습니다.
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  활성화된 (active)
+ &lt;/li&gt;
+ &lt;li&gt;
+  비활성화된 (inactive)
+ &lt;/li&gt;
+ &lt;li&gt;
+  CSV 파일과 동일하게
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104412769/1.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Lookandfeel/외관과느낌&quot;&gt;
+ &lt;strong&gt;
+  | Look and feel / 외관과 느낌
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ Crowd 4.2버전 부터 로그인 화면의 모양과 느낌을 커스터마이징할 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 사용자의 로고, 사용자 정의 시작 텍스트 및 선택한 색상을 변경하여 페이지를 커스터마이징할 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이렇게 하면 Crowd 인스턴스를 돋보이게 할 수 있고, 회사 색상으로 Crowd 인스턴스를 변경하거나,
+ &lt;span&gt;
+ &lt;/span&gt;
+ 로그인 화면을 변경하는 방법에 대한 자세한 내용은
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/crowd/look-and-feel-1026041230.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  외관 및 느낌
+ &lt;/a&gt;
+ 을 확인해보세요.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104412769/2.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Improvementstodirectorydetailsandauditlogscreens/디렉터리세부정보및감사로그화면개선&quot; style=&quot;text-align: left;&quot;&gt;
+ &lt;strong&gt;
+  | Improvements to directory details and audit log screens / 디렉터리 세부 정보 및 감사 로그 화면 개선
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+   Crowd 4.2는 최신 동기화의 상태를 빠르게 확인할 수 있도록 디렉토리 세부사항과 감사 로그 화면을 새로 고쳤습니다.
+  &lt;/span&gt;
+ &lt;/span&gt;
+ 동기화 오류가 발생할 경우 원인을 더 잘 파악할 수 있는 방향으로 변경되었습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 변경사항은 다음과 같습니다.
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  디렉터리 보기에서 다음을 추가했습니다.
+  &lt;ul&gt;
+   &lt;li&gt;
+    마지막 동기화 상태에 대한 확장된 정보
+   &lt;/li&gt;
+   &lt;li&gt;
+    노드 ID 및 노드 이름(Crowd Data Center에서만 사용 가능).
+   &lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  감사 로그에 다음을 추가했습니다.
+  &lt;br/&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     증분 및 전체 동기화 정보,
+    &lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     노드 정보(Crowd DC에서만 사용 가능),
+    &lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     동기화에 걸리는 시간에 대한 정보
+    &lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     성공/실패 빌드에 대한 그래픽 지표를 지웁니다.
+    &lt;/span&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104412769/3.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h3 class=&quot;c-mrkdwn__pre&quot; id=&quot;Atlassian11월ReleaseNote-|Performanceimprovements/성능향상&quot;&gt;
+ | Performance improvements / 성능 향상
+&lt;/h3&gt;
+&lt;p class=&quot;c-mrkdwn__pre&quot;&gt;
+ Crowd 4.2는 Crowd에서 어플리케이션으로의 전체 동기화의 성능을 향상 시켰습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 멤버십을 가져오는 속도가 지금은 10배 정도 빨라져 전체 동기화 시간이 평균 절반으로 줄어들었습니다.
+&lt;/p&gt;
+&lt;p class=&quot;c-mrkdwn__pre&quot;&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p class=&quot;c-mrkdwn__pre&quot;&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian11월ReleaseNote-BitbucketServer7.7릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Bitbucket Server 7.7 릴리즈 노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   이번 Bitbucket Server 및 Data Center 릴리스에서는 워크플로우를 개선하였습니다.  비활성화된 pull request 는 설정한 기간(주)이 지난뒤 자동으로 거부됩니다. Pull request를 리뷰할 때 diff 뷰는 더 보기 쉬운 색상옵션으로 변경할 수 있게 되었고 코멘트에 이모지반응을 추가할 수 있게 되었습니다.
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Newcodereviewworkflow-Batchandpublishcomments/새코드리뷰워크플로우-배치및주석게시&quot;&gt;
+ &lt;strong&gt;
+  | New code review workflow - Batch and publish comments / 새 코드 리뷰 워크플로우 - 배치 및 주석 게시
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Server ] [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  Pull request 리뷰어로서
+  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+   검토 프로세스 중에 파일과 코드에 대한 여러 코멘트들을 작성할 수 있습니다
+  &lt;/span&gt;
+  .
+  &lt;span&gt;
+  &lt;/span&gt;
+  준비가 되면 한 번에 하나씩 코멘트를
+  &lt;span&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;annotationView-content-wrap&quot;&gt;
+   &lt;span class=&quot;ak-editor-annotation&quot;&gt;
+    보내는
+   &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+  것이 아니라 한 번에 모두 보내보세요.
+  &lt;span&gt;
+  &lt;/span&gt;
+  새 코드 리뷰 워크플로우를 사용하여
+  &lt;span&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;annotationView-content-wrap&quot;&gt;
+   &lt;span class=&quot;ak-editor-annotation&quot;&gt;
+    시간
+   &lt;/span&gt;
+  &lt;/span&gt;
+  을 절약하고 pull request
+  &lt;span&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;annotationView-content-wrap&quot;&gt;
+   &lt;span class=&quot;ak-editor-annotation&quot;&gt;
+    &lt;span class=&quot;ak-editor-annotation-focus&quot;&gt;
+     작성자
+    &lt;/span&gt;
+   &lt;/span&gt;
+  &lt;/span&gt;
+  와 불필요하게 주고받는 시간을 줄일 수 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper conf-macro output-inline&quot; data-hasbody=&quot;false&quot; data-macro-name=&quot;view-file&quot;&gt;
+  &lt;a class=&quot;confluence-embedded-file&quot; data-file-src=&quot;/download/attachments/104412769/2020-10-22_10-10-25.mp4?version=1&amp;amp;modificationDate=1604851535271&amp;amp;api=v2&quot; data-has-thumbnail=&quot;false&quot; data-linked-resource-container-id=&quot;104412769&quot; data-linked-resource-default-alias=&quot;2020-10-22_10-10-25.mp4&quot; data-linked-resource-id=&quot;104412781&quot; data-linked-resource-type=&quot;attachment&quot; data-linked-resource-version=&quot;1&quot; data-mime-type=&quot;video/mp4&quot; data-nice-type=&quot;Multimedia&quot; href=&quot;/download/attachments/104412769/2020-10-22_10-10-25.mp4?version=1&amp;amp;modificationDate=1604851535271&amp;amp;api=v2&quot;&gt;
+   &lt;img src=&quot;/assets/images/104412769/4.png&quot;/&gt;
+   &lt;span class=&quot;title&quot;&gt;
+    2020-10-22_10-10-25.mp4
+   &lt;/span&gt;
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/commenting-on-a-pull-request-1027119882.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  pull request에 대한 설명
+ &lt;/a&gt;
+ 에서 자세히 확인해보세요.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|RenderingofJupyternotebooks/Jupyternotebook렌더링&quot;&gt;
+ &lt;br/&gt;
+ &lt;strong&gt;
+  |
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  Rendering of Jupyter notebooks /
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  Jupyter notebook 렌더링
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Server ] [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  Bitbucket
+ &lt;/span&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ Server 및
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+  Data Center는 이제
+ &lt;/span&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  Jupyter notebook
+ &lt;/a&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  렌더링을 지원
+ &lt;/span&gt;
+ 합니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  개발자와 데이터 과학자 모두 코드, 데이터 및 시각화를 결합한 아이디어를 공유함으로써 각 팀과 협업할 수 있어야 한다는 점을 인식하고 있습니다.
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  렌더링된 Jupyter notebook을 보려면 Bitbucket의 새 저장소 또는 기존 리포지토리에 파일을 커밋하기만 하면 됩니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104412769/5.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Automaticallydeclineinactivepullrequests/비활성pullrequest들을자동으로거부&quot;&gt;
+ &lt;br/&gt;
+ &lt;strong&gt;
+  | Automatically decline inactive pull requests /
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  비활성 pull request들을 자동으로 거부
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  목록에서 오픈되어 있는 pull request의 수가 증가함에 따라 원하지 않는 문제들이 발생하곤 합니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  새로운 자동 제거 요청 옵션을 사용하면 비활성 pull request를 자동으로 제거하여, Bitbucket Data Center의 인스턴스의 성능을 최적화하고 생산성을 높일 수 있습니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  이 옵션은 기본적으로 설정되며 개별 리포지토리 또는
+  &lt;span&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;fabric-editor-annotation&quot;&gt;
+   프로젝트
+  &lt;/span&gt;
+  의 모든 리포지토리에 설정됩니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104412769/6.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  이 기능을 사용하는 방법에 대한 자세한
+ &lt;/span&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ 내용을
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  보려면
+ &lt;/span&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/automatically-decline-inactive-pull-requests-1027119967.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  pull requests를 자동으로 거부
+ &lt;/a&gt;
+ 를 확인해보세요
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Commentreactionsarehere🎉/댓글리액션이여기있습니다.🎉&quot;&gt;
+ &lt;br/&gt;
+ &lt;strong&gt;
+  |
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  Comment reactions are here 🎉 /
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  댓글 리액션이 여기 있습니다. 🎉
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Server ] [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104412769/7.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  Comment
+ &lt;/span&gt;
+ 에 대한 반응이 좀 더
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;span&gt;
+  쉬워졌습니다!
+ &lt;/span&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이제 코멘트 리액션을 사용하여 모든 코멘트에 이모티콘을 추가할 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 그래서  👍이모티콘이나 어떤 것을 ✅로 표시하든, 아니면 조금 더
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  🔥
+ &lt;/span&gt;
+ 를 원하든
+ &lt;span&gt;
+  ,
+ &lt;/span&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ 오른쪽 이모지 버튼을 몇 번만 클릭하면 됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  추가 리액션 버튼
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline&quot;&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;img src=&quot;/assets/images/104412769/8.png&quot;/&gt;
+   &lt;/span&gt;
+  &lt;/span&gt;
+ &lt;/strong&gt;
+ 을 선택하여 사용해보세요. 자세한 내용은
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/commenting-on-a-pull-request-1027119882.html&quot; rel=&quot;nofollow&quot;&gt;
+  pull request 에 대해 주석 달기
+ &lt;/a&gt;
+ 를 확인해 보세요.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Diffview색상변경가능&quot;&gt;
+ &lt;br/&gt;
+ &lt;strong&gt;
+  | Diff view  색상 변경 가능
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  [ Server ] [ Data Center ]
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  몇가지 중요한 접근성 향상을 위해 노력했습니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  이 릴리스에는 추가된 라인과 제거된 라인을 파란색과 노란색으 변경할 수 있는 새로운 diff 설정을 포함하였습니다.
+  &lt;span&gt;
+   해당 기능을
+  &lt;/span&gt;
+  활성화한 후에 즉시 diff 보기에서 색상이 변경된 것을 확인할 수 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104412769/9.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Updatestosupportedplatforms/지원되는플랫폼업데이트&quot;&gt;
+ &lt;strong&gt;
+  | Updates to supported platforms /지원되는 플랫폼 업데이트
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ Bitbucket Server 7.7에서 부터 다음 버전 Git이  추가로 지원됩니다.
+&lt;/p&gt;
+&lt;ul class=&quot;ak-ul&quot;&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   서버용 Git 2.29
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Atlassian11월ReleaseNote-|Deprecations/지원종료&quot;&gt;
+ &lt;strong&gt;
+  | Deprecations / 지원 종료
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  Bitbucket Server 8.0 에서부터 Maria
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  DB 10.1. 의 지원이 종료될 예정입니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  앞으로도 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  감사합니다!
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;color: rgb(0,0,0);&quot;&gt;
+   atlassian@osci.kr
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Mon, 09 Nov 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/11/09/104412769/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/11/09/104412769/</guid>
+        
+        <category>아틀라시안</category>
+        
+        <category>releasenote</category>
+        
+        
+      </item>
     
       <item>
         <title>[Interview] 공유를 실천하는 엔지니어 - 강미경님</title>
@@ -7108,519 +8041,6 @@ EOF
         <category>atlassian-partner-of-the-year</category>
         
         <category>open-source-consulting</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>아틀라시안 마켓플레이스 소개 및 Jira Add-on 추천</title>
-        <description>&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97469335/0.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 안녕하세요!
-&lt;/p&gt;
-&lt;p&gt;
- 오픈소스컨설팅의 아틀라시안팀입니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 우리나라의 많은 기업들을 포함해 전세계의 150,000개가 넘는 기업들이 Atlassian의 솔루션을 통해서
-&lt;/p&gt;
-&lt;p&gt;
- 업무 효율성을 개선하고 보다 혁신적인 팀워크를 이루고 있다는 것은 모두 잘 알고 계실 것 같아요.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  Jira, Confluence
- &lt;/strong&gt;
- 와 같은 협업 및 애자일 도구와
-&lt;/p&gt;
-&lt;p&gt;
- 개발에서 운영, 서비스까지 통합하여 관리할 수 있도록 도와주는
- &lt;strong&gt;
-  Jira Service Desk, OpsGenie, Bitbucket
- &lt;/strong&gt;
- 등
-&lt;/p&gt;
-&lt;p&gt;
- Atlassian에서 제공하는 대표적인 제품들만으로도 '팀'을 위한 워크플로우를 개선하고 업무 생산성을 높일 수 있지만,
-&lt;/p&gt;
-&lt;p&gt;
- Atlassian Marketplace에 올라와 있는 다양한 Add-on(또는 Plugin) 제품들을 통해서 보다 확장된 기능을 구현하고 활용할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- Atlassian 제품을 사용하고 있지만 좀 더 높은 수준의 커스터마이징과 부가적인 기능을 원하시는 분들,
-&lt;/p&gt;
-&lt;p&gt;
- 또는 Atlassian 솔루션의 도입을 계획하고 있는 분들께서는 본 포스팅을 주목해주세요
- &lt;img src=&quot;/assets/images/97469335/1.svg&quot;/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-AtlassianMarketplace란?&quot;&gt;
- Atlassian Marketplace 란?
-&lt;/h2&gt;
-&lt;hr/&gt;
-&lt;p&gt;
- Atlssian Marketplace는 IT부터 HR팀까지, 모든 팀이 사용할 수 있는 Add-on을 구매할 수 있는 일종의 &quot;App Store&quot; 입니다.
-&lt;/p&gt;
-&lt;p&gt;
- Atlassian Marketplace에는 무려
- &lt;strong&gt;
-  4,000개
-  &lt;img src=&quot;/assets/images/97469335/2.svg&quot;/&gt;
- &lt;/strong&gt;
- 가 넘는 Add-on이 있어요.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 먼저, Atlassian Marketplace(
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/&quot; rel=&quot;nofollow&quot;&gt;
-  https://marketplace.atlassian.com/
- &lt;/a&gt;
- ) 페이지에 대해서 간략하게 소개해드릴게요.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97469335/3.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 메인 페이지의 오른쪽의 필터기능을 통해서 구성하려는 제품, 카테고리등을 선택하면 그에 맞는 제품들만 추려서 탐색할 수 있고,
-&lt;/p&gt;
-&lt;p&gt;
- Marketplace에서도 자체적으로 새롭게 출시된 제품과 추천 Add-on 제품, 인기 제품들을  소개해주고 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 앞서 말씀드린 것처럼 다양한 조직의 요구사항을 충족시켜 줄 강력한 도구들이 4000개가 넘게 있지만,
-&lt;/p&gt;
-&lt;p&gt;
- 종류도 너무 많고 또 모든 내용이 영어로 기재되어 있어 정말 내가 원하는 Add-on을 찾기가 쉽지 않게 느껴지실 것 같아요.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그래서
- &lt;img src=&quot;/assets/images/97469335/4.svg&quot;/&gt;
- 많은 고객분들이 이미 사용하고 계시는 검증된 Add-on들을 추천해드리려고 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-1.ProjectManagement-WBS(WorkBreakdownStructure)&quot;&gt;
- 1. Project Management - WBS(Work Breakdown Structure)
-&lt;/h2&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-“프로젝트계획부터포트폴리오관리까지”&quot;&gt;
- &lt;em&gt;
-  &lt;strong&gt;
-   “
-  &lt;/strong&gt;
-  프로젝트 계획부터 포트폴리오 관리까지
-  &lt;strong&gt;
-   ”
-  &lt;/strong&gt;
- &lt;/em&gt;
-&lt;/h2&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97469335/5.png&quot;/&gt;
- &lt;/span&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97469335/6.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 하나의 프로젝트를 진행할 때 업무별, 파트별, 기간별 작업 리소스를 분배하고 진행 스케줄을 관리하기 위해서 WBS를 작성하는 것은 이미 익숙하실텐데요.
-&lt;/p&gt;
-&lt;p&gt;
- Jira 에서도 WBS 형식으로 프로젝트를 계획하고 관리할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- Gantt-Chart 기능을 활용하여 직접 작업을 작성하고 작업 진행률 및 마감일을 확인하여 프로젝트를 효율적으로 관리할 수 있어요.
-&lt;/p&gt;
-&lt;p&gt;
- Drag &amp;amp; Drop 형식으로 손쉬운 변경이 가능하고, Jira 이슈 연결을 생성하여 여러 이슈와 프로젝트를 관리할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 또한 MS Project와도 연동이 가능해서 MS Project의 작업을 가져오거나 내보낼 수 있도록 도와줍니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;img src=&quot;/assets/images/97469335/7.svg&quot;/&gt;
- &lt;strong&gt;
-  추천 Add-on
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1213016/biggantt-gantt-chart-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/8.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1212259/bigpicture-project-management-ppm?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/9.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1211768/wbs-gantt-chart-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/10.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-2.JiraWorkflowManagement&quot;&gt;
- 2. Jira Workflow Management
-&lt;/h2&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-“효율적인워크플로우관리와업무자동화”&quot;&gt;
- &lt;em&gt;
-  &lt;strong&gt;
-   “
-  &lt;/strong&gt;
-  효율적인 워크플로우 관리와 업무 자동화
-  &lt;strong&gt;
-   ”
-  &lt;/strong&gt;
- &lt;/em&gt;
-&lt;/h2&gt;
-&lt;p&gt;
- &lt;em&gt;
-  &lt;strong&gt;
-   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/97469335/11.png&quot;/&gt;
-   &lt;/span&gt;
-   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/97469335/12.png&quot;/&gt;
-   &lt;/span&gt;
-  &lt;/strong&gt;
- &lt;/em&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 커스터마이징과 자동화. 이 2가지 키워드 만으로도 많은 사용자께서 높은 관심을 보이실 것 같아요.
-&lt;/p&gt;
-&lt;p&gt;
- Atlassian Marketplace의 워크플로우 관련 Add-on을 통해서 Jira의 업무 프로세스를 자동화할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 또한 필드, 템플릿, 이슈의 인터페이스를 사용자가 원하는 방식으로 커스터마이징해서 효율성을 높여보세요.
-&lt;/p&gt;
-&lt;p&gt;
- 서로 다른 워크플로우간의 연결도 가능하며, 필드 값 복사, 이슈 업데이트, 이슈 연결 등 다양한 Post Function을 제공합니다.
-&lt;/p&gt;
-&lt;p&gt;
- 이슈를 복제하기 전에 원하는 필드의 값을 수정하고, 프로젝트와 이슈 유형을 복제하면서 조정할 수 있는 기능을 통해서,
-&lt;/p&gt;
-&lt;p&gt;
- 시간을 절약하고 오류가 발생하는 것을 줄일 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;img src=&quot;/assets/images/97469335/13.svg&quot;/&gt;
- &lt;strong&gt;
-  추천 Add-on
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/6820/scriptrunner-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/14.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/5048/jsu-automation-suite-for-jira-workflows?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/15.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/44043/clone-plus-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/16.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-3.UserManagement&quot;&gt;
- 3. User Management
-&lt;/h2&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-“JiraAdmin을위한효율적인사용자관리방안”&quot;&gt;
- &lt;em&gt;
-  &lt;strong&gt;
-   “
-  &lt;/strong&gt;
-  Jira Admin을 위한  효율적인 사용자 관리 방안
-  &lt;strong&gt;
-   ”
-  &lt;/strong&gt;
- &lt;/em&gt;
-&lt;/h2&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97469335/17.png&quot;/&gt;
- &lt;/span&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97469335/18.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 회사내의 특정 조직이나 팀뿐만 아니라 여러 협력사와의 협업, 대규모 조직의 전사적 사용 목적으로 사용자수가 증가하게 될 수록,
-&lt;/p&gt;
-&lt;p&gt;
- 많게는 10,000명에 가까운 사용자를 관리하는 것이 Admin에게는 매우 큰 숙제로 느껴지실 것 같아요.
-&lt;/p&gt;
-&lt;p&gt;
- 1,000명이 넘는 사용자를 보유한 조직이라면 Add-on을 통해서 사용자 증감에 대해 스케줄러 설정을 통해 알림을 받아보세요.
-&lt;/p&gt;
-&lt;p&gt;
- 또한 활성 사용자를 식별하여 라이선스를 할당하고 오랫동안 활동이 없는 사용자는 삭제해주는 기능으로 쉽고 간단하게 라이선스를 관리할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;inline-comment-marker&quot; data-ref=&quot;930bb705-c753-449b-98b9-bd92adca4f97&quot;&gt;
-  사용자 수가 유동적이고 급격하게 증가하게 될 경우 사용자 수를 유연하게 관리할 수 있도록 돕는 Add-on을 활용하시면,
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;inline-comment-marker&quot; data-ref=&quot;930bb705-c753-449b-98b9-bd92adca4f97&quot;&gt;
-  유저 라이선스의 약 20% 내외정도는 추가 구매를 하지 않아도 사용자 수를 감당할 수 있어 시간과 비용을 절감할 수 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;inline-comment-marker&quot; data-ref=&quot;930bb705-c753-449b-98b9-bd92adca4f97&quot;&gt;
-  (물론 장기적인 관점에서 사용자수가 계속해서 증가할 경우, User Tier를 올리는 것을 고려해야 겠지만요. ^^)
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 사용자 프로필도 좀 더 구체적이고 다채롭게 구성하여 원하는 동료를 빠르게 찾을 수 있다면 더욱 효율적으로 협업이 가능해집니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;img src=&quot;/assets/images/97469335/19.svg&quot;/&gt;
- &lt;strong&gt;
-  추천 Add-on
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1222216/flexible-user-license-for-jira?hosting=server&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/97469335/20.png&quot;/&gt;
-   &lt;/span&gt;
-  &lt;/a&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1215285/user-management-for-jira?hosting=datacenter&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/97469335/21.png&quot;/&gt;
-   &lt;/span&gt;
-  &lt;/a&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1212508/user-profiles-for-jira?hosting=datacenter&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/97469335/22.png&quot;/&gt;
-   &lt;/span&gt;
-  &lt;/a&gt;
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-4.Theme&amp;amp;Style&quot;&gt;
- 4. Theme &amp;amp; Style
-&lt;/h2&gt;
-&lt;h2 id='id-아틀라시안마켓플레이스소개및JiraAdd-on추천-&quot;우리조직에최적화된인터페이스구현&quot;'&gt;
- &lt;em&gt;
-  &quot;우리 조직에 최적화된 인터페이스 구현&quot;
- &lt;/em&gt;
-&lt;/h2&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97469335/23.png&quot;/&gt;
- &lt;/span&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97469335/24.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- Jira 뿐만 아니라 Atlassian 제품에서 우리 조직의 브랜드를 표현하고 최적화된 환경을 조성하고 싶다면, Atlassian Marketplace의 Add-on을 활용해보세요.
-&lt;/p&gt;
-&lt;p&gt;
- 팀의 성격과 사용 목적에 따른 맞춤형 레이아웃과 스타일, 테마를 지정하여 사용자들이 보다 쉽고 친숙하게 이용할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 향상된 검색 기능과 드롭 다운 형식의 메뉴 탐색을 통해서 유용한 리소스를 바로 찾을 수 있는 편리한 사이트 환경을 조성하세요.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 뿐만 아니라 스크린샷, 복잡한 표등을 삽입하고 내장된 템플릿이나 스타일을 통해 보다 풍부한 컨텐츠를 제작할 수 있으며,
-&lt;/p&gt;
-&lt;p&gt;
- 프로젝트와 이슈 유형에 따라 템플릿을 만들어 생산성을 향상시키도록 도와줍니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;img src=&quot;/assets/images/97469335/25.svg&quot;/&gt;
- &lt;strong&gt;
-  추천 Add-on
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1216711/refined-for-jira-sites-themes?hosting=datacenter&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/26.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1210768/jeditor-rich-text-editor-for-jira?hosting=datacenter&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/27.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h2 id=&quot;id-아틀라시안마켓플레이스소개및JiraAdd-on추천-5.Integration&quot;&gt;
- 5. Integration
-&lt;/h2&gt;
-&lt;h2 id='id-아틀라시안마켓플레이스소개및JiraAdd-on추천-&quot;다양한외부시스템/툴과의원활한통합&quot;'&gt;
- &lt;em&gt;
-  &quot;다양한 외부 시스템/툴과의 원활한 통합&quot;
- &lt;/em&gt;
-&lt;/h2&gt;
-&lt;p&gt;
- Atlassian Marketplace에는 여러 외부 툴과의 원활한 연동과 통합을 도와주는 Add-on들이 많이 있어요.
-&lt;/p&gt;
-&lt;p&gt;
- 우리 조직에서 이미 사용하고 있는 기존 시스템과 연동해서 보다 풍부하게 활용하고 한 곳에서 리소스를 편리하게 관리하세요.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;img src=&quot;/assets/images/97469335/28.svg&quot;/&gt;
- &lt;strong&gt;
-  추천 Add-on
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1216787/google-drive-docs-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/29.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1214214/connector-for-salesforce-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/30.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/4984/git-integration-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/31.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1213138/outlook-email-for-jira?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/32.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1212130/saml-single-sign-on-sso-jira-saml-sso?hosting=datacenter&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/33.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1215229/bigtemplate-export-to-pdf-word-excel?hosting=cloud&amp;amp;tab=overview&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97469335/34.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;hr/&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 이 밖에도 Atlassian Marketplace에는 정말 다양하고 유용한 Add-on 들이 많이 있습니다!
-&lt;/p&gt;
-&lt;p&gt;
- Add-on을 통해서 더욱 다양하게 Atlassian 제품을 활용하기 위한 제품구성이나 금액이 궁금하시다면,
-&lt;/p&gt;
-&lt;p&gt;
- 아래 연락처로 언제든지 편하게 문의해주세요.
- &lt;img src=&quot;/assets/images/97469335/35.svg&quot;/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,255);&quot;&gt;
-  &lt;strong&gt;
-   E-mail: atlassian
-   &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot; style=&quot;color: rgb(0,0,255);&quot;&gt;
-    @
-   &lt;/a&gt;
-   osci.kr / Tel: 02-516-0711
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 다음 포스팅에서는 Confluence 와 관련하여 매우 유용한 Add-on 들을 소개해드릴 예정입니다.
-&lt;/p&gt;
-&lt;p&gt;
- 감사합니다!
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;</description>
-        <pubDate>Wed, 24 Jun 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/06/24/97469335/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/06/24/97469335/</guid>
-        
-        <category>atlassian</category>
-        
-        <category>아틀라시안</category>
-        
-        <category>marketplace</category>
-        
-        <category>jira</category>
         
         
       </item>
