@@ -9,9 +9,660 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 09 Nov 2020 17:50:58 +0900</pubDate>
-    <lastBuildDate>Mon, 09 Nov 2020 17:50:58 +0900</lastBuildDate>
+    <pubDate>Wed, 11 Nov 2020 17:51:03 +0900</pubDate>
+    <lastBuildDate>Wed, 11 Nov 2020 17:51:03 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>오픈소스컨설팅은 애자일한가요?</title>
+        <description>&lt;h1 id=&quot;id-오픈소스컨설팅은애자일한가요?-오픈소스컨설팅의일하는문화를소개합니다!&quot;&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,51,0);&quot;&gt;
+   오픈소스컨설팅의 일하는 문화를 소개합니다!
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,51,0);&quot;&gt;
+  안녕하세요, 오픈소스컨설팅 마케터 김혜진 입니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,51,0);&quot;&gt;
+  어느 덧 2020년도 두달이 채 남지 않았네요. 모두 한 해 마무리 잘하고 계신가요?
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  오픈소스컨설팅에서는 남은 2개월을 알차게 보내고, 따뜻한 연말을 맞이하기 위해
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;u&gt;
+   &lt;strong&gt;
+    지난 11월 3일~4일, 이틀동안 PI(Program Increment) Planning을 진행하였습니다.
+   &lt;/strong&gt;
+  &lt;/u&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  PI Planning은 애자일 조직의 전 구성원이 모여 일정한 PI(Program Increment, 8~12주) 주기의
+  &lt;span&gt;
+   업무 계획을 수립하는 일종의 워크샵이라고 할 수 있습니다.
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/0.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  애자일 조직, 많이들 들어보셨을 것 같은데요~
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  급변하는 비즈니스 및 외부 환경 변화의 영향으로 최근 애자일 조직 문화도 다시 주목을 받고 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  애자일 조직이란 기존의 수직적 조직이 아니라, 필요에 맞게 다기능 팀을 구성하는 수평적 구조로,
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  다수의 전략과제를 장기간 추진하는 것이 아니라, 소수의 과제에 집중하고 수정을 반복하는 방식으로 일을 수행합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;u&gt;
+   &lt;strong&gt;
+    오픈소스컨설팅은 애자일 방식 중에서도 SAFe(Scaled Agile Framework)라는 방법론을 적용하여 업무를 진행하고 있습니다.
+   &lt;/strong&gt;
+  &lt;/u&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;u&gt;
+   &lt;strong&gt;
+    PI Planning은 우리의 업무 계획을 스스로 수립하는 SAFe의 핵심 행사라고 할 수 있습니다.
+   &lt;/strong&gt;
+  &lt;/u&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;u&gt;
+   여기서 잠깐!
+  &lt;/u&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  SAFe란 무엇일까요? 기업의 민첩성을 위한 프레임워크로, 특히 복잡한 프로젝트 관리에 필요한 프로세스와 구체화된 솔루션을 제공함으로써
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  대규모 조직이 적용하기에 적합한 애자일 방법론입니다. 참고로 오픈소스컨설팅은 SAFe를 개발, 공급하는 Scaled Agile사의 국내 유일 파트너사입니다.
+  &lt;img src=&quot;/assets/images/104413735/1.svg&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;http://www.datanet.co.kr/news/articleView.html?idxno=150496&quot; rel=&quot;nofollow&quot; style=&quot;color: rgb(0,0,0);&quot;&gt;
+   &amp;gt;&amp;gt;자세히보기
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;strong&gt;
+   이번 포스팅에서는
+   &lt;u&gt;
+    오픈소스컨설팅의 애자일 적용기 - PI Planning
+   &lt;/u&gt;
+   이틀 간의 내용을 공유하려고 합니다.
+  &lt;/strong&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;id-오픈소스컨설팅은애자일한가요?-We'reallonthesametrain!&quot;&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   We're all on the same train!
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;u&gt;
+   &lt;strong&gt;
+    PI Planning은 모든 구성원들이 한 기차를 타고, 같은 방향으로 나아갈 것을 약속하는 자리라고 할 수 있습니다.
+   &lt;/strong&gt;
+  &lt;/u&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  이를 SAFe에서는 ART(Agile Release Train)이라고 표현하는데요,
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  ART란 변화에 신속하기 대응하기 위해 기업의 중요한 가치 흐름을 중심으로
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  최종 사용자에게 이익을 제공하는 솔루션을 정의, 제공 및 운영하는 데 필요한 모든 인력을 보유한 가상 조직을 의미합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  PI가 진행되는 동안 구성원이 모여 하나의 ART를 구성하게 되는 것이죠.
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  물론 조직의 가치 흐름에 따라 여러 ART가 포함될 수도 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 이틀 간의 PI Planning은 주로 아래와 같은 아젠다로 진행됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/2.png&quot;/&gt;
+ &lt;/span&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/3.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  PI Planning의 첫 날은 경영진이 수립한 회사의 비전과 제품 로드맵, 사업 현황을 구성원들과 공유하는 것으로 시작합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  경영진과 조직원들은 한 기차를 탄 운명 공동체로서, 회사의 방향성에 대해 서로 합의하는 중요한 아젠다입니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  오픈소스컨설팅은 최근 &quot;마이그레이션 전문 기업&quot;이라는 비전을 새롭게 수립하였고
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  이를 달성하기 위해 필요한 개인과 조직의 마인드셋에 관한 이야기로 문을 열었습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  현재 우리의 사업 현황과 향후 목표, 그리고 방향에 대해 이해할 수 있는 의미있는 시간이었습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/4.png&quot;/&gt;
+ &lt;/span&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/5.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h1 id=&quot;id-오픈소스컨설팅은애자일한가요?-Agileteamisaself-organizingteam!&quot;&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   Agile team is a self-organizing team!
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;u&gt;
+  &lt;strong&gt;
+   PI Planning에서 가장 중요한 포인트는 바로 애자일팀이 스스로 업무와 목표를 정한다는 점입니다.
+  &lt;/strong&gt;
+ &lt;/u&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ Top-down 방식으로 일을 지시받아 진행하는 것이 아니라,
+ &lt;span&gt;
+  오전 세션에서 공유된 회사의 방향에 맞게
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  PI기간 동안의 팀이 해야할 일과 달성하고자 하는 목표를 스스로 도출해 냅니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 각 팀에서는 팀이 해야할 일을 정하고 이를 Program Board에 부착을 하는데요,
+&lt;/p&gt;
+&lt;p&gt;
+ 우리 회사의 중요 마일스톤과 함께 진행되어야할 모든 팀의 업무가 모이게 되고, 여기에 팀 간 업무의 디펜던시를 파악할 수 있게 됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  Program Board와 함께 PI Planning에서 도출되어야 할 주요 Output이 또 하나 있는데요,
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;u&gt;
+   &lt;strong&gt;
+    바로 우리가 스스로 세운 우리의 목표 PI Objective입니다.
+   &lt;/strong&gt;
+  &lt;/u&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  PI Objective는 목표 수립 시 가장 많이 사용되는 SMART 기법을 활용하여 작성하게 됩니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  (SMART? Specific/ Measurable/ Achievable/ Realistic/ Time-Bounded)
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  PI Planning의 첫 날은 각 팀에서 수립한 PI Objective를 발표하는 것으로 마무리합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  경영진들은 PI Planning 첫 날의 결과를 리뷰하고, 수정/보완사항을 검토하는 자리를 갖습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/6.png&quot;/&gt;
+ &lt;/span&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/7.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ PI Planning 둘째 날이 밝았습니다!
+&lt;/p&gt;
+&lt;p&gt;
+ 전날의 경영진 리뷰를 기반으로 문제 해결과 보완사항을 논의하게 됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 경영진 리뷰에 따라 사업 우선순위 혹은 Vision이 조정될 수도 있고, 업무 범위 변경이나 사람의 이동이 있을 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 각 팀은 수정.보완사항을 기준으로 최종 계획을 수립하고 위헙요소를 확정합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 경영진은 각 팀을 라운딩하며 대화를 통해 PI Objective에 Business Value를 부여합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ Business Value를 부여하는 작업은 이러한 의사결정 뒤에 숨겨진 전략과 맥락을 전달할 수 있기 때문에
+&lt;/p&gt;
+&lt;p&gt;
+ PI Planning에서 이루어지는 중요한 커뮤니케이션 자리라고 할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/8.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 각 팀은 다시 한 자리에 모여 최종 계획과 위험요소를 발표합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 팀의 목표를 달성하는데 영향을 미칠 수 있는 위험요소와 장애물을 공유하고, 아래의 ROAM 중 하나를 할당합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 위험 요소가 ART 전체에 투명하게 공개되고, 경영진을 포함한 모든 직원이 이에 대한 해결점을 논의하는데 큰 의미가 있다고 할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  Resolved : 해결 되었음, 더 이상 걱정 없음
+ &lt;/li&gt;
+ &lt;li&gt;
+  Owned : 누군가 책임을 가지고 해결 중
+ &lt;/li&gt;
+ &lt;li&gt;
+  Accepted : 할 수 있는 것이 없음, 만약 Risk가 발생하면 출시(Release)에 대한 타협이 필요
+ &lt;/li&gt;
+ &lt;li&gt;
+  Mitigated : 팀이 필요에 따라 조정 계획을 가지고 있음
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h1 id=&quot;id-오픈소스컨설팅은애자일한가요?-Veryhighconfidencefromall!&quot;&gt;
+ &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+  &lt;strong&gt;
+   Very high confidence from all!
+  &lt;/strong&gt;
+ &lt;/span&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 업무 디펜던시와 리스크가 해결된 후 모든 구성원들의 자신감 투표, Confidence Vote를 실시합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ Confidence Vote를 통해 팀은 아래 두가지 사항에 대해 약속을 합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;ol&gt;
+ &lt;li&gt;
+  팀은 동의한 Objective를 달성하기 위해 할 수 있는 모든 것을 다 하겠다.
+ &lt;/li&gt;
+ &lt;li&gt;
+  단순하게 달성할 수 없을 것 같은 사실들이 있다면 팀은 즉각 드러내고 수정 작업이 바로 들어가야 한다.
+ &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 구성원은 손가락으로 5개 만점 투표(Fist of five vote) 를 실시하고, 만약 한명이라도 2개 또는 1개에 투표할 경우 의견을 확인하여 계획을 수정, 보완해야 합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 오픈소스컨설팅의 두 번째 PI Planning은 모든 구성원들의 자신감 가득찬 모습으로 마무리가 되었답니다!
+ &lt;img src=&quot;/assets/images/104413735/9.svg&quot;/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104413735/10.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  PI Planning의 마지막 순서는
+  &lt;u&gt;
+   &lt;strong&gt;
+    애자일하면 빠질 수 없는 문화, 바로 &quot;회고(Retrospective)&quot;입니다.
+   &lt;/strong&gt;
+  &lt;/u&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  이번 PI Planning동안 잘한 점, 잘하지 못한 점, 다음 번에 더 잘할 수 있는 점을 파악함으로써
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  성숙된 애자일 문화로 발전시켜 나가게 됩니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 지금까지 오픈소스컨설팅의 일하는 문화,
+ &lt;u&gt;
+  &lt;strong&gt;
+   SAFe의 PI Planning 후기
+  &lt;/strong&gt;
+ &lt;/u&gt;
+ 를 간단하게나마 소개드렸는데요, 어떠셨나요?
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 애자일은 들어봤는데 SAFe는 처음이시라면, 혹은 우리 회사에도 애자일을 적용할 수 있을지 궁금하시다면
+&lt;/p&gt;
+&lt;p&gt;
+ 아래 &quot;열린기술공방&quot;으로 언제든지 문의해 주세요!
+ &lt;img src=&quot;/assets/images/104413735/11.svg&quot;/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 감사합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(51,51,0);&quot;&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;https://www.sharingtechlabs.com/infoPage/ScaledAgile?utm_source=techblog&amp;amp;utm_medium=article&amp;amp;utm_campaign=safe&quot; rel=&quot;nofollow&quot;&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;img src=&quot;/assets/images/104413735/12.png&quot;/&gt;
+   &lt;/span&gt;
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Wed, 11 Nov 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/11/11/104413735/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/11/11/104413735/</guid>
+        
+        <category>오픈소스컨설팅</category>
+        
+        <category>오픈소스컨설팅문화</category>
+        
+        <category>애자일</category>
+        
+        <category>safe</category>
+        
+        <category>scaledagile</category>
+        
+        <category>agile</category>
+        
+        <category>애자일문화</category>
+        
+        
+      </item>
     
       <item>
         <title>Atlassian 11월 Release Note</title>
@@ -7653,381 +8304,6 @@ EOF
         <pubDate>Mon, 03 Aug 2020 00:00:00 +0900</pubDate>
         <link>https://tech.osci.kr/2020/08/03/97477266/</link>
         <guid isPermaLink="true">https://tech.osci.kr/2020/08/03/97477266/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>[Success Story] How IT team reduce the costs using Atlassian Marketplace App</title>
-        <description>&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97475714/0.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp&quot; style=&quot;text-align: left;&quot;&gt;
- &lt;strong&gt;
-  [Success Story] How IT team reduce the costs using Atlassian Marketplace App
- &lt;/strong&gt;
-&lt;/h1&gt;
-&lt;h2 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-MiraeAssetLifeInsurancesavedabout34%ofITcostsusingtheFlexibleUserLicense&quot; style=&quot;text-align: left;&quot;&gt;
- &lt;strong&gt;
-  Mirae Asset Life Insurance saved about 34% of IT costs using the Flexible User License
- &lt;/strong&gt;
-&lt;/h2&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- The IT team plays an important role in driving the business growth and innovation of the company by quickly responding to the changing organization scales and market environment.
-&lt;/p&gt;
-&lt;p&gt;
- At the same time, they also consider reducing IT costs by eliminating unnecessary waste from their business.
-&lt;/p&gt;
-&lt;p&gt;
- Due to COVID-19 Pandemic, the pressure on IT team for more efficient IT costs and budget savings is growing.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  Please read our customer story that how Mirae Asset Life Insurance, a leading financial company in Korea, has been able to reduce IT costs by 34% using Atlassian marketplace app - Flexible User License.
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/97475714/1.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- Mirae Asset Life Insurance Co., Ltd. that is major life insurance company in Korea provides retirement design services through diverse insurance products.
-&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  Company: Mirae Asset Life Insurance Co., Ltd.
- &lt;/li&gt;
- &lt;li&gt;
-  Industry: Insurance
- &lt;/li&gt;
- &lt;li&gt;
-  Company size: 34.5 trillion (2018)
- &lt;/li&gt;
- &lt;li&gt;
-  Atlassian Products: Jira Software, Confluence , Bitbucket, Bamboo
- &lt;/li&gt;
- &lt;li&gt;
-  Hosting type: Server
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-Challenge:Workcomplexityandresourcescontinuetogrow&quot; style=&quot;text-align: left;&quot;&gt;
- &lt;strong&gt;
-  Challenge : Work complexity and resources continue to grow
- &lt;/strong&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- Various regulations in the financial industry and changes in the working environment have resulted in continuous increase in the complexity of work and resources under management. Mirae Asset Life Insurance needs a new ways of working, such as Agile and DevOps to improve work efficiency. At the same time, they were also concerned about ways to reduce IT costs. Mirae Asset Life Insurance was using 250 user tier of Jira and Confluence, but the number of users increased to more than 500 due to increment of inquiries.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-Solution:Respondquicklytothechangethenumberofusers&quot; style=&quot;text-align: left;&quot;&gt;
- &lt;strong&gt;
-  Solution : Respond quickly to the change the number of users
- &lt;/strong&gt;
-&lt;/h3&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;
- &lt;span class=&quot;tlid-translation translation&quot; lang=&quot;en&quot;&gt;
-  &lt;span title=&quot;&quot;&gt;
-   The cost of purchasing all Atlassian products, including the marketplace app, was expected to increase significantly due to the increase in the number of users
-  &lt;/span&gt;
-  &lt;span title=&quot;&quot;&gt;
-   , but
-  &lt;/span&gt;
- &lt;/span&gt;
- &lt;strong&gt;
-  Flexible User License
- &lt;/strong&gt;
- solved this issue instead of purchasing the additional user licenses. Mirae Asset Life Insurance has experienced a 34% cost savings. In addition, Flexible User License handles to maintain 250 user license at all times through the scheduler. They don't have to monitor the system, so it has been improved the convenience of administrator.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  Flexible User License
- &lt;/strong&gt;
- is an efficient user license management app that solves the license shortage issue. The administrator does not need to manually deactivate the user, and the app setting allows automatically the assignment of the licenses to the unlicensed users when they log back in. So, they can respond quickly to the change the number of users. Flexible User License is a global-enterprise-proven app by our large enterprise clients in areas such as IT, manufacturing and finance.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97475714/2.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-Getstaredwithatrialforyourbusiness&quot;&gt;
- &lt;strong&gt;
-  Get stared with a trial for your business
- &lt;/strong&gt;
-&lt;/h3&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;p class=&quot;fs20 fw300&quot;&gt;
-   &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1222216&quot; rel=&quot;nofollow&quot;&gt;
-    Flexible User License for Jira
-   &lt;/a&gt;
-  &lt;/p&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;p class=&quot;fs20 fw300&quot;&gt;
-   &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1220252&quot; rel=&quot;nofollow&quot;&gt;
-    Flexible User License for Confluence
-   &lt;/a&gt;
-  &lt;/p&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- Learn more about Flexible User License, please
- &lt;a class=&quot;external-link&quot; href=&quot;https://osci.kr/en/flex_user.php?utm_source=techblog&amp;amp;utm_medium=posting&amp;amp;utm_campaign=appsforeveryteam&amp;amp;utm_term=July_2020&quot; rel=&quot;nofollow&quot;&gt;
-  visit our website
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- Or to see how to set up your own license management, please
- &lt;a class=&quot;external-link&quot; href=&quot;https://www.youtube.com/watch?v=3TkVf6tI49A&quot; rel=&quot;nofollow&quot;&gt;
-  see this guide video.
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-AboutOpenSourceConsulting...&quot;&gt;
- &lt;strong&gt;
-  About Open Source Consulting...
- &lt;/strong&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  Open Source Consulting Inc.,
- &lt;/strong&gt;
- a platinum partner of Atlassian, has provided  ITSM and DevOps solutions to customers based on our technical experiences in technical/application/system architecture consulting and developments. We also developing and serving the marketplace apps that help customers use Atlassian more efficiently.
-&lt;/p&gt;
-&lt;p class=&quot;con-title tc&quot; style=&quot;text-align: left;&quot;&gt;
- &lt;span class=&quot;fs30&quot;&gt;
-  Open Source Consulting is honored as
- &lt;/span&gt;
- ‘Atlassian Partner of the Year 2019 : Marketing Innovator’ for our outstanding contribution and achievements. This means that implementing the most creative and integrated marketing strategy has contributed to creating customer demand and improving market awareness in Atlassian.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97475714/3.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;hr/&gt;
-&lt;h2 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-[고객사례]IT팀이AtlassianMarketplaceApp을활용하여비용을절감하는방법&quot;&gt;
- [고객사례] IT팀이 Atlassian Marketplace App을 활용하여 비용을 절감하는 방법
-&lt;/h2&gt;
-&lt;h3 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-FlexibleUserLicense앱을사용해IT비용의약34%를절감한미래에셋생명의사례를확인해보세요!&quot;&gt;
- &lt;strong&gt;
-  Flexible User License 앱을 사용해 IT비용의 약 34%를 절감한 미래에셋생명의 사례를 확인해 보세요!
- &lt;/strong&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 기업의 IT부서는 조직이 확장되고 변화하는 시장 환경에 신속하게 대응함으로써 기업의 비즈니스 성장과 혁신을 주도하는 중요한 역할을 하고 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 이와 동시에 기업의 불필요한 낭비를 없애 IT비용 절감이라는 미션을 수행해야 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- 최근 코로나 펜데믹 사태에 따라, IT부서에서도 보다 효율적인 IT비용 집행과 예산 절감에 대한 압박이 커지는 상황입니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 이 포스팅에서는 대표적인 생명보험 회사인
- &lt;strong&gt;
-  미래에셋생명이 Atlassian Marketplace App - Flexible User License를 활용하여
- &lt;/strong&gt;
- &lt;strong&gt;
-  어떻게 IT 비용을 34% 가량 절감할 수 있었는지
- &lt;/strong&gt;
- 소개하고자 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/97475714/4.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-Challenge:업무의복잡도및리소스의계속적인증가&quot; style=&quot;text-align: left;&quot;&gt;
- &lt;strong&gt;
-  Challenge : 업무의 복잡도 및 리소스의 계속적인 증가
- &lt;/strong&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- 금융권의 각종 규제와 업무 환경의 변화로 업무의 복잡도와 관리 대상 자원이 지속적으로 증가함에 따라, 미래에셋생명은 업무 효율을 개선하기 위한 Agile, DevOps와 같은 새로운 업무 방식이 필요했습니다. 이에 미래에셋생명은 전반적인 요청 관리 프로세스를 통합하는 ITSM 시스템을 아틀라시안 기반으로 새롭게 구축하였습니다. 미래에셋생명은 사용자 수 250명 기준의 Jira와 Confluence 제품을 사용 중이었는데, 점차 문의가 증가하면서 사용자 수도 계속해서 증가하는 상황이었기 때문에 어떻게 IT비용을 줄일 수 있을지에 대한 고민이 있었습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-Solution:사용자수증감에신속하게대응&quot; style=&quot;text-align: left;&quot;&gt;
- &lt;strong&gt;
-  Solution: 사용자 수 증감에 신속하게 대응
- &lt;/strong&gt;
-&lt;/h3&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;
- 미래에셋생명은 사용자 수가 500명 이상으로 증가함에 따라, 마켓플레이스 앱을 포함한 아틀라시안 전체 제품의 구매 비용이 대폭적으로 증가할 수 있는 상황이었습니다. 하지만 Flexible User License 앱 제품을 도입함으로써 문제를 해결할 수 있었습니다. 미래에셋생명은 라이선스를 추가적으로 구매하지 않고도 사용자 수를 모두 감당할 수 있게 됨으로써, 약 34%의 비용 절감 효과를 누리게 되었습니다.
-&lt;/p&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;
- 또한 Flexible User License 제품의 스케쥴러 기능을 통해 항상 250명의 유저 라이선스를 유지시킬 수 있습니다. 별도의 모니터링을 하지 않아도 되기 때문에 관리자의 편의성도 향상 시킬 수 있었습니다.
-&lt;/p&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[SuccessStory]HowITteamreducethecostsusingAtlassianMarketplaceApp-FlexibleUserLicense?&quot; style=&quot;text-align: left;&quot;&gt;
- Flexible User License?
-&lt;/h3&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;
- &lt;span&gt;
-  Flexible User License는 라이선스 그룹의 사용자 수를 유연하게 관리할 수 있는 Atlassian marketplace app입니다. 쉽고 간단한
- &lt;/span&gt;
- &lt;span&gt;
-  라이선스 관리를 통해 사용자 증감에 신속하게 대응하고 IT비용을 절감할 수 있습니다. Flexible User license 제품은 사용자 기반의 라이선스 자동 할당 및 삭제 기능을 제공하여,
- &lt;/span&gt;
- &lt;span&gt;
-  관리자가 수동으로 사용자를 비활성화할 필요가 없으며 일정 기간 로그인 하지 않은 사용자가 다시 로그인할 때 자동으로 라이선스가 할당됩니다.
- &lt;/span&gt;
- &lt;span&gt;
-  IT, 제조, 금융 등 많은 기업들이 Flexible User License 앱을 통해 효율적으로 라이선스 관리를 하고 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97475714/5.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;
- &lt;strong&gt;
-  지금 바로 Atlassian Marketplace에서 Flexible User License 앱을 무료로 사용해 보세요!
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1222216&quot; rel=&quot;nofollow&quot;&gt;
-   [Atlassian Marketplace] Flexible User License for Jira
-  &lt;/a&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://marketplace.atlassian.com/apps/1220252&quot; rel=&quot;nofollow&quot;&gt;
-   [Atlassian Marketplace] Flexible User License for Confluence
-  &lt;/a&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   &lt;a class=&quot;external-link&quot; href=&quot;https://osci.kr/page/view.php?m_id=60&amp;amp;utm_source=techblog&amp;amp;utm_medium=posting&amp;amp;utm_campaign=appsforeveryteam&amp;amp;utm_term=July_2020&quot; rel=&quot;nofollow&quot;&gt;
-    Flexible User License 제품 홈페이지 방문하기&amp;gt;&amp;gt;
-   &lt;/a&gt;
-  &lt;/span&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://osci.kr/page/view.php?m_id=60&amp;amp;utm_source=techblog&amp;amp;utm_medium=posting&amp;amp;utm_campaign=appsforeveryteam&amp;amp;utm_term=July_2020&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97475714/6.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;</description>
-        <pubDate>Tue, 21 Jul 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/07/21/97475714/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/07/21/97475714/</guid>
-        
-        <category>atlassian</category>
-        
-        <category>atlassian-marketplace</category>
-        
-        <category>atlassian-customer-story</category>
-        
-        <category>atlassian-app</category>
-        
-        <category>cost-saving</category>
-        
-        <category>license-management</category>
-        
-        <category>atlassian-admin-tool</category>
-        
-        <category>atlassian-user-license</category>
-        
-        <category>apps-for-every-team</category>
-        
-        <category>atlassian-platinum-partner</category>
-        
-        <category>atlassian-partner-of-the-year</category>
-        
-        <category>open-source-consulting</category>
         
         
       </item>
