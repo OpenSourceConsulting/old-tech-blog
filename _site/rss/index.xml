@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 13 Nov 2020 17:51:04 +0900</pubDate>
-    <lastBuildDate>Fri, 13 Nov 2020 17:51:04 +0900</lastBuildDate>
+    <pubDate>Mon, 23 Nov 2020 17:51:03 +0900</pubDate>
+    <lastBuildDate>Mon, 23 Nov 2020 17:51:03 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -1094,7 +1094,7 @@ Sharing Tech. Growing Together.
  &lt;/strong&gt;
 &lt;/h2&gt;
 &lt;p&gt;
- Crowd 4.2버전 부터 로그인 화면의 모양과 느낌을 커스터마이징할 수 있습니다.
+ Crowd 4.2버전 부터 로그인 화면의 모습을 커스터마이징할 수 있습니다.
  &lt;span&gt;
  &lt;/span&gt;
  사용자의 로고, 사용자 정의 시작 텍스트 및 선택한 색상을 변경하여 페이지를 커스터마이징할 수 있습니다.
