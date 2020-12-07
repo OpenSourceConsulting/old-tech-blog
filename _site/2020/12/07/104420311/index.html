@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Atlassian 12월 Release Note</title>
+<meta name="title" content="Atlassian 12월 Release Note" />
+<meta name="author" content="soohyeonlee"/>
+<meta name="description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 최신  Release Note를 전해드리고자 합니다. Jira Software 8.14.x 릴리즈 노트 | Email templates made better / 더 나은 이메일 템플릿 [ Data Center ] 이제 Jira에서 이메일 템플릿을 직접 다운로드할 수 있으며 템플릿에 필요한 모든 파일에 쉽게 액세스할 수 있습니다.템플릿을 수정한뒤 다시 업로드 하시면 올바른 위치로 옮겨집니다. Jira 8.14로 업그레이드한 후 기본 템플릿을 Jira 공유 홈 디렉토리에 복사해두세요. 그렇게 하시면 향후 업그레이드 시 변경 사항을 쉽게 유지하실..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Atlassian 12월 Release Note"/>
+<meta property="og:description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 최신  Release Note를 전해드리고자 합니다. Jira Software 8.14.x 릴리즈 노트 | Email templates made better / 더 나은 이메일 템플릿 [ Data Center ] 이제 Jira에서 이메일 템플릿을 직접 다운로드할 수 있으며 템플릿에 필요한 모든 파일에 쉽게 액세스할 수 있습니다.템플릿을 수정한뒤 다시 업로드 하시면 올바른 위치로 옮겨집니다. Jira 8.14로 업그레이드한 후 기본 템플릿을 Jira 공유 홈 디렉토리에 복사해두세요. 그렇게 하시면 향후 업그레이드 시 변경 사항을 쉽게 유지하실..."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/12/07/104420311/"/>
+<meta property="og:image" content="/assets/images/104420311/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Atlassian 12월 Release Note"/>
+<meta name="twitter:description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 최신  Release Note를 전해드리고자 합니다. Jira Software 8.14.x 릴리즈 노트 | Email templates made better / 더 나은 이메일 템플릿 [ Data Center ] 이제 Jira에서 이메일 템플릿을 직접 다운로드할 수 있으며 템플릿에 필요한 모든 파일에 쉽게 액세스할 수 있습니다.템플릿을 수정한뒤 다시 업로드 하시면 올바른 위치로 옮겨집니다. Jira 8.14로 업그레이드한 후 기본 템플릿을 Jira 공유 홈 디렉토리에 복사해두세요. 그렇게 하시면 향후 업그레이드 시 변경 사항을 쉽게 유지하실..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="soohyeonlee"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/104420311/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="아틀라시안,releasenote"/>
+
+<meta property="article:tag" content="아틀라시안"/>
+
+<meta property="article:tag" content="releasenote"/>
+
+
+
+<meta property="article:published_time" content="2020-12-07T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/soohyeonlee"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/12/07/104420311/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/104420311/0.png);">
+    <div>
+        <h1>Atlassian 12월 Release Note</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                아틀라시안
+                ,
+            
+                releasenote
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ <span style="color: rgb(23,43,77);">
+  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ </span>
+ <br/>
+ <span style="color: rgb(23,43,77);">
+  이번 포스팅에서는 아틀라시안 제품군의 최신  Release Note를 전해드리고자 합니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<hr/>
+<h1 id="Atlassian12월ReleaseNote-JiraSoftware8.14.x릴리즈노트">
+ <strong>
+  Jira Software 8.14.x 릴리즈 노트
+ </strong>
+</h1>
+<h2 id="Atlassian12월ReleaseNote-|Emailtemplatesmadebetter/더나은이메일템플릿">
+ <strong>
+  | Email templates made better / 더 나은 이메일 템플릿
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ <span>
+  이제 Jira에서 이메일 템플릿을 직접 다운로드할 수 있으며 템플릿에 필요한 모든 파일에 쉽게 액세스할 수 있습니다.템플릿을 수정한뒤 다시 업로드 하시면 올바른 위치로 옮겨집니다.
+ </span>
+</p>
+<p>
+ <span>
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/0.png"/>
+  </span>
+  <br/>
+ </span>
+</p>
+<p>
+ <span>
+  Jira 8.14로 업그레이드한 후 기본 템플릿을 Jira 공유 홈 디렉토리에 복사해두세요. 그렇게 하시면 향후 업그레이드 시 변경 사항을 쉽게 유지하실 수 있습니다.
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/adminjiraserver/customizing-email-content-938847640.html" rel="nofollow" style="text-decoration: none;">
+  자세히 알아보기
+ </a>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Quicklyviewissuesbelongingtoanepic/에픽에해당하는이슈를빠르게확인">
+ <strong>
+  | Quickly view issues belonging to an epic / 에픽에 해당하는 이슈를 빠르게 확인
+ </strong>
+</h2>
+<p>
+ <span>
+  에픽에 속한 이슈가
+ </span>
+ <span>
+  세부 정보 보기 섹션으로 이동하여 칸반 백로그 또는 게시판에서 기본 이슈를 신속하게 확인할 수 있습니다.
+ </span>
+</p>
+<p>
+ <span>
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/1.png"/>
+  </span>
+  <br/>
+ </span>
+</p>
+<p>
+ <span>
+  에픽들에 대한 이슈 디테일 뷰는 칸반 보드 및 백로그에서 사용하고 있는 에픽들을 카드로 표시하는 경우에만 사용할 수 있습니다. 스크럼의 경우 에픽을 연후에 이부분을 확인하실 수 있습니다.
+ </span>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Setcontextforcustomfieldsasyoucreatethem/사용자정의필드를작성할때컨텍스트설정">
+ <strong>
+  | Set context for custom fields as you create them / 사용자 정의 필드를 작성할 때 컨텍스트 설정
+ </strong>
+</h2>
+<p>
+ <span>
+  이제 사용자 지정 필드에는
+  <strong>
+   글로벌
+  </strong>
+  및
+  <strong>
+   프로젝트별
+  </strong>
+  두 가지 컨텍스트가 포함됩니다. 글로벌 컨텍스트는 기존에는 디폴트 설정으로 만들어진 사용자 지정 필드는 인스턴스의 모든 문제에 적용되어 지라의 성능에 영향을 미칠 수 있습니다. 컨텍스트를 선택하는 데  몇가지를 개선하였습니다.
+ </span>
+</p>
+<p>
+ <span>
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/2.png"/>
+  </span>
+  <br/>
+ </span>
+</p>
+<p>
+ <span>
+  이제 사용자 정의 필드의 컨텍스트를 만들 때 둘중에 한가지를 선택할 수 있습니다. 사내의 다른 Jira 관리자가 이를 선택할 때 컨텍스트를 고를 수 있습니다. 이렇게 하면 글로벌로 생성되는 사용자 지정 필드 수를 제한하고 Jira 인스턴스를 최상의 상태로 유지하는 데 도움이 됩니다.
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/adminjiraserver/adding-a-custom-field-938847222.html" rel="nofollow" style="text-decoration: none;">
+  자세히 알아보기
+ </a>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|DVCSConnectorimprovements/DVCS커넥터개선사항">
+ <strong>
+  | DVCS Connector improvements / DVCS  커넥터 개선 사항
+ </strong>
+</h2>
+<p>
+ <span style="color: rgb(48,48,48);">
+  이슈에서 개발 정보를 볼 수 있도록 DVCS Connector의 여러 가지 개선했습니다. 가장 눈에 띄는 것은 이러한 모든 DVCS 계정 관리에 도움이 될 성능의 향상과 GitLab에 대한 지원입니다.
+ </span>
+</p>
+<p>
+ <span>
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/3.png"/>
+  </span>
+  <br/>
+ </span>
+</p>
+<p>
+ <span>
+  Polling 메커니즘을 개선하고 여러 작업을 백그라운드 쓰레드로 이동하는 것 외에도 UI에 몇 가지 작은 개선 사항이 생겼습니다. 여기에는 페이지 지정, 확장 가능한 섹션 및 불필요한 로딩이 포함되어 DVCS 계정 페이지 작업이 빨라지고 응답성이 향상됩니다.
+  <a class="external-link" href="https://confluence.atlassian.com/adminjiraserver/integrating-with-development-tools-938846890.html" rel="nofollow" style="text-decoration: none;">
+   자세히 알아보기
+  </a>
+ </span>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Personalaccesstokens/개인액세스토큰">
+ <strong>
+  | Personal access tokens / 개인 액세스 토큰
+ </strong>
+</h2>
+<p>
+ <span>
+  Jira REST API는 자동화 및 다른 시스템과의 통합에 무한한 기회를 제공합니다. 이제 보안적으로 안심할 수 있도록 개인 액세스 토큰을 만들어 이용하실 수 있습니다. 이 토큰은 인증에 사용자 이름과 암호를 대체하는 데 안전한 대안책입니다.
+ </span>
+</p>
+<p>
+ <span>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper conf-macro output-inline">
+   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+    <img src="/assets/images/104420311/4.png"/>
+   </span>
+  </span>
+  <br/>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  Jira의 프로필로 이동하고 개인 액세스 토큰을 선택하여 토큰을 만들어보세요. 기본적으로 토큰을 최대 10개까지 생성할 수 있으며, 각각의 만료일을 다르게 설정할 수 있습니다. 지라
+  <strong>
+   데이터센터
+  </strong>
+  에서는 지라 시스템 관리자가 토큰을 추가로 확인하고 이를 언제든지 해지할 수 있습니다.
+  <a class="external-link" href="https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html" rel="nofollow">
+   자세히 알아보기
+  </a>
+ </span>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|EmbeddedCrowdandpasswordencryption/내장크라우드및패스워드암호화">
+ <strong>
+  | Embedded Crowd and password encryption / 내장 크라우드 및 패스워드 암호화
+ </strong>
+</h2>
+<p>
+ Embedded Crowd의 보안을 강화하고 있습니다.
+ <span>
+ </span>
+ 지라 8.14부터는 일반 텍스트로 지라 데이터베이스에 보관되고 있던 모든 패스워드가 암호화됩니다.
+ <span>
+ </span>
+ 업그레이드 사용자인 경우 업그레이드 중에 패스워드 암호화가 수행됩니다.
+</p>
+<p>
+ 다음은 암호화된 중요한 데이터 목록입니다.
+</p>
+<ul class="ak-ul">
+ <li>
+  <p>
+   LDAP 디렉토리 패스워드
+  </p>
+ </li>
+ <li>
+  <p>
+   원격 크라우드 디렉터리 응용 프로그램 패스워드
+  </p>
+ </li>
+ <li>
+  <p>
+   Azure AD 웹 응용 프로그램 키
+  </p>
+ </li>
+ <li>
+  <p>
+   SMTP 메일 패스워드
+  </p>
+ </li>
+ <li>
+  <p>
+   프록시 패스워드
+  </p>
+ </li>
+</ul>
+<p>
+ 백업 저장 패스워드도 암호화합니다.
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Accessibilityimprovementswhencreatingissues/문제생성시접근성향상">
+ <strong>
+  | Accessibility improvements when creating issues / 문제 생성 시 접근성 향상
+ </strong>
+</h2>
+<p>
+ <span style="color: rgb(48,48,48);">
+  제품과 서비스에 더 쉽게 접근할 수 있도록 지속적으로 개선하고 있습니다. 이번에는 이슈 생성 플로우를 정리했습니다. 이제 키보드를 사용하여 프로세스를 원활하게 탐색할 수 있습니다. 변경 사항은 다음과 같습니다.
+ </span>
+</p>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-name="expand" id="expander-718544842">
+ <div class="expand-control" id="expander-control-718544842">
+  <span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-right">
+  </span>
+  <span class="expand-control-text">
+   향상된 대비 및 포커스 표시기
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-718544842">
+  <p>
+   <span style="color: rgb(23,43,77);">
+    대비 기능을 강화하고 포커스 표시기(강조된 테두리 효과)를 적용해 키보드 내비게이션의 모습을 개선했습니다.
+   </span>
+  </p>
+  <p>
+   <span style="color: rgb(23,43,77);">
+    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+     <img src="/assets/images/104420311/5.png"/>
+    </span>
+   </span>
+  </p>
+ </div>
+</div>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-name="expand" id="expander-1863427816">
+ <div class="expand-control" id="expander-control-1863427816">
+  <span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-right">
+  </span>
+  <span class="expand-control-text">
+   Click here to expand...
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-1863427816">
+  <p>
+   이제 도구 모음을 사용하는 것이 훨씬 쉬워졌습니다.
+   <span>
+   </span>
+   키보드를 통해 모든 요소에 완전히 액세스할 수 있습니다.
+   <span>
+   </span>
+   탭 키를 사용하여 페이지의 모든 항목으로 이동할 수 있습니다.
+   <span>
+   </span>
+   일부 버튼에 더 많은 설명 툴팁을 추가했습니다.
+  </p>
+  <p>
+   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+    <img src="/assets/images/104420311/6.png"/>
+   </span>
+  </p>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-name="expand" id="expander-523637248">
+ <div class="expand-control" id="expander-control-523637248">
+  <span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-right">
+  </span>
+  <span class="expand-control-text">
+   다중 선택 목록에 대한 추가 지원
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-523637248">
+  <p>
+   도움말의 접근성을 수정하고 다중 선택 목록기에 대한 추가 지원을 추가했습니다.
+  </p>
+  <p>
+   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+    <img src="/assets/images/104420311/7.png"/>
+   </span>
+  </p>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<div class="expand-container conf-macro output-block" data-hasbody="true" data-macro-name="expand" id="expander-485454011">
+ <div class="expand-control" id="expander-control-485454011">
+  <span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-right">
+  </span>
+  <span class="expand-control-text">
+   드롭다운 메뉴에서 단순화된 요소
+  </span>
+ </div>
+ <div class="expand-content expand-hidden" id="expander-content-485454011">
+  <p>
+   드롭다운 또는 그룹 선택기를 단순화 했습니다. 흐름을 부드럽게 하고 전반적인 경험을 향상시킬 수 있도록 몇 가지 작은 개선이 이뤄졌습니다.
+   <br/>
+   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+    <img src="/assets/images/104420311/8.gif"/>
+   </span>
+  </p>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Improveddatainsights/향상된데이터인사이트">
+ <strong>
+  | Improved data insights / 향상된 데이터 인사이트
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ 이제 관리자 및 데이터 분석가에게 Jira의 현재 상태 데이터를 보낼 수 있는 기능을 제공합니다.
+ <span>
+ </span>
+ 이 빌딩은 비즈니스 통찰력을 위한 데이터 파이프라인으로 향하는 최초의 이정표 건물입니다. 향후 몇 가지 릴리스에 걸쳐 Jira가 현재 상태 데이터를 추출, 로드 및 변환하는 방법을 개선할 계획입니다.
+</p>
+<p>
+ 이 마일스톤에서는 Jira로부터 데이터를 추출하여 Tableau 또는 Power와 같은 기존 비즈니스 인텔리전스 플랫폼에 제공할 수 있습니다.BI) 그래야 다음 작업을 수행할 수 있습니다.
+</p>
+<ul class="ak-ul">
+ <li>
+  <p>
+   사용자 활동에 대한 보고서 및 시각화 생성
+  </p>
+ </li>
+ <li>
+  <p>
+   조직 리더들에게 그들의 팀이 어떻게 Jira를 사용하는지 더 잘 이해하도록 정보를 제공
+  </p>
+ </li>
+ <li>
+  <p>
+   지라 이용시 최적화할때 보다 나은 결정을 내림
+  </p>
+ </li>
+</ul>
+<p>
+ API를 통해 Jira에서 현재 상태 데이터를 추출할 수 있습니다.
+ <a class="external-link" href="https://confluence.atlassian.com/adminjiraserver/data-pipeline-for-jira-1027142324.html" rel="nofollow" style="text-decoration: none;">
+  자세히 알아보기
+ </a>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|JiraCloudMigrationAssistant/Jira클라우드마이그레이션어시스턴트">
+ <strong>
+  | Jira Cloud Migration Assistant / Jira 클라우드 마이그레이션 어시스턴트
+ </strong>
+</h2>
+<p>
+ <span>
+  이제 Jira 클라우드 마이그레이션 어시스턴트가 Jira와 함께 번들로 제공됩니다. 클라우드로 마이그레이션하려는 시도하는 경우 프로젝트와 사용자 및 그룹을 마이그레이션하는 데 도움이 됩니다.
+ </span>
+ <strong>
+  관리 &gt; 시스템 &gt; 클라우드로 마이그레이션
+ </strong>
+ <span>
+  에서 확인해보세요
+ </span>
+ <span>
+  .
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/cloud/use-the-jira-cloud-migration-assistant-to-migrate-from-server-to-cloud-993925215.html" rel="nofollow" style="text-decoration: none;">
+  자세히 알아보기
+ </a>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/9.png"/>
+  </span>
+ </span>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|ChoosingBambooplanbranchesinJira/지라에서Bamboo계획가지고르기">
+ <strong>
+  | Choosing Bamboo plan branches in Jira / 지라에서 Bamboo 계획 가지 고르기
+ </strong>
+</h2>
+<p>
+ <span>
+  지라에서 버전을 릴리스할 때 Bamboo에서 관련 Plan을 실행하도록 선택할 수도 있습니다. 이제 Plan의 일부를 선택할 수 있도록 이 기능을 개선했습니다.
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/jirasoftwareserver/running-a-bamboo-build-when-releasing-a-version-938845520.html" rel="nofollow" style="text-decoration: none;">
+  자세히 알아보기
+ </a>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/10.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<hr/>
+<h1 id="Atlassian12월ReleaseNote-Confluence7.9릴리즈노트">
+ <strong>
+  Confluence 7.9 릴리즈 노트
+ </strong>
+</h1>
+<h2 id="Atlassian12월ReleaseNote-|Keepontopofbugfixeswithrollingupgrades/지속적인업그레이드를통해버그수정기능유지">
+ <strong>
+  | Keep on top of bug fixes with rolling upgrades / 지속적인 업그레이드를 통해 버그 수정 기능 유지
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  사이트를 최신 상태로 유지하는 것은 필수입니다. 하지만 업그레이드에 필요한 다운타임때문에 1년에 한 번정도만 업그레이드할 수 있고, 이때문에 중요한 버그 및 보안 수정에 대한 업그레이드가 제한되었었습니다.
+ </span>
+</p>
+<h3 id="Atlassian12월ReleaseNote-다운타임없이업그레이드">
+ <strong>
+  다운타임 없이 업그레이드
+ </strong>
+</h3>
+<p>
+ 클러스터에서 Confluence를 실행하는 경우 이제 다운타임 없이 호환되는 버전으로 Rolling 업그레이드를 수행할 수 있습니다.
+</p>
+<p>
+ 다음과 같이 작동합니다.  먼저 사이트를 업그레이드 모드
+ <strong>
+  (1)
+ </strong>
+ 로 설정한 다음 각 노드를 차례로 업그레이드합니다.
+ <span>
+ </span>
+ 각 노드를 업그레이드하는 방법은 배포에 따라 다릅니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/104420311/11.png"/>
+ </span>
+</p>
+<p>
+ 클러스터 개요
+ <strong>
+  (2)
+ </strong>
+ 를 통해 업그레이드하는 동안 클러스터에서 발생하는 작업을 정확하게 확인하실 수 있습니다. 모든 노드가 새 버전을 설치하고 나면 업그레이드
+ <strong>
+  (3)
+ </strong>
+ 를 완료할 수 있습니다.
+</p>
+<p>
+ 한 번에 하나의 노드만 변경되기 때문에 사용자는 백그라운드에서 업그레이드가 수행되고 있다는 사실을 인지하지 못하고 계속해서 컨텐츠를 만들 수 있습니다.
+ <span>
+ </span>
+ 로드 밸런서는 트래픽을 활성 노드에 원활하게 배포합니다.
+</p>
+<h3 id="Atlassian12월ReleaseNote-구축지원및자동화기회">
+ <strong>
+  구축 지원 및 자동화 기회
+ </strong>
+</h3>
+<p>
+ 자체 서버에서 Confluence를 실행하든 AWS 또는 Azure에서든 다운타임 없이 업그레이드할 수 있습니다.
+</p>
+<p>
+ 프로세스의 일부를 자동화할 수 있는 키?
+ <span>
+ </span>
+ REST API를 사용하여 업그레이드 모드를 켜고 노드 또는 클러스터의 상태를 확인한 후 업그레이드를 완료합니다.
+</p>
+<h3 id="Atlassian12월ReleaseNote-호환버전">
+ <strong>
+  호환 버전
+ </strong>
+</h3>
+<p>
+ 현재는 버그 수정 릴리스에서만 롤링 업그레이드를 사용할 수 있습니다(
+ <a class="external-link" href="https://developer.atlassian.com/server/confluence/confluence-build-information/" rel="nofollow" style="text-decoration: none;">
+  빌드 번호가 동일한 Confluence 버전
+ </a>
+ ).  예를 들어 Confluence 7.9.0에서 7.9.2로 롤링 업그레이드를 수행할 수 있지만 Confluence 7.9.2에서 7.10.0으로 롤링 업그레이드를 수행할 수는 없습니다. 롤링 업그레이드는 향후 장기 지원 릴리스에 특히 유용합니다. 이 릴리스에서는 2년간 정기적으로 보안을 유지하고 버그를 수정합니다.
+</p>
+<p>
+ <a class="external-link" href="https://confluence.atlassian.com/doc/upgrade-confluence-without-downtime-1027127923.html" rel="nofollow" style="text-decoration: none;">
+  지속적인 업그레이드에 대해 자세히 알아보기
+ </a>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Stepupyoursecuritywithpersonalaccesstokens/개인액세스토큰으로보안강화">
+ <strong>
+  | Step up your security with personal access tokens / 개인 액세스 토큰으로 보안 강화
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Server ] [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ Confluence REST API는 자동화 및
+ <span>
+  다른 시스템과의 통합에 무한한 기회를 제공합니다
+ </span>
+ .
+ <span>
+  이제 보안적으로 안심할 수 있도록 개인 액세스 토큰을 만들어 이용하실 수 있습니다. 이 토큰은 인증에 사용자 이름과 암호를 대체하는 데 안전한 대안책입니다.
+ </span>
+</p>
+<p>
+ <strong>
+  토큰 생성 및 해지
+ </strong>
+</p>
+<p>
+ 프로필로 이동하여 설정 &gt; 개인 액세스 토큰을 선택하여 토큰을 만듭니다.  필요한 만큼 다양한 토큰을 만들고 각 토큰에 대해 서로 다른 만료 날짜를 설정할 수 있습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/12.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ 사용자의 계정이 비활성화되거나 삭제된 후에는 해당 사용자의 토큰이 더 이상 작동되지 않습니다.
+</p>
+<p>
+ <strong>
+  토큰 관리
+ </strong>
+</p>
+<p>
+ 관리자는 시스템 속성에서 사용자가 만들 수 있는 토큰 수를 제한하고 만료 규칙을 설정할 수 있습니다.
+</p>
+<p>
+ <strong>
+  Confluence Data Center의
+ </strong>
+ 경우 시스템 관리자는 언제든지 모든 토큰을 확인하고 이를 비활성화할 수 있습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/13.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ <a class="external-link" href="https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html" rel="nofollow" style="text-decoration: none;">
+  개인 액세스 토큰에 대해 자세히 알아보기
+ </a>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Bigofficefiles?Noproblem/빅오피스파일?문제없어요.">
+ <strong>
+  | Big office files? No problem / 빅 오피스 파일? 문제 없어요.
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Server ] [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ 옹랑이 큰 Word, Excel 및 Powerpoint 파일을 사용하여 작업하는 경우에 이것의 로딩이 다른 작업의 방해가 되어선 안됩니다.
+ <span>
+ </span>
+ 이제 Office Word, Excel 또는 Powerpoint 매크로가 있는 페이지에 도착하면 다른 모든 페이지 내용을 먼저 로드한 다음 오피스 문서(Word, Excel 및 Powerpoint 파일)를 해당 시간에 로드합니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/14.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ 또한,
+ <strong>
+  Confluence Data Center 라이센스의 경우
+ </strong>
+ 중 일정 시간 내에 파일을 표시할 수 없는 경우 대신 다운로드할 수 있는 옵션을 제공합니다.
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Performanceimprovementsformassivesites/대규모사이트에대한성능향상">
+ <strong>
+  | Performance improvements for massive sites / 대규모 사이트에 대한 성능 향상
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Server ] [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  이제 사용량이 많은 대규모 사이트에서 검색 및 대시보드와 같이 검색 인덱스에 의존하는 영역의 로딩 속도가 더 빨라졌습니다. 또한 CPU 사용량이 감소하여 Confluence를 안정적으로 유지하실 수 있습니다.
+ </span>
+</p>
+<p>
+ 대부분의 변경 사항은 보이지 않는 영역에 있지만
+ <span style="color: rgb(48,48,48);">
+  기존 인덱스를 마이그레이션하는 업그레이드 작업이 있습니다
+ </span>
+ .
+ <span>
+  이에 따른
+ </span>
+ 예상 상항에 대한 자세한 내용은
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/doc/confluence-7-9-upgrade-notes-1026537716.html" rel="nofollow" style="text-decoration: none;">
+  업그레이드 참고 사항
+ </a>
+ 을 확인해보세요.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<hr/>
+<h1 id="Atlassian12월ReleaseNote-Bitbucket7.8릴리즈노트">
+ <strong>
+  Bitbucket 7.8 릴리즈노트
+ </strong>
+</h1>
+<h2 id="Atlassian12월ReleaseNote-|RerunbuildsfromBitbucket/Bitbucket에서빌드다시실행">
+ <span>
+  | Rerun builds from Bitbucket / Bitbucket 에서 빌드 다시 실행
+ </span>
+</h2>
+<p>
+ <span class="status-macro aui-lozenge aui-lozenge-subtle conf-macro output-inline" style="color: rgb(66,82,110);text-decoration: none;">
+  서버
+ </span>
+ <span class="status-macro aui-lozenge aui-lozenge-subtle conf-macro output-inline" style="color: rgb(66,82,110);text-decoration: none;">
+  데이터 센터
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/15.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-4-release-notes-1013849643.html" rel="nofollow" style="text-decoration: none;" title="https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-4-release-notes-1013849643.html">
+  Bitbucket Server
+ </a>
+ <span>
+ </span>
+ 7
+ <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-4-release-notes-1013849643.html" rel="nofollow" style="text-decoration: none;" title="https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-4-release-notes-1013849643.html">
+  .4
+ </a>
+ 에서는
+ <span>
+ </span>
+ <span style="color: rgb(0,0,0);">
+  통합 CI/CD를 출시했습니다.
+ </span>
+ <span style="color: rgb(0,0,0);">
+  <span>
+  </span>
+  아이디어에서 프로덕션까지 빨리 도달할 수 있도록 가속화 설계된 이 제품은 Bitbucket에서 코드에 대한 지속적인 피드백을 받을 수 있는 새로운 방법을 제공해 툴을 전환할 필요성을 줄여줍니다.
+ </span>
+ <span style="color: rgb(0,0,0);">
+  <span>
+  </span>
+  이후
+  <span>
+  </span>
+ </span>
+ 이
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-5-release-notes-1018760416.html" rel="nofollow" style="text-decoration: none;">
+  기능을 최적화
+ </a>
+ 하면서
+ <span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  이 릴리스부터는 Bitbucket에서 빌드를 다시 실행할 수 있습니다.
+  <span>
+  </span>
+  빌드 페이지 및 꺼내기 요청 페이지 빌드 탭에는 각 빌드에 대한 메뉴 단추가 있는 작업 열이 있습니다.
+  <span>
+  </span>
+  여기서 작업 권한 부여 프로세스를 시작한 다음 이 메뉴에서 Bamboo 계획 및 젠킨스 작업을 다시 실행할 수 있습니다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  작업 설정에 대한 자세한 내용
+ </span>
+ 은
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/integrated-ci-cd-1032257989.html" rel="nofollow" style="text-decoration: none;">
+  통합 CI/CD 설명서
+ </a>
+ 를
+ <span>
+ </span>
+ <span style="color: rgb(0,0,0);">
+  참조
+ </span>
+ 하십시오.
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Databasepasswordencryption/데이터베이스패스워드암호화">
+ <strong>
+  | Database password encryption / 데이터베이스 패스워드 암호화
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Server ] [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  추가 보안 계층을 추가하려면 이제 에 저장된 데이터베이스 암호를 암호화할 수 있습니다.
+  <span>
+  </span>
+ </span>
+ <span style="color: rgb(0,0,0);">
+  <code>
+   bitbucket.properties
+  </code>
+ </span>
+ <span>
+ </span>
+ <span style="color: rgb(0,0,0);">
+  파일. 이 릴리스에서 발송할 두 가지 암호화 방법 중 하나를 사용하거나 직접 만들 수 있습니다.
+  <span>
+  </span>
+ </span>
+ <span style="color: rgb(0,0,0);">
+  <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/encrypt-database-password-1032257985.html" rel="nofollow" style="text-decoration: none;">
+   데이터베이스 암호 암호화에 대해 자세히 알아보기
+  </a>
+ </span>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Gracefulshutdowns(Linuxonly)/정상종료(리눅스전용)">
+ <strong>
+  | Graceful shutdowns (Linux only) / 정상 종료(리눅스 전용)
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Server ] [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ Bitbucket은 이제 시스템을 통해 정상 셧다운을 지원합니다.
+ <span>
+ </span>
+ <code>
+  SIGTERM
+ </code>
+ <span>
+ </span>
+ 신호.
+ <span>
+ </span>
+ Bitbucket은 정상적으로 종료하면 종료 전에 예약된 모든 태스크, 기내 Git 요청 및 기내 사용자 요청을 완료할 수 있습니다.
+ <span>
+ </span>
+ 따라서 종료가 필요한 유지 관리 작업 중에 사용자가 작업 손실을 방지할 수 있습니다.
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Whatelseisnew?/또어떤게달라졌을까요?">
+ <strong>
+  | What else is new? /
+ </strong>
+ <strong>
+  또 어떤 게 달라졌을까요?
+ </strong>
+</h2>
+<ul class="ak-ul">
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    통합 CI/CD 빌드
+    <span>
+    </span>
+    <span class="inline-highlight">
+     작업
+    </span>
+    에 대한 JMX 메트릭을 추가했습니다.
+    <span>
+    </span>
+    참조
+   </span>
+   <span>
+   </span>
+   <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/enabling-jmx-counters-for-performance-monitoring-776640189.html" rel="nofollow" style="text-decoration: none;" title="https://confluence.atlassian.com/bitbucketserver/enabling-jmx-counters-for-performance-monitoring-776640189.html">
+    성능 모니터링에 대한 JMX 카운터 사용
+   </a>
+   <span style="color: rgb(0,0,0);">
+    <span>
+    </span>
+    자세한 정보는
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    SSLv2 Hello 프로토콜이 메일 SSL/TLS 프로토콜의 기본 목록에서 제거되었습니다.
+    <span>
+    </span>
+    자세한 내용은 다음을 참조하십시오.
+   </span>
+   <span style="color: rgb(0,0,0);">
+    <span>
+    </span>
+    <a class="external-link" href="https://jira.atlassian.com/browse/BSERV-11889" rel="nofollow" style="text-decoration: none;">
+     <span class="confluence-embedded-file-wrapper">
+      <img src="/assets/images/104420311/16.text/html"/>
+      <img class="confluence-embedded-image icon confluence-external-resource" data-image-src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype" src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>
+     </span>
+    </a>
+    <a class="external-link" href="https://jira.atlassian.com/browse/BSERV-11889" rel="nofollow" style="text-decoration: none;">
+     BSERV/11889
+    </a>
+    <span>
+    </span>
+    /
+    <span>
+    </span>
+    <span class="summary">
+     Java 11 사용 시 Bitbucket이 Office365로 메일을 보내지 못함
+    </span>
+    <span>
+    </span>
+    <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf" style="color: rgb(0,135,90);text-decoration: none;">
+     닫힘
+    </span>
+    <br/>
+   </span>
+   <span style="color: rgb(0,0,0);">
+    이 프로토콜이 필요한 경우 다음 항목을 Bitbucket.properties 파일에 추가하여 복원할 수 있습니다.
+   </span>
+  </p>
+  <p class="language-none">
+   <code class="language-none" style="text-align: left;">
+    mail.crypto.protocols=SSLv2Hello TLSv1 TLSv1.1 TLSv1.2
+   </code>
+  </p>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<hr/>
+<h1 id="Atlassian12월ReleaseNote-Bamboo7.2릴리즈노트">
+ <strong>
+  Bamboo 7.2 릴리즈노트
+ </strong>
+</h1>
+<h2 id="Atlassian12월ReleaseNote-|Bamboologs-lessnoise,morecontrol/향상된Bamboo로그">
+ <strong>
+  | Bamboo logs - less noise, more control / 향상된 Bamboo 로그
+ </strong>
+</h2>
+<p>
+ 빌드에서 무슨 일이 일어나고 있는지 이해하기 위해서는 로그 파일의 관련 정보에 대한 신속한 액세스가 필요하다는 것을 알고 있습니다.
+ <span>
+ </span>
+ 이를 위해 방해되는 소음의 수준을 제한하고 Bamboo 인스턴스 로그의 양을 제어하기로 결정했습니다.
+ <span>
+ </span>
+ Bamboo 7.2는 다음과 같은 로그 개선 사항을 제공합니다.
+</p>
+<ul>
+ <li>
+  <p>
+   상황을 더 조용하게 만들기 위해 Bamboo는 이제부터 기본적으로 더 적은 양의 데이터를 기록할 것이다.
+   <span>
+   </span>
+   대신 다양한 VCS 및 환경 변수의 로그와 같은 추가 데이터 로깅을 설정할 수 있는 상세 모드를 소개했습니다. 사용자 지정 계획을 실행하거나 배포 화면에서 상세 모드를 사용하도록 설정할 수 있습니다.
+  </p>
+ </li>
+</ul>
+<ul>
+ <li>
+  <p>
+   또한 재실행 작업이 기록되는 방법도 변경했습니다.
+   <span>
+   </span>
+   지금까지 모든 재실행 작업의 로그는 해당 작업의 기존 로그에 연결되었습니다.
+   <span>
+   </span>
+   그 결과, 그것은 탐색하고 사용하기 어려운 매우 긴 로그 파일을 형성했다.
+   <span>
+   </span>
+   이제 모든 작업 재실행에 대한 로그가 별도의 파일에 저장되므로 훨씬 쉽게 수정할 수 있습니다.
+  </p>
+ </li>
+</ul>
+<p>
+ <br/>
+ Bamboo에 기록된 전체 데이터 목록은
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/bamboo/logging-in-bamboo-289277239.html" rel="nofollow" style="text-decoration: none;">
+  Bamboo에 로깅
+ </a>
+ 을 참조하십시오.
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|BambooSpecsimprovements/Bamboo사양개선">
+ <strong>
+  | Bamboo Specs improvements / Bamboo 사양 개선
+ </strong>
+</h2>
+<p>
+ Bamboo 7.2는 Bamboo 사양에 대한 여러 가지 개선 사항을 제공합니다.
+</p>
+<ul>
+ <li>
+  <p>
+   Bamboo YAML 사양에 있는 마켓플레이스 앱에서 작업을 사용할 수 있는
+   <strong>
+    Any-task command
+   </strong>
+   을 소개합니다.
+  </p>
+ </li>
+ <li>
+  <p>
+   SSH/SCP, 명령, Maven 및 빌드 Warnings 작업에 대한 네이티브 YAML 사양 지원을 추가했습니다
+  </p>
+ </li>
+ <li>
+  <p>
+   이제 앱 벤더는 새로운 YAML 사양 API를 사용하여 계획 및 배포 트리거를 관리할 수 있습니다.
+  </p>
+ </li>
+ <li>
+  <p>
+   이제 Java Bamboo 사양에서 트리거 조건 구성을 사용할 수 있습니다.
+   <span>
+   </span>
+   향후 버전에서는 YAML 사양 지원이 제공됩니다.
+  </p>
+ </li>
+ <li>
+  <p>
+   리포지토리 저장 사양에 타사 Java 사양 빌더를 사용할 수 있습니다.
+   <span>
+   </span>
+   크고 복잡한 Plan 구성을 관리할 수 있는 고유한 사양 라이브러리를 만들어보세요
+  </p>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|Tagtrigger/태그트리거">
+ <strong>
+  | Tag trigger / 태그 트리거
+ </strong>
+</h2>
+<p>
+ Bamboo 7.2에서 태그 트리거를 도입했습니다.
+ <span>
+ </span>
+ 이제 선택한 태그가 리포지토리에 나타날 때마다 빌드를 자동으로 시작할 수 있습니다.
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/bamboo/tag-triggering-1031180298.html" rel="nofollow" style="text-decoration: none;">
+  태그 트리거링
+ </a>
+ 에서 Bamboo에 태그 트리거를 추가하는 방법에 대해 자세히 알아보세요.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104420311/16.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="Atlassian12월ReleaseNote-|EnableanddisableagentsoverRESTAPI/RESTAPI를통해에이전트사용및사용안함">
+ <strong>
+  |
+ </strong>
+ <strong>
+  Enable and disable agents over REST API /
+ </strong>
+ <strong>
+  REST API를 통해 에이전트 사용 및 사용 안 함
+ </strong>
+</h2>
+<p>
+ 버전 7.2부터는 Bamboo에서 REST API EndPoint를 통해 에이전트를 사용 및 사용 안 함으로 설정할 수 있습니다.
+</p>
+<p>
+ <br/>
+</p>
+<hr/>
+<p>
+ <span style="color: rgb(0,0,0);">
+  앞으로도 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  감사합니다!
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <a class="external-link" href="mailto:atlassian@osci.kr" rel="nofollow" style="text-decoration: none;color: rgb(0,0,0);">
+   atlassian@osci.kr
+  </a>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/12/07/104420311/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/12/07/104420311/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/soohyeonlee/">
+            <div id="author-image" style="background-image:url(/files/authors/soohyeonlee.jpg);">
+                <span class="sr-only">soohyeonlee's profile image</span>
+            </div>
+            <p id="author-name">soohyeonlee</p>
+        </a>
+        <p id="post-date">2020-12-07</p>
+        <a id="post-more" href="/authors/soohyeonlee/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/104413735/0.png);">
+            <div>
+                <h3><a href="/2020/11/11/104413735/">오픈소스컨설팅은 애자일한가요?</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

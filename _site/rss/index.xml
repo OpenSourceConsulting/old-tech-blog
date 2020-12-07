@@ -9,9 +9,1120 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 23 Nov 2020 17:51:03 +0900</pubDate>
-    <lastBuildDate>Mon, 23 Nov 2020 17:51:03 +0900</lastBuildDate>
+    <pubDate>Mon, 07 Dec 2020 16:32:26 +0900</pubDate>
+    <lastBuildDate>Mon, 07 Dec 2020 16:32:26 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Atlassian 12월 Release Note</title>
+        <description>&lt;p&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ &lt;/span&gt;
+ &lt;br/&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  이번 포스팅에서는 아틀라시안 제품군의 최신  Release Note를 전해드리고자 합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian12월ReleaseNote-JiraSoftware8.14.x릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Jira Software 8.14.x 릴리즈 노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Emailtemplatesmadebetter/더나은이메일템플릿&quot;&gt;
+ &lt;strong&gt;
+  | Email templates made better / 더 나은 이메일 템플릿
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  이제 Jira에서 이메일 템플릿을 직접 다운로드할 수 있으며 템플릿에 필요한 모든 파일에 쉽게 액세스할 수 있습니다.템플릿을 수정한뒤 다시 업로드 하시면 올바른 위치로 옮겨집니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/0.png&quot;/&gt;
+  &lt;/span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  Jira 8.14로 업그레이드한 후 기본 템플릿을 Jira 공유 홈 디렉토리에 복사해두세요. 그렇게 하시면 향후 업그레이드 시 변경 사항을 쉽게 유지하실 수 있습니다.
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/adminjiraserver/customizing-email-content-938847640.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Quicklyviewissuesbelongingtoanepic/에픽에해당하는이슈를빠르게확인&quot;&gt;
+ &lt;strong&gt;
+  | Quickly view issues belonging to an epic / 에픽에 해당하는 이슈를 빠르게 확인
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  에픽에 속한 이슈가
+ &lt;/span&gt;
+ &lt;span&gt;
+  세부 정보 보기 섹션으로 이동하여 칸반 백로그 또는 게시판에서 기본 이슈를 신속하게 확인할 수 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/1.png&quot;/&gt;
+  &lt;/span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  에픽들에 대한 이슈 디테일 뷰는 칸반 보드 및 백로그에서 사용하고 있는 에픽들을 카드로 표시하는 경우에만 사용할 수 있습니다. 스크럼의 경우 에픽을 연후에 이부분을 확인하실 수 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Setcontextforcustomfieldsasyoucreatethem/사용자정의필드를작성할때컨텍스트설정&quot;&gt;
+ &lt;strong&gt;
+  | Set context for custom fields as you create them / 사용자 정의 필드를 작성할 때 컨텍스트 설정
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  이제 사용자 지정 필드에는
+  &lt;strong&gt;
+   글로벌
+  &lt;/strong&gt;
+  및
+  &lt;strong&gt;
+   프로젝트별
+  &lt;/strong&gt;
+  두 가지 컨텍스트가 포함됩니다. 글로벌 컨텍스트는 기존에는 디폴트 설정으로 만들어진 사용자 지정 필드는 인스턴스의 모든 문제에 적용되어 지라의 성능에 영향을 미칠 수 있습니다. 컨텍스트를 선택하는 데  몇가지를 개선하였습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/2.png&quot;/&gt;
+  &lt;/span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  이제 사용자 정의 필드의 컨텍스트를 만들 때 둘중에 한가지를 선택할 수 있습니다. 사내의 다른 Jira 관리자가 이를 선택할 때 컨텍스트를 고를 수 있습니다. 이렇게 하면 글로벌로 생성되는 사용자 지정 필드 수를 제한하고 Jira 인스턴스를 최상의 상태로 유지하는 데 도움이 됩니다.
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/adminjiraserver/adding-a-custom-field-938847222.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|DVCSConnectorimprovements/DVCS커넥터개선사항&quot;&gt;
+ &lt;strong&gt;
+  | DVCS Connector improvements / DVCS  커넥터 개선 사항
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  이슈에서 개발 정보를 볼 수 있도록 DVCS Connector의 여러 가지 개선했습니다. 가장 눈에 띄는 것은 이러한 모든 DVCS 계정 관리에 도움이 될 성능의 향상과 GitLab에 대한 지원입니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/3.png&quot;/&gt;
+  &lt;/span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  Polling 메커니즘을 개선하고 여러 작업을 백그라운드 쓰레드로 이동하는 것 외에도 UI에 몇 가지 작은 개선 사항이 생겼습니다. 여기에는 페이지 지정, 확장 가능한 섹션 및 불필요한 로딩이 포함되어 DVCS 계정 페이지 작업이 빨라지고 응답성이 향상됩니다.
+  &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/adminjiraserver/integrating-with-development-tools-938846890.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+   자세히 알아보기
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Personalaccesstokens/개인액세스토큰&quot;&gt;
+ &lt;strong&gt;
+  | Personal access tokens / 개인 액세스 토큰
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  Jira REST API는 자동화 및 다른 시스템과의 통합에 무한한 기회를 제공합니다. 이제 보안적으로 안심할 수 있도록 개인 액세스 토큰을 만들어 이용하실 수 있습니다. 이 토큰은 인증에 사용자 이름과 암호를 대체하는 데 안전한 대안책입니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper conf-macro output-inline&quot;&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;img src=&quot;/assets/images/104420311/4.png&quot;/&gt;
+   &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  Jira의 프로필로 이동하고 개인 액세스 토큰을 선택하여 토큰을 만들어보세요. 기본적으로 토큰을 최대 10개까지 생성할 수 있으며, 각각의 만료일을 다르게 설정할 수 있습니다. 지라
+  &lt;strong&gt;
+   데이터센터
+  &lt;/strong&gt;
+  에서는 지라 시스템 관리자가 토큰을 추가로 확인하고 이를 언제든지 해지할 수 있습니다.
+  &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html&quot; rel=&quot;nofollow&quot;&gt;
+   자세히 알아보기
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|EmbeddedCrowdandpasswordencryption/내장크라우드및패스워드암호화&quot;&gt;
+ &lt;strong&gt;
+  | Embedded Crowd and password encryption / 내장 크라우드 및 패스워드 암호화
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ Embedded Crowd의 보안을 강화하고 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 지라 8.14부터는 일반 텍스트로 지라 데이터베이스에 보관되고 있던 모든 패스워드가 암호화됩니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 업그레이드 사용자인 경우 업그레이드 중에 패스워드 암호화가 수행됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 다음은 암호화된 중요한 데이터 목록입니다.
+&lt;/p&gt;
+&lt;ul class=&quot;ak-ul&quot;&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   LDAP 디렉토리 패스워드
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   원격 크라우드 디렉터리 응용 프로그램 패스워드
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   Azure AD 웹 응용 프로그램 키
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   SMTP 메일 패스워드
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   프록시 패스워드
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ 백업 저장 패스워드도 암호화합니다.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Accessibilityimprovementswhencreatingissues/문제생성시접근성향상&quot;&gt;
+ &lt;strong&gt;
+  | Accessibility improvements when creating issues / 문제 생성 시 접근성 향상
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  제품과 서비스에 더 쉽게 접근할 수 있도록 지속적으로 개선하고 있습니다. 이번에는 이슈 생성 플로우를 정리했습니다. 이제 키보드를 사용하여 프로세스를 원활하게 탐색할 수 있습니다. 변경 사항은 다음과 같습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;div class=&quot;expand-container conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;expand&quot; id=&quot;expander-718544842&quot;&gt;
+ &lt;div class=&quot;expand-control&quot; id=&quot;expander-control-718544842&quot;&gt;
+  &lt;span class=&quot;expand-icon aui-icon aui-icon-small aui-iconfont-chevron-right&quot;&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;expand-control-text&quot;&gt;
+   향상된 대비 및 포커스 표시기
+  &lt;/span&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;expand-content expand-hidden&quot; id=&quot;expander-content-718544842&quot;&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+    대비 기능을 강화하고 포커스 표시기(강조된 테두리 효과)를 적용해 키보드 내비게이션의 모습을 개선했습니다.
+   &lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+    &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+     &lt;img src=&quot;/assets/images/104420311/5.png&quot;/&gt;
+    &lt;/span&gt;
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;expand-container conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;expand&quot; id=&quot;expander-1863427816&quot;&gt;
+ &lt;div class=&quot;expand-control&quot; id=&quot;expander-control-1863427816&quot;&gt;
+  &lt;span class=&quot;expand-icon aui-icon aui-icon-small aui-iconfont-chevron-right&quot;&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;expand-control-text&quot;&gt;
+   Click here to expand...
+  &lt;/span&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;expand-content expand-hidden&quot; id=&quot;expander-content-1863427816&quot;&gt;
+  &lt;p&gt;
+   이제 도구 모음을 사용하는 것이 훨씬 쉬워졌습니다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   키보드를 통해 모든 요소에 완전히 액세스할 수 있습니다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   탭 키를 사용하여 페이지의 모든 항목으로 이동할 수 있습니다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   일부 버튼에 더 많은 설명 툴팁을 추가했습니다.
+  &lt;/p&gt;
+  &lt;p&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;img src=&quot;/assets/images/104420311/6.png&quot;/&gt;
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;div class=&quot;expand-container conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;expand&quot; id=&quot;expander-523637248&quot;&gt;
+ &lt;div class=&quot;expand-control&quot; id=&quot;expander-control-523637248&quot;&gt;
+  &lt;span class=&quot;expand-icon aui-icon aui-icon-small aui-iconfont-chevron-right&quot;&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;expand-control-text&quot;&gt;
+   다중 선택 목록에 대한 추가 지원
+  &lt;/span&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;expand-content expand-hidden&quot; id=&quot;expander-content-523637248&quot;&gt;
+  &lt;p&gt;
+   도움말의 접근성을 수정하고 다중 선택 목록기에 대한 추가 지원을 추가했습니다.
+  &lt;/p&gt;
+  &lt;p&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;img src=&quot;/assets/images/104420311/7.png&quot;/&gt;
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;div class=&quot;expand-container conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;expand&quot; id=&quot;expander-485454011&quot;&gt;
+ &lt;div class=&quot;expand-control&quot; id=&quot;expander-control-485454011&quot;&gt;
+  &lt;span class=&quot;expand-icon aui-icon aui-icon-small aui-iconfont-chevron-right&quot;&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;expand-control-text&quot;&gt;
+   드롭다운 메뉴에서 단순화된 요소
+  &lt;/span&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;expand-content expand-hidden&quot; id=&quot;expander-content-485454011&quot;&gt;
+  &lt;p&gt;
+   드롭다운 또는 그룹 선택기를 단순화 했습니다. 흐름을 부드럽게 하고 전반적인 경험을 향상시킬 수 있도록 몇 가지 작은 개선이 이뤄졌습니다.
+   &lt;br/&gt;
+   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+    &lt;img src=&quot;/assets/images/104420311/8.gif&quot;/&gt;
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Improveddatainsights/향상된데이터인사이트&quot;&gt;
+ &lt;strong&gt;
+  | Improved data insights / 향상된 데이터 인사이트
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 이제 관리자 및 데이터 분석가에게 Jira의 현재 상태 데이터를 보낼 수 있는 기능을 제공합니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이 빌딩은 비즈니스 통찰력을 위한 데이터 파이프라인으로 향하는 최초의 이정표 건물입니다. 향후 몇 가지 릴리스에 걸쳐 Jira가 현재 상태 데이터를 추출, 로드 및 변환하는 방법을 개선할 계획입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 이 마일스톤에서는 Jira로부터 데이터를 추출하여 Tableau 또는 Power와 같은 기존 비즈니스 인텔리전스 플랫폼에 제공할 수 있습니다.BI) 그래야 다음 작업을 수행할 수 있습니다.
+&lt;/p&gt;
+&lt;ul class=&quot;ak-ul&quot;&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   사용자 활동에 대한 보고서 및 시각화 생성
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   조직 리더들에게 그들의 팀이 어떻게 Jira를 사용하는지 더 잘 이해하도록 정보를 제공
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   지라 이용시 최적화할때 보다 나은 결정을 내림
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ API를 통해 Jira에서 현재 상태 데이터를 추출할 수 있습니다.
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/adminjiraserver/data-pipeline-for-jira-1027142324.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|JiraCloudMigrationAssistant/Jira클라우드마이그레이션어시스턴트&quot;&gt;
+ &lt;strong&gt;
+  | Jira Cloud Migration Assistant / Jira 클라우드 마이그레이션 어시스턴트
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  이제 Jira 클라우드 마이그레이션 어시스턴트가 Jira와 함께 번들로 제공됩니다. 클라우드로 마이그레이션하려는 시도하는 경우 프로젝트와 사용자 및 그룹을 마이그레이션하는 데 도움이 됩니다.
+ &lt;/span&gt;
+ &lt;strong&gt;
+  관리 &amp;gt; 시스템 &amp;gt; 클라우드로 마이그레이션
+ &lt;/strong&gt;
+ &lt;span&gt;
+  에서 확인해보세요
+ &lt;/span&gt;
+ &lt;span&gt;
+  .
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/cloud/use-the-jira-cloud-migration-assistant-to-migrate-from-server-to-cloud-993925215.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper conf-macro output-inline&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/9.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|ChoosingBambooplanbranchesinJira/지라에서Bamboo계획가지고르기&quot;&gt;
+ &lt;strong&gt;
+  | Choosing Bamboo plan branches in Jira / 지라에서 Bamboo 계획 가지 고르기
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  지라에서 버전을 릴리스할 때 Bamboo에서 관련 Plan을 실행하도록 선택할 수도 있습니다. 이제 Plan의 일부를 선택할 수 있도록 이 기능을 개선했습니다.
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/jirasoftwareserver/running-a-bamboo-build-when-releasing-a-version-938845520.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper conf-macro output-inline&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/10.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian12월ReleaseNote-Confluence7.9릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Confluence 7.9 릴리즈 노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Keepontopofbugfixeswithrollingupgrades/지속적인업그레이드를통해버그수정기능유지&quot;&gt;
+ &lt;strong&gt;
+  | Keep on top of bug fixes with rolling upgrades / 지속적인 업그레이드를 통해 버그 수정 기능 유지
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  사이트를 최신 상태로 유지하는 것은 필수입니다. 하지만 업그레이드에 필요한 다운타임때문에 1년에 한 번정도만 업그레이드할 수 있고, 이때문에 중요한 버그 및 보안 수정에 대한 업그레이드가 제한되었었습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian12월ReleaseNote-다운타임없이업그레이드&quot;&gt;
+ &lt;strong&gt;
+  다운타임 없이 업그레이드
+ &lt;/strong&gt;
+&lt;/h3&gt;
+&lt;p&gt;
+ 클러스터에서 Confluence를 실행하는 경우 이제 다운타임 없이 호환되는 버전으로 Rolling 업그레이드를 수행할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 다음과 같이 작동합니다.  먼저 사이트를 업그레이드 모드
+ &lt;strong&gt;
+  (1)
+ &lt;/strong&gt;
+ 로 설정한 다음 각 노드를 차례로 업그레이드합니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 각 노드를 업그레이드하는 방법은 배포에 따라 다릅니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104420311/11.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 클러스터 개요
+ &lt;strong&gt;
+  (2)
+ &lt;/strong&gt;
+ 를 통해 업그레이드하는 동안 클러스터에서 발생하는 작업을 정확하게 확인하실 수 있습니다. 모든 노드가 새 버전을 설치하고 나면 업그레이드
+ &lt;strong&gt;
+  (3)
+ &lt;/strong&gt;
+ 를 완료할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 한 번에 하나의 노드만 변경되기 때문에 사용자는 백그라운드에서 업그레이드가 수행되고 있다는 사실을 인지하지 못하고 계속해서 컨텐츠를 만들 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 로드 밸런서는 트래픽을 활성 노드에 원활하게 배포합니다.
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian12월ReleaseNote-구축지원및자동화기회&quot;&gt;
+ &lt;strong&gt;
+  구축 지원 및 자동화 기회
+ &lt;/strong&gt;
+&lt;/h3&gt;
+&lt;p&gt;
+ 자체 서버에서 Confluence를 실행하든 AWS 또는 Azure에서든 다운타임 없이 업그레이드할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 프로세스의 일부를 자동화할 수 있는 키?
+ &lt;span&gt;
+ &lt;/span&gt;
+ REST API를 사용하여 업그레이드 모드를 켜고 노드 또는 클러스터의 상태를 확인한 후 업그레이드를 완료합니다.
+&lt;/p&gt;
+&lt;h3 id=&quot;Atlassian12월ReleaseNote-호환버전&quot;&gt;
+ &lt;strong&gt;
+  호환 버전
+ &lt;/strong&gt;
+&lt;/h3&gt;
+&lt;p&gt;
+ 현재는 버그 수정 릴리스에서만 롤링 업그레이드를 사용할 수 있습니다(
+ &lt;a class=&quot;external-link&quot; href=&quot;https://developer.atlassian.com/server/confluence/confluence-build-information/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  빌드 번호가 동일한 Confluence 버전
+ &lt;/a&gt;
+ ).  예를 들어 Confluence 7.9.0에서 7.9.2로 롤링 업그레이드를 수행할 수 있지만 Confluence 7.9.2에서 7.10.0으로 롤링 업그레이드를 수행할 수는 없습니다. 롤링 업그레이드는 향후 장기 지원 릴리스에 특히 유용합니다. 이 릴리스에서는 2년간 정기적으로 보안을 유지하고 버그를 수정합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/doc/upgrade-confluence-without-downtime-1027127923.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  지속적인 업그레이드에 대해 자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Stepupyoursecuritywithpersonalaccesstokens/개인액세스토큰으로보안강화&quot;&gt;
+ &lt;strong&gt;
+  | Step up your security with personal access tokens / 개인 액세스 토큰으로 보안 강화
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Server ] [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ Confluence REST API는 자동화 및
+ &lt;span&gt;
+  다른 시스템과의 통합에 무한한 기회를 제공합니다
+ &lt;/span&gt;
+ .
+ &lt;span&gt;
+  이제 보안적으로 안심할 수 있도록 개인 액세스 토큰을 만들어 이용하실 수 있습니다. 이 토큰은 인증에 사용자 이름과 암호를 대체하는 데 안전한 대안책입니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  토큰 생성 및 해지
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 프로필로 이동하여 설정 &amp;gt; 개인 액세스 토큰을 선택하여 토큰을 만듭니다.  필요한 만큼 다양한 토큰을 만들고 각 토큰에 대해 서로 다른 만료 날짜를 설정할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/12.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 사용자의 계정이 비활성화되거나 삭제된 후에는 해당 사용자의 토큰이 더 이상 작동되지 않습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  토큰 관리
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 관리자는 시스템 속성에서 사용자가 만들 수 있는 토큰 수를 제한하고 만료 규칙을 설정할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  Confluence Data Center의
+ &lt;/strong&gt;
+ 경우 시스템 관리자는 언제든지 모든 토큰을 확인하고 이를 비활성화할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/13.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  개인 액세스 토큰에 대해 자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Bigofficefiles?Noproblem/빅오피스파일?문제없어요.&quot;&gt;
+ &lt;strong&gt;
+  | Big office files? No problem / 빅 오피스 파일? 문제 없어요.
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Server ] [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 옹랑이 큰 Word, Excel 및 Powerpoint 파일을 사용하여 작업하는 경우에 이것의 로딩이 다른 작업의 방해가 되어선 안됩니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이제 Office Word, Excel 또는 Powerpoint 매크로가 있는 페이지에 도착하면 다른 모든 페이지 내용을 먼저 로드한 다음 오피스 문서(Word, Excel 및 Powerpoint 파일)를 해당 시간에 로드합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/14.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 또한,
+ &lt;strong&gt;
+  Confluence Data Center 라이센스의 경우
+ &lt;/strong&gt;
+ 중 일정 시간 내에 파일을 표시할 수 없는 경우 대신 다운로드할 수 있는 옵션을 제공합니다.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Performanceimprovementsformassivesites/대규모사이트에대한성능향상&quot;&gt;
+ &lt;strong&gt;
+  | Performance improvements for massive sites / 대규모 사이트에 대한 성능 향상
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Server ] [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  이제 사용량이 많은 대규모 사이트에서 검색 및 대시보드와 같이 검색 인덱스에 의존하는 영역의 로딩 속도가 더 빨라졌습니다. 또한 CPU 사용량이 감소하여 Confluence를 안정적으로 유지하실 수 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 대부분의 변경 사항은 보이지 않는 영역에 있지만
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  기존 인덱스를 마이그레이션하는 업그레이드 작업이 있습니다
+ &lt;/span&gt;
+ .
+ &lt;span&gt;
+  이에 따른
+ &lt;/span&gt;
+ 예상 상항에 대한 자세한 내용은
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/doc/confluence-7-9-upgrade-notes-1026537716.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  업그레이드 참고 사항
+ &lt;/a&gt;
+ 을 확인해보세요.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian12월ReleaseNote-Bitbucket7.8릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Bitbucket 7.8 릴리즈노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|RerunbuildsfromBitbucket/Bitbucket에서빌드다시실행&quot;&gt;
+ &lt;span&gt;
+  | Rerun builds from Bitbucket / Bitbucket 에서 빌드 다시 실행
+ &lt;/span&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(66,82,110);text-decoration: none;&quot;&gt;
+  서버
+ &lt;/span&gt;
+ &lt;span class=&quot;status-macro aui-lozenge aui-lozenge-subtle conf-macro output-inline&quot; style=&quot;color: rgb(66,82,110);text-decoration: none;&quot;&gt;
+  데이터 센터
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/15.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-4-release-notes-1013849643.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot; title=&quot;https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-4-release-notes-1013849643.html&quot;&gt;
+  Bitbucket Server
+ &lt;/a&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ 7
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-4-release-notes-1013849643.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot; title=&quot;https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-4-release-notes-1013849643.html&quot;&gt;
+  .4
+ &lt;/a&gt;
+ 에서는
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  통합 CI/CD를 출시했습니다.
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+  아이디어에서 프로덕션까지 빨리 도달할 수 있도록 가속화 설계된 이 제품은 Bitbucket에서 코드에 대한 지속적인 피드백을 받을 수 있는 새로운 방법을 제공해 툴을 전환할 필요성을 줄여줍니다.
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+  이후
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ 이
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/bitbucket-server-7-5-release-notes-1018760416.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  기능을 최적화
+ &lt;/a&gt;
+ 하면서
+ &lt;span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  이 릴리스부터는 Bitbucket에서 빌드를 다시 실행할 수 있습니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  빌드 페이지 및 꺼내기 요청 페이지 빌드 탭에는 각 빌드에 대한 메뉴 단추가 있는 작업 열이 있습니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+  여기서 작업 권한 부여 프로세스를 시작한 다음 이 메뉴에서 Bamboo 계획 및 젠킨스 작업을 다시 실행할 수 있습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  작업 설정에 대한 자세한 내용
+ &lt;/span&gt;
+ 은
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/integrated-ci-cd-1032257989.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  통합 CI/CD 설명서
+ &lt;/a&gt;
+ 를
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  참조
+ &lt;/span&gt;
+ 하십시오.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Databasepasswordencryption/데이터베이스패스워드암호화&quot;&gt;
+ &lt;strong&gt;
+  | Database password encryption / 데이터베이스 패스워드 암호화
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Server ] [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  추가 보안 계층을 추가하려면 이제 에 저장된 데이터베이스 암호를 암호화할 수 있습니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;code&gt;
+   bitbucket.properties
+  &lt;/code&gt;
+ &lt;/span&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  파일. 이 릴리스에서 발송할 두 가지 암호화 방법 중 하나를 사용하거나 직접 만들 수 있습니다.
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/encrypt-database-password-1032257985.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+   데이터베이스 암호 암호화에 대해 자세히 알아보기
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Gracefulshutdowns(Linuxonly)/정상종료(리눅스전용)&quot;&gt;
+ &lt;strong&gt;
+  | Graceful shutdowns (Linux only) / 정상 종료(리눅스 전용)
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Server ] [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ Bitbucket은 이제 시스템을 통해 정상 셧다운을 지원합니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;code&gt;
+  SIGTERM
+ &lt;/code&gt;
+ &lt;span&gt;
+ &lt;/span&gt;
+ 신호.
+ &lt;span&gt;
+ &lt;/span&gt;
+ Bitbucket은 정상적으로 종료하면 종료 전에 예약된 모든 태스크, 기내 Git 요청 및 기내 사용자 요청을 완료할 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 따라서 종료가 필요한 유지 관리 작업 중에 사용자가 작업 손실을 방지할 수 있습니다.
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Whatelseisnew?/또어떤게달라졌을까요?&quot;&gt;
+ &lt;strong&gt;
+  | What else is new? /
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  또 어떤 게 달라졌을까요?
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;ul class=&quot;ak-ul&quot;&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    통합 CI/CD 빌드
+    &lt;span&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;inline-highlight&quot;&gt;
+     작업
+    &lt;/span&gt;
+    에 대한 JMX 메트릭을 추가했습니다.
+    &lt;span&gt;
+    &lt;/span&gt;
+    참조
+   &lt;/span&gt;
+   &lt;span&gt;
+   &lt;/span&gt;
+   &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/enabling-jmx-counters-for-performance-monitoring-776640189.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot; title=&quot;https://confluence.atlassian.com/bitbucketserver/enabling-jmx-counters-for-performance-monitoring-776640189.html&quot;&gt;
+    성능 모니터링에 대한 JMX 카운터 사용
+   &lt;/a&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    &lt;span&gt;
+    &lt;/span&gt;
+    자세한 정보는
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    SSLv2 Hello 프로토콜이 메일 SSL/TLS 프로토콜의 기본 목록에서 제거되었습니다.
+    &lt;span&gt;
+    &lt;/span&gt;
+    자세한 내용은 다음을 참조하십시오.
+   &lt;/span&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    &lt;span&gt;
+    &lt;/span&gt;
+    &lt;a class=&quot;external-link&quot; href=&quot;https://jira.atlassian.com/browse/BSERV-11889&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+     &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
+      &lt;img src=&quot;/assets/images/104420311/16.text/html&quot;/&gt;
+      &lt;img class=&quot;confluence-embedded-image icon confluence-external-resource&quot; data-image-src=&quot;https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;amp;avatarId=51493&amp;amp;avatarType=issuetype&quot; src=&quot;https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;amp;avatarId=51493&amp;amp;avatarType=issuetype&quot;/&gt;
+     &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;external-link&quot; href=&quot;https://jira.atlassian.com/browse/BSERV-11889&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+     BSERV/11889
+    &lt;/a&gt;
+    &lt;span&gt;
+    &lt;/span&gt;
+    /
+    &lt;span&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;summary&quot;&gt;
+     Java 11 사용 시 Bitbucket이 Office365로 메일을 보내지 못함
+    &lt;/span&gt;
+    &lt;span&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf&quot; style=&quot;color: rgb(0,135,90);text-decoration: none;&quot;&gt;
+     닫힘
+    &lt;/span&gt;
+    &lt;br/&gt;
+   &lt;/span&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    이 프로토콜이 필요한 경우 다음 항목을 Bitbucket.properties 파일에 추가하여 복원할 수 있습니다.
+   &lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p class=&quot;language-none&quot;&gt;
+   &lt;code class=&quot;language-none&quot; style=&quot;text-align: left;&quot;&gt;
+    mail.crypto.protocols=SSLv2Hello TLSv1 TLSv1.1 TLSv1.2
+   &lt;/code&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;Atlassian12월ReleaseNote-Bamboo7.2릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Bamboo 7.2 릴리즈노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Bamboologs-lessnoise,morecontrol/향상된Bamboo로그&quot;&gt;
+ &lt;strong&gt;
+  | Bamboo logs - less noise, more control / 향상된 Bamboo 로그
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 빌드에서 무슨 일이 일어나고 있는지 이해하기 위해서는 로그 파일의 관련 정보에 대한 신속한 액세스가 필요하다는 것을 알고 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이를 위해 방해되는 소음의 수준을 제한하고 Bamboo 인스턴스 로그의 양을 제어하기로 결정했습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ Bamboo 7.2는 다음과 같은 로그 개선 사항을 제공합니다.
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   상황을 더 조용하게 만들기 위해 Bamboo는 이제부터 기본적으로 더 적은 양의 데이터를 기록할 것이다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   대신 다양한 VCS 및 환경 변수의 로그와 같은 추가 데이터 로깅을 설정할 수 있는 상세 모드를 소개했습니다. 사용자 지정 계획을 실행하거나 배포 화면에서 상세 모드를 사용하도록 설정할 수 있습니다.
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   또한 재실행 작업이 기록되는 방법도 변경했습니다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   지금까지 모든 재실행 작업의 로그는 해당 작업의 기존 로그에 연결되었습니다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   그 결과, 그것은 탐색하고 사용하기 어려운 매우 긴 로그 파일을 형성했다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   이제 모든 작업 재실행에 대한 로그가 별도의 파일에 저장되므로 훨씬 쉽게 수정할 수 있습니다.
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+ Bamboo에 기록된 전체 데이터 목록은
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bamboo/logging-in-bamboo-289277239.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  Bamboo에 로깅
+ &lt;/a&gt;
+ 을 참조하십시오.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|BambooSpecsimprovements/Bamboo사양개선&quot;&gt;
+ &lt;strong&gt;
+  | Bamboo Specs improvements / Bamboo 사양 개선
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ Bamboo 7.2는 Bamboo 사양에 대한 여러 가지 개선 사항을 제공합니다.
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   Bamboo YAML 사양에 있는 마켓플레이스 앱에서 작업을 사용할 수 있는
+   &lt;strong&gt;
+    Any-task command
+   &lt;/strong&gt;
+   을 소개합니다.
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   SSH/SCP, 명령, Maven 및 빌드 Warnings 작업에 대한 네이티브 YAML 사양 지원을 추가했습니다
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   이제 앱 벤더는 새로운 YAML 사양 API를 사용하여 계획 및 배포 트리거를 관리할 수 있습니다.
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   이제 Java Bamboo 사양에서 트리거 조건 구성을 사용할 수 있습니다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   향후 버전에서는 YAML 사양 지원이 제공됩니다.
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   리포지토리 저장 사양에 타사 Java 사양 빌더를 사용할 수 있습니다.
+   &lt;span&gt;
+   &lt;/span&gt;
+   크고 복잡한 Plan 구성을 관리할 수 있는 고유한 사양 라이브러리를 만들어보세요
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|Tagtrigger/태그트리거&quot;&gt;
+ &lt;strong&gt;
+  | Tag trigger / 태그 트리거
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ Bamboo 7.2에서 태그 트리거를 도입했습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이제 선택한 태그가 리포지토리에 나타날 때마다 빌드를 자동으로 시작할 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bamboo/tag-triggering-1031180298.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  태그 트리거링
+ &lt;/a&gt;
+ 에서 Bamboo에 태그 트리거를 추가하는 방법에 대해 자세히 알아보세요.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104420311/16.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;Atlassian12월ReleaseNote-|EnableanddisableagentsoverRESTAPI/RESTAPI를통해에이전트사용및사용안함&quot;&gt;
+ &lt;strong&gt;
+  |
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  Enable and disable agents over REST API /
+ &lt;/strong&gt;
+ &lt;strong&gt;
+  REST API를 통해 에이전트 사용 및 사용 안 함
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ 버전 7.2부터는 Bamboo에서 REST API EndPoint를 통해 에이전트를 사용 및 사용 안 함으로 설정할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  앞으로도 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  감사합니다!
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;color: rgb(0,0,0);&quot;&gt;
+   atlassian@osci.kr
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Mon, 07 Dec 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/12/07/104420311/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/12/07/104420311/</guid>
+        
+        <category>아틀라시안</category>
+        
+        <category>releasenote</category>
+        
+        
+      </item>
     
       <item>
         <title>오픈소스컨설팅은 애자일한가요?</title>
@@ -6461,1849 +7572,6 @@ Sharing Tech. Growing Together.
         <category>releasenote</category>
         
         <category>아틀라시안</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>openstack helm을 이용한 kubernetes환경에서 openstack 배포</title>
-        <description>&lt;p&gt;
- Openstack Helm을 Centos 환경에서  Ceph RBD로 구축 하는 방법에 대하여 이야기 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- 공식 매뉴얼이 Ubuntu 및 Swift기반이기 때문에 커스텀하게 수정한 부분이 다소 존재 합니다. 하지만, 기본 배경은 공식 문서(
- &lt;a class=&quot;external-link&quot; href=&quot;https://docs.openstack.org/openstack-helm/latest/&quot; rel=&quot;nofollow&quot;&gt;
-  https://docs.openstack.org/openstack-helm/latest/
- &lt;/a&gt;
- )를 기반으로 작성 되었습니다.
-&lt;/p&gt;
-&lt;h2 id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-Openstackhelm?&quot;&gt;
- Openstack helm ?
-&lt;/h2&gt;
-&lt;p&gt;
- openstack helm은 이름에서 알수 있듯이 openstack을 kubernetes환경에서 helm chart를 이용하여 배포할 수 있는 프로젝트입니다. Kubernetes의 기본 기능인  Self-Healing 을 비롯하여 Kubernetes의 많은 장점들을 이용하여 Openstack을 관리 하기 때문에 확장등의 라이프 사이클 관리에 도움이 되며 을 구축, 업그레이드, 확장등의 관리를 손쉽게 할 수 있습니다. 대부분 AT&amp;amp;T를 주도적으로 99cloud , Suse등과 함께 국내에서는 SK Telecom이 많은 기여 하고 있는 프로젝트입니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97477266/0.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
- &lt;p&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://www.stackalytics.com/?module=openstack-helm-group&quot; rel=&quot;nofollow&quot;&gt;
-   https://www.stackalytics.com/?module=openstack-helm-group
-  &lt;/a&gt;
- &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-환경설정&quot;&gt;
- 환경 설정
-&lt;/h2&gt;
-&lt;p&gt;
- 아래의 환경과 같이 Centos7의 동일한 운영체제를 사용하며, 총 5개의 NIC이 용도별로 설정 되어 있어야 합니다. 이중 001노드에서는 Kubernetes Master및 Ceph Monitor의 역할과 배포의 역할을 담당하게 됩니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97477266/1.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;div class=&quot;table-wrap&quot;&gt;
- &lt;table class=&quot;wrapped fixed-table confluenceTable&quot;&gt;
-  &lt;colgroup&gt;
-   &lt;col style=&quot;width: 155.0px;&quot;/&gt;
-   &lt;col style=&quot;width: 248.0px;&quot;/&gt;
-   &lt;col style=&quot;width: 501.0px;&quot;/&gt;
-   &lt;col style=&quot;width: 156.0px;&quot;/&gt;
-  &lt;/colgroup&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;th class=&quot;confluenceTh&quot;&gt;
-     hostname
-    &lt;/th&gt;
-    &lt;th class=&quot;confluenceTh&quot;&gt;
-     OS
-    &lt;/th&gt;
-    &lt;th class=&quot;confluenceTh&quot;&gt;
-     IP address
-    &lt;/th&gt;
-    &lt;th class=&quot;confluenceTh&quot;&gt;
-     ETC
-    &lt;/th&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     kube-cy4-kube001
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     CentOS Linux release 7.8.2003
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     &lt;p&gt;
-      eth0 : 10.4.10.21 (API, Deploy )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth1 : 10.4.20.21 (Ceph Storage Public  )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth2 : 10.4.30.21 (Ceph Storage Replication )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth3 : 10.4.40.21 (Openstack Tanent Network )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth4 : 192.168.193.21 (Openstack External Netowkr: Provider Network )
-     &lt;/p&gt;
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     &lt;p&gt;
-      Kubernetes Master
-     &lt;/p&gt;
-     &lt;p&gt;
-      Ceph Monitor
-     &lt;/p&gt;
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     kube-cy4-kube002
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     CentOS Linux release 7.8.2003
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     &lt;p&gt;
-      eth0 : 10.4.20.22 (API, Deploy )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth1 : 10.4.20.22 (Ceph Storage Public  )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth2 : 10.4.30.22 (Ceph Storage Replication )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth3 : 10.4.40.22 (Openstack Tanent Network )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth4 : 192.168.193.22 (Openstack External Netowkr: Provider Network )
-     &lt;/p&gt;
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     &lt;p&gt;
-      Kubernetes Worker
-     &lt;/p&gt;
-     &lt;p&gt;
-      Ceph OSD
-     &lt;/p&gt;
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     kube-cy4-kube003
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     CentOS Linux release 7.8.2003
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     &lt;p&gt;
-      eth0 : 10.4.10.23 (API, Deploy )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth1 : 10.4.20.23 (Ceph Storage Public  )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth2 : 10.4.30.23 (Ceph Storage Replication )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth3 : 10.4.40.23 (Openstack Tanent Network )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth4 : 192.168.193.23 (Openstack External Netowkr: Provider Network )
-     &lt;/p&gt;
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot;&gt;
-     &lt;p&gt;
-      Kubernetes Worker
-     &lt;/p&gt;
-     &lt;p&gt;
-      Ceph OSD
-     &lt;/p&gt;
-    &lt;/td&gt;
-   &lt;/tr&gt;
-   &lt;tr&gt;
-    &lt;td class=&quot;confluenceTd&quot; colspan=&quot;1&quot;&gt;
-     kube-cy4-kube004
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot; colspan=&quot;1&quot;&gt;
-     CentOS Linux release 7.8.2003
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot; colspan=&quot;1&quot;&gt;
-     &lt;p&gt;
-      eth0 : 10.4.10.24 (API, Deploy )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth1 : 10.4.20.24 (Ceph Storage Public  )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth2 : 10.4.30.24 (Ceph Storage Replication )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth3 : 10.4.40.24 (Openstack Tanent Network )
-     &lt;/p&gt;
-     &lt;p&gt;
-      eth4 : 192.168.193.24 (Openstack External Netowkr: Provider Network )
-     &lt;/p&gt;
-    &lt;/td&gt;
-    &lt;td class=&quot;confluenceTd&quot; colspan=&quot;1&quot;&gt;
-     &lt;p&gt;
-      Kubernetes Worker
-     &lt;/p&gt;
-     &lt;p&gt;
-      Ceph OSD
-     &lt;/p&gt;
-    &lt;/td&gt;
-   &lt;/tr&gt;
-  &lt;/tbody&gt;
- &lt;/table&gt;
-&lt;/div&gt;
-&lt;h2 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-DeployCeph&quot;&gt;
- &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
-  Deploy Ceph
- &lt;/span&gt;
-&lt;/h2&gt;
-&lt;p&gt;
- Ceph는 RBD형태로 Openstack상에서 볼륨을 사용하거나 인스턴스를 이용할 경우 사용되는 스토리지로 사용되며, Kubernetes상에 배포되는 Openstack-helm-infra의 Mariadb,RabbitMQ의 PV로 사용 됩니다.
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 배포에 필요한 스크립트는
- &lt;em&gt;
-  &quot;/hoem/deploy&quot;
- &lt;/em&gt;
- 에서 관리하기 위하여 해당 디렉토리를 생성하며, 프로젝트를 클론 받기 위하여  git과 배포시 필요한 파이선 패키지 관리를 위하여  pip 패키지를 설치합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# mkdir  /home/deploy ; cd  /home/deploy
-[root@kube-cy4-kube001 deploy]# yum install -y git epel*
-[root@kube-cy4-kube001 deploy]# yum install -y python-pip&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- ceph 배포를 위하여  ceph-ansible을 클론받고, v4.0.20 로 checkout합니다. 그리고 배포를 위한 파이선 패키지 설치를 위하여 requirements.txt 파일을 기반으로 파이선 패키지를 설치 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 deploy]# git clone https://github.com/ceph/ceph-ansible.git
-[root@kube-cy4-kube001 deploy]# cd ceph-ansible/
-[root@kube-cy4-kube001 ceph-ansible]# git checkout v4.0.20
-[root@kube-cy4-kube001 ceph-ansible]# pip install -r requirements.txt&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- ceph은 ansible을 통하여 배포하기 때문에 deploy 인터페이스 아이피로
- &lt;em&gt;
-  &quot;/etc/hosts&quot;
- &lt;/em&gt;
- 파일을 수정 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-ansible]# tee /etc/hosts &amp;lt;&amp;lt; EOF
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-10.4.10.21 kube-cy4-kube001 kube1
-10.4.10.22 kube-cy4-kube003 kube2
-10.4.10.23 kube-cy4-kube002 kube3
-10.4.10.24 kube-cy4-kube004 kube4
-EOF&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- ceph-ansible에서 각 역할별로 구분하여 배포 하기 때문에 Group 별로 나눠 ceph-ansible의 inventory파일을 생성하며, 해당 inventory파일로 통신이 되는지 확인 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-ansible]# tee ./ceph-hosts &amp;lt;&amp;lt; EOF
-[mons]
-kube-cy4-kube001
-[osds]
-kube-cy4-kube002
-kube-cy4-kube003
-kube-cy4-kube004
-[mdss]
-[rgws]
-[nfss]
-[rbdmirrors]
-[clients]
-kube-cy4-kube001
-[mgrs]
-kube-cy4-kube001
-[iscsigws]
-[iscsi-gws]
-[grafana-server]
-[rgwloadbalancers]
-[all:vars]
-ansible_become=true
-#### 설정된 User로 변경 필요
-ansible_user=centos
-#### 설정된 Password로 변경 필요
-ansible_ssh_pass=password
-EOF
-
-[root@kube-cy4-kube001 ceph-ansible]# yum install -y sshpass
-[root@kube-cy4-kube001 ceph-ansible]# ansible -i ceph-hosts -m ping  all
-kube-cy4-kube003 | SUCCESS =&amp;gt; {
-    &quot;ansible_facts&quot;: {
-        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python&quot;
-    },
-    &quot;changed&quot;: false,
-    &quot;ping&quot;: &quot;pong&quot;
-}
-kube-cy4-kube002 | SUCCESS =&amp;gt; {
-    &quot;ansible_facts&quot;: {
-        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python&quot;
-    },
-    &quot;changed&quot;: false,
-    &quot;ping&quot;: &quot;pong&quot;
-}
-...&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- group_vars/all.yml 파일은 ceph-ansible을 이용하여 배포시 설정할 수 있는 전반적인 배포 변수를 설정합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-ansible]# tee  group_vars/all.yml &amp;lt;&amp;lt; EOF
-osd_scenario: lvm
-osd_objectstore: bluestore
-
-## monitor로 통신할 인터페이스로 실제 rbd를 사용할 경우 해당 인터페이스를 사용하게 됩니다.
-monitor_interface: eth1
-## monitor_interface 에 설정되어 있는 ip 대역으로 설정
-public_network: 10.4.20.0/24
-## 각 osd마다 복제를 위해 사용하는 인터페이스의 ip 대역으로 설정 합니다.
-cluster_network: 10.4.30.0/24
-
-ceph_stable_release: nautilus
-ceph_origin: repository
-ceph_repository: community
-ceph_mirror: http://download.ceph.com
-ceph_stable_key: https://download.ceph.com/keys/release.asc
-
-ntp_service_enabled: true
-osd_auto_discovery: false
-dashboard_enabled: false
-cluster: ceph
-ceph_conf_overrides:
-  global:
-    mon_allow_pool_delete: false
-    mon_osd_down_out_subtree_limit: host
-    osd_pool_default_size: 2
-    osd_pool_default_min_size: 1
-  osd:
-    osd_min_pg_log_entries: 10
-    osd_max_pg_log_entries: 10
-    osd_pg_log_dups_tracked: 10
-    osd_pg_log_trim_min: 10
-EOF&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- osds.yml 에서는 실제 osd로 사용할 디바이스를 지정합니다. osd 노드의 연결되어 있는 디바이스를 확인후 아래와 같이 osds.yml파일을 설정합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-ansible]# ansible -i ceph-hosts  -ba 'lsblk' osds
-kube-cy4-kube004 | CHANGED | rc=0 &amp;gt;&amp;gt;
-NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sr0     11:0    1  366K  0 rom
-vda    253:0    0   68G  0 disk
-└─vda1 253:1    0   68G  0 part /
-vdb    253:16   0   40G  0 disk
-vdc    253:32   0   40G  0 disk
-kube-cy4-kube002 | CHANGED | rc=0 &amp;gt;&amp;gt;
-NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sr0     11:0    1  366K  0 rom
-vda    253:0    0   68G  0 disk
-└─vda1 253:1    0   68G  0 part /
-vdb    253:16   0   40G  0 disk
-vdc    253:32   0   40G  0 disk
-kube-cy4-kube003 | CHANGED | rc=0 &amp;gt;&amp;gt;
-NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sr0     11:0    1  366K  0 rom
-vda    253:0    0   68G  0 disk
-└─vda1 253:1    0   68G  0 part /
-vdb    253:16   0   40G  0 disk
-vdc    253:32   0   40G  0 disk
-
-[root@kube-cy4-kube001 ceph-ansible]# tee  group_vars/osds.yml &amp;lt;&amp;lt; EOF
----
-devices:
- - /dev/vdb
- - /dev/vdc
-EOF&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- clients.yml 파일에 admin key를 복사하여 ceph client명령이 수행할 수 있도록 설정 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-deploy ceph-ansible]#  tee  group_vars/clients.yml &amp;lt;&amp;lt; EOF
----
-copy_admin_key: true
-EOF&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- site.yml.sample 을 이용하여 설정한 group_vars의 변수를 기반으로 ansible-playbook 명령을 이용하여 ceph를 배포합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[[root@kube-cy4-kube001 ceph-ansible]# ansible-playbook  -i ceph-hosts  site.yml.sample&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-warning conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;warning&quot;&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   만약 아래와 같은 에러가 발생하여 정상적으로 설치가 안되는 경우가 발생할 수 있습니다.
-  &lt;/p&gt;
-  &lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
-   &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-    &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;...
-TASK [check for python] *******************************************************************************
-Saturday 01 August 2020  15:46:14 +0900 (0:00:00.058)       0:00:00.058 *******
-fatal: [kube-cy4-kube001]: FAILED! =&amp;gt;
-  msg: The ips_in_ranges filter requires python's netaddr be installed on the ansible controller.
-fatal: [kube-cy4-kube002]: FAILED! =&amp;gt;
-  msg: The ips_in_ranges filter requires python's netaddr be installed on the ansible controller.
-fatal: [kube-cy4-kube003]: FAILED! =&amp;gt;
-  msg: The ips_in_ranges filter requires python's netaddr be installed on the ansible controller.
-fatal: [kube-cy4-kube004]: FAILED! =&amp;gt;
-  msg: The ips_in_ranges filter requires python's netaddr be installed on the ansible controller.
-...&lt;/pre&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;p class=&quot;auto-cursor-target&quot;&gt;
-   배포하는 호스트에서 netaddr 패키지를 설치한뒤 다시 배포를 진행 하면 정상적으로 배포가 진행됩니다.
-  &lt;/p&gt;
-  &lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
-   &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-    &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-ansible]# yum install python-netaddr.noarch -y&lt;/pre&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;confluence-information-macro confluence-information-macro-warning conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;warning&quot;&gt;
- &lt;span class=&quot;aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon&quot;&gt;
- &lt;/span&gt;
- &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-  &lt;p&gt;
-   만약, ceph cluster를 삭제 하기 위해서는 아래와 같이 purge-cluster.yml  플레이북을 실행하여 삭제할 수 있습니다.
-  &lt;/p&gt;
-  &lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
-   &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-    &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-ansible]# ansible-playbook  -i ceph-hosts infrastructure-playbooks/purge-cluster.yml &lt;/pre&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 배포가 완료 되면
- &lt;em&gt;
-  &quot;ceph -s
- &lt;/em&gt;
- &quot;명령을 이용하여 &quot;
- &lt;em&gt;
-  health: HEALTH_OK&quot;
- &lt;/em&gt;
- 상태를 확인 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-ansible]# ceph -s
-  cluster:
-    id:     f9b17cb6-b38c-455b-b10d-5c44d7bcc36b
-    health: HEALTH_OK
-
-  services:
-    mon: 1 daemons, quorum kube-cy4-kube001 (age 3m)
-    mgr: kube-cy4-kube001(active, since 2m)
-    osd: 6 osds: 6 up (since 85s), 6 in (since 98s)
-
-  data:
-    pools:   0 pools, 0 pgs
-    objects: 0 objects, 0 B
-    usage:   6.0 GiB used, 234 GiB / 240 GiB avail
-    pgs:&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-InstallDocker&quot;&gt;
- Install Docker
-&lt;/h2&gt;
-&lt;p&gt;
- Kubernetes를 배포하기전 Container Runtime으로 사용될 Docker를 설치 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- 아래와 같이 docker-ce repository를 등록한뒤 docker-ce를 yum으로 설치 합니다. 해당 과정은 모든 노드에서 진행 하게 됩니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# yum install -y yum-utils
-
-[root@kube-cy4-kube001 ~]# yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-
-[root@kube-cy4-kube001 ~]# yum install docker-ce docker-ce-cli containerd.io
-
-[root@kube-cy4-kube001 ~]# systemctl enable --now  docker
-
-[root@kube-cy4-kube001 ~]# systemctl  status docker
-● docker.service - Docker Application Container Engine
-   Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; vendor preset: disabled)
-   Active: active (running) since Sat 2020-08-01 13:56:13 KST; 2h 34min ago
-     Docs: https://docs.docker.com
- Main PID: 1368 (dockerd)
-    Tasks: 15
-   Memory: 147.2M
-   CGroup: /system.slice/docker.service
-           └─1368 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
-...&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-DeployKubernetes&quot;&gt;
- Deploy Kubernetes
-&lt;/h2&gt;
-&lt;p&gt;
- kubernetes를 설치하기 위해서 kubeadm을 사용할것 입니다. kubeadm설치와 kubelet설치를 위하여 kubernetes upstream repository를 등록 하여 kubeadm,kubelet를 설치 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- 해당 설치는 모든 호스트에서 진행 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]#  cat &amp;lt;&amp;lt;EOF &amp;gt; /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
-        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-EOF
- 
-[root@kube-cy4-kube001 ~]# yum install kubeadm  -y
-[root@kube-cy4-kube001 ~]#  systemctl enable kubelet --now&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;em&gt;
-  &quot;kubeadm init &quot;
- &lt;/em&gt;
- 명령을 이용하여 master노드로 사용할 kube-cy4-kube001 호스트에서 초기화 과정을 진행 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- 이때 kubernetes api를 사용할 인터페이스인 eth0의 ip로 &quot;
- &lt;em&gt;
-  --apiserver-advertise-address&quot;
- &lt;/em&gt;
- 옵션을 추가 하며, pod들이 통신하기 위하여 사용되는 네트워크 cidr를 172.16.0.0/16으로 진행 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
-[root@kube-cy4-kube001 ~]# kubeadm init  --apiserver-advertise-address=10.4.10.21  --pod-network-cidr=172.16.0.0/16&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 정상적으로 진행 되었습니다면 아래와 같이
- &lt;em&gt;
-  &quot;initialized successfully&quot;
- &lt;/em&gt;
- 메시지를 확인할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 마지막에 나온 hash 값을 통하여 다른 노드들이 join할 수 있도록 메시지를 출력한것을 확인 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;...
-Your Kubernetes control-plane has initialized successfully!
-
-To start using your cluster, you need to run the following as a regular user:
-
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-You should now deploy a pod network to the cluster.
-Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
-  https://kubernetes.io/docs/concepts/cluster-administration/addons/
-
-Then you can join any number of worker nodes by running the following on each as root:
-
-kubeadm join 10.4.10.21:6443 --token 26amyi.687200qzjh5lkkxw \
-    --discovery-token-ca-cert-hash sha256:e1a4959da94c40d0d21aaf8fb39878608c0002a4a6be6122bc8fa3d116b5db9f&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 위에서 중간에 나온 메시지 처럼  master노드인 kube-cy4-kube001 에서 kubernetes clinet를 위해 사용되는 kube config파일을 복사하도록 하여 kubernetes clinet(kubectl)을 실행하여 봅니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]#   mkdir -p $HOME/.kube
-[root@kube-cy4-kube001 ~]#   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-[root@kube-cy4-kube001 ~]#   sudo chown $(id -u):$(id -g) $HOME/.kube/config
-[root@kube-cy4-kube001 ~]# kubectl get nodes
-NAME               STATUS     ROLES    AGE     VERSION
-kube-cy4-kube001   NotReady   master   2m45s   v1.18.6&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- kube-cy4-kube002 노드에서  master 노드로 join을 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube002 ~]# echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
-[root@kube-cy4-kube002 ~]# kubeadm join 10.4.10.21:6443 --token 26amyi.687200qzjh5lkkxw \
-&amp;gt;     --discovery-token-ca-cert-hash sha256:e1a4959da94c40d0d21aaf8fb39878608c0002a4a6be6122bc8fa3d116b5db9f&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- kube-cy4-kube003 노드에서  master 노드로 join을 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube003 ~]# echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
-[root@kube-cy4-kube003 ~]# kubeadm join 10.4.10.21:6443 --token 26amyi.687200qzjh5lkkxw \
-&amp;gt;     --discovery-token-ca-cert-hash sha256:e1a4959da94c40d0d21aaf8fb39878608c0002a4a6be6122bc8fa3d116b5db9f&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- kube-cy4-kube004 노드에서  master 노드로 join을 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube004 ~]# echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
-[root@kube-cy4-kube004 ~]# kubeadm join 10.4.10.21:6443 --token 26amyi.687200qzjh5lkkxw \
-&amp;gt;     --discovery-token-ca-cert-hash sha256:e1a4959da94c40d0d21aaf8fb39878608c0002a4a6be6122bc8fa3d116b5db9f&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 다시 master노드로 들어와서  &quot;kubectl get nodes -o wide&quot; 명령을 수행하여 join된  노드를 확인할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- 하지만 아직 CNI(Container Network Interface)가 설정이 안되어 있기 때문에  STATUS 가 아직 NotReady 상태입니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# kubectl get nodes -o wide
-NAME               STATUS     ROLES    AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION                CONTAINER-RUNTIME
-kube-cy4-kube001   NotReady   master   6m8s   v1.18.6   10.4.10.21    &amp;lt;none&amp;gt;        CentOS Linux 7 (Core)   3.10.0-1127.13.1.el7.x86_64   docker://19.3.12
-kube-cy4-kube002   NotReady   &amp;lt;none&amp;gt;   40s    v1.18.6   10.4.20.22    &amp;lt;none&amp;gt;        CentOS Linux 7 (Core)   3.10.0-1127.13.1.el7.x86_64   docker://19.3.12
-kube-cy4-kube003   NotReady   &amp;lt;none&amp;gt;   38s    v1.18.6   10.4.20.23    &amp;lt;none&amp;gt;        CentOS Linux 7 (Core)   3.10.0-1127.13.1.el7.x86_64   docker://19.3.12
-kube-cy4-kube004   NotReady   &amp;lt;none&amp;gt;   36s    v1.18.6   10.4.20.24    &amp;lt;none&amp;gt;        CentOS Linux 7 (Core)   3.10.0-1127.13.1.el7.x86_64   docker://19.3.12&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-DeployCalico&quot;&gt;
- Deploy Calico
-&lt;/h2&gt;
-&lt;p&gt;
- calico배포를 위한 매니패스트를 다운로드 한뒤 pod 네트워크를 위한 인터페이스 추가 및 IP in IP 모드를 Never로 변경하여 L2 통신간에 encapsulation없이 통신하도록 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# mkdir /home/deploy/calico ; cd /home/deploy/calico
-[root@kube-cy4-kube001 calico]# yum install -y wget
-[root@kube-cy4-kube001 calico]# wget https://docs.projectcalico.org/manifests/calico.yaml
-[root@kube-cy4-kube001 calico]# vi calico.yaml
-...
-      containers:
-        # Runs calico-node container on each Kubernetes node. This
-        # container programs network policy and routes on each
-        # host.
-        - name: calico-node
-          image: calico/node:v3.15.1
-          env:
-            ### pod네트워크 인터페이스 추가 
-            - name: IP_AUTODETECTION_METHOD
-              value: &quot;interface=eth0&quot;
-            # Use Kubernetes API as the backing datastore.
-            - name: DATASTORE_TYPE
-              value: &quot;kubernetes&quot;
-            # Wait for the datastore.
-            - name: WAIT_FOR_DATASTORE
-              value: &quot;true&quot;
-            # Set based on the k8s node name.
-....
-            ### IP in IP 모드를 사용하지 않도록 하기 위하여 Always를 Never로 변경
-            - name: CALICO_IPV4POOL_IPIP
-            #  value: &quot;Always&quot;
-              value: &quot;Never&quot;
-[root@kube-cy4-kube001 calico]# kubectl  create -f calico.yaml&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 이제, calico-system namespace에 pod들이 정상적으로 동작하는것을 확인할 수 있으며, &quot;
- &lt;em&gt;
-  kubectl get nodes&quot;
- &lt;/em&gt;
- 명령 수행시 Ready 상태로 변경된것을 확인할 수 있습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 calico]#  kubectl get pods -n calico-system -o wide
-NAME                                       READY   STATUS    RESTARTS   AGE    IP              NODE               NOMINATED NODE   READINESS GATES
-calico-kube-controllers-5687f44fd5-nj49z   1/1     Running   0          2m8s   172.16.10.130   kube-cy4-kube004   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-calico-node-48lw6                          1/1     Running   0          2m8s   10.4.20.24      kube-cy4-kube004   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-calico-node-6kt28                          1/1     Running   0          2m8s   10.4.10.21      kube-cy4-kube001   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-calico-node-jpqf5                          1/1     Running   0          2m8s   10.4.20.23      kube-cy4-kube003   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-calico-node-lh7fp                          1/1     Running   0          2m8s   10.4.20.22      kube-cy4-kube002   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-calico-typha-7648bcdddb-4cblz              1/1     Running   0          60s    10.4.20.22      kube-cy4-kube002   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-calico-typha-7648bcdddb-4mjvp              1/1     Running   0          60s    10.4.20.24      kube-cy4-kube004   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-calico-typha-7648bcdddb-5qz8m              1/1     Running   0          2m8s   10.4.20.23      kube-cy4-kube003   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-calico-typha-7648bcdddb-kq5q6              1/1     Running   0          60s    10.4.10.21      kube-cy4-kube001   &amp;lt;none&amp;gt;           &amp;lt;none&amp;gt;
-
-[root@kube-cy4-kube001 calico]# kubectl  get nodes -o wide
-NAME               STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION                CONTAINER-RUNTIME
-kube-cy4-kube001   Ready    master   24m   v1.18.6   10.4.10.21    &amp;lt;none&amp;gt;        CentOS Linux 7 (Core)   3.10.0-1127.13.1.el7.x86_64   docker://19.3.12
-kube-cy4-kube002   Ready    &amp;lt;none&amp;gt;   19m   v1.18.6   10.4.20.22    &amp;lt;none&amp;gt;        CentOS Linux 7 (Core)   3.10.0-1127.13.1.el7.x86_64   docker://19.3.12
-kube-cy4-kube003   Ready    &amp;lt;none&amp;gt;   19m   v1.18.6   10.4.20.23    &amp;lt;none&amp;gt;        CentOS Linux 7 (Core)   3.10.0-1127.13.1.el7.x86_64   docker://19.3.12
-kube-cy4-kube004   Ready    &amp;lt;none&amp;gt;   18m   v1.18.6   10.4.20.24    &amp;lt;none&amp;gt;        CentOS Linux 7 (Core)   3.10.0-1127.13.1.el7.x86_64   docker://19.3.12&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- calicoctl 바이너리를 다운로드 받아 calico cni 가 제어할 pod들의 ippool의 목록과 bgp peer정보를 확인 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 calico]# curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.15.1/calicoctl
-[root@kube-cy4-kube001 calico]# chmod +x calicoctl
-[root@kube-cy4-kube001 calico]# sudo mv calicoctl /usr/local/bin/
-[root@kube-cy4-kube001 calico]# tee /root/calico.rc &amp;lt;&amp;lt; EOF
-export KUBECONFIG=/root/.kube/config
-export DATASTORE_TYPE=kubernetes
-EOF
-[root@kube-cy4-kube001 calico]# source  ~/calico.rc
-[root@kube-cy4-kube001 calico]# calicoctl get ippools
-NAME                  CIDR            SELECTOR
-default-ipv4-ippool   172.16.0.0/16   all()
-
-[root@kube-cy4-kube001 calico]# calicoctl get nodes -o wide
-NAME               ASN       IPV4            IPV6
-kube-cy4-kube001   (64512)   10.4.10.21/24
-kube-cy4-kube002   (64512)   10.4.10.22/24
-kube-cy4-kube003   (64512)   10.4.10.23/24
-kube-cy4-kube004   (64512)   10.4.10.24/24&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 실제 pod통신은 아래와 같이 eth0인터페이스를 통하여 172.16.0.0/16 대역에서 각 노드별 block 대역으로 직접 라우팅 되는것을 확인할 수 있습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 calico]# route -n | grep 172.16
-172.16.10.128   10.4.10.24      255.255.255.192 UG    0      0        0 eth0
-172.16.39.128   10.4.10.22      255.255.255.192 UG    0      0        0 eth0
-172.16.43.192   10.4.10.23      255.255.255.192 UG    0      0        0 eth0&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-InstallHelm&quot;&gt;
- Install Helm
-&lt;/h2&gt;
-&lt;p&gt;
- openstack helm과 openstack helm infra는 helm기반으로 배포가 되기 때문에 helm을 설치 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~ ]#  curl -LO https://git.io/get_helm.sh
-[root@kube-cy4-kube001 ~ ]#  chmod 700 get_helm.sh
-[root@kube-cy4-kube001 ~ ]#  ./get_helm.sh
-[root@kube-cy4-kube001 ~ ]# kubectl create serviceaccount --namespace kube-system tiller
-[root@kube-cy4-kube001 ~ ]# kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-[root@kube-cy4-kube001 ~ ]# kubectl patch deploy --namespace kube-system tiller-deploy -p '{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;serviceAccount&quot;:&quot;tiller&quot;}}}}'
-[root@kube-cy4-kube001 ~ ]# helm init --service-account tiller --upgrade
-[root@kube-cy4-kube001 ~ ]# helm version
-Client: &amp;amp;version.Version{SemVer:&quot;v2.16.9&quot;, GitCommit:&quot;8ad7037828e5a0fca1009dabe290130da6368e39&quot;, GitTreeState:&quot;clean&quot;}
-Server: &amp;amp;version.Version{SemVer:&quot;v2.16.9&quot;, GitCommit:&quot;8ad7037828e5a0fca1009dabe290130da6368e39&quot;, GitTreeState:&quot;clean&quot;}&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- local helm repository를 등록 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~ ]#  tee /etc/systemd/system/helm-serve.service &amp;lt;&amp;lt;EOF
-[Unit]
-Description=Helm Server
-After=network.target
- 
-[Service]
-User=root
-Restart=always
-ExecStart=/usr/local/bin/helm serve
- 
-[Install]
-WantedBy=multi-user.target
-EOF
-
-[root@kube-cy4-kube001 ~ ]#  systemctl daemon-reload ; systemctl enable helm-serve --now
-[root@kube-cy4-kube001 calico]# helm repo list
-NAME 	URL
-local	http://localhost:8879/charts&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-SettingCSI(CephRBD)&quot;&gt;
- Setting CSI(Ceph RBD)
-&lt;/h2&gt;
-&lt;p&gt;
- 앞에서 배포한 ceph cluster 를 kubernetes에서 storage class를 총하여 pv를 생성하기 위하여 csi를 설정 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;em&gt;
-  &quot;ceph mon dump&quot;
- &lt;/em&gt;
- 명령을 이용하여 cluster fsid를 확인합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# ceph mon dump
-dumped monmap epoch 1
-epoch 1
-fsid f9b17cb6-b38c-455b-b10d-5c44d7bcc36b
-last_changed 2020-08-01 16:23:11.258185
-created 2020-08-01 16:23:11.258185
-min_mon_release 14 (nautilus)
-0: [v2:10.4.20.21:3300/0,v1:10.4.20.21:6789/0] mon.kube-cy4-kube001&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- storage class로 사용할 &quot;kubernetes&quot;이름의 pool을 생성하며, kubernetes pool 인증에 사용할 kubernetes유저를 생성합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# ceph osd pool create kubernetes 64 64
-pool 'kubernetes' created
-[root@kube-cy4-kube001 ~]# rbd pool init kubernetes
-[root@kube-cy4-kube001 ~]# ceph auth get-or-create client.kubernetes mon 'profile rbd' osd 'profile rbd pool=kubernetes'
-[client.kubernetes]
-	key = AQBMeiVf1CKrHBAAYeIVScZlRiDo6D58xvPM4Q==&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- ceph-csi 프로젝트를 클론 받는다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# cd /home/deploy/
-[root@kube-cy4-kube001 deploy]# git clone https://github.com/ceph/ceph-csi.git ; cd ceph-csi/&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- csi-config-map에서는 앞에서 확인한 fsid와 초기 ceph구성시 monitor로 지정한 노드의 public network 대역의 아이피로 수정 한뒤 configmap을 적용합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-csi]# vi deploy/rbd/kubernetes/csi-config-map.yaml 
----
-apiVersion: v1
-kind: ConfigMap
-data:
-  config.json: |-
-    [
-      {
-##### fsid 
-        &quot;clusterID&quot;: &quot;f9b17cb6-b38c-455b-b10d-5c44d7bcc36b&quot;,
-        &quot;monitors&quot;: [
-##### Monitor 호스트의 아이피
-          &quot;10.4.20.21:6789&quot;
-        ]
-      }
-    ]
-metadata:
-  name: ceph-csi-config
-[root@kube-cy4-kube001 ceph-csi]# kubectl  create -f deploy/rbd/kubernetes/csi-config-map.yaml&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- secret에는 앞에서 생성한 pool에 인증하기 위한 userkey와 id를 추가 한뒤 secret을 생성 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-csi]# vi examples/rbd/secret.yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: csi-rbd-secret
-  namespace: default
-stringData:
-  # Key values correspond to a user name and its key, as defined in the
-  # ceph cluster. User ID should have required access to the 'pool'
-  # specified in the storage class
-  #userID: &amp;lt;plaintext ID&amp;gt;
-  userID: kubernetes
-  #userKey: &amp;lt;Ceph auth key corresponding to ID above&amp;gt;
-  userKey: AQBMeiVf1CKrHBAAYeIVScZlRiDo6D58xvPM4Q==
-
-  # Encryption passphrase
-  encryptionPassphrase: test_passphrase
-
-[root@kube-cy4-kube001 ceph-csi]# kubectl  create -f  examples/rbd/secret.yaml&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- pool은 앞서 생성한 pool의 이름으로, clusterID는 ceph fsid를 입력합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-csi]# vi  examples/rbd/storageclass.yaml
-...
-
-   #clusterID: &amp;lt;cluster-id&amp;gt;
-   clusterID: f9b17cb6-b38c-455b-b10d-5c44d7bcc36b
-   # If you want to use erasure coded pool with RBD, you need to create
-   # two pools. one erasure coded and one replicated.
-   # You need to specify the replicated pool here in the `pool` parameter, it is
-   # used for the metadata of the images.
-   # The erasure coded pool must be set as the `dataPool` parameter below.
-   # dataPool: ec-data-pool
-   #pool: rbd
-   pool: kubernetes
-...
-[root@kube-cy4-kube001 ceph-csi]# kubectl create -f examples/rbd/storageclass.yaml&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- ceph-csi가 vault를 이용한 키관리를 하기 때문에 해당부분을 적용합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-csi]# kubectl create -f examples/kms/vault/kms-config.yaml&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 이제 적용한 내용으로 plugin을 배포 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-csi]# cd examples/rbd/
-[root@kube-cy4-kube001 rbd]# ./plugin-deploy.sh&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 정상적으로 배포가 완료 되었습니다면 아래와 같이 pod를 확인할 수 있으며, storage class를 이용하여 pvc를 정상적으로 생성할 수 있습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 rbd]# kubectl  get pod
-NAME                                        READY   STATUS    RESTARTS   AGE
-csi-rbdplugin-2m68m                         3/3     Running   0          19s
-csi-rbdplugin-8xfpd                         3/3     Running   0          19s
-csi-rbdplugin-provisioner-b77dfc64c-469b6   6/6     Running   0          20s
-csi-rbdplugin-provisioner-b77dfc64c-lwgg9   6/6     Running   0          20s
-csi-rbdplugin-provisioner-b77dfc64c-wnxkt   6/6     Running   0          20s
-csi-rbdplugin-r9v28                         3/3     Running   0          19s
-
-
-[root@kube-cy4-kube001 rbd]# kubectl  get sc
-NAME         PROVISIONER        RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-csi-rbd-sc   rbd.csi.ceph.com   Delete          Immediate           true                   79s
-
-[root@kube-cy4-kube001 rbd]# cd /home/deploy/ceph-csi/
-[root@kube-cy4-kube001 ceph-csi]# kubectl create -f examples/rbd/pvc.yaml
-[root@kube-cy4-kube001 ceph-csi]# kubectl  get pvc
-NAME      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-rbd-pvc   Bound    pvc-a33aeeec-e51a-463a-a708-f6ede4dbbc8a   1Gi        RWO            csi-rbd-sc     3s&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- ceph cluster에서 rbd명령을 이용하여 해당 이미지를 확인할 수 있습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ceph-csi]# rbd ls -p kubernetes
-csi-vol-91ae5b24-d477-11ea-8fdb-1a270cdb0b8f&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h2 id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-DeployOpenstackHelm/Helminfra&quot;&gt;
- Deploy Openstack Helm/Helm infra
-&lt;/h2&gt;
-&lt;p&gt;
- openstack helm,helm infra배포를 하기전 배포를 진행하는 노드에서 필요한 패키지를 설치 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 ~]# yum install git jq python2-pip gcc python-devel -y&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- openstack helm,helm infra 프로젝트를 clone합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 deploy]# git clone https://opendev.org/openstack/openstack-helm.git
-[root@kube-cy4-kube001 deploy]# git clone https://opendev.org/openstack/openstack-helm-infra.git&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 각 프로젝트에서 make all 명령을 수행합니다. 수행이 완료되면 앞서 생성한 local helm repository에 각 차트들이 업로드 됩니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 deploy]# cd openstack-helm ; make all
-[root@kube-cy4-kube001 openstack-helm]# cd ../openstack-helm-infra ; make all
-
-[root@kube-cy4-kube001 openstack-helm-infra]# helm search
-NAME                                  	CHART VERSION	APP VERSION	DESCRIPTION
-local/aodh                            	0.1.0        	           	Openstack-Helm Aodh
-local/barbican                        	0.1.0        	           	OpenStack-Helm Barbican
-local/ca-issuer                       	0.1.0        	1.0        	Certificate Issuer chart for OSH
-local/calico                          	0.1.0        	           	OpenStack-Helm Calico
-local/ceilometer                      	0.1.0        	           	OpenStack-Helm Ceilometer
-local/ceph-client                     	0.1.0        	           	OpenStack-Helm Ceph Client
-...&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 배포 전 OSH_INFRA_PATH 환경변수에 openstack-helm-infra 프로젝트의 경로를 선언해준다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm-infra]# cd /home/deploy/openstack-helm
-[root@kube-cy4-kube001 openstack-helm-infra]# export OSH_INFRA_PATH=&quot;/home/deploy/openstack-helm-infra&quot;&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 각 노드에 대한 label을 지정합니다. 002~4 노드는 control plane의 역할을 할것입니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# kubectl  get nodes
-NAME               STATUS   ROLES    AGE   VERSION
-kube-cy4-kube001   Ready    master   15h   v1.18.6
-kube-cy4-kube002   Ready    &amp;lt;none&amp;gt;   15h   v1.18.6
-kube-cy4-kube003   Ready    &amp;lt;none&amp;gt;   15h   v1.18.6
-kube-cy4-kube004   Ready    &amp;lt;none&amp;gt;   15h   v1.18.6
-
-[root@kube-cy4-kube001 openstack-helm]# kubectl label node  kube-cy4-kube002 openstack-control-plane=enabled
-
-[root@kube-cy4-kube001 openstack-helm]# kubectl label node  kube-cy4-kube003 openstack-control-plane=enabled
-
-[root@kube-cy4-kube001 openstack-helm]# kubectl label node  kube-cy4-kube004 openstack-control-plane=enabled&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-1.ingress&quot;&gt;
- 1. ingress
-&lt;/h3&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- ingress는 openstack component 간의 통신시 도메인 기반으로 통신시 사용 됩니다. 기본 chart의 value에 override하여 helm chart를 배포하기 위하여  배포전 value파일을 만들어 변경사항만 추가하여 배포하도록합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# tee /tmp/ingress-kube-system.yaml &amp;lt;&amp;lt; EOF
-pod:
-  replicas:
-    error_page: 2
-deployment:
-  mode: cluster
-  type: DaemonSet
-network:
-  host_namespace: true
-EOF&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- kube-system namespace에 ingress 차트를 배포합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install ingress-kube-system ${OSH_INFRA_PATH}/ingress --namespace=kube-system --values=/tmp/ingress-kube-system.yaml
-[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh kube-system&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- openstack namespace에 ingress를 배포합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]#  tee /tmp/ingress-openstack.yaml &amp;lt;&amp;lt; EOF
-pod:
-  replicas:
-    ingress: 2
-    error_page: 2
-EOF
-
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install ingress-openstack ${OSH_INFRA_PATH}/ingress --namespace=openstack --values=/tmp/ingress-openstack.yaml
-
-[root@kube-cy4-kube001 openstack-helm]#  ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-2.MariaDB&quot;&gt;
- 2. MariaDB
-&lt;/h3&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- MariaDB 차트를 배포합니다. 이때, storage class의 이름을 csi-rbd-sc로 앞서 생성한  storage class이름으로 변경합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# tee /tmp/mariadb.yaml &amp;lt;&amp;lt; EOF
-pod:
-  replicas:
-    server: 3
-    ingress: 3
-volume:
-  class_name: csi-rbd-sc
-  size: 5Gi
-EOF
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install mariadb ${OSH_INFRA_PATH}/mariadb --namespace=openstack --values=/tmp/mariadb.yaml
-
-[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-3.RabbitMQ&quot;&gt;
- 3. RabbitMQ
-&lt;/h3&gt;
-&lt;p&gt;
- rabbitmq도 mariadb와 동일하게 배포 storage class이름을 수정하여 배포합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;
-[root@kube-cy4-kube001 openstack-helm]# tee  /tmp/rabbitmq.yaml &amp;lt;&amp;lt; EOF
-volume:
-  size: 10Gi
-  class_name: csi-rbd-sc
-
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install rabbitmq ${OSH_INFRA_PATH}/rabbitmq --namespace=openstack --values=/tmp/rabbitmq.yaml
-
-[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-4.Memcached&quot;&gt;
- 4. Memcached
-&lt;/h3&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- memcached는 사용할 pod selector를 지정하여 value 파일을 생성뒤 배포합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# tee /tmp/memcached.yaml &amp;lt;&amp;lt;EOF
-manifests:
-  network_policy: true
-network_policy:
-  memcached:
-    ingress:
-      - from:
-        - podSelector:
-            matchLabels:
-              application: keystone
-        - podSelector:
-            matchLabels:
-              application: heat
-        - podSelector:
-            matchLabels:
-              application: glance
-        - podSelector:
-            matchLabels:
-              application: cinder
-        - podSelector:
-            matchLabels:
-              application: horizon
-        - podSelector:
-            matchLabels:
-              application: nova
-        - podSelector:
-            matchLabels:
-              application: neutron
-        ports:
-        - protocol: TCP
-          port: 11211
-EOF
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install memcached ${OSH_INFRA_PATH}/memcached --namespace=openstack --values=/tmp/memcached.yaml
-
-[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-5.Keystone&quot;&gt;
- 5. Keystone
-&lt;/h3&gt;
-&lt;p&gt;
- keystone도 동일한 방법으로 배포합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# tee /tmp/keystone.yaml &amp;lt;&amp;lt; EOF
-pod:
-  replicas:
-    api: 2
-EOF
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install keystone ./keystone --namespace=openstack  --values=/tmp/keystone.yaml
-
-[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- openstack 인증정보를 파일로 작성하고 openstack client 컨테이너를 이용하여 keystone이 정상적으로 작동하는지 확인합니다.
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- client는 host 에 직접 설치하지 않고 아래 방법과 같이 컨테이너를 이용하여 사용합니다. keystone의 ingress도메인은 호스트파일에 worker로 사용되는 노드의 아이피로 설정합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm-infra]# mkdir -p /etc/openstack
-[root@kube-cy4-kube001 openstack-helm-infra]# tee /etc/openstack/openrc.env &amp;lt;&amp;lt; EOF
-OS_AUTH_URL=http://keystone.openstack.svc.cluster.local:80/v3
-OS_IDENTITY_API_VERSION=3
-OS_IMAGE_API_VERSION=2
-OS_PROJECT_DOMAIN_NAME=default
-OS_USER_DOMAIN_NAME=default
-OS_PROJECT_NAME=admin
-OS_USERNAME=admin
-OS_PASSWORD=password
-EOF
-
-[root@kube-cy4-kube001 openstack-helm]# echo &quot;10.4.10.22 keystone.openstack.svc.cluster.local&quot; &amp;gt;&amp;gt; /etc/hosts
-
-[root@kube-cy4-kube001 openstack-helm-infra]# docker run -it --network host -v /images:/images --env-file /etc/openstack/openrc.env docker.io/sktdev/openstackclient:stein bash
-
-
-openstackclient@kube-cy4-kube001:~$ openstack endpoint list
-+----------------------------------+-----------+--------------+--------------+---------+-----------+---------------------------------------------------------+
-| ID                               | Region    | Service Name | Service Type | Enabled | Interface | URL                                                     |
-+----------------------------------+-----------+--------------+--------------+---------+-----------+---------------------------------------------------------+
-| 0b33f6a61fdb4860b49ab2278e6ff50c | RegionOne | keystone     | identity     | True    | internal  | http://keystone-api.openstack.svc.cluster.local:5000/v3 |
-| 24103bb6eacb403facc31812019e6fbf | RegionOne | keystone     | identity     | True    | public    | http://keystone.openstack.svc.cluster.local/v3          |
-| 52edf255656c421f978bea28fd22f023 | RegionOne | keystone     | identity     | True    | admin     | http://keystone.openstack.svc.cluster.local/v3          |
-+----------------------------------+-----------+--------------+--------------+---------+-----------+---------------------------------------------------------+&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-6.Glance&quot;&gt;
- 6. Glance
-&lt;/h3&gt;
-&lt;p&gt;
- glance는 ceph의 rbd pool을 자동적으로 생성하여 사용 됩니다. 그러기 위해서는 glance에서  ceph cluster에 접속할 정보가 있는  ceph.conf 파일을 configmap형태로 필요하기 때문에 config map을 생성합니다. 이때, ceph의 monitor버전이 nautilus버전 부터 v1,v2를 선택적으로 사용할 수 있도록 리스트 형태로 생성되지만 glance에서 해당 버전을 인식하지 못하기 때문에 아래와 같이 버전을 v1만 명시 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# vi /etc/ceph/ceph.conf
-...
-# Please do not change this file directly since it is managed by Ansible and will be overwritten
-[global]
-cluster network = 10.4.30.0/24
-fsid = f9b17cb6-b38c-455b-b10d-5c44d7bcc36b
-#mon host = [v2:10.4.20.21:3300,v1:10.4.20.21:6789]
-mon host = 10.4.20.21:6789
-...
-
-[root@kube-cy4-kube001 openstack-helm]# kubectl create configmap ceph-etc -n openstack --from-file=/etc/ceph/ceph.conf
-
-&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- ceph의 admin 인증정보가 필요하기 때문에 admin keyring정보를 추가한뒤 glance를 배포 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# ceph auth get client.admin | grep key
-exported keyring for client.admin
-	key = AQBgGCVfjOayKBAAT4iPx2CSDEMU60aSQtgBXg==
-[root@kube-cy4-kube001 openstack-helm]# tee /tmp/glance.yaml  &amp;lt;&amp;lt; EOF
-storage: rbd
-pod:
-  replicas:
-    api: 2
-    registry: 2
-conf:
-  ceph:
-    enabled: true
-    admin_keyring: AQBgGCVfjOayKBAAT4iPx2CSDEMU60aSQtgBXg==
-  glance:
-    DEFAULT:
-      enable_v1_api: true
-      enable_v2_registry: true
-EOF
-
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install glance ./glance --namespace=openstack --values=/tmp/glance.yaml
-
-[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 정상적으로 pod가 배포 된것을 확인 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]#kubectl  get pod -n openstack  | grep glance                       
-
-glance-api-ff94f9577-ph6fx                     1/1     Running     0          2m50s
-glance-api-ff94f9577-scs69                     1/1     Running     0          2m50s
-glance-bootstrap-csjd4                         0/1     Completed   0          2m49s
-glance-db-init-8lfws                           0/1     Completed   0          2m50s
-glance-db-sync-24t8f                           0/1     Completed   0          2m50s
-glance-ks-endpoints-fjczv                      0/3     Completed   0          2m50s
-glance-ks-service-d59gp                        0/1     Completed   0          2m50s
-glance-ks-user-q2jv6                           0/1     Completed   0          2m50s
-glance-metadefs-load-tgtwn                     0/1     Completed   0          2m50s
-glance-rabbit-init-sq4k4                       0/1     Completed   0          2m50s
-glance-storage-init-d68nf                      0/1     Completed   0          2m50s&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- glance ingress 도메인을 hosts파일에 추가후 openstack client에 접속하면 bootstrap과정에서 업로드된 cirros이미지를 확인할 수 있습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# echo &quot;10.4.10.22 glance.openstack.svc.cluster.local&quot; &amp;gt;&amp;gt; /etc/hosts
-[root@kube-cy4-kube001 openstack-helm]#  docker run -it --network host -v /images:/images --env-file /etc/openstack/openrc.env docker.io/sktdev/openstackclient:stein bash
-openstackclient@kube-cy4-kube001:~$ openstack image list
-+--------------------------------------+---------------------+--------+
-| ID                                   | Name                | Status |
-+--------------------------------------+---------------------+--------+
-| 8869f634-9f67-4990-9e9a-84c110d816f4 | Cirros 0.3.5 64-bit | active |
-+--------------------------------------+---------------------+--------+
-openstackclient@kube-cy4-kube001:~$&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-7.Cinder&quot;&gt;
- 7. Cinder
-&lt;/h3&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- cinder는 glance와 동일하게 ceph의 rbd pool을 사용하기 때문에 admin keyring정보를 추가한뒤 배포 합니다.
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 기본적으로 cinder volume과 cinder volume backup 두가지 서비스를 위한 pool을 각각 ceph의 pool로 자동 생성합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# ceph auth get  client.admin | grep key
-exported keyring for client.admin
-	key = AQBgGCVfjOayKBAAT4iPx2CSDEMU60aSQtgBXg==
-
-[root@kube-cy4-kube001 openstack-helm]# tee  /tmp/cinder.yaml &amp;lt;&amp;lt; EOF
-pod:
-  replicas:
-    api: 2
-    volume: 1
-    scheduler: 1
-    backup: 1
-conf:
-  ceph:
-    admin_keyring: AQBgGCVfjOayKBAAT4iPx2CSDEMU60aSQtgBXg==
-    enabled: true
-  cinder:
-    DEFAULT:
-      backup_driver: cinder.backup.drivers.ceph.CephBackupDriver
-EOF
-
-
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install cinder ./cinder --namespace=openstack --values=/tmp/cinder.yaml
-
-[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 완료되면 cinder의 pod를 확인할 수 있습니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# kubectl  get pod -n openstack | grep cinder
-cinder-api-64f59cbcb-5jjzq                     1/1     Running     0          112s
-cinder-api-64f59cbcb-jsjjp                     1/1     Running     0          112s
-cinder-backup-6c47fff559-2w2xm                 1/1     Running     0          112s
-cinder-backup-storage-init-cjlb4               0/1     Completed   0          112s
-cinder-bootstrap-h7bbj                         0/1     Completed   0          112s
-cinder-create-internal-tenant-52s8p            0/1     Completed   0          112s
-cinder-db-init-6gpws                           0/1     Completed   0          113s
-cinder-db-sync-xt9kq                           0/1     Completed   0          113s
-cinder-ks-endpoints-mqb9c                      0/9     Completed   0          112s
-cinder-ks-service-d4bdf                        0/3     Completed   0          113s
-cinder-ks-user-jx8wn                           0/1     Completed   0          113s
-cinder-rabbit-init-x7659                       0/1     Completed   0          113s
-cinder-scheduler-f8b98c7b4-p42jm               1/1     Running     0          113s
-cinder-storage-init-6rz8c                      0/1     Completed   0          113s
-cinder-volume-5d67df7bdd-sq2hx                 1/1     Running     0          112s&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- cinder ingress 도메인 정보를 hosts파일에 추가후 openstack client를 통하여 볼륨 서비스 확인 및 테스트 볼륨을 생성하여 확인 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# echo &quot;10.4.10.22 cinder.openstack.svc.cluster.local&quot; &amp;gt;&amp;gt; /etc/hosts
-[root@kube-cy4-kube001 openstack-helm]#  docker run -it --network host -v /images:/images --env-file /etc/openstack/openrc.env docker.io/sktdev/openstackclient:stein bash
-openstackclient@kube-cy4-kube001:~$ openstack voluem lki
-
-openstackclient@kube-cy4-kube001:~$ openstack volume service list
-+------------------+---------------------------+------+---------+-------+----------------------------+
-| Binary           | Host                      | Zone | Status  | State | Updated At                 |
-+------------------+---------------------------+------+---------+-------+----------------------------+
-| cinder-scheduler | cinder-volume-worker      | nova | enabled | up    | 2020-08-02T05:56:41.000000 |
-| cinder-backup    | cinder-volume-worker      | nova | enabled | up    | 2020-08-02T05:56:40.000000 |
-| cinder-volume    | cinder-volume-worker@rbd1 | nova | enabled | up    | 2020-08-02T05:56:41.000000 |
-+------------------+---------------------------+------+---------+-------+----------------------------+
-openstackclient@kube-cy4-kube001:~$ openstack volume create --size 1 test
-
-openstackclient@kube-cy4-kube001:~$ cinder list
-+--------------------------------------+-----------+------+------+-------------+----------+-------------+
-| ID                                   | Status    | Name | Size | Volume Type | Bootable | Attached to |
-+--------------------------------------+-----------+------+------+-------------+----------+-------------+
-| d47b5120-3d57-465f-aeb2-c655aceb565a | available | test | 1    | rbd1        | false    |             |
-+--------------------------------------+-----------+------+------+-------------+----------+-------------+&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-8.Openvswitch&quot;&gt;
- 8. Openvswitch
-&lt;/h3&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- openvswitch 차트는 daemonset으로 &quot;openvswitch=enabled &quot; label이 설정된 노드에만 배포 됩니다. worker노드에 openvswitch label을 설정 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# kubectl label node kube-cy4-kube002 openvswitch=enabled
-node/kube-cy4-kube002 labeled
-[root@kube-cy4-kube001 openstack-helm]# kubectl label node kube-cy4-kube003 openvswitch=enabled
-node/kube-cy4-kube003 labeled
-[root@kube-cy4-kube001 openstack-helm]# kubectl label node kube-cy4-kube004 openvswitch=enabled
-node/kube-cy4-kube004 labeled&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- openvswitch 차트를 배포 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt; [root@kube-cy4-kube001 openstack-helm]# helm upgrade --install openvswitch ${OSH_INFRA_PATH}/openvswitch --namespace=openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 배포가 완료된 openvswitch pod를 확인 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# kubectl  get pod -n openstack  | grep openv
-openvswitch-db-8llk2                           1/1     Running     0          3m29s
-openvswitch-db-gw9w5                           1/1     Running     0          3m33s
-openvswitch-db-q86zr                           1/1     Running     0          3m37s
-openvswitch-vswitchd-2chg8                     1/1     Running     0          3m37s
-openvswitch-vswitchd-lvntw                     1/1     Running     0          3m29s
-openvswitch-vswitchd-vdwmx                     1/1     Running     0          3m33s&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-9.Libvirt,Neutron,Nova&quot;&gt;
- 9. Libvirt,Neutron,Nova
-&lt;/h3&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- Libvirt,Neutron,Nova 차트는 서로 의존성이 있기 때문에 모두 정상적으로 동작해야 차트 배포가 완료 됩니다.
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 각 노드에 label을 지정합니다.003,004노드는 compute노드로 사용 됩니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# kubectl label node  kube-cy4-kube002 openstack-helm-node-class=primary
-node/kube-cy4-kube002 labeled
-[root@kube-cy4-kube001 openstack-helm]# kubectl label node  kube-cy4-kube003 openstack-compute-node=enabled
-node/kube-cy4-kube003 labeled
-[root@kube-cy4-kube001 openstack-helm]# kubectl label node  kube-cy4-kube004 openstack-compute-node=enabled
-node/kube-cy4-kube004 labeled&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- ceph admin과 cinder 유저 인증 정보를 추가한뒤 libvirt 차트를 배포 합니다. 아직 다른 component가 정상적으로 안올라와서 pod가 생성되지 않는다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# ceph auth get client.admin | grep key
-exported keyring for client.admin
-	key = AQBgGCVfjOayKBAAT4iPx2CSDEMU60aSQtgBXg==
-
-[root@kube-cy4-kube001 openstack-helm]# ceph auth get client.cinder | grep key
-exported keyring for client.cinder
-	key = AQDHVCZfithVDBAALjJxP9UZob3Y0IC3KhGsrA==
-[root@kube-cy4-kube001 openstack-helm]# tee /tmp/libvirt.yaml &amp;lt;&amp;lt; EOF
-network:
-  backend:
-    - openvswitch
-conf:
-  ceph:
-    enabled: true
-    admin_keyring: AQBgGCVfjOayKBAAT4iPx2CSDEMU60aSQtgBXg==
-    cinder:
-      keyring: AQDHVCZfithVDBAALjJxP9UZob3Y0IC3KhGsrA==
-      secret_uuid: 582393ff-9a5c-4a2e-ae0d-86ec18c36afc
-
-
-EOF
-
-[root@kube-cy4-kube001 openstack-helm]# helm upgrade --install libvirt ${OSH_INFRA_PATH}/libvirt --namespace=openstack --values=/tmp/libvirt.yaml
-
-[root@kube-cy4-kube001 openstack-helm]# kubectl  get pod -n openstack | grep libvirt
-libvirt-libvirt-default-4vxp5                  0/1     Init:0/3    0          27s
-libvirt-libvirt-default-5spwb                  0/1     Init:0/3    0          27s&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- nova에서 ceph의 admin정보와 cinder 인정 정보를 차트에 추가 해주며 , virt type을 qemu로 설정 하여 배포 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# ceph auth get client.admin | grep key
-exported keyring for client.admin
-	key = AQBgGCVfjOayKBAAT4iPx2CSDEMU60aSQtgBXg==
-
-[root@kube-cy4-kube001 openstack-helm]# ceph auth get client.cinder | grep key
-exported keyring for client.cinder
-	key = AQDHVCZfithVDBAALjJxP9UZob3Y0IC3KhGsrA==
-
-[root@kube-cy4-kube001 openstack-helm]# tee /tmp/nova.yaml &amp;lt;&amp;lt; EOF
-labels:
-  api_metadata:
-    node_selector_key: openstack-helm-node-class
-    node_selector_value: primary
-conf:
-  ceph:
-    enabled: true
-    admin_keyring: AQBgGCVfjOayKBAAT4iPx2CSDEMU60aSQtgBXg==
-    cinder:
-      user: cinder
-      keyring: AQDHVCZfithVDBAALjJxP9UZob3Y0IC3KhGsrA==
-    nova:
-      libvirt:
-        images_type: rbd
-        rbd_user: cinder
-        rbd_secret_uuid: 582393ff-9a5c-4a2e-ae0d-86ec18c36afc
-        virt_type: qemu
-pod:
-  replicas:
-    api_metadata: 1
-    placement: 2
-    osapi: 2
-    conductor: 2
-    consoleauth: 2
-    scheduler: 1
-    novncproxy: 1
-EOF
-
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install nova ./nova --namespace=openstack --values=/tmp/nova.yaml&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 앞서 이야기 한것 처럼 compute노드들의  eth3인터페이스는 tanent 네트워크로 사용 하기 때문에 명시 하며, eth4 인터페이스는 자동으로 ovs 브릿지를 만들기 위해서 auto_bridge_add 변수에 추가 합니다.br-ex로 만든 인터페이스는 provider 이름의 flat network로 floating ip를 사용하기 위해서 생성 됩니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# tee /tmp/neutron.yaml &amp;lt;&amp;lt; EOF
-network:
-  interface:
-    tunnel: eth3
-pod:
-  replicas:
-    server: 1
-conf:
-  auto_bridge_add:
-    br-ex: eth4
-  neutron:
-    DEFAULT:
-      l3_ha: False
-      max_l3_agents_per_router: 1
-      l3_ha_network_type: vxlan
-      dhcp_agents_per_network: 1
-  plugins:
-    ml2_conf:
-      ml2_type_flat:
-        flat_networks: provider
-    openvswitch_agent:
-      agent:
-        tunnel_types: vxlan
-        l2_population: True
-        arp_responder: True
-      ovs:
-        bridge_mappings: provider:br-ex
-
-EOF
-
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install neutron ./neutron --namespace=openstack --values=/tmp/neutron.yaml&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 모든 pod와 서비스 job들이 종료 될때 까지 스크립트를 통하여 대기 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- 정상적으로 종료 되었습니다면  client에 접속 하여  nova, neutron서비스를 확인 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# echo &quot;10.4.10.22 nova.openstack.svc.cluster.local&quot; &amp;gt;&amp;gt; /etc/hosts
-10.4.10.22 nova.openstack.svc.cluster.local /etc/hosts
-[root@kube-cy4-kube001 openstack-helm]# echo &quot;10.4.10.22 neutron.openstack.svc.cluster.local&quot; &amp;gt;&amp;gt; /etc/hosts
-
-[root@kube-cy4-kube001 openstack-helm]#  docker run -it --network host -v /images:/images --env-file /etc/openstack/openrc.env docker.io/sktdev/openstackclient:stein bash
-
-
-openstackclient@kube-cy4-kube001:~$ openstack compute service list
-+----+------------------+-----------------------------------+----------+---------+-------+----------------------------+
-| ID | Binary           | Host                              | Zone     | Status  | State | Updated At                 |
-+----+------------------+-----------------------------------+----------+---------+-------+----------------------------+
-| 34 | nova-consoleauth | nova-consoleauth-5468477744-qlr5d | internal | enabled | up    | 2020-08-02T07:10:37.000000 |
-| 37 | nova-consoleauth | nova-consoleauth-5468477744-d27wr | internal | enabled | up    | 2020-08-02T07:10:37.000000 |
-| 40 | nova-conductor   | nova-conductor-54f649d6bd-nznqv   | internal | enabled | up    | 2020-08-02T07:10:38.000000 |
-| 43 | nova-scheduler   | nova-scheduler-c5f45fb88-whbr5    | internal | enabled | up    | 2020-08-02T07:10:29.000000 |
-| 58 | nova-conductor   | nova-conductor-54f649d6bd-9w5hg   | internal | enabled | up    | 2020-08-02T07:10:29.000000 |
-| 61 | nova-compute     | kube-cy4-kube004                  | nova     | enabled | up    | 2020-08-02T07:10:38.000000 |
-| 64 | nova-compute     | kube-cy4-kube003                  | nova     | enabled | up    | 2020-08-02T07:10:37.000000 |
-+----+------------------+-----------------------------------+----------+---------+-------+----------------------------+
-openstackclient@kube-cy4-kube001:~$ openstack network agent list
-+--------------------------------------+--------------------+------------------+-------------------+-------+-------+---------------------------+
-| ID                                   | Agent Type         | Host             | Availability Zone | Alive | State | Binary                    |
-+--------------------------------------+--------------------+------------------+-------------------+-------+-------+---------------------------+
-| 261a37c4-58fc-4512-aafc-81bba3519003 | Metadata agent     | kube-cy4-kube004 | None              | :-)   | UP    | neutron-metadata-agent    |
-| 2f015c71-9243-4774-bb2a-5d0d070ef4f3 | Open vSwitch agent | kube-cy4-kube004 | None              | :-)   | UP    | neutron-openvswitch-agent |
-| 39f2dcf4-fbf3-46cd-b712-13d808b38dd6 | L3 agent           | kube-cy4-kube002 | nova              | :-)   | UP    | neutron-l3-agent          |
-| 4a1266f9-0182-462b-9e8f-3424337483f7 | DHCP agent         | kube-cy4-kube002 | nova              | :-)   | UP    | neutron-dhcp-agent        |
-| 4e1bac9f-577a-48d2-b0f7-f981cad85440 | DHCP agent         | kube-cy4-kube003 | nova              | :-)   | UP    | neutron-dhcp-agent        |
-| 675ee208-2f49-4b58-9540-8de865fb3865 | Open vSwitch agent | kube-cy4-kube003 | None              | :-)   | UP    | neutron-openvswitch-agent |
-| 7d6056bf-9dbb-4e55-99b4-84a056042449 | Open vSwitch agent | kube-cy4-kube002 | None              | :-)   | UP    | neutron-openvswitch-agent |
-| 8ba71881-7367-4874-a41a-46f8d81cd0c2 | Metadata agent     | kube-cy4-kube003 | None              | :-)   | UP    | neutron-metadata-agent    |
-| 97c7da9e-1a12-4cef-bbdf-e4c021b1345d | DHCP agent         | kube-cy4-kube004 | nova              | :-)   | UP    | neutron-dhcp-agent        |
-| d0a5085e-d3a4-408c-bab8-a458d32d047b | Metadata agent     | kube-cy4-kube002 | None              | :-)   | UP    | neutron-metadata-agent    |
-| d856ab20-547e-481f-857f-50a0b7a87e87 | L3 agent           | kube-cy4-kube003 | nova              | :-)   | UP    | neutron-l3-agent          |
-| decd265a-9ea0-41a4-9516-c7467f2d7cad | L3 agent           | kube-cy4-kube004 | nova              | :-)   | UP    | neutron-l3-agent          |
-+--------------------------------------+--------------------+------------------+-------------------+-------+-------+---------------------------+&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- openstack client에서  기본 network 생성하고 ,  인스턴스를 생성해봅니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;openstackclient@kube-cy4-kube001:~$ openstack network create --share --external \
---provider-physical-network provider \
---provider-network-type flat provider
-   
-openstackclient@kube-cy4-kube001:~$ o openstack subnet create --network provider \
---allocation-pool start=192.168.193.210,end=192.168.193.240 \
---dns-nameserver 8.8.4.4 --gateway 192.168.0.1 \
---subnet-range 192.168.0.1/16 provider
-	 
-openstackclient@kube-cy4-kube001:~$ o openstack network create selfservice
- 
-openstackclient@kube-cy4-kube001:~$ o openstack subnet create --network selfservice \
---dns-nameserver 8.8.4.4 --gateway 11.11.1.1 \
---subnet-range 11.11.1.0/24 selfservice
- 
-openstackclient@kube-cy4-kube001:~$ o openstack router create  router
- 
-openstackclient@kube-cy4-kube001:~$ o neutron router-interface-add router selfservice
- 
-openstackclient@kube-cy4-kube001:~$ o neutron router-gateway-set router provider
-
-openstackclient@kube-cy4-kube001:~$ openstack network list
-+--------------------------------------+-------------+--------------------------------------+
-| ID                                   | Name        | Subnets                              |
-+--------------------------------------+-------------+--------------------------------------+
-| 3e37ecae-fed8-432d-a7ca-0de991623717 | provider    | 360e99c6-5bdc-43e3-8275-3336a0d6ef80 |
-| 9364f2bb-58ea-4ce5-a867-308a0115e3ba | selfservice | 69079fee-decb-41d6-9da2-f2cfca4cc9ca |
-+--------------------------------------+-------------+--------------------------------------+
-
-
-openstackclient@kube-cy4-kube001:~$ openstack flavor list
-+--------------------------------------+-----------+-------+------+-----------+-------+-----------+
-| ID                                   | Name      |   RAM | Disk | Ephemeral | VCPUs | Is Public |
-+--------------------------------------+-----------+-------+------+-----------+-------+-----------+
-| 0a866d33-ad39-45c7-8461-e90b21d37524 | m1.large  |  8192 |   80 |         0 |     4 | True      |
-| 17b234fc-ff37-493e-a96a-02df7e4cf574 | m1.tiny   |   512 |    1 |         0 |     1 | True      |
-| 401af6df-2c9a-4771-803d-f847b4c37d33 | m1.medium |  4096 |   40 |         0 |     2 | True      |
-| 7ffcb940-fd02-46e9-9d63-9556210b31d1 | m1.xlarge | 16384 |  160 |         0 |     8 | True      |
-| fe9146fa-a62c-41c6-a45c-02931fdedc5a | m1.small  |  2048 |   20 |         0 |     1 | True      |
-+--------------------------------------+-----------+-------+------+-----------+-------+-----------+
-openstackclient@kube-cy4-kube001:~$ openstack security group list
-+--------------------------------------+---------+------------------------+----------------------------------+------+
-| ID                                   | Name    | Description            | Project                          | Tags |
-+--------------------------------------+---------+------------------------+----------------------------------+------+
-| 8c210974-5d4c-4a8a-ac62-669846fb7ded | default | Default security group | d24347196d1a42999290eadba5c51151 | []   |
-| ad3441b9-eb4e-475a-a979-517ef556936c | default | Default security group |                                  | []   |
-+--------------------------------------+---------+------------------------+----------------------------------+------+
-openstackclient@kube-cy4-kube001:~$ openstack   security group rule create --ingress --dst-port 22 8c210974-5d4c-4a8a-ac62-669846fb7ded
-
-
-openstackclient@kube-cy4-kube001:~$ openstack image list
-+--------------------------------------+---------------------+--------+
-| ID                                   | Name                | Status |
-+--------------------------------------+---------------------+--------+
-| 8869f634-9f67-4990-9e9a-84c110d816f4 | Cirros 0.3.5 64-bit | active |
-+--------------------------------------+---------------------+--------+
-
-
-openstackclient@kube-cy4-kube001:~$ ssh-keygen
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/openstackclient/.ssh/id_rsa):
-Created directory '/home/openstackclient/.ssh'.
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /home/openstackclient/.ssh/id_rsa.
-Your public key has been saved in /home/openstackclient/.ssh/id_rsa.pub.
-The key fingerprint is:
-SHA256:rmKh6dug9CYW0bCIIcuWjSPLhrcD+woRDLYJoPmm8m0 openstackclient@kube-cy4-kube001
-The key's randomart image is:
-+---[RSA 2048]----+
-|=.               |
-|Ooo              |
-|O*B              |
-|=@ o             |
-|*.=     S        |
-|+B. .  .         |
-|==o+ .  .        |
-|==*=E  .         |
-|++B*o..          |
-+----[SHA256]-----+
-
-openstackclient@kube-cy4-kube001:~$ openstack server create  --image 8869f634-9f67-4990-9e9a-84c110d816f4 --security-group 8c210974-5d4c-4a8a-ac62-669846fb7ded --flavor m1.tiny --key-name admin_client_key --network 9364f2bb-58ea-4ce5-a867-308a0115e3ba test-cirros-vm&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- provider network 에서 floating ip 생성뒤 앞서 생성한 인스턴스에 붙이고 ssh를 이용하여 접속 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;openstackclient@kube-cy4-kube001:~$ openstack floating ip create  provider
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Field               | Value                                                                                                                                                                             |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| created_at          | 2020-08-02T07:19:31Z                                                                                                                                                              |
-| description         |                                                                                                                                                                                   |
-| dns_domain          | None                                                                                                                                                                              |
-| dns_name            | None                                                                                                                                                                              |
-| fixed_ip_address    | None                                                                                                                                                                              |
-| floating_ip_address | 192.168.193.235                                                                                                                                                                   |
-| floating_network_id | 3e37ecae-fed8-432d-a7ca-0de991623717                                                                                                                                              |
-| id                  | 7cfd6a27-4bfb-46fa-b32b-2ce5c0c021e5                                                                                                                                              |
-| location            | Munch({'cloud': '', 'region_name': '', 'zone': None, 'project': Munch({'id': 'd24347196d1a42999290eadba5c51151', 'name': 'admin', 'domain_id': None, 'domain_name': 'default'})}) |
-| name                | 192.168.193.235                                                                                                                                                                   |
-| port_details        | None                                                                                                                                                                              |
-| port_id             | None                                                                                                                                                                              |
-| project_id          | d24347196d1a42999290eadba5c51151                                                                                                                                                  |
-| qos_policy_id       | None                                                                                                                                                                              |
-| revision_number     | 0                                                                                                                                                                                 |
-| router_id           | None                                                                                                                                                                              |
-| status              | DOWN                                                                                                                                                                              |
-| subnet_id           | None                                                                                                                                                                              |
-| tags                | []                                                                                                                                                                                |
-| updated_at          | 2020-08-02T07:19:31Z                                                                                                                                                              |
-+---------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-openstackclient@kube-cy4-kube001:~$ openstack   server add floating ip test-cirros-vm 192.168.193.235
-openstackclient@kube-cy4-kube001:~$ ssh cirros@192.168.193.235
-The authenticity of host '192.168.193.235 (192.168.193.235)' can't be established.
-RSA key fingerprint is SHA256:45KMfL6+lSzqdN2fLLkd9vvxnfvfUg+h0kZUFF411uY.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '192.168.193.235' (RSA) to the list of known hosts.
-$ ip a
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 16436 qdisc noqueue
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1450 qdisc pfifo_fast qlen 1000
-    link/ether fa:16:3e:8b:86:9f brd ff:ff:ff:ff:ff:ff
-    inet 11.11.1.198/24 brd 11.11.1.255 scope global eth0
-    inet6 fe80::f816:3eff:fe8b:869f/64 scope link
-       valid_lft forever preferred_lft forever&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 class=&quot;auto-cursor-target&quot; id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-10.Horizon&quot;&gt;
- 10. Horizon
-&lt;/h3&gt;
-&lt;p&gt;
- horizon 배포전 브라우저를 통하여 접속 하기 위하여 node port설정이 필요 하다. 31000포트로 지정 하여 loca_settings 변수에 필요한 기능만 활성화 한뒤 배포를 합니다.
-&lt;/p&gt;
-&lt;div class=&quot;code panel pdl conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;code&quot; style=&quot;border-width: 1px;&quot;&gt;
- &lt;div class=&quot;codeContent panelContent pdl&quot;&gt;
-  &lt;pre class=&quot;syntaxhighlighter-pre&quot; data-syntaxhighlighter-params=&quot;brush: bash; gutter: false; theme: Midnight&quot; data-theme=&quot;Midnight&quot;&gt;[root@kube-cy4-kube001 openstack-helm]# tee /tmp/horizon.yaml &amp;lt;&amp;lt; EOF
-network:
-  node_port:
-    enabled: true
-    port: 31000
-conf:
-  horizon:
-    local_settings:
-      config:
-        openstack_neutron_network:
-          enable_router: &quot;True&quot;
-          enable_quotas: &quot;True&quot;
-          enable_ipv6: &quot;False&quot;
-          enable_ha_router: &quot;True&quot;
-          enable_lb: &quot;True&quot;
-          enable_firewall: &quot;False&quot;
-          enable_vpn: &quot;False&quot;
-          enable_fip_topology_check: &quot;True&quot;
-EOF
-
-[root@kube-cy4-kube001 openstack-helm]#  helm upgrade --install horizon ./horizon --namespace=openstack --values=/tmp/horizon.yaml
-[root@kube-cy4-kube001 openstack-helm]# ./tools/deployment/common/wait-for-pods.sh openstack&lt;/pre&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
- 배포가 완료되면 ,  http://{worker노드 ip}:31000 를 브라우저를 통하여 접속 확인 합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97477266/2.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 앞서 생성한 인스턴스를 확인할 수 있습니다.
-&lt;/p&gt;
-&lt;p class=&quot;auto-cursor-target&quot;&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97477266/3.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;hr/&gt;
-&lt;h3 id=&quot;openstackhelm을이용한kubernetes환경에서openstack배포-참고사이트&quot;&gt;
- 참고 사이트
-&lt;/h3&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://github.com/ceph/ceph-ansible&quot; rel=&quot;nofollow&quot;&gt;
-   https://github.com/ceph/ceph-ansible
-  &lt;/a&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://docs.docker.com/engine/install/centos/&quot; rel=&quot;nofollow&quot;&gt;
-   https://docs.docker.com/engine/install/centos
-  &lt;/a&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://docs.openstack.org/openstack-helm/latest/&quot; rel=&quot;nofollow&quot;&gt;
-   https://docs.openstack.org/openstack-helm/latest/
-  &lt;/a&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/&quot; rel=&quot;nofollow&quot;&gt;
-   https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
-  &lt;/a&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;a class=&quot;external-link&quot; href=&quot;https://docs.projectcalico.org/&quot; rel=&quot;nofollow&quot;&gt;
-   https://docs.projectcalico.org/
-  &lt;/a&gt;
- &lt;/li&gt;
-&lt;/ul&gt;</description>
-        <pubDate>Mon, 03 Aug 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/08/03/97477266/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/08/03/97477266/</guid>
         
         
       </item>
