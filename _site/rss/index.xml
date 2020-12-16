@@ -9,9 +9,516 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 09 Dec 2020 17:51:17 +0900</pubDate>
-    <lastBuildDate>Wed, 09 Dec 2020 17:51:17 +0900</lastBuildDate>
+    <pubDate>Wed, 16 Dec 2020 18:22:17 +0900</pubDate>
+    <lastBuildDate>Wed, 16 Dec 2020 18:22:17 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>지라서비스매니지먼트(JSM) 소개 (부제 : 지라서비스데스크(JSD)를 넘어서 본격적인 ITSM 툴로의 변화)</title>
+        <description>&lt;p&gt;
+ 안녕하세요, 오픈소스컨설팅 한진규 상무입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 지난 11월 아틀라시안은 새로운 제품을 발표 했는데요, 바로 지라서비스메니지먼트
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Jira Service Management
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ (이하 'JSM') 라는 제품입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 하지만, 이 제품은 완전히 새로운 제품은 아니구요 기존의 지라서비스데스크
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Jira Service Desk
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ (이하 'JSD')에 현대화된 고객이 필요로하는 다양한 기능을 추가하여
+ &lt;u&gt;
+  &lt;strong&gt;
+   &lt;em&gt;
+    본격적인 ITSM 도구로서의 역할
+   &lt;/em&gt;
+  &lt;/strong&gt;
+ &lt;/u&gt;
+ 을 담당 하겠다는 아틀라시안의 강력한 의지를 담은  제품입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 11월 출시이후 Service Now 등 다양한 타사 서비스데스크를 사용하던 고객들이 JSM으로 많이 옮겨오고 있다고 하니, 대체 어떤 특징을 가지고 있는지 가볍게 둘러 보도록 하겠습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;id-지라서비스매니지먼트(JSM)소개(부제:지라서비스데스크(JSD)를넘어서본격적인ITSM툴로의변화)-아틀라시안의역량을통합하다.-IT서비스관리,주요사고처리및DevOps통합&quot;&gt;
+ 아틀라시안의 역량을 통합하다. - IT 서비스 관리, 주요 사고 처리 및 DevOps 통합
+&lt;/h3&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 일단 아틀라시안의 카메론 디치 CRO의 인터뷰를 보면 다음과 같습니다.
+&lt;/p&gt;
+&lt;div class=&quot;confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
+ &lt;p class=&quot;title&quot;&gt;
+  출처 : CIO KR
+ &lt;/p&gt;
+ &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
+    아틀라시안의 카메론 디치 CRO는 오늘날 기술 팀이 직면한 과제 중 하나는 분산된 여러 팀이 밀접한 협업을 지원하는 않는 레거시 기술을 이용하는 가운데, 이들 팀의 균형을 맞추는 것이다.
+   &lt;/span&gt;
+   &lt;br style=&quot;text-align: justify;&quot;/&gt;
+   &lt;br style=&quot;text-align: justify;&quot;/&gt;
+   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
+    그는 “애석하게도 소프트웨어를 구축하는 팀과 테스트를 수행하는 팀은 일반적으로 서로 다른 기술을 이용하며 서로 다른 팀에 속해 있다”라고 말했다.
+   &lt;/span&gt;
+   &lt;br style=&quot;text-align: justify;&quot;/&gt;
+   &lt;br style=&quot;text-align: justify;&quot;/&gt;
+   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
+    디치는 이번 지라 서비스 매니지먼트에 대해 ITSM 분야를 겨냥한 회사의 신규 핵심 제품이라고 표현했다. 그에 따르면 아틀라시안은 지식을 공유하는 ITSM 모델을 통해 개발 팀과 IT 운영 팀, 현업 팀을 통합하고자 한다. 최근 인수를 통해 확보한 기술을 접목한 지라 서비스 매니지먼트를 통해서다. ......
+   &lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
+    원문 :
+    &lt;a class=&quot;external-link&quot; href=&quot;https://www.ciokorea.com/t/21999/%EA%B0%9C%EB%B0%9C%EC%9E%90/171679&quot; rel=&quot;nofollow&quot;&gt;
+     https://www.ciokorea.com/t/21999/%EA%B0%9C%EB%B0%9C%EC%9E%90/171679
+    &lt;/a&gt;
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 아틀라시안은 최근 다양한 테크기업들을 인수해서 자사의 경쟁력을 향상시키고 있는데요, 그 중의 하나가
+ &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/ko/software/opsgenie&quot; rel=&quot;nofollow&quot;&gt;
+  옵스지니
+  &lt;sub&gt;
+   Opsgenie
+  &lt;/sub&gt;
+ &lt;/a&gt;
+ 입니다. (참고문서 :
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  DevOps팀이 Opsgenie를 선택하는 10가지 이유
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://tech.osci.kr/2019/08/07/78623021/&quot; rel=&quot;nofollow&quot;&gt;
+  https://tech.osci.kr/2019/08/07/78623021/
+ &lt;/a&gt;
+ ) 이번발표를 보면,
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(255,0,0);&quot;&gt;
+   JSM 클라우드 버젼에는 무려 옵스지니가 통합
+  &lt;/span&gt;
+ &lt;/strong&gt;
+ 되어 있습니다 (우워~). 물론 JSM은 클라우드 제품 사용이 어려운 고객을 위해 설치와 이중화가 가능한 데이터센터
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Datacenter
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 버젼도 제공하는데요, 데이터센터 버젼은 Opsgenie를 별도로 구매해야 한다고 하네요
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 1) IT 서비스 관리
+&lt;/p&gt;
+&lt;p&gt;
+ Jira Service Management에는 다음이 포함됩니다.
+&lt;/p&gt;
+&lt;p&gt;
+ - 서비스 요청, 인시던트
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Incident
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ , 변경 및 문제 티켓 대기열이 포함 된 새로운 ITIL 기반 IT 서비스 관리 프로젝트 템플릿.
+ &lt;br/&gt;
+ - 모든 프로젝트에서 일괄 작업을 수행하여 작업을 연결, 주석, 할당, 전환 및 삭제할 수 있습니다.
+ &lt;br/&gt;
+ - IT 팀이 변경에 대한 더 많은 컨텍스트
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Context
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 를 제공하기 위해 경량 구성 관리 데이터베이스 (CMDB) 역할을 하는 운영기술서비스를 등록하기 위한 Service Registry 제공
+&lt;/p&gt;
+&lt;p&gt;
+ 2) 주요 사고 처리
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Major Incident Management
+  &lt;/sub&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ Atlassian은 Opsgenie의 강력한 인시던트 스웜
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Incident swarming
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 및 온콜
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   On call
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 알림 기능을 Jira Service Management에 직접 구축했습니다. 기능은 다음과 같습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ - 사고 관리를 위한 지정된 티켓 카테고리.
+ &lt;br/&gt;
+ - 모든 Cloud Edition에 Opsgenie 기능이 포함되어 더욱 심층적인 변경 관리 및 사고
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Incident
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 관리 기능.
+ &lt;br/&gt;
+ - 더 빠른 처리와 해결을 위해 적절한 팀에 경보
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Alert
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 를 전송하여 Opsgenie의 주요 사고
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Incident
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 를 에스컬레이션합니다.
+ &lt;br/&gt;
+ - Jira Service Management의 기존 사건
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Incident
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 에서 Opsgenie의 주요 사건
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Incident
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 을 생성 할 수 있습니다.
+ &lt;br/&gt;
+ - Jira Service Management의 인시던트
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Incident
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 를 Opsgenie의 기존 인시던트
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Incident
+  &lt;/sub&gt;
+ &lt;/span&gt;
+ 에 연결할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 3) 변경 관리
+ &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+  &lt;sub&gt;
+   Change Management
+  &lt;/sub&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  Atlassian은 DevOps 시대를 위해 구축 된 변경 관리를 통해 DevOps 팀을 위한 최신 소프트웨어 워크플로
+  &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+   &lt;sub&gt;
+    Workflow
+   &lt;/sub&gt;
+  &lt;/span&gt;
+  의 통합을 통해 팀이 변경 사항을 이해하고 더 빠르게 혁신 할 수 있도록 했습니다.
+ &lt;/span&gt;
+ &lt;span&gt;
+  이번
+ &lt;/span&gt;
+ &lt;span&gt;
+  업데이트에는 다음이 포함됩니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   변경 사항을 더 잘 이해하기 위한 새로운 변경 요청 워크 플로우 — 최신 소프트웨어 워크 플로우의 통합으로 더 빠르게 혁신 할 수 있습니다.
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   Bitbucket Pipelines와 같은 CI / CD (지속적 통합
+   &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+    &lt;sub&gt;
+     Continuous Integration
+    &lt;/sub&gt;
+   &lt;/span&gt;
+   / 지속적 배포
+   &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+    &lt;sub&gt;
+     Continuous Delivery
+    &lt;/sub&gt;
+   &lt;/span&gt;
+   ) 도구의 자동 변경 요청.
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   Service Registry에서 변경 요청에 대한 그룹 승인을 설정하는 기능.
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   변경관리 승인을 통해 배포를 제어하기 위해 빗버킷
+   &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+    &lt;sub&gt;
+     Bitbucket
+    &lt;/sub&gt;
+   &lt;/span&gt;
+   과 통합운영이 가능합니다.
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   배포 도구에서 자동 변경 접수 :
+  &lt;/span&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  – 빗버킷 파이프 라인
+  &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+   &lt;sub&gt;
+    Bitbucket Pipeline
+   &lt;/sub&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  – 서클 CI
+  &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+   &lt;sub&gt;
+    Circle CI
+   &lt;/sub&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  – 젠킨스
+  &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+   &lt;sub&gt;
+    Jenkins
+   &lt;/sub&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  - 옥토퍼스
+  &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+   &lt;sub&gt;
+    Octopus
+   &lt;/sub&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   Automation for Jira를 위험평가
+   &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+    &lt;sub&gt;
+     Risk Assessment
+    &lt;/sub&gt;
+   &lt;/span&gt;
+   및 변경관리
+   &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+    &lt;sub&gt;
+     Change Management
+    &lt;/sub&gt;
+   &lt;/span&gt;
+   를 위한 변경정책엔진
+   &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+    &lt;sub&gt;
+     Change Policy Engine
+    &lt;/sub&gt;
+   &lt;/span&gt;
+   으로 활용하는 새로운 서비스를 제공합니다. 설정을 간소화하기 위해 샘플 규칙도 제공됩니다.
+  &lt;/span&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;span&gt;
+   자동변경기록 생성을 위해 지라소프트웨어
+   &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+    &lt;sub&gt;
+     Jira Software
+    &lt;/sub&gt;
+   &lt;/span&gt;
+   및 빗버킷
+   &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+    &lt;sub&gt;
+     Bitbucket
+    &lt;/sub&gt;
+   &lt;/span&gt;
+   과 통합가능
+  &lt;/span&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
+ &lt;p class=&quot;title&quot;&gt;
+  옵스지니와 JSM의 통합과 관련한 상세 사항
+ &lt;/p&gt;
+ &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
+  &lt;p&gt;
+   &lt;br/&gt;
+  &lt;/p&gt;
+  &lt;ul&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     Jira 및 Opsgenie 인터페이스에 모두 액세스하려면 Jira Service Management에 대한 라이선스가 있어야 합니다.
+    &lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     Jira Service Desk 데이터 센터도 Jira Service Management가 됩니다. 클라우드와 데이터 센터의 주요 차이점은 새로운 사고관리기능 및 Opsgenie와의 통합은 데이터 센터에서도 사용할 수 있지만 이를 위해서는 Opsgenie를 별도로 구매해야 한다는 것 입니다.
+    &lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     모든 새로운 기능은 클래식프로젝트에서만 사용할 수 있습니다.
+    &lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     여전히 JSM과 독립형 Opsgenie 간(기존 옵스지니 구매고객)의 통합을 설정하여 요청을 보고 주요 사건에 연결할 수 있습니다.
+    &lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     Opsgenie 이해 관계자 기능 (예 : 이해 관계자에게 알림 등)은 그대로 유지됩니다. 그러나 JSM은 자유로운 이해 관계자의 역할을 지원할 수 없습니다. 이는 이해 관계자가 라이센스가 있는 사용자 여야 함을 의미합니다.
+    &lt;/span&gt;
+   &lt;/li&gt;
+   &lt;li&gt;
+    &lt;span&gt;
+     기존 Opsgenie 고객에게는 Opsgenie를 &quot;병합 / 통합&quot;하거나 독립형 제품으로 사용할 수있는 옵션이 제공됩니다. 나머지 (또는 &quot;아무것도하지 않음&quot;) 옵션은 독립형이지만 나중에 병합하도록 결정할 수 있습니다. 병합 옵션을 선택하면 올바른 JSM Cloud Edition을 선택하고 Opsgenie 인스턴스에서 데이터 손실없이 병합을 진행할 수 있습니다. 단순히 &quot;아무것도하지 않음&quot;을 선택하면 JSM은 동일한 사이트에 두 개의 인스턴스가 불가능하므로 동일한 사이트에 Opsgenie를 생성하지 않습니다. 그러나 유지하기로 선택하면 사고 관리 기능이 계속 작동합니다. 이 경우 라이선스가있는 JSM 사용자는 독립형 Opsgenie에 직접 액세스 할 수 없습니다.
+    &lt;/span&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  이와 더불어 올해 말이나 내년 초 업데이트 버젼에서는 아틀라시안에서 인수한 마인드빌
+  &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+   &lt;sub&gt;
+    Mindville
+   &lt;/sub&gt;
+  &lt;/span&gt;
+  의 인사이트
+  &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+   &lt;sub&gt;
+    Insight
+   &lt;/sub&gt;
+  &lt;/span&gt;
+  가 JSM에 통합되어 제공합니다. (인사이트는 기존 Jira에서 애드온으로 사용가능 한 강력한 자산관리 도구)
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  저희 오픈소스컨설팅에서 작년에 수행한
+  &lt;strong&gt;
+   미래에셋생명 ITSM 프로젝트
+  &lt;/strong&gt;
+  (기사 참고 :
+  &lt;a class=&quot;external-link&quot; href=&quot;http://www.denews.co.kr/news/articleView.html?idxno=14108&quot; rel=&quot;nofollow&quot;&gt;
+   http://www.denews.co.kr/news/articleView.html?idxno=14108
+  &lt;/a&gt;
+  )에서도 지라와 마인드빌의 인사이트를 통합해서 티켓팅 시스템을 구축 했던 경험이 있는데요, 이번에 JSM은 인사이트
+  &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
+   &lt;sub&gt;
+    Insight
+   &lt;/sub&gt;
+  &lt;/span&gt;
+  까지 품음으로써 더 강력한 성능을 제공할 것으로 기대 되네요.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  그리고 최근에는
+  &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/ko/software/halp&quot; rel=&quot;nofollow&quot;&gt;
+   Halp
+  &lt;/a&gt;
+  라는 회사를 인수하기도 했는데요, 이를 통해 슬랙을 활용한 대화형 티켓팅 시스템이 JSM과 연동 되어 더 다양한 역할로 확장 될 것으로 보입니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  아무튼 점점 향상된 티켓관리 및 DevOps 환경에서 JSM이 다양한 역할을 할 것으로 기대가 되구요, 저희 오픈소스컨설팅에서도 2021년 초부터 ITIL에 기반한 ITSM 교육 프로그램 및 JSM을 이용한 구축 교육 및 프로젝트를
+  &lt;strong&gt;
+   &lt;a class=&quot;external-link&quot; href=&quot;https://www.sharingtechlabs.com/&quot; rel=&quot;nofollow&quot;&gt;
+    열린기술공방
+   &lt;/a&gt;
+  &lt;/strong&gt;
+  을 통해 실시 할 예정이니 많은 관심 부탁드립니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span&gt;
+  오늘도 좋은 하루 되세요!
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Tue, 15 Dec 2020 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2020/12/15/104422598/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2020/12/15/104422598/</guid>
+        
+        <category>아틀라시안</category>
+        
+        <category>atlassian</category>
+        
+        <category>옵스지니</category>
+        
+        <category>jsm</category>
+        
+        <category>지라서비스매니지먼트</category>
+        
+        <category>정보</category>
+        
+        <category>itsm</category>
+        
+        <category>itil</category>
+        
+        <category>티켓관리</category>
+        
+        
+      </item>
     
       <item>
         <title>Atlassian 12월 Release Note</title>
@@ -7086,492 +7593,6 @@ Sharing Tech. Growing Together.
         <category>atlassian</category>
         
         <category>releasenote</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Atlassian 8월 Release Note</title>
-        <description>&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
- &lt;br/&gt;
- 이번 포스팅에서는 아틀라시안 제품군의 Jira와 Confluence 그리고 Jira Service Desk의 Release Note를 전해드리고자 합니다.
-&lt;/p&gt;
-&lt;h1 id=&quot;Atlassian8월ReleaseNote-Jira8.10.xReleaseNote&quot;&gt;
- &lt;br/&gt;
- &lt;strong&gt;
-  Jira 8.10.x Release Note
- &lt;/strong&gt;
-&lt;/h1&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|OAuth2.0foryourmailserver/메일서버를위한OAuth2.0&quot;&gt;
- | OAuth 2.0 for your mail server  /
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  메일 서버를 위한 OAuth 2.0
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-   구글과 마이크로소프트가 기존에 사용하던 인증방식을 비활성화할 계획인 가운데,
-   &lt;br/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-   계속해서 이메일을 사용하여 Jira에 의견을 추가하고 이슈를 생성할 수 있도록 OAuth 2.0 지원을 추가했습니다.
-   &lt;br/&gt;
-   비밀번호 대신
-  &lt;/span&gt;
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-   Gmail 또는 Microsoft Exchange 온라인의 인증 방법으로 이용 가능
-  &lt;/span&gt;
-  합니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/97477897/0.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Useranonymization(GDPR)improvements/사용자익명화개선&quot;&gt;
- | User anonymization (GDPR) improvements / 사용자 익명화 개선
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Jira 8.7에서 GDPR을 준수할 수 있도록 사용자 익명화를 도입 했었습니다.
-  &lt;br/&gt;
-  초기 기능에는 몇가지 제한이 있었지만 계속해서 새로운 버전으로 업데이트 중입니다.
-  &lt;br/&gt;
-  이번 릴리스에서는 익명화의 범위를 다음과 같은 항목을 포함하도록 확대하였습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   이슈 수집기의 보고자 및 생성자
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   &lt;span class=&quot;inline-comment-marker&quot; data-ref=&quot;0917544c-d16e-4d1a-a475-a3d4e5a23fbb&quot;&gt;
-    이슈 히스토리 탭의 이름 관련 필드 전체 (할당자, 보고자, 단일 및 다중 사용자 선택기 필드)
-   &lt;/span&gt;
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   삭제된 사용자를 익명화 하는 기능
-  &lt;/span&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  *GDPR: 유럽연합 일반 데이터 보호 규칙
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Moreinsightintoyourcustomfields/사용자정의필드에대한더자세한정보확인&quot;&gt;
- | More insight into your custom fields /
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  사용자 정의 필드에 대한 더 자세한 정보 확인
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-   특정 사용자 정의 필드가 JIRA 의 인덱싱 시간에 얼마나 영향을 미치는 지 확인할 수 있습니다.
-  &lt;/span&gt;
-  &lt;br/&gt;
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  이제 해당 정보에 쉽게 접근 할 수 있어 로그를 일일히 검색할 필요가 없습니다.
-  &lt;span&gt;
-   &lt;br/&gt;
-  &lt;/span&gt;
-  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-   사용자 정의 필드 인덱싱 화면에서 인덱싱이 가장 오래 걸리는 사용자 정의 필드 10개가 표시되어 속도 문제를 분석하고 조치하는데 용이합니다.
-  &lt;/span&gt;
-  &lt;br/&gt;
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  규모가 큰 환경에서는 사용자 정의 필드를 분석하는데 어려움을 겪을 수 있기 때문에
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   엔터프라이즈 환경에서 특히 유용합니다.
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-   해당 정보는 다음 경로에서 확인할 수 있습니다.
-  &lt;/span&gt;
-  &lt;strong&gt;
-   Jira Administration &amp;gt; System &amp;gt; Clustering &amp;gt; Actions &amp;gt; Custom field indexing
-  &lt;/strong&gt;
-  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-   .
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-   &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-    &lt;img src=&quot;/assets/images/97477897/1.png&quot;/&gt;
-   &lt;/span&gt;
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Stalenodesautomaticallyremoved/오래된노드들을자동으로제거&quot;&gt;
- | Stale nodes automatically removed / 오래된 노드들을 자동으로 제거
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-  클러스터 관리에 자동화를 도입했습니다. 이제 클러스터에서 오프라인 노드들을  제거하거나 하트비트 신호가 없는 노드들을 오프라인으로 이동시키는 것들을 수동으로 할 필요가 없습니다.
-  &lt;br/&gt;
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
-  하트비트 신호가 없다고 보고된 노드는 이틀 뒤에 자동으로 오프라인으로 이동되며, 오프라인 상태로 유지된 후 이틀 뒤에 클러스터에서 자동으로 제거됩니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Optimizedcustomfields/최적화된사용자정의필드&quot;&gt;
- | Optimized custom fields /
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  최적화된 사용자 정의 필드
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- 많은 수의 사용자 정의 필드는 Jira의 성능 및 인덱싱 시간에 부정적인 영향을 미칠 수 있습니다.
- &lt;span&gt;
-  &lt;br/&gt;
- &lt;/span&gt;
- 이러한 영향을 최소화하기 위해 필드 인덱서 수를 줄이는 새로운 최적화 방법을 도입했습니다.
- &lt;br/&gt;
- &lt;span&gt;
-  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-   이제 지라의 이슈에서 사용자 정의 필드를 사용하지 않는 경우 인덱싱의 정렬을 위한 Marker 를 저장하지 않습니다.
-   &lt;br/&gt;
-   즉, 지라의 이슈에서 사용되지 않는 사용자 정의 필드는 인덱싱 작업에 포함되지 않도록 바뀌었습니다.
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;Atlassian8월ReleaseNote-Confluence7.6ReleaseNote&quot;&gt;
- &lt;strong&gt;
-  Confluence 7.6 Release Note
- &lt;/strong&gt;
-&lt;/h1&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Capturemoreend-useractivityintheauditlog/감사로그에서엔드유저의더많은활동을확인가능&quot;&gt;
- | Capture more end-user activity in the audit log / 감사 로그에서 엔드 유저의 더 많은 활동을 확인 가능
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  많은 분들이 Compliance 와 Regulation 충족을 위해 많은 경우 감사 로그를 저장해야 할 필요가 있다는 것을 알고 있습니다.
- &lt;/span&gt;
- &lt;br/&gt;
- 이제 감사 로그는 다음과 같은 경우에도 이벤트를 기록할 수 있습니다
-&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  페이지 또는 블로그 게시물로 이동
- &lt;/li&gt;
- &lt;li&gt;
-  페이지 또는 블로그 게시물을 공유.
- &lt;/li&gt;
- &lt;li&gt;
-  페이지 또는 블로그 게시물에 대한 액세스 요청
- &lt;/li&gt;
- &lt;li&gt;
-  페이지 또는 블로그 게시물에 대한 액세스 권한 부여(액세스 요청으로부터)
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- 이러한 이벤트는 데이터 센터 라이센스에서 적용할 수 있는 고급 적용 범위 수준입니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97477897/2.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|TrusteddomainsforCompanionapp/Companion앱의신뢰할수있는도메인&quot;&gt;
- | Trusted domains for Companion app / Companion앱의 신뢰할 수 있는 도메인
-&lt;/h3&gt;
-&lt;p&gt;
- 이제 Companion 앱을 모든 사용자에게 출시하기 전에 신뢰할 수 있는 도메인/사이트를 설정할 수 있습니다.
- &lt;br/&gt;
- Confluence URL을 신뢰할 수 있는 도메인으로 설정하면 추후 사용자가 파일을 처음 편집할 때 '이 도메인 신뢰'를 선택할 필요가 없어집니다.
- &lt;br/&gt;
- 환경 변수를 사용하거나 MSI를 설치하는 중에 신뢰할 수 있는 도메인으로 설정할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h1 class=&quot;page-title&quot; id=&quot;Atlassian8월ReleaseNote-JiraServiceDesk4.11.xReleaseNote&quot;&gt;
- &lt;strong&gt;
-  Jira Service Desk 4.11.xRelease Note
- &lt;/strong&gt;
-&lt;/h1&gt;
-&lt;h3 class=&quot;page-title&quot; id=&quot;Atlassian8월ReleaseNote-|Helpyourcustomersintheirpreferredlanguage/고객이선호하는언어로지원&quot;&gt;
- | Help your customers in their preferred language / 고객이 선호하는 언어로 지원
-&lt;/h3&gt;
-&lt;p&gt;
- 지라 서비스 데스크는 이제 다국어 고객 포털과 헬프 센터를 함께 제공합니다. 고객이 원하는 언어로 고객에게 지원이 가능합니다.
- &lt;br/&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97477897/3.jpeg&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 서비스 데스크에 언어를 추가하고 중요한 항목에 대한 번역을 제공할 수 있으며,
- &lt;br/&gt;
- 이러한 번역은 포털 이름, 요청 유형 및 공지 사항에 반영되어 표시됩니다.
- &lt;br/&gt;
- 이제는 고객이 자신에게 익숙한 언어로 서비스 데스크에 접근할 수 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- .
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|AdvancedauditinginJiraServiceDesk/JiraServiceDesk고급감사&quot;&gt;
- | Advanced auditing in Jira Service Desk / Jira Service Desk 고급 감사
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  JIRA Service Desk (SR관리) 에만 특화된 메트릭 측정 및 보고서를 제공할 예정입니다.
- &lt;/span&gt;
- &lt;br/&gt;
- 이제 Jira 인스턴스와 관련된 일반 이벤트를 모니터링하는 것 외에도 다음과 같은 카테고리 및 이벤트를 확인 하실 수 있습니다.
-&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   SLA(SLA 캘린더, SLA 목표, SLA 이름)
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   보고서(생성, 삭제)
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   에이전트(초대 또는 프로젝트에서 제거)
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   이메일 채널(활성화, 비활성화)
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   요청 유형(생성, 삭제)
-  &lt;/span&gt;
-  &lt;br/&gt;
-  &lt;span&gt;
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   조직(생성, 삭제, 업데이트)
-  &lt;/span&gt;
-  &lt;br/&gt;
-  &lt;span&gt;
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   일반 구성(공용 등록 사용 혹은 사용 안 함)
-  &lt;/span&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- &lt;span&gt;
-  이 카테고리의 이벤트들은 Advanced coverage level에 있으며 Jira Data Center에서 사용 가능합니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
- &lt;p class=&quot;auto-cursor-target&quot;&gt;
-  다음 기능은 Jira 플랫폼에 라이브로 제공되며, 이는 Jira Core, Jira Software, Jira Service Desk 등 Jira 제품군 전체가 사용할 수 있습니다.
- &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Managingprivatefiltersanddashboards/개인필터및대시보드관리&quot;&gt;
- | Managing private filters and dashboards / 개인 필터 및 대시보드 관리
-&lt;/h3&gt;
-&lt;p&gt;
- Jira 관리자에게 개인 필터 및 대시 보드를 편집하고 삭제할 수있는 기능을 제공합니다.
- &lt;br/&gt;
- 이제 모든(공유 혹은 비공개) 기존 필터 및 대시 보드를 보고 처리 방법을 선택할 수 있습니다
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97477897/4.jpeg&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  비효율적인 검색 기준들이 적용된 대시보드나 성능에 안좋은 영향을 끼칠 수 있는 가젯들로 구성된 대시보드를 관리자 권한으로 삭제할 수 있도록 했습니다.
- &lt;/span&gt;
- &lt;br/&gt;
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  이제 대시보드나 필터로 인해 인스턴스가 느려지지 않도록 관리할 수 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|EmbeddedCrowdupgrade/지라에임배디드된CROWD모듈업그레이드&quot;&gt;
- | Embedded Crowd upgrade /
- &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  지라에 임배디드된 CROWD 모듈 업그레이드
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- 임베디드 Crowd는 Jira에서 사용자 관리를 위해 사용되는 라이브러리이며 최신 버전인 4.0으로 업그레이드 되었습니다.
- &lt;br/&gt;
- 사용자 및 그룹과 관련된 페이지는 이 라이브러리에 의존하지만 필요한 사용자 인터페이스와 상호 작용은 기존과 동일하게 유지됩니다.
- &lt;br/&gt;
- 동시에 새 버전은 여러 가지 개선 사항을 제공하며 그 중 일부는 다음과 같습니다.
-&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   성능 향상(시간 동기화 향상)
-  &lt;/span&gt;
-  &lt;br/&gt;
-  &lt;span&gt;
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   클러스터링 지원
-  &lt;/span&gt;
-  &lt;br/&gt;
-  &lt;span&gt;
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   향상된 디렉토리 장애 조치
-  &lt;/span&gt;
- &lt;/li&gt;
- &lt;li&gt;
-  &lt;span&gt;
-   많은 버그 및 제안 해결
-  &lt;/span&gt;
- &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|MorestabilityintheFavoriteFiltersgadget/즐겨찾기필터가젯의안정성향상&quot;&gt;
- | More stability in the Favorite Filters gadget / 즐겨찾기 필터 가젯의 안정성향상
-&lt;/h3&gt;
-&lt;p&gt;
- 즐겨찾기 필터 가젯은 가장 인기있는 가젯으로 선호하는 필터의 목록과 각각의 필터에 포함된 이슈의 수를 표시해 줍니다.
- &lt;br/&gt;
- 큰 규모의 필터의 경우, 모든 이슈를 세는것은 성능에 영향을 미칠 수 있기 때문에 우리는 Jira 관리자에게 더 많은 권한을 주었습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/97477897/5.jpeg&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 가젯이 이슈를 불러들일 때 걸리는 최대 시간 값을 제어할 수 있는 글로벌 설정을 추가했습니다.
- &lt;br/&gt;
- 모든 대시보드에서 모든 가젯들에서 이슈가 카운트 되는 데 최대 시간보다 오래 걸린다면, 카운트를 중지하고 대신 &quot;Too many issues&quot; 메시지를 표시합니다.
-&lt;/p&gt;
-&lt;h3 id=&quot;Atlassian8월ReleaseNote-|Configurehowfaststalenodesaremovedoffline/오래된노드를오프라인으로이동시키는기간설정&quot;&gt;
- | Configure how fast stale nodes are moved offline / 오래된 노드를 오프라인으로 이동시키는 기간 설정
-&lt;/h3&gt;
-&lt;p&gt;
- Jira Service Desk 4.10에서는 이틀 동안 하트비트 신호가 없는 클러스터의 오래된 노드를 자동으로 오프라인으로 이동할 수 있도록 하였습니다.
- &lt;br/&gt;
- 이제는
- &lt;a class=&quot;external-link&quot; href=&quot;http://jira.not.alive.active.nodes.retention.period.in/&quot; rel=&quot;nofollow&quot;&gt;
-  jira.not.alive.active.nodes.retention.period.in
- &lt;/a&gt;
- .hours 의 시스템 속성을 수정하여 더 빠르게 오래된 노드들을 오프라인으로 옮길 수 있습니다.
- &lt;br/&gt;
- &lt;br/&gt;
- &lt;br/&gt;
- &lt;br/&gt;
- 앞으로도 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
-&lt;/p&gt;
-&lt;p&gt;
- 업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
-&lt;/p&gt;
-&lt;p&gt;
- 궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 감사합니다!
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot;&gt;
-  atlassian@osci.kr
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;</description>
-        <pubDate>Wed, 05 Aug 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/08/05/97477897/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/08/05/97477897/</guid>
-        
-        <category>releasenote</category>
-        
-        <category>아틀라시안</category>
         
         
       </item>

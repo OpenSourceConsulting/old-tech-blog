@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>지라서비스매니지먼트(JSM) 소개 (부제 : 지라서비스데스크(JSD)를 넘어서 본격적인 ITSM 툴로의 변화)</title>
+<meta name="title" content="지라서비스매니지먼트(JSM) 소개 (부제 : 지라서비스데스크(JSD)를 넘어서 본격적인 ITSM 툴로의 변화)" />
+<meta name="author" content="brian"/>
+<meta name="description" content="안녕하세요, 오픈소스컨설팅 한진규 상무입니다. 지난 11월 아틀라시안은 새로운 제품을 발표 했는데요, 바로 지라서비스메니지먼트 Jira Service Management (이하 'JSM') 라는 제품입니다. 하지만, 이 제품은 완전히 새로운 제품은 아니구요 기존의 지라서비스데스크 Jira Service Desk (이하 'JSD')에 현대화된 고객이 필요로하는 다양한 기능을 추가하여 본격적인 ITSM 도구로서의 역할 을 담당 하겠다는 아틀라시안의 강력한 의지를 담은  제품입니다. 11월 출시이후 Service Now 등 다양한 타사 서비스데스크를 사용하던 고객들이 JSM으로 많이 옮겨오고 있다고 하니, 대체 어떤 특징을 가지고 있는지 가볍게 둘러 보도록 하겠습니다...."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="지라서비스매니지먼트(JSM) 소개 (부제 : 지라서비스데스크(JSD)를 넘어서 본격적인 ITSM 툴로의 변화)"/>
+<meta property="og:description" content="안녕하세요, 오픈소스컨설팅 한진규 상무입니다. 지난 11월 아틀라시안은 새로운 제품을 발표 했는데요, 바로 지라서비스메니지먼트 Jira Service Management (이하 'JSM') 라는 제품입니다. 하지만, 이 제품은 완전히 새로운 제품은 아니구요 기존의 지라서비스데스크 Jira Service Desk (이하 'JSD')에 현대화된 고객이 필요로하는 다양한 기능을 추가하여 본격적인 ITSM 도구로서의 역할 을 담당 하겠다는 아틀라시안의 강력한 의지를 담은  제품입니다. 11월 출시이후 Service Now 등 다양한 타사 서비스데스크를 사용하던 고객들이 JSM으로 많이 옮겨오고 있다고 하니, 대체 어떤 특징을 가지고 있는지 가볍게 둘러 보도록 하겠습니다...."/>
+<meta property="og:url" content="https://tech.osci.kr/2020/12/15/104422598/"/>
+<meta property="og:image" content="/assets/images/104422598/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="지라서비스매니지먼트(JSM) 소개 (부제 : 지라서비스데스크(JSD)를 넘어서 본격적인 ITSM 툴로의 변화)"/>
+<meta name="twitter:description" content="안녕하세요, 오픈소스컨설팅 한진규 상무입니다. 지난 11월 아틀라시안은 새로운 제품을 발표 했는데요, 바로 지라서비스메니지먼트 Jira Service Management (이하 'JSM') 라는 제품입니다. 하지만, 이 제품은 완전히 새로운 제품은 아니구요 기존의 지라서비스데스크 Jira Service Desk (이하 'JSD')에 현대화된 고객이 필요로하는 다양한 기능을 추가하여 본격적인 ITSM 도구로서의 역할 을 담당 하겠다는 아틀라시안의 강력한 의지를 담은  제품입니다. 11월 출시이후 Service Now 등 다양한 타사 서비스데스크를 사용하던 고객들이 JSM으로 많이 옮겨오고 있다고 하니, 대체 어떤 특징을 가지고 있는지 가볍게 둘러 보도록 하겠습니다...."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="brian"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/104422598/"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="아틀라시안,atlassian,옵스지니,jsm,지라서비스매니지먼트,정보,itsm,itil,티켓관리"/>
+
+<meta property="article:tag" content="아틀라시안"/>
+
+<meta property="article:tag" content="atlassian"/>
+
+<meta property="article:tag" content="옵스지니"/>
+
+<meta property="article:tag" content="jsm"/>
+
+<meta property="article:tag" content="지라서비스매니지먼트"/>
+
+<meta property="article:tag" content="정보"/>
+
+<meta property="article:tag" content="itsm"/>
+
+<meta property="article:tag" content="itil"/>
+
+<meta property="article:tag" content="티켓관리"/>
+
+
+
+<meta property="article:published_time" content="2020-12-15T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/brian"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2020/12/15/104422598/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/104422598/);">
+    <div>
+        <h1>지라서비스매니지먼트(JSM) 소개 (부제 : 지라서비스데스크(JSD)를 넘어서 본격적인 ITSM 툴로의 변화)</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                아틀라시안
+                ,
+            
+                atlassian
+                ,
+            
+                옵스지니
+                ,
+            
+                jsm
+                ,
+            
+                지라서비스매니지먼트
+                ,
+            
+                정보
+                ,
+            
+                itsm
+                ,
+            
+                itil
+                ,
+            
+                티켓관리
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ 안녕하세요, 오픈소스컨설팅 한진규 상무입니다.
+</p>
+<p>
+ 지난 11월 아틀라시안은 새로운 제품을 발표 했는데요, 바로 지라서비스메니지먼트
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Jira Service Management
+  </sub>
+ </span>
+ (이하 'JSM') 라는 제품입니다.
+</p>
+<p>
+ 하지만, 이 제품은 완전히 새로운 제품은 아니구요 기존의 지라서비스데스크
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Jira Service Desk
+  </sub>
+ </span>
+ (이하 'JSD')에 현대화된 고객이 필요로하는 다양한 기능을 추가하여
+ <u>
+  <strong>
+   <em>
+    본격적인 ITSM 도구로서의 역할
+   </em>
+  </strong>
+ </u>
+ 을 담당 하겠다는 아틀라시안의 강력한 의지를 담은  제품입니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 11월 출시이후 Service Now 등 다양한 타사 서비스데스크를 사용하던 고객들이 JSM으로 많이 옮겨오고 있다고 하니, 대체 어떤 특징을 가지고 있는지 가볍게 둘러 보도록 하겠습니다.
+</p>
+<p>
+ <br/>
+</p>
+<h3 id="id-지라서비스매니지먼트(JSM)소개(부제:지라서비스데스크(JSD)를넘어서본격적인ITSM툴로의변화)-아틀라시안의역량을통합하다.-IT서비스관리,주요사고처리및DevOps통합">
+ 아틀라시안의 역량을 통합하다. - IT 서비스 관리, 주요 사고 처리 및 DevOps 통합
+</h3>
+<p>
+ <br/>
+</p>
+<p>
+ 일단 아틀라시안의 카메론 디치 CRO의 인터뷰를 보면 다음과 같습니다.
+</p>
+<div class="confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
+ <p class="title">
+  출처 : CIO KR
+ </p>
+ <div class="confluence-information-macro-body">
+  <p>
+   <span style="color: rgb(51,51,51);">
+    아틀라시안의 카메론 디치 CRO는 오늘날 기술 팀이 직면한 과제 중 하나는 분산된 여러 팀이 밀접한 협업을 지원하는 않는 레거시 기술을 이용하는 가운데, 이들 팀의 균형을 맞추는 것이다.
+   </span>
+   <br style="text-align: justify;"/>
+   <br style="text-align: justify;"/>
+   <span style="color: rgb(51,51,51);">
+    그는 “애석하게도 소프트웨어를 구축하는 팀과 테스트를 수행하는 팀은 일반적으로 서로 다른 기술을 이용하며 서로 다른 팀에 속해 있다”라고 말했다.
+   </span>
+   <br style="text-align: justify;"/>
+   <br style="text-align: justify;"/>
+   <span style="color: rgb(51,51,51);">
+    디치는 이번 지라 서비스 매니지먼트에 대해 ITSM 분야를 겨냥한 회사의 신규 핵심 제품이라고 표현했다. 그에 따르면 아틀라시안은 지식을 공유하는 ITSM 모델을 통해 개발 팀과 IT 운영 팀, 현업 팀을 통합하고자 한다. 최근 인수를 통해 확보한 기술을 접목한 지라 서비스 매니지먼트를 통해서다. ......
+   </span>
+  </p>
+  <p>
+   <span style="color: rgb(51,51,51);">
+    원문 :
+    <a class="external-link" href="https://www.ciokorea.com/t/21999/%EA%B0%9C%EB%B0%9C%EC%9E%90/171679" rel="nofollow">
+     https://www.ciokorea.com/t/21999/%EA%B0%9C%EB%B0%9C%EC%9E%90/171679
+    </a>
+   </span>
+  </p>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 아틀라시안은 최근 다양한 테크기업들을 인수해서 자사의 경쟁력을 향상시키고 있는데요, 그 중의 하나가
+ <a class="external-link" href="https://www.atlassian.com/ko/software/opsgenie" rel="nofollow">
+  옵스지니
+  <sub>
+   Opsgenie
+  </sub>
+ </a>
+ 입니다. (참고문서 :
+ <span style="color: rgb(0,0,0);">
+  DevOps팀이 Opsgenie를 선택하는 10가지 이유
+ </span>
+ <a class="external-link" href="https://tech.osci.kr/2019/08/07/78623021/" rel="nofollow">
+  https://tech.osci.kr/2019/08/07/78623021/
+ </a>
+ ) 이번발표를 보면,
+ <strong>
+  <span style="color: rgb(255,0,0);">
+   JSM 클라우드 버젼에는 무려 옵스지니가 통합
+  </span>
+ </strong>
+ 되어 있습니다 (우워~). 물론 JSM은 클라우드 제품 사용이 어려운 고객을 위해 설치와 이중화가 가능한 데이터센터
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Datacenter
+  </sub>
+ </span>
+ 버젼도 제공하는데요, 데이터센터 버젼은 Opsgenie를 별도로 구매해야 한다고 하네요
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 1) IT 서비스 관리
+</p>
+<p>
+ Jira Service Management에는 다음이 포함됩니다.
+</p>
+<p>
+ - 서비스 요청, 인시던트
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Incident
+  </sub>
+ </span>
+ , 변경 및 문제 티켓 대기열이 포함 된 새로운 ITIL 기반 IT 서비스 관리 프로젝트 템플릿.
+ <br/>
+ - 모든 프로젝트에서 일괄 작업을 수행하여 작업을 연결, 주석, 할당, 전환 및 삭제할 수 있습니다.
+ <br/>
+ - IT 팀이 변경에 대한 더 많은 컨텍스트
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Context
+  </sub>
+ </span>
+ 를 제공하기 위해 경량 구성 관리 데이터베이스 (CMDB) 역할을 하는 운영기술서비스를 등록하기 위한 Service Registry 제공
+</p>
+<p>
+ 2) 주요 사고 처리
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Major Incident Management
+  </sub>
+ </span>
+</p>
+<p>
+ Atlassian은 Opsgenie의 강력한 인시던트 스웜
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Incident swarming
+  </sub>
+ </span>
+ 및 온콜
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   On call
+  </sub>
+ </span>
+ 알림 기능을 Jira Service Management에 직접 구축했습니다. 기능은 다음과 같습니다.
+</p>
+<p>
+ - 사고 관리를 위한 지정된 티켓 카테고리.
+ <br/>
+ - 모든 Cloud Edition에 Opsgenie 기능이 포함되어 더욱 심층적인 변경 관리 및 사고
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Incident
+  </sub>
+ </span>
+ 관리 기능.
+ <br/>
+ - 더 빠른 처리와 해결을 위해 적절한 팀에 경보
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Alert
+  </sub>
+ </span>
+ 를 전송하여 Opsgenie의 주요 사고
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Incident
+  </sub>
+ </span>
+ 를 에스컬레이션합니다.
+ <br/>
+ - Jira Service Management의 기존 사건
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Incident
+  </sub>
+ </span>
+ 에서 Opsgenie의 주요 사건
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Incident
+  </sub>
+ </span>
+ 을 생성 할 수 있습니다.
+ <br/>
+ - Jira Service Management의 인시던트
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Incident
+  </sub>
+ </span>
+ 를 Opsgenie의 기존 인시던트
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Incident
+  </sub>
+ </span>
+ 에 연결할 수 있습니다.
+</p>
+<p>
+ 3) 변경 관리
+ <span style="color: rgb(122,134,154);">
+  <sub>
+   Change Management
+  </sub>
+ </span>
+</p>
+<p>
+ <span>
+  Atlassian은 DevOps 시대를 위해 구축 된 변경 관리를 통해 DevOps 팀을 위한 최신 소프트웨어 워크플로
+  <span style="color: rgb(122,134,154);">
+   <sub>
+    Workflow
+   </sub>
+  </span>
+  의 통합을 통해 팀이 변경 사항을 이해하고 더 빠르게 혁신 할 수 있도록 했습니다.
+ </span>
+ <span>
+  이번
+ </span>
+ <span>
+  업데이트에는 다음이 포함됩니다.
+ </span>
+</p>
+<ul>
+ <li>
+  <span>
+   변경 사항을 더 잘 이해하기 위한 새로운 변경 요청 워크 플로우 — 최신 소프트웨어 워크 플로우의 통합으로 더 빠르게 혁신 할 수 있습니다.
+  </span>
+ </li>
+ <li>
+  <span>
+   Bitbucket Pipelines와 같은 CI / CD (지속적 통합
+   <span style="color: rgb(122,134,154);">
+    <sub>
+     Continuous Integration
+    </sub>
+   </span>
+   / 지속적 배포
+   <span style="color: rgb(122,134,154);">
+    <sub>
+     Continuous Delivery
+    </sub>
+   </span>
+   ) 도구의 자동 변경 요청.
+  </span>
+ </li>
+ <li>
+  <span>
+   Service Registry에서 변경 요청에 대한 그룹 승인을 설정하는 기능.
+  </span>
+ </li>
+ <li>
+  <span>
+   변경관리 승인을 통해 배포를 제어하기 위해 빗버킷
+   <span style="color: rgb(122,134,154);">
+    <sub>
+     Bitbucket
+    </sub>
+   </span>
+   과 통합운영이 가능합니다.
+  </span>
+ </li>
+ <li>
+  <span>
+   배포 도구에서 자동 변경 접수 :
+  </span>
+ </li>
+</ul>
+<p>
+ <span>
+  – 빗버킷 파이프 라인
+  <span style="color: rgb(122,134,154);">
+   <sub>
+    Bitbucket Pipeline
+   </sub>
+  </span>
+ </span>
+</p>
+<p>
+ <span>
+  – 서클 CI
+  <span style="color: rgb(122,134,154);">
+   <sub>
+    Circle CI
+   </sub>
+  </span>
+ </span>
+</p>
+<p>
+ <span>
+  – 젠킨스
+  <span style="color: rgb(122,134,154);">
+   <sub>
+    Jenkins
+   </sub>
+  </span>
+ </span>
+</p>
+<p>
+ <span>
+  - 옥토퍼스
+  <span style="color: rgb(122,134,154);">
+   <sub>
+    Octopus
+   </sub>
+  </span>
+ </span>
+</p>
+<ul>
+ <li>
+  <span>
+   Automation for Jira를 위험평가
+   <span style="color: rgb(122,134,154);">
+    <sub>
+     Risk Assessment
+    </sub>
+   </span>
+   및 변경관리
+   <span style="color: rgb(122,134,154);">
+    <sub>
+     Change Management
+    </sub>
+   </span>
+   를 위한 변경정책엔진
+   <span style="color: rgb(122,134,154);">
+    <sub>
+     Change Policy Engine
+    </sub>
+   </span>
+   으로 활용하는 새로운 서비스를 제공합니다. 설정을 간소화하기 위해 샘플 규칙도 제공됩니다.
+  </span>
+ </li>
+ <li>
+  <span>
+   자동변경기록 생성을 위해 지라소프트웨어
+   <span style="color: rgb(122,134,154);">
+    <sub>
+     Jira Software
+    </sub>
+   </span>
+   및 빗버킷
+   <span style="color: rgb(122,134,154);">
+    <sub>
+     Bitbucket
+    </sub>
+   </span>
+   과 통합가능
+  </span>
+ </li>
+</ul>
+<div class="confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">
+ <p class="title">
+  옵스지니와 JSM의 통합과 관련한 상세 사항
+ </p>
+ <div class="confluence-information-macro-body">
+  <p>
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <span>
+     Jira 및 Opsgenie 인터페이스에 모두 액세스하려면 Jira Service Management에 대한 라이선스가 있어야 합니다.
+    </span>
+   </li>
+   <li>
+    <span>
+     Jira Service Desk 데이터 센터도 Jira Service Management가 됩니다. 클라우드와 데이터 센터의 주요 차이점은 새로운 사고관리기능 및 Opsgenie와의 통합은 데이터 센터에서도 사용할 수 있지만 이를 위해서는 Opsgenie를 별도로 구매해야 한다는 것 입니다.
+    </span>
+   </li>
+   <li>
+    <span>
+     모든 새로운 기능은 클래식프로젝트에서만 사용할 수 있습니다.
+    </span>
+   </li>
+   <li>
+    <span>
+     여전히 JSM과 독립형 Opsgenie 간(기존 옵스지니 구매고객)의 통합을 설정하여 요청을 보고 주요 사건에 연결할 수 있습니다.
+    </span>
+   </li>
+   <li>
+    <span>
+     Opsgenie 이해 관계자 기능 (예 : 이해 관계자에게 알림 등)은 그대로 유지됩니다. 그러나 JSM은 자유로운 이해 관계자의 역할을 지원할 수 없습니다. 이는 이해 관계자가 라이센스가 있는 사용자 여야 함을 의미합니다.
+    </span>
+   </li>
+   <li>
+    <span>
+     기존 Opsgenie 고객에게는 Opsgenie를 "병합 / 통합"하거나 독립형 제품으로 사용할 수있는 옵션이 제공됩니다. 나머지 (또는 "아무것도하지 않음") 옵션은 독립형이지만 나중에 병합하도록 결정할 수 있습니다. 병합 옵션을 선택하면 올바른 JSM Cloud Edition을 선택하고 Opsgenie 인스턴스에서 데이터 손실없이 병합을 진행할 수 있습니다. 단순히 "아무것도하지 않음"을 선택하면 JSM은 동일한 사이트에 두 개의 인스턴스가 불가능하므로 동일한 사이트에 Opsgenie를 생성하지 않습니다. 그러나 유지하기로 선택하면 사고 관리 기능이 계속 작동합니다. 이 경우 라이선스가있는 JSM 사용자는 독립형 Opsgenie에 직접 액세스 할 수 없습니다.
+    </span>
+   </li>
+  </ul>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ <span>
+  이와 더불어 올해 말이나 내년 초 업데이트 버젼에서는 아틀라시안에서 인수한 마인드빌
+  <span style="color: rgb(122,134,154);">
+   <sub>
+    Mindville
+   </sub>
+  </span>
+  의 인사이트
+  <span style="color: rgb(122,134,154);">
+   <sub>
+    Insight
+   </sub>
+  </span>
+  가 JSM에 통합되어 제공합니다. (인사이트는 기존 Jira에서 애드온으로 사용가능 한 강력한 자산관리 도구)
+ </span>
+</p>
+<p>
+ <span>
+  저희 오픈소스컨설팅에서 작년에 수행한
+  <strong>
+   미래에셋생명 ITSM 프로젝트
+  </strong>
+  (기사 참고 :
+  <a class="external-link" href="http://www.denews.co.kr/news/articleView.html?idxno=14108" rel="nofollow">
+   http://www.denews.co.kr/news/articleView.html?idxno=14108
+  </a>
+  )에서도 지라와 마인드빌의 인사이트를 통합해서 티켓팅 시스템을 구축 했던 경험이 있는데요, 이번에 JSM은 인사이트
+  <span style="color: rgb(122,134,154);">
+   <sub>
+    Insight
+   </sub>
+  </span>
+  까지 품음으로써 더 강력한 성능을 제공할 것으로 기대 되네요.
+ </span>
+</p>
+<p>
+ <span>
+  그리고 최근에는
+  <a class="external-link" href="https://www.atlassian.com/ko/software/halp" rel="nofollow">
+   Halp
+  </a>
+  라는 회사를 인수하기도 했는데요, 이를 통해 슬랙을 활용한 대화형 티켓팅 시스템이 JSM과 연동 되어 더 다양한 역할로 확장 될 것으로 보입니다.
+ </span>
+</p>
+<p>
+ <span>
+  아무튼 점점 향상된 티켓관리 및 DevOps 환경에서 JSM이 다양한 역할을 할 것으로 기대가 되구요, 저희 오픈소스컨설팅에서도 2021년 초부터 ITIL에 기반한 ITSM 교육 프로그램 및 JSM을 이용한 구축 교육 및 프로젝트를
+  <strong>
+   <a class="external-link" href="https://www.sharingtechlabs.com/" rel="nofollow">
+    열린기술공방
+   </a>
+  </strong>
+  을 통해 실시 할 예정이니 많은 관심 부탁드립니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span>
+  오늘도 좋은 하루 되세요!
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2020/12/15/104422598/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2020/12/15/104422598/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/brian/">
+            <div id="author-image" style="background-image:url(/files/authors/brian.jpg);">
+                <span class="sr-only">brian's profile image</span>
+            </div>
+            <p id="author-name">brian</p>
+        </a>
+        <p id="post-date">2020-12-15</p>
+        <a id="post-more" href="/authors/brian/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/104420311/0.png);">
+            <div>
+                <h3><a href="/2020/12/07/104420311/">Atlassian 12월 Release Note</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>
