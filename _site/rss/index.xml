@@ -9,9 +9,417 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 16 Dec 2020 18:22:17 +0900</pubDate>
-    <lastBuildDate>Wed, 16 Dec 2020 18:22:17 +0900</lastBuildDate>
+    <pubDate>Thu, 07 Jan 2021 15:28:31 +0900</pubDate>
+    <lastBuildDate>Thu, 07 Jan 2021 15:28:31 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Release Note 2021-01월</title>
+        <description>&lt;p&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ &lt;/span&gt;
+ &lt;br/&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  이번 포스팅에서는 아틀라시안 제품군의 Confluence 7.10 그리고 Bibucket 7.9 의 최신 Release Note를 전해드리고자 합니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h2 id=&quot;ReleaseNote2021-01월-서버라이선스중단안내&quot;&gt;
+ &lt;strong&gt;
+  서버 라이선스 중단 안내
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+ 아틀라시안의 발표 이후, 오픈소스컨설팅이 구매 고객 대상으로 발송한 아틀라시안 신규 라이선스 제공 중단에 대한 안내를 구독자분들께도 공개합니다. 서버 라이선스의 중단에 대비하여, 3가지 선택 사항에 대한 설명과 가이드를 제시하고 있으니, 자세한 내용은 아래 버튼을 눌러 확인해주세요!
+ &lt;br/&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://widgets.ziftsolutions.com/8a998249756176d3017563df435a1b41&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  서버 라이센스 중단 안내
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;ReleaseNote2021-01월-Confluence7.10릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Confluence 7.10 릴리즈 노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;ReleaseNote2021-01월-|JiraServiceDeskisnowJiraServiceManagement/지라서비스데스크이름변경&quot;&gt;
+ &lt;strong&gt;
+  | Jira Service Desk is now Jira Service Management / 지라 서비스 데스크 이름 변경
+  &lt;br/&gt;
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Server ] [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ Jira Service Management는 Dev 및 Ops 팀이 빠른 속도로 협업할 수 있도록 지원하므로, 비즈니스 변화에 신속하게 대응하고 우수한 고객 및 직원 서비스 환경을 신속하게 제공할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ Confluence에서 새로운 이름을 사용하도록 업데이트되었지만 여전히 지식 기반 통합을 포함한 여러기능을 동일하게 제공합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://www.atlassian.com/software/jira/service-management&quot; rel=&quot;nofollow&quot;&gt;
+  Jira Service Management 더 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;ReleaseNote2021-01월-|CleanupyourConfluencesite/Confluence사이트정리&quot;&gt;
+ &lt;strong&gt;
+  | Clean up your Confluence site / Confluence 사이트 정리
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Server ] [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 크고 오래된 Confluence 사이트의 눈에 띄는 부작용은 관리하기 어려운 엄청난 양의 컨텐츠가 만들어졌다는 것입니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 시간이 흐르면, 이것은 정말로 많이 쌓일 것이고, 필요없는 것들을 삭제하는것이 필수적이 될 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 새로운 가이드는 당신에게 이러한 것들을 쉽게 발견할 수 있도록 지원하며 Confluence의 footprint를 줄이기 위한 많은 힌트와 팁을 제공합니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 보관 공간에서부터 크기가 큰 첨부 파일을 식별하는 것까지, Confluence를 복잡하고 어수선한것으로 부터 자유롭게 해주는 다양한 정보를 제공합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/clean/clean-up-your-confluence-instance-1026047969.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  컨플루언스 인스턴스를 정리하는 방법 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 이 항목에서 더 많은 개선을 계획하고 있으며, 추후 릴리즈에서 귀하와 공유하기를 기대하고 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h1 id=&quot;ReleaseNote2021-01월-Bitbucket7.9릴리즈노트&quot;&gt;
+ &lt;strong&gt;
+  Bitbucket 7.9 릴리즈노트
+ &lt;/strong&gt;
+&lt;/h1&gt;
+&lt;h2 id=&quot;ReleaseNote2021-01월-|Upgradewithoutdowntime/다운타임없이업그레이드&quot;&gt;
+ &lt;strong&gt;
+  &lt;span&gt;
+   | Upgrade without downtime / 다운타임 없이 업그레이드
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span&gt;
+   &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+    [ Data Center ]
+   &lt;/span&gt;
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
+  Bitbucket 인스턴스를 최신 상태로 유지하는 것은 필수입니다. 하지만 업그레이드에 필요한 다운타임때문에 1년에 한 번정도만 업그레이드할 수 있고, 이때문에 중요한 버그 및 보안 수정에 대한 업그레이드가 제한되었었습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;ReleaseNote2021-01월-새로운Rolling업그레이드&quot;&gt;
+ 새로운 Rolling 업그레이드
+&lt;/h3&gt;
+&lt;p&gt;
+ Bitbucket 데이터 센터 클러스터에서는이제 다운타임 없이 호환되는 버전으로 Rolling 업그레이드를 수행할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 작업 방법은 다음과 같습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 먼저 Bitbucket을 업그레이드 모드(1)로 설정한 다음 각 노드를 차례로 업그레이드하십시오.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 각 노드를 업그레이드하는 방법은 배포 환경에 따라 달라집니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/104427683/0.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline&quot;&gt;
+  &lt;br/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 클러스터 개요 (2) 업그레이드 중에 클러스터에서 발생하는 상황을 정확하게 확인하십시오.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 모든 노드에서 새 버전을 실행하면 업그레이드(3)를 완료할 수 있다.
+&lt;/p&gt;
+&lt;p&gt;
+ 한 번에 한 노드만 아래로 가져가면 된다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 이는 사용자들이 Bitbucket을 업그레이드중에도 코드 검토를 계속할 수 있다는 것을 의미합니다.
+&lt;/p&gt;
+&lt;h3 id=&quot;ReleaseNote2021-01월-업그레이드자동화&quot;&gt;
+ 업그레이드 자동화
+&lt;/h3&gt;
+&lt;p&gt;
+ 프로세스의 일부를 자동화하고 싶으세요?
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/upgrade-a-bitbucket-cluster-through-the-api-without-downtime-1038780382.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  REST API를 사용하여 업그레이드 모드를 설정
+ &lt;/a&gt;
+ 하고 노드 또는 클러스터의 상태를 확인한 후 업그레이드를 완료하세요.
+&lt;/p&gt;
+&lt;h3 id=&quot;ReleaseNote2021-01월-호환버전&quot;&gt;
+ 호환 버전
+&lt;/h3&gt;
+&lt;p&gt;
+ 현재는 버그 수정 릴리스에만 Rolling 업그레이드를 사용할 수 있습니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ 예를 들어 Bitbucket 7.9.0에서 7.9.2로  업그레이드를 수행할 수 있지만 비트버킷 7.9.0에서 7.10.0으로 Rolling 업그레이드를 수행할 수는 없습니다. Rolling 업그레이드는 2년 동안 정기적으로 중요한 보안 및 버그 수정을 받는 향후
+ &lt;span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/enterprise/long-term-support-releases-948227420.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  장기 지원 릴리스
+ &lt;/a&gt;
+ 를 사용하실 경우 특히 유용할 것입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ Bitbucket을 자신의 On-prem에서 실행하든, AWS 또는 Azure에서 실행하든 다운타임 없이 업그레이드할 수 있습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/upgrade-bitbucket-without-downtime-1038780379.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  Rolling 업그레이드에 대해 자세히 알아보기
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;ReleaseNote2021-01월-|Bebetterpreparedforupgrades/업그레이드를위한더나은준비과정가이드&quot;&gt;
+ &lt;strong&gt;
+  | Be better prepared for upgrades / 업그레이드를 위한 더 나은 준비과정 가이드
+  &lt;br/&gt;
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ &lt;strong&gt;
+  &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
+   [ Server ] [ Data Center ]
+  &lt;/span&gt;
+ &lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 업그레이드에는 많은 계획과 준비가 수반되므로 업그레이드 작업을 쉽게 하기 위해 몇 가지 추가 기능을 추가했습니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 새로운 업그레이드 전 계획 툴은 필요한 모든 지침을 한 곳에 모아둡니다.
+ &lt;span&gt;
+ &lt;/span&gt;
+ Bitbucket 인스턴스를 분석하고, 몇 가지 검사를 실행하고, 해당 인스턴스와 업그레이드 경로에 맞는 업그레이드 가이드를 만들어줍니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+ &lt;/span&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline conf-macro output-block&quot; style=&quot;color: rgb(23,43,77);&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104427683/1.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  를 클릭하신뒤&amp;gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;strong&gt;
+  Administration
+ &lt;/strong&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+  &amp;gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;strong&gt;
+  Plan your upgrade
+ &lt;/strong&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  &lt;span&gt;
+  &lt;/span&gt;
+  를 통해 이를 확인해보세요.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/104427683/2.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;h2 id=&quot;ReleaseNote2021-01월-|Whatelseisnew?/또무엇이달라졌나요?&quot;&gt;
+ &lt;strong&gt;
+  | What else is new? / 또 무엇이 달라졌나요?
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ Bitbucket은 이제
+ &lt;strong&gt;
+  &lt;span&gt;
+   &lt;strong style=&quot;text-align: left;&quot;&gt;
+    Elliptic Curve
+   &lt;/strong&gt;
+  &lt;/span&gt;
+  GPG 키
+ &lt;/strong&gt;
+ 를 지원합니다. 키를 만드는 방법에 대한 자세한 내용은
+ &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/bitbucketserver/using-gpg-keys-913477014.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  GPG키 사용
+ &lt;/a&gt;
+ 을 확인해보세요.
+&lt;/p&gt;
+&lt;ul class=&quot;ak-ul&quot; style=&quot;text-align: left;&quot;&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    Curve 255198
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    NIST P-256
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    NIST P-384
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    NIST P-521
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    Brainpool P-256
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    Brainpool P-384
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    Brainpool P-512
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+  &lt;p&gt;
+   &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+    secp256k1
+   &lt;/span&gt;
+  &lt;/p&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;ReleaseNote2021-01월-|Updatestosupportedplatforms/지원되는플랫폼업데이트&quot;&gt;
+ &lt;strong&gt;
+  | Updates to supported platforms / 지원되는 플랫폼 업데이트
+ &lt;/strong&gt;
+&lt;/h2&gt;
+&lt;p&gt;
+ Bitbucket 7.9에서 부터 다음 버전에 대한 실행을 지원합니다.
+&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;
+  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
+   Git 2.30 for Server
+  &lt;/span&gt;
+ &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  앞으로도 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  감사합니다!
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
+  &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+   atlassian@osci.kr
+  &lt;/a&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+</description>
+        <pubDate>Thu, 07 Jan 2021 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2021/01/07/104427683/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2021/01/07/104427683/</guid>
+        
+        <category>아틀라시안</category>
+        
+        <category>releasenote</category>
+        
+        
+      </item>
     
       <item>
         <title>지라서비스매니지먼트(JSM) 소개 (부제 : 지라서비스데스크(JSD)를 넘어서 본격적인 ITSM 툴로의 변화)</title>
@@ -6971,628 +7379,6 @@ Sharing Tech. Growing Together.
         <category>releasenote</category>
         
         <category>아틀라시안</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>DevOps with Atlassian</title>
-        <description>&lt;div class=&quot;contentLayout2&quot;&gt;
- &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
-      안녕하세요.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
-      아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
-     &lt;/span&gt;
-     &lt;br style=&quot;text-align: justify;&quot;/&gt;
-     &lt;span style=&quot;color: rgb(58,58,58);&quot;&gt;
-      이번 포스팅에서는 아틀라시안 솔루션을 이용한 DevOps에 대해서 전해드리고자 합니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;h1 id=&quot;DevOpswithAtlassian-|DevOpswithAtlassian:Aguidetocloudfeatures&quot;&gt;
-     &lt;span style=&quot;letter-spacing: -0.01em;&quot;&gt;
-      | DevOps with Atlassian: A guide to cloud features
-     &lt;/span&gt;
-    &lt;/h1&gt;
-    &lt;h2 id=&quot;DevOpswithAtlassian-Atlassian솔루션을이용해개발자가코드품질을지키며더욱빠르게제공할수있는방법&quot;&gt;
-     &lt;span style=&quot;color: rgb(122,134,154);&quot;&gt;
-      Atlassian 솔루션을 이용해 개발자가 코드 품질을 지키며 더욱 빠르게 제공할 수 있는 방법
-     &lt;/span&gt;
-    &lt;/h2&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h2 id=&quot;DevOpswithAtlassian-|Introduction&quot;&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      | Introduction
-     &lt;/span&gt;
-    &lt;/h2&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      협업이 증가하면 개발자들에게는 비용이 발생할 수 있습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      개발자들은 혁신적인 솔루션을 코딩하고 구축하는 것에 집중하기 보다, 여러 도구를 통합하고 작업 상태를 업데이트하고 다른 팀과 작업내역을 공유하면서 하루 중 많은 시간을 보낼 수 있습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      최근 아틀라시안이 실시한 DevOps Trends Survey에 따르면 개발자의 80% 이상이 툴의 단절, 수동 프로세스, 그리고 끊임없이 변화하는 협업 프로세스가 방해가 되고 있다고 말합니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      개발자는 DevOps를 위한 Atlassian의 새로운 기능, 자동화 및 통합을 통해 시간을 단축하고 코드를 더 빨리 제공 할 수 있습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      팀은 IT 보안사고에 대해서 적은 컨텍스트 전환, 적은 회의 및 ping 감소로 잇점을 누릴 수 있습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      자사 제품 및 타사 툴 전반에 걸친 자동화를 통해 개발, IT운영, 비즈니스 팀을 연결함으로써 개발자들이 그들의 코드에 집중할 수 있도록 도와줍니다. Atlassian
-     &lt;/span&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      은 Jira를 중심으로 DevOps의 모든 업무를 통일하고 협업의 과부하를 줄입니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Atlassian 도구가 개발자의 생산성 향상에 어떤 도움이되는지 알아보십시오.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/0.png&quot;/&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;hr/&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;h2 id=&quot;DevOpswithAtlassian-|PLAN&quot;&gt;
-     | PLAN
-    &lt;/h2&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-코드컨텍스트에서바로프로젝트계획및추적&quot;&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      코드 컨텍스트에서 바로 프로젝트 계획 및 추적
-     &lt;/span&gt;
-    &lt;/h3&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/1.png&quot;/&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      DevOps 툴 체인은 단일 크기 접근 방식(one-size-fits-all approach)이 아닙니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      DevOps는 서로 다른 애플리케이션과 팀에 걸친 툴박스로서, 개발자는 어떤 툴을 사용해야 하는지, 몇개의 툴을 사용하여야 하는지에 대해 가장 잘 알고 있습니다.
-     &lt;/span&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
-      그러나 이러한 유연성과 함께 작업의 조정에 대한 필요성이 중요해집니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
-      Atlassian
-      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-       의 DevOps 조사 결과, 점점 더 많은 수의 DevOps 팀들이 프로젝트 상태를 이해하기 위해 5개 이상의 도구가 필요하다고 말하고 있는 것으로 나타났습니다. 이러한 도구에서 밀접하게 작업하지 않는 IT 운영 및 비즈니스 팀은 무슨 일이 언제 발생하는지 알아야합니다. 이때 필요한것이 Jira입니다. 지라는 팀과 도구에 걸쳐 작업을 자동으로 통합합니다.
-      &lt;/span&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Jira Software Cloud와 Bitbucket Cloud, GitHub 및 GitLab 간의 통합을 통해 이슈 트래킹 및 코드를 작성하면 자동으로 프로젝트 업데이트가 수행되도록 할 수 있습니다.
-     &lt;/span&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
-      그리고 Bitbucket, GitHub 또는 GitLab에서의 당신의 작업이 자동으로 업데이트 되므로 프로젝트 관리자는 업데이트를 위해 코딩 흐름을 중단 할 필요가 없습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-|작업대시보드&quot;&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      | 작업 대시보드
-     &lt;/span&gt;
-    &lt;/h3&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Bitbucket Cloud의 새로운 작업 대시 보드가 할당 된 Jira 이슈를 포함하도록 확장 되었으므로 도구 간에 이동하지 않고도 한 작업에서 다음 작업으로 빠르게 이동할 수 있습니다. 또한 각 레포지토리 내부에서는 &quot;Jira issue&quot; 탭 내에서 연결된 프로젝트와 이슈에 대한 새로운 팀 차원의 뷰를 곧 볼 수 있습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-|DevOps자동화트리거&quot;&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      | DevOps 자동화 트리거
-     &lt;/span&gt;
-    &lt;/h3&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Jira Software Cloud의 새로운 DevOps 자동화 트리거로 자동화 기능이 향상되었습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      클릭 몇 번만으로 연결된 코드 저장소에서 커밋 또는 꺼내기 요청 작업의 트리거를 통해 개발 활동과 작업을 동기화하는 자동화 규칙을 만들 수 있습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     기본적으로 관련 Jira 이슈의 상태를 자동으로 업데이트 할 수 있지만 이러한 새로운 자동화를 통해 QA 또는 코드 검토를 위해 Jira 이슈를 재 할당하거나 팀의 Slack 채널에 새 PR에 대한 메시지를 보내는 것과 같은 더 복잡한 규칙도 사용할 수 있습니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      이러한 자동화 규칙은 Bitbucket Cloud, GitHub, GitLab 및 Jira Software Cloud와 통합되는 다른 코드 리포지토리와 함께 작동합니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
-       &lt;img src=&quot;/assets/images/97478051/2.png&quot;/&gt;
-      &lt;/span&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;hr/&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;h2 id=&quot;DevOpswithAtlassian-|BUILD&quot;&gt;
-     | BUILD
-    &lt;/h2&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-하던작업을잃지않고코드검토,테스트및배포&quot;&gt;
-     하던 작업을 잃지 않고 코드 검토, 테스트 및 배포
-    &lt;/h3&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/3.png&quot;/&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      모든 팀은 코드를 작성하고 검토할 수 있는 최고의 도구를 원합니다.  Atlassian이 Bitbucket Cloud를 통해서 그 요구 사항을 충족시켜 줄 수 있습니다.
-     &lt;/span&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
-      코드 작성 및 검토와 같이 매일 수행하는 가장 중요한 작업에서 개발자의 생산성을 극대화하십시오.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;div class=&quot;confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
-     &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-      &lt;p&gt;
-       Bitbucket에서 작업하든 IDE에서 작업하든 관계없이 목표는 흐름을 유지하고 도구 사이의 불필요한 바운스를 줄이는 것입니다.
-      &lt;/p&gt;
-     &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-|새로운PullRequest경험&quot;&gt;
-     | 새로운 Pull Request 경험
-    &lt;/h3&gt;
-    &lt;p&gt;
-     Bitbucket Cloud의 새로운 Pull Request 경험은 코드 변경을 보다 쉽고 빠르게 검토 할 수있는 혁신적인 설계를 제공합니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     통합 된 작업 목록, 통합 된 Jira 이슈 생성 및 활동 피드 필터와 같은 새로운 기능을 통해 개발자는 코드 검토를 더 빠르게 완료하고 여러 풀 요청을 한 번에 효율적으로 처리 할 수 있습니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-|VSCode통합&quot;&gt;
-     | VS Code 통합
-    &lt;/h3&gt;
-    &lt;p&gt;
-     Atlassian VS Code 통합은 Jira Software Cloud의 작업 목록, 완벽한 코드 검토 경험 및 Bitbucket Pipelines의 CI/CD 추적을 통해 전체 개발 파이프 라인을 편집기로 가져옵니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;hr/&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;h2 id=&quot;DevOpswithAtlassian-|CI/CD&quot;&gt;
-     | CI/CD
-    &lt;/h2&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-Shipfastwithoutbreakingthings&quot;&gt;
-     Ship fast without breaking things
-    &lt;/h3&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/4.png&quot;/&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     DevOps 팀은 자동화 및 수동 점검의 &quot;shifting-left&quot;을 통해 CI / CD 프로세스로 파이프 라인을 가속화하려고합니다. 이를 지원하기 위해 Bitbucket Cloud 코드 검토 환경은 이제 코드 스캔 및 품질 보고서와 통합되므로 검토자는 프로덕션으로 전달되기 전에 잠재적인 문제에 대해 경고를 받습니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     또한 Jira Service Desk Cloud에서 CI/CD 파이프 라인을 손쉽게 변경 승인과 연결하는 새로운 자동 변경 관리 기능을 사용해 볼 수 있습니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-|CodeInsights&quot;&gt;
-     | Code Insights
-    &lt;/h3&gt;
-    &lt;p&gt;
-     Bitbucket Cloud의 Code Insights를 사용하면
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      코드 검토 프로세스에 대한 테스트 및 분석이 가능하며, 테스트 자동화를위한 Mabl과 자동화 된 모니터링을위한 Sentry를 포함하여
-     &lt;/span&gt;
-     최고의 DevOps 스캐닝을 할 수 있습니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     Snyk가 Sev-1 보안 사고로 전환되기 전에 중요한 보안 취약점을 조기에 검색하고 강조 할 수 있으므로 Atlassian의 새로운 Snyk와 DevSecOps 통합이 특히 중요합니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     이러한 모든 통합은 개방형 API를 기반으로하기 때문에 자체 도구에 대한 추가 코드 보고서를 사용하여 Bitbucket Cloud를 확장 할 수 있습니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/5.png&quot;/&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-|자동화된변경관리&quot;&gt;
-     | 자동화된 변경 관리
-    &lt;/h3&gt;
-    &lt;p&gt;
-     Jira Service Desk Cloud 및 Bitbucket Pipelines(현재 초기 액세스 상태)를 통한 자동 변경 관리는 CI/CD 프로세스를 일시 중지하고 Jira Service Desk에서 변경 요청을 만든 다음 승인되면 배포를 트리거합니다.
-    &lt;/p&gt;
-    &lt;ul style=&quot;list-style-type: square;&quot;&gt;
-     &lt;li&gt;
-      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-       &lt;strong&gt;
-        Jira Service Desk Cloud의 Risk Assessment Engine은
-       &lt;/strong&gt;
-       변경 리스크를 신속하게 파악하여 리스크가 낮은 변경 사항을 자동으로 승인하고 배포합니다.
-      &lt;/span&gt;
-     &lt;/li&gt;
-     &lt;li&gt;
-      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-       &lt;strong&gt;
-        Jira Service Desk Cloud의 변경 관리 뷰는
-       &lt;/strong&gt;
-       팀이 검토하고 필요한 경우 수동으로 승인 할 수있는 변경 가능한 변경 요청에서 모든 정보를 한꺼번에 모아 위험이 높은 변경에 대한 승인 프로세스를 간소화합니다.
-      &lt;/span&gt;
-     &lt;/li&gt;
-     &lt;li&gt;
-      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-       &lt;strong&gt;
-        자동 변경 관리는
-       &lt;/strong&gt;
-       Bitbucket Pipelines, Jenkins, Circle CI 및 Octopus Deploy를 지원합니다
-      &lt;/span&gt;
-     &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
-       &lt;img src=&quot;/assets/images/97478051/6.png&quot;/&gt;
-      &lt;/span&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;hr/&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;h2 id=&quot;DevOpswithAtlassian-|OPERATE&amp;amp;MONITOR&quot;&gt;
-     | OPERATE &amp;amp; MONITOR
-    &lt;/h2&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-긴급한인시던트를진단하고,사고를더빠르게해결하기&quot;&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      긴급한 인시던트를 진단하고, 사고를 더 빠르게 해결하기
-     &lt;/span&gt;
-    &lt;/h3&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;span class=&quot;confluence-embedded-file-wrapper image-right-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/7.png&quot;/&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      사건이 발생하면 신속한 해결의 핵심은 문제의 원인을 신속하게 파악하는 것입니다. 그리고 팀이 DevOps를 채택하고 구축 프로세스를 자동화함에 따라 변경 관련 실패가 점점 더 일반화되고 있습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
-      최근의 코드 변경으로 인해 문제가 발생했는지 여부를 알고, 즉시 적절한 개발자로부터 도움을 받을 수 있다면 좋지 않을까요?
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
-      오늘날 대부분의 팀은 Git 히스토리 및 Jira 티켓을 통해 트롤링하는 추적 작업이 필요합니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);letter-spacing: 0.0px;&quot;&gt;
-      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-       Opsgenie는 Jira Software Cloud와 Bitbucket Cloud에 새롭게 심층적으로 통합되어 팀이 이 모든 과정을 단축할 수 있도록 지원하며, 첫 번째 응답자에게 최근 배포된 Jira 티켓과 관련 Jira 티켓에 대한 감사 추적 정보를 제공합니다.
-      &lt;/span&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-|Opsgenie및BitbucketCloud통합&quot;&gt;
-     | Opsgenie 및 Bitbucket Cloud 통합
-    &lt;/h3&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Opsgenie와 Bitbucket Cloud의 통합은 모든 경고를 중앙 집중화하고 노이즈를 걸러냄으로써 올바른 문제가 해결되고, 적절한 사람이 경고를 받으며 올바른 조치가 취해지도록 합니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-|IncidentInvestigationDashboard&quot;&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      | Incident Investigation Dashboard
-     &lt;/span&gt;
-    &lt;/h3&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-      Incident Investigation Dashboard를 통해 팀은 사고 직전에 발생한 배포를보고 잠재적 원인으로 추가한 다음, 변경을 한 개발자에게 연락하여 롤백하고 사고를 해결할 수 있습니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
-      &lt;img src=&quot;/assets/images/97478051/8.png&quot;/&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;hr/&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout two-right-sidebar&quot; data-layout=&quot;two-right-sidebar&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;h2 id=&quot;DevOpswithAtlassian-|COMMUNICATION&amp;amp;COLLABORATION&quot;&gt;
-     | COMMUNICATION &amp;amp; COLLABORATION
-    &lt;/h2&gt;
-    &lt;h3 id=&quot;DevOpswithAtlassian-DevOps는도구및사례/문화에관한것입니다.&quot;&gt;
-     DevOps는 도구 및 사례 / 문화에 관한 것입니다.
-    &lt;/h3&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cell aside&quot; data-type=&quot;aside&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     성공적인 DevOps 구현은 도구 연결로 끝나지 않습니다. 대부분의 DevOps 실무자들은 DevOps를 성공적으로 구현하는 데 사람과 문화를 가장 중요한 요소로 꼽습니다.
-    &lt;/p&gt;
-    &lt;p&gt;
-     이러한 균형을 맞추기 위해 Atlassian은 DevOps best practice를 배우고 공유 할 수있는 새로운 리소스 허브를 만들었습니다.
-    &lt;/p&gt;
-    &lt;ul style=&quot;list-style-type: square;&quot;&gt;
-     &lt;li&gt;
-      DevOps Community
-     &lt;/li&gt;
-     &lt;li&gt;
-      DevOps Confluence templates
-      &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-       (DevOps 의식을 개선하고 장기적인 목표를 설정하기 위한)
-      &lt;/span&gt;
-     &lt;/li&gt;
-     &lt;li&gt;
-      DevOps Guides(Jira와 같은 도구를 CI/CD와 같은 모범 사례와 연결하는 방법에 대해)
-     &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;div class=&quot;confluence-information-macro has-no-icon confluence-information-macro-information conf-macro output-block&quot; data-hasbody=&quot;true&quot; data-macro-name=&quot;info&quot;&gt;
-     &lt;div class=&quot;confluence-information-macro-body&quot;&gt;
-      &lt;p&gt;
-       &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-        일상적인 커뮤니케이션을 위해 새로운 Slack 통합 및 Statuspage 통합은 내부 및 외부 커뮤니케이션 모두에서 DevOps 모범 사례를 채택하는 데 도움이 될 수 있습니다.
-       &lt;/span&gt;
-      &lt;/p&gt;
-     &lt;/div&gt;
-    &lt;/div&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;columnLayout single&quot; data-layout=&quot;single&quot;&gt;
-  &lt;div class=&quot;cell normal&quot; data-type=&quot;normal&quot;&gt;
-   &lt;div class=&quot;innerCell&quot;&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;hr/&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     원문 PDF :
-     &lt;a class=&quot;external-link&quot; href=&quot;https://static.ziftsolutions.com/files/8a9983c372bab3890172cb343db53375/DevopsLaunchforChannelPartnerscustomizeversion.pdf&quot; rel=&quot;nofollow&quot;&gt;
-      DevOps with Atlassian
-     &lt;/a&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     Atlassian 솔루션에 대해
-     &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
-      궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
-      감사합니다.
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;span style=&quot;letter-spacing: 0.0px;&quot;&gt;
-      &lt;a class=&quot;external-link&quot; href=&quot;mailto:atlassian@osci.kr&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
-       atlassian@osci.kr
-      &lt;/a&gt;
-     &lt;/span&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-    &lt;p&gt;
-     &lt;br/&gt;
-    &lt;/p&gt;
-   &lt;/div&gt;
-  &lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;</description>
-        <pubDate>Wed, 05 Aug 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/08/05/97478051/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/08/05/97478051/</guid>
-        
-        <category>atlassian</category>
-        
-        <category>releasenote</category>
         
         
       </item>

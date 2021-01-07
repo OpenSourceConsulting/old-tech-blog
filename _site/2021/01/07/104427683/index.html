@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Release Note 2021-01월</title>
+<meta name="title" content="Release Note 2021-01월" />
+<meta name="author" content="soohyeonlee"/>
+<meta name="description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 Confluence 7.10 그리고 Bibucket 7.9 의 최신 Release Note를 전해드리고자 합니다. 서버 라이선스 중단 안내 아틀라시안의 발표 이후, 오픈소스컨설팅이 구매 고객 대상으로 발송한 아틀라시안 신규 라이선스 제공 중단에 대한 안내를 구독자분들께도 공개합니다. 서버 라이선스의 중단에 대비하여, 3가지 선택 사항에 대한 설명과 가이드를 제시하고 있으니, 자세한 내용은 아래 버튼을 눌러 확인해주세요! 서버 라이센스 중단 안내 Confluence 7.10 릴리즈 노트 | Jira Service Desk is now Jira Service..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Release Note 2021-01월"/>
+<meta property="og:description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 Confluence 7.10 그리고 Bibucket 7.9 의 최신 Release Note를 전해드리고자 합니다. 서버 라이선스 중단 안내 아틀라시안의 발표 이후, 오픈소스컨설팅이 구매 고객 대상으로 발송한 아틀라시안 신규 라이선스 제공 중단에 대한 안내를 구독자분들께도 공개합니다. 서버 라이선스의 중단에 대비하여, 3가지 선택 사항에 대한 설명과 가이드를 제시하고 있으니, 자세한 내용은 아래 버튼을 눌러 확인해주세요! 서버 라이센스 중단 안내 Confluence 7.10 릴리즈 노트 | Jira Service Desk is now Jira Service..."/>
+<meta property="og:url" content="https://tech.osci.kr/2021/01/07/104427683/"/>
+<meta property="og:image" content="/assets/images/104427683/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Release Note 2021-01월"/>
+<meta name="twitter:description" content="안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다. 이번 포스팅에서는 아틀라시안 제품군의 Confluence 7.10 그리고 Bibucket 7.9 의 최신 Release Note를 전해드리고자 합니다. 서버 라이선스 중단 안내 아틀라시안의 발표 이후, 오픈소스컨설팅이 구매 고객 대상으로 발송한 아틀라시안 신규 라이선스 제공 중단에 대한 안내를 구독자분들께도 공개합니다. 서버 라이선스의 중단에 대비하여, 3가지 선택 사항에 대한 설명과 가이드를 제시하고 있으니, 자세한 내용은 아래 버튼을 눌러 확인해주세요! 서버 라이센스 중단 안내 Confluence 7.10 릴리즈 노트 | Jira Service Desk is now Jira Service..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="soohyeonlee"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/104427683/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="아틀라시안,releasenote"/>
+
+<meta property="article:tag" content="아틀라시안"/>
+
+<meta property="article:tag" content="releasenote"/>
+
+
+
+<meta property="article:published_time" content="2021-01-07T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/soohyeonlee"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2021/01/07/104427683/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/104427683/0.png);">
+    <div>
+        <h1>Release Note 2021-01월</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                아틀라시안
+                ,
+            
+                releasenote
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ <span style="color: rgb(23,43,77);">
+  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ </span>
+ <br/>
+ <span style="color: rgb(23,43,77);">
+  이번 포스팅에서는 아틀라시안 제품군의 Confluence 7.10 그리고 Bibucket 7.9 의 최신 Release Note를 전해드리고자 합니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<hr/>
+<h2 id="ReleaseNote2021-01월-서버라이선스중단안내">
+ <strong>
+  서버 라이선스 중단 안내
+ </strong>
+</h2>
+<p>
+ <br/>
+ 아틀라시안의 발표 이후, 오픈소스컨설팅이 구매 고객 대상으로 발송한 아틀라시안 신규 라이선스 제공 중단에 대한 안내를 구독자분들께도 공개합니다. 서버 라이선스의 중단에 대비하여, 3가지 선택 사항에 대한 설명과 가이드를 제시하고 있으니, 자세한 내용은 아래 버튼을 눌러 확인해주세요!
+ <br/>
+ <a class="external-link" href="https://widgets.ziftsolutions.com/8a998249756176d3017563df435a1b41" rel="nofollow" style="text-decoration: none;">
+  서버 라이센스 중단 안내
+ </a>
+</p>
+<p>
+ <br/>
+</p>
+<hr/>
+<h1 id="ReleaseNote2021-01월-Confluence7.10릴리즈노트">
+ <strong>
+  Confluence 7.10 릴리즈 노트
+ </strong>
+</h1>
+<h2 id="ReleaseNote2021-01월-|JiraServiceDeskisnowJiraServiceManagement/지라서비스데스크이름변경">
+ <strong>
+  | Jira Service Desk is now Jira Service Management / 지라 서비스 데스크 이름 변경
+  <br/>
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Server ] [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ Jira Service Management는 Dev 및 Ops 팀이 빠른 속도로 협업할 수 있도록 지원하므로, 비즈니스 변화에 신속하게 대응하고 우수한 고객 및 직원 서비스 환경을 신속하게 제공할 수 있습니다.
+</p>
+<p>
+ Confluence에서 새로운 이름을 사용하도록 업데이트되었지만 여전히 지식 기반 통합을 포함한 여러기능을 동일하게 제공합니다.
+</p>
+<p>
+ <a class="external-link" href="https://www.atlassian.com/software/jira/service-management" rel="nofollow">
+  Jira Service Management 더 알아보기
+ </a>
+</p>
+<h2 id="ReleaseNote2021-01월-|CleanupyourConfluencesite/Confluence사이트정리">
+ <strong>
+  | Clean up your Confluence site / Confluence 사이트 정리
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Server ] [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ 크고 오래된 Confluence 사이트의 눈에 띄는 부작용은 관리하기 어려운 엄청난 양의 컨텐츠가 만들어졌다는 것입니다.
+ <span>
+ </span>
+ 시간이 흐르면, 이것은 정말로 많이 쌓일 것이고, 필요없는 것들을 삭제하는것이 필수적이 될 수 있습니다.
+</p>
+<p>
+ 새로운 가이드는 당신에게 이러한 것들을 쉽게 발견할 수 있도록 지원하며 Confluence의 footprint를 줄이기 위한 많은 힌트와 팁을 제공합니다.
+ <span>
+ </span>
+ 보관 공간에서부터 크기가 큰 첨부 파일을 식별하는 것까지, Confluence를 복잡하고 어수선한것으로 부터 자유롭게 해주는 다양한 정보를 제공합니다.
+</p>
+<p>
+ <a class="external-link" href="https://confluence.atlassian.com/clean/clean-up-your-confluence-instance-1026047969.html" rel="nofollow" style="text-decoration: none;">
+  컨플루언스 인스턴스를 정리하는 방법 알아보기
+ </a>
+</p>
+<p>
+ 이 항목에서 더 많은 개선을 계획하고 있으며, 추후 릴리즈에서 귀하와 공유하기를 기대하고 있습니다.
+</p>
+<p>
+ <br/>
+</p>
+<hr/>
+<h1 id="ReleaseNote2021-01월-Bitbucket7.9릴리즈노트">
+ <strong>
+  Bitbucket 7.9 릴리즈노트
+ </strong>
+</h1>
+<h2 id="ReleaseNote2021-01월-|Upgradewithoutdowntime/다운타임없이업그레이드">
+ <strong>
+  <span>
+   | Upgrade without downtime / 다운타임 없이 업그레이드
+  </span>
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </span>
+ </strong>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  Bitbucket 인스턴스를 최신 상태로 유지하는 것은 필수입니다. 하지만 업그레이드에 필요한 다운타임때문에 1년에 한 번정도만 업그레이드할 수 있고, 이때문에 중요한 버그 및 보안 수정에 대한 업그레이드가 제한되었었습니다.
+ </span>
+</p>
+<h3 id="ReleaseNote2021-01월-새로운Rolling업그레이드">
+ 새로운 Rolling 업그레이드
+</h3>
+<p>
+ Bitbucket 데이터 센터 클러스터에서는이제 다운타임 없이 호환되는 버전으로 Rolling 업그레이드를 수행할 수 있습니다.
+</p>
+<p>
+ 작업 방법은 다음과 같습니다.
+ <span>
+ </span>
+ 먼저 Bitbucket을 업그레이드 모드(1)로 설정한 다음 각 노드를 차례로 업그레이드하십시오.
+ <span>
+ </span>
+ 각 노드를 업그레이드하는 방법은 배포 환경에 따라 달라집니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/104427683/0.png"/>
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <br/>
+ </span>
+</p>
+<p>
+ 클러스터 개요 (2) 업그레이드 중에 클러스터에서 발생하는 상황을 정확하게 확인하십시오.
+ <span>
+ </span>
+ 모든 노드에서 새 버전을 실행하면 업그레이드(3)를 완료할 수 있다.
+</p>
+<p>
+ 한 번에 한 노드만 아래로 가져가면 된다.
+ <span>
+ </span>
+ 이는 사용자들이 Bitbucket을 업그레이드중에도 코드 검토를 계속할 수 있다는 것을 의미합니다.
+</p>
+<h3 id="ReleaseNote2021-01월-업그레이드자동화">
+ 업그레이드 자동화
+</h3>
+<p>
+ 프로세스의 일부를 자동화하고 싶으세요?
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/upgrade-a-bitbucket-cluster-through-the-api-without-downtime-1038780382.html" rel="nofollow" style="text-decoration: none;">
+  REST API를 사용하여 업그레이드 모드를 설정
+ </a>
+ 하고 노드 또는 클러스터의 상태를 확인한 후 업그레이드를 완료하세요.
+</p>
+<h3 id="ReleaseNote2021-01월-호환버전">
+ 호환 버전
+</h3>
+<p>
+ 현재는 버그 수정 릴리스에만 Rolling 업그레이드를 사용할 수 있습니다.
+ <span>
+ </span>
+ 예를 들어 Bitbucket 7.9.0에서 7.9.2로  업그레이드를 수행할 수 있지만 비트버킷 7.9.0에서 7.10.0으로 Rolling 업그레이드를 수행할 수는 없습니다. Rolling 업그레이드는 2년 동안 정기적으로 중요한 보안 및 버그 수정을 받는 향후
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/enterprise/long-term-support-releases-948227420.html" rel="nofollow" style="text-decoration: none;">
+  장기 지원 릴리스
+ </a>
+ 를 사용하실 경우 특히 유용할 것입니다.
+</p>
+<p>
+ Bitbucket을 자신의 On-prem에서 실행하든, AWS 또는 Azure에서 실행하든 다운타임 없이 업그레이드할 수 있습니다.
+</p>
+<p>
+ <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/upgrade-bitbucket-without-downtime-1038780379.html" rel="nofollow" style="text-decoration: none;">
+  Rolling 업그레이드에 대해 자세히 알아보기
+ </a>
+</p>
+<h2 id="ReleaseNote2021-01월-|Bebetterpreparedforupgrades/업그레이드를위한더나은준비과정가이드">
+ <strong>
+  | Be better prepared for upgrades / 업그레이드를 위한 더 나은 준비과정 가이드
+  <br/>
+ </strong>
+</h2>
+<p>
+ <strong>
+  <span style="color: rgb(51,102,255);">
+   [ Server ] [ Data Center ]
+  </span>
+ </strong>
+</p>
+<p>
+ 업그레이드에는 많은 계획과 준비가 수반되므로 업그레이드 작업을 쉽게 하기 위해 몇 가지 추가 기능을 추가했습니다.
+</p>
+<p>
+ 새로운 업그레이드 전 계획 툴은 필요한 모든 지침을 한 곳에 모아둡니다.
+ <span>
+ </span>
+ Bitbucket 인스턴스를 분석하고, 몇 가지 검사를 실행하고, 해당 인스턴스와 업그레이드 경로에 맞는 업그레이드 가이드를 만들어줍니다.
+</p>
+<p>
+ <span style="color: rgb(23,43,77);">
+ </span>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline conf-macro output-block" style="color: rgb(23,43,77);">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104427683/1.png"/>
+  </span>
+ </span>
+ <span style="color: rgb(23,43,77);">
+  를 클릭하신뒤&gt;
+  <span>
+  </span>
+ </span>
+ <strong>
+  Administration
+ </strong>
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  &gt;
+  <span>
+  </span>
+ </span>
+ <strong>
+  Plan your upgrade
+ </strong>
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  를 통해 이를 확인해보세요.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(23,43,77);">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/104427683/2.png"/>
+  </span>
+ </span>
+</p>
+<h2 id="ReleaseNote2021-01월-|Whatelseisnew?/또무엇이달라졌나요?">
+ <strong>
+  | What else is new? / 또 무엇이 달라졌나요?
+ </strong>
+</h2>
+<p>
+ Bitbucket은 이제
+ <strong>
+  <span>
+   <strong style="text-align: left;">
+    Elliptic Curve
+   </strong>
+  </span>
+  GPG 키
+ </strong>
+ 를 지원합니다. 키를 만드는 방법에 대한 자세한 내용은
+ <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/using-gpg-keys-913477014.html" rel="nofollow" style="text-decoration: none;">
+  GPG키 사용
+ </a>
+ 을 확인해보세요.
+</p>
+<ul class="ak-ul" style="text-align: left;">
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    Curve 255198
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    NIST P-256
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    NIST P-384
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    NIST P-521
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    Brainpool P-256
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    Brainpool P-384
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    Brainpool P-512
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    secp256k1
+   </span>
+  </p>
+ </li>
+</ul>
+<h2 id="ReleaseNote2021-01월-|Updatestosupportedplatforms/지원되는플랫폼업데이트">
+ <strong>
+  | Updates to supported platforms / 지원되는 플랫폼 업데이트
+ </strong>
+</h2>
+<p>
+ Bitbucket 7.9에서 부터 다음 버전에 대한 실행을 지원합니다.
+</p>
+<ul>
+ <li>
+  <span style="color: rgb(23,43,77);">
+   Git 2.30 for Server
+  </span>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<hr/>
+<p>
+ <span style="color: rgb(0,0,0);">
+  앞으로도 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  감사합니다!
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <a class="external-link" href="mailto:atlassian@osci.kr" rel="nofollow" style="text-decoration: none;">
+   atlassian@osci.kr
+  </a>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<hr/>
+
+        <div class="fb-like" data-href="https://tech.osci.kr/2021/01/07/104427683/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2021/01/07/104427683/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/soohyeonlee/">
+            <div id="author-image" style="background-image:url(/files/authors/soohyeonlee.jpg);">
+                <span class="sr-only">soohyeonlee's profile image</span>
+            </div>
+            <p id="author-name">soohyeonlee</p>
+        </a>
+        <p id="post-date">2021-01-07</p>
+        <a id="post-more" href="/authors/soohyeonlee/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/104422598/);">
+            <div>
+                <h3><a href="/2020/12/15/104422598/">지라서비스매니지먼트(JSM) 소개 (부제 : 지라서비스데스크(JSD)를 넘어서 본격적인 ITSM 툴로의 변화)</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>
