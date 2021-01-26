@@ -1,0 +1,1111 @@
+---
+layout: post
+title: "Red Hat Linux 기반 커스텀 RPM 생성 방법"
+description: " " 
+author: jhkang
+date: 2021-01-26
+tags: ['redhat', 'rpm', 'linux', 'packagemanager', '오픈소스컨설팅']
+category: 
+image: /assets/images/110396067/0.svg 
+---
+<p>
+ 안녕하세요? 오픈소스컨설팅 강주희입니다. 이 글은 제가 입사 이후 쓰는 첫 공식 문서가 되는 것 같습니다.
+</p>
+<p>
+ 이번 주제는 RPM(Red Hat Package Manager) 만들기에 대한 것입니다. 많은 엔터프라이즈 기업들이 디지털 트랜스포메이션을 외치면서 클라우드로 전환하고 있고, 이를 위한 X86서버, 오픈소스 기반으로 전환을 진행하고 있습니다. 이를 위해 많은 서버 환경들을 다루기 위해서 Ansible과 같은 형태로 관리를 하는 케이스도 있을 것입니다.
+</p>
+<p>
+ 전체 시스템 자동화에 있어서도 각 서버 환경에 구성된 패키지에 대한 관리의 중요성도 동시에 대두됩니다.
+</p>
+<p>
+ 현재 많은 금융그룹의 지주사를 기반으로 개발/운영 환경에 대해 보안성과 IT 거버넌스를 강화하기 위한 노력들을 진행하고 있습니다. 예를 들면 설치되는 소프트웨어의 취약점을 개선하고 인증된 소프트웨어가 센터 내에 설치될 수 있도록 하는 검증 장치를 많이 마련하고 있습니다.
+</p>
+<p>
+ 이 때
+ <u>
+  <strong>
+   설치되는 소프트웨어의 형태는 벤더의 설치 버전이 아닌 보안취약점, 개선사항, 사내 표준에 맞도록 구성된 형태로 만들어져 리포지토리에서 관리하도록 하는 것이 가능합니다. 이를 위해 사용하는 방법 중의 하나가 RPM이며 이를 활용하여 센터 내의 서버(또는 가상 인스턴스)들을 효과적으로 관리
+  </strong>
+ </u>
+ 할 수 있도록 해줍니다.
+</p>
+<p>
+ Docker가 있지 않냐구요? 현재 Docker를 활용하여 구성을 할 수 있지만 여전히 대다수의 엔터프라이즈(특히 공공/금융)는 운영 환경으로 도커를 활용하고 있지는 않습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 이번 포스팅에서는 RPM이 무엇이고 어떻게 만들 수 있는 지에 대해서 살펴보도록 하겠습니다.
+</p>
+<p>
+ <br/>
+</p>
+<h1 id="RedHatLinux기반커스텀RPM생성방법-1.RPM이란무엇인가?">
+ <strong>
+  1. RPM이란 무엇인가?
+ </strong>
+</h1>
+<p>
+ RPM은 Red Hat Package Manager의 약어로서 Red Hat에서 만든 패키지 관리 도구입니다. RPM을 통해 초보자들도 소프트웨어를 손쉽게 설치, 관리, 업그레이드 할 수 있습니다.
+</p>
+<p>
+ 처음에는 Red Hat이 RPM 패키지 형태의 프로그램 배포를 처음 진행하지만 현재는 RHEL, CentOS, Fedora, Oracle Linux 등과 같은 레드햇 리눅스 계열과 수세 리눅스 계열에서 사용됩니다.
+</p>
+<p>
+ RPM으로 소프트웨어를 패키징하면
+ <span style="color: rgb(0,12,52);">
+  패키지명-버전.릴리즈.벤더.아키텍처 형식.확장자 의 파일명을 가지며 .rpm 이라는 확장자로 배포됩니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h1 id="RedHatLinux기반커스텀RPM생성방법-2.RPM사용의장점">
+ <strong>
+  2. RPM 사용의 장점
+ </strong>
+</h1>
+<ul style="list-style-type: square;">
+ <li>
+  <strong style="color: rgb(23,43,77);font-size: 14.0px;letter-spacing: 0.0px;">
+   의존성 패키지 관리가 쉽다
+  </strong>
+ </li>
+</ul>
+<p style="margin-left: 30.0px;">
+ RPM은 소프트웨어 간 의존성 관리를 쉽게 할 수 있게 도와줍니다. 프로그램은 아카이브 파일 (예 : tarball)로 묶인 패키지로 설치하는 경우, 의존성을 가진 패키지를 일일이 찾아 설치해 주어야 합니다. 의존성 문제 때문에 소프트웨어를 설치 후 동작하지 않는 문제도 빈번하게 접할 수 있죠. RPM으로 패키지를 설치하면 의존성을 갖는 패키지를 쉽게 찾아 설치할 수 있기 때문에 설치가 간편합니다.
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  <strong>
+   YUM 을 통해 패키지를 쉽게 찾고 배포할 수 있다
+  </strong>
+ </li>
+</ul>
+<p style="margin-left: 30.0px;">
+ RPM을 사용하는 경우 YUM 리포지토리에 패키지를 추가함으로써 클라이언트가 필요한 소프트웨어를 쉽게 찾고 배포할 수 있는 특징을 가지고 있습니다. RPM은 패키지를 설치할 때 의존성을 가진 패키지를 알려주는데 그치지만 YUM은 의존성 패키지를 함께 설치합니다. 이렇게 되는 경우 Ansible 과 연계하여 소프트웨어 설치 명령을 수행하고 삭제하는 등 관리가 훨씬 더 수월해집니다.
+</p>
+<p style="margin-left: 30.0px;">
+ 또한 다른 리눅스 환경에 동일한 구성으로 소프트웨어를 설치 가능하게 함으로써 초기에 구성이 된다면 해당 소프트웨어를 설치하기 위해 3rd Party 솔루션 담당 엔지니어의 지원을 받기 위해 부르지 않아도 되겠네요?
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  <strong>
+   소프트웨어 업그레이드가 쉽다
+  </strong>
+ </li>
+</ul>
+<p style="margin-left: 30.0px;">
+ 아카이브 파일로 소프트웨어를 설치하면 업그레이드를 할 때 기존의 파일 덮어쓸 수 있기 때문에 기존 파일을 삭제하거나 수정 사항을 일일이 업데이트해야 하는 번거로움이 있습니다. RPM 으로 패키지를 업데이트 시에는 필요한 파일을 함께 업데이트하거나 같이 업그레이드 해야 하는 의존성 패키지도 찾아 주기 때문에 간편하게 업그레이드를 할 수 있습니다.
+</p>
+<p>
+ <br/>
+</p>
+<h1 id="RedHatLinux기반커스텀RPM생성방법-3.오늘패키징할소프트웨어">
+ <strong>
+  3. 오늘 패키징할 소프트웨어
+ </strong>
+</h1>
+<p>
+ 오늘 패키징할 소프트웨어는 컴파일하여 특정 디렉토리에 설치한 아파치 웹 서버입니다.  여기서는 아파치 웹 서버를 기준으로 작업을 진행하겠지만 WAS, NoSQL 솔루션, DB 등을 사내 표준 소프트웨어 및 디렉토리 환경으로 구성하여 만드는 작업을 할 수 있으며, 이러한 작업을 범용적으로 할 수 있도록 설명을 할 예정입니다.
+</p>
+<p>
+ RPM 빌드를 위해 준비한 환경은 RHEL(Red Hat Enterprise Linux) 7.6 기반에서 진행되었으며, 패키징을 위해 사용하는 소프트웨어는 앞서 설명한 것과 같이 소스 설치로 가상의 표준 디렉토리 위치를 기반으로 구성하였습니다.
+</p>
+<p>
+ 아파치 설치는 아래의 기반 환경으로 구성해보도록 하겠습니다.
+</p>
+<p>
+ <br/>
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  테스트 환경
+ </li>
+</ul>
+<div class="table-wrap">
+ <table class="wrapped confluenceTable">
+  <colgroup>
+   <col/>
+   <col/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     서비스
+    </th>
+    <th class="confluenceTh">
+     상태
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     NetworkManager
+    </td>
+    <td class="confluenceTd">
+     stop/disable
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     firewalld
+    </td>
+    <td class="confluenceTd">
+     stop/disable
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     selinux
+    </td>
+    <td class="confluenceTd">
+     disable
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<ul style="list-style-type: square;">
+ <li>
+  아파치 컴파일 설치 시, 필요한 소스 파일
+ </li>
+</ul>
+<div class="table-wrap">
+ <table class="relative-table wrapped confluenceTable" style="width: 20.0803%;">
+  <colgroup>
+   <col style="width: 61.6229%;"/>
+   <col style="width: 38.4381%;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     패키지명
+    </th>
+    <th class="confluenceTh">
+     버전
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     apr
+    </td>
+    <td class="confluenceTd">
+     1.7.0
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     apr-util
+    </td>
+    <td class="confluenceTd">
+     1.6.1
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     pcre
+    </td>
+    <td class="confluenceTd">
+     8.43
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     httpd
+    </td>
+    <td class="confluenceTd">
+     2.4.46
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<ul style="list-style-type: square;">
+ <li>
+  컴파일 경로 : /app/web/apache-2.4.46
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<h1 id="RedHatLinux기반커스텀RPM생성방법-4.RPM을만들기위한사전준비도구들">
+ <strong>
+  4. RPM을 만들기 위한 사전 준비 도구들
+ </strong>
+</h1>
+<p>
+ RPM을 만들기 위해서는 미리 준비된 도구들이 필요합니다. 이에 필요한 도구와 해당 도구가 하는 역할은 다음과 같습니다.
+</p>
+<p>
+ <strong>
+  필요 패키지
+ </strong>
+</p>
+<div class="table-wrap">
+ <table class="relative-table wrapped confluenceTable" style="width: 50.6731%;">
+  <colgroup>
+   <col style="width: 18.8745%;"/>
+   <col style="width: 81.2121%;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     패키지명
+    </th>
+    <th class="confluenceTh">
+     역할
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     rpm-build
+    </td>
+    <td class="confluenceTd">
+     바이너리 및 소스 소프트웨어 패키지를 빌드하는 데 사용됩니다. 패키지는 바이너리 패키지와 소스 패키지 두 가지 종류로 제공됩니다.
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     rpmdevtools
+    </td>
+    <td class="confluenceTd">
+     패키지 개발을 지원하는 여러 스크립트가 포함되어 있습니다. rpmdevtools에서 지원하는 remdev-setuptree 명령은 사용자 홈 디렉토리 내에 RPM 빌드 트리를 생성합니다.
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     createrepo
+    </td>
+    <td class="confluenceTd">
+     Repository 저장소를 만듭니다.
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ SPEC 파일을 만들기 위해 준비 해야 할 내용은 다음과 같습니다.
+</p>
+<div class="table-wrap">
+ <table class="relative-table wrapped confluenceTable" style="width: 59.3269%;">
+  <colgroup>
+   <col style="width: 24.5381%;"/>
+   <col style="width: 75.388%;"/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     항목
+    </th>
+    <th class="confluenceTh">
+     내용
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     소프트웨어 라이선스
+    </td>
+    <td class="confluenceTd">
+     <p>
+      패키지를 빌드하는 데 사용하는 SPEC 파일에 패키징 할 소프트웨어 라이센스를 기입해야 합니다.
+      <br/>
+      자세한 패키징 라이센스 가이드는 아래 링크를 참고하세요.
+     </p>
+     <p>
+      <a class="external-link" href="https://fedoraproject.org/wiki/Packaging:LicensingGuidelines" rel="nofollow">
+       https://fedoraproject.org/wiki/Packaging:LicensingGuidelines
+      </a>
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     패키징 소프트웨어
+    </td>
+    <td class="confluenceTd">
+     RPM으로 패키징 할 소프트웨어를 준비합니다. 이번에 소개하는 가이드에서는 Apache를 RPM으로 패키징 합니다.
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     디렉토리 및 파일 권한
+    </td>
+    <td class="confluenceTd">
+     <p>
+      SPEC 파일에 소프트웨어 디렉토리나 파일에 부여할 권한을 설정할 수 있습니다.
+      <br/>
+      소프트웨어 디렉토리는 RPM 패키지를 설치한 결과물로 생성됩니다.
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     의존성 정보
+    </td>
+    <td class="confluenceTd">
+     패키징 대상인 소프트웨어가 의존성을 갖는 패키지입니다.
+     <br/>
+     SPEC 파일에 의존성 패키지를 추가 기입하면 RPM 패키지 설치 시 의존성을 갖는 패키지와 함께 설치하게 됩니다.
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     Change Log 정보
+    </td>
+    <td class="confluenceTd">
+     <p>
+      패키지를 수정 및 업데이트 할 때 변경된 내용입니다.
+      <br/>
+      SPEC 파일에 %changelog 부분에 변경 사항을 기입합니다.
+     </p>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+ <br/>
+</p>
+<h1 id="RedHatLinux기반커스텀RPM생성방법-5.RPM패키징(Packaging)절차">
+ <strong>
+  5. RPM 패키징(Packaging) 절차
+ </strong>
+</h1>
+<p>
+ 본격적으로 커스텀 패키징 테스트를 시작하기 앞서 RPM 패키징 절차를 간략히 짚고 넘어갑시다.
+</p>
+<p>
+ 우선, 시스템에 RPM 패키징 할 소프트웨어를 가져와야 합니다.
+</p>
+<p>
+ 소프트웨어를 RPM으로 빌드(build)하기 위해서는 빌드 환경이 구축되어야 합니다. rpmdevtools 패키지에서 제공하는 rpmdev-setuptree 스크립트는 RPM 빌드 환경을 자동으로 구축해 줍니다.
+</p>
+<p>
+ build 환경 준비되었다면 SPEC 파일을 작성합니다. SPEC 파일은 RPM패키지를 생성하기 위한 레시피 파일로, 패키지 정보와 패키지를 어떻게 빌드 할 것인지, 어떻게 설치할 것인지 에 대한 스크립트를 담고 있습니다.
+</p>
+<p>
+ SPEC 파일을 작성한 후에는 SPEC 파일의 내용를 기반으로 소프트웨어를 RPM으로 패키징 합니다.
+</p>
+<p>
+ 마지막으로 YUM으로 RPM패키지를 설치하려면 새로 만든 RPM을 Repository 경로로 옮기고, Repository을 변경 사항을 반영합니다.
+</p>
+<h1 id="RedHatLinux기반커스텀RPM생성방법-6.RPMPackaging방법">
+ <strong>
+  6. RPM Packaging 방법
+ </strong>
+</h1>
+<p>
+ 자, 이제 실제 작업을 진행해보도록 하겠습니다.
+</p>
+<p>
+ 일반 사용자는 yum 명령어 사용을 제한하기 때문에 yum은 root 사용자로 작업해야 합니다.
+</p>
+<h2 id="RedHatLinux기반커스텀RPM생성방법-(1)build환경준비">
+ (1) build 환경 준비
+</h2>
+<ul style="list-style-type: square;">
+ <li>
+  <p class="auto-cursor-target">
+   rpm-build 패키지 설치
+  </p>
+  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+   <div class="codeContent panelContent pdl">
+    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># yum install rpm-build</pre>
+   </div>
+  </div>
+ </li>
+ <li>
+  <p class="auto-cursor-target">
+   rpmdevtools 패키지 설치
+  </p>
+  <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+   <div class="codeContent panelContent pdl">
+    <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">rpmdevtools : 빌드 환경 구성, SPEC 템플릿 제공 등
+# yum install rpmdevtools
+
+사용자 홈디렉토리 내에 RPM build tree 생성
+# rpmdev-setuptree
+
+$ tree ~/rpmbuild/
+/home/&lt;username&gt;/rpmbuild/
+├── BUILD
+├── RPMS
+├── SOURCES
+├── SPECS
+└── SRPMS
+
+# tree ~/rpmbuild/
+/root/rpmbuild/
+├── BUILD
+├── RPMS
+├── SOURCES
+├── SPECS
+└── SRPMS</pre>
+   </div>
+  </div>
+  <p class="auto-cursor-target">
+   <br/>
+   - RPM 패키징 작업 공간
+   <br/>
+   경로 : /home/&lt;username&gt;/rpmbuild/
+   <br/>
+   용도 : RPM 패키징 작업을 위한 디렉토리 레이아웃
+  </p>
+  <div class="table-wrap">
+   <table class="wrapped confluenceTable">
+    <colgroup>
+     <col/>
+     <col/>
+    </colgroup>
+    <tbody>
+     <tr>
+      <th class="confluenceTh">
+       디렉토리
+      </th>
+      <th class="confluenceTh">
+       용도
+      </th>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       BUILD
+      </td>
+      <td class="confluenceTd">
+       패키지가 빌드한 후의 결과물로 디렉토리 및 파일이 생성됨
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       BUILDROOT
+      </td>
+      <td class="confluenceTd">
+       <p>
+        RPM 패키징 맥락에서 "buildroot"는 chroot 환경
+       </p>
+       <p>
+        BUILDROOT 에는 사용자 시스템에서 RPM을 패치하였을 때, 결과물로 생성되는 디렉토리와 파일이 배치됨
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       RPMS
+      </td>
+      <td class="confluenceTd">
+       <p>
+        RPM 바이너리 파일이 생성되는 디렉토리
+       </p>
+       <p>
+        RPM은 아키텍쳐 별로 하위 디렉토리로 분류됨 (예 : x86_64, noarch)
+       </p>
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       SOURCES
+      </td>
+      <td class="confluenceTd">
+       패키징할 압축된 소스파일과 패치를 넣어 두는 디렉토리
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       SPECS
+      </td>
+      <td class="confluenceTd">
+       SPEC 파일이 위치하는 디렉토리
+      </td>
+     </tr>
+     <tr>
+      <td class="confluenceTd">
+       SRPMS
+      </td>
+      <td class="confluenceTd">
+       소스 RPM이 만들어지는 디렉토리
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </li>
+</ul>
+<ul style="list-style-type: square;">
+ <li class="auto-cursor-target">
+  RPATH 제거
+  <br/>
+  - rpath : 코드에서 바이너리를 링크할 때, 특정 라이브러리 경로를 하드 코딩 하는 것
+  <br/>
+  - Linux 동적 링커는 일반적으로 하드 코딩된 경로 보다 더 정확하기 때문에 일반적으로 Fedora에서 rpath 사용을 허용하지 않습니다.
+  <br/>
+  - rpmbuild로 패키징 할 때, rpmdevtools 패키지에 포함된 check-rpaths 도구는 아래와 같이 rpath 오류를 발생시킬 수 있습니다.
+ </li>
+</ul>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+  <b>
+   rpath 오류
+  </b>
+ </div>
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">ERROR   0002: file '/app/web/apache-2.4.46/bin/httpd' contains an invalid rpath '/usr/local/apr/lib' in [/usr/local/pcre/lib:/usr/local/apr/lib]</pre>
+ </div>
+</div>
+<p>
+ - rpmbuild 작업 전에 /home/&lt;username&gt;/.rpmmacros 에서 check-rpaths에 해당하는 메크로를 주석 처리 또는 제거하여 이 오류를 해결 할 수 있습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># vim ~/.rpmmacros
+-------------------------------------------------------------------------------
+# root 계정일 경우
+#%__arch_install_post \
+#    [ "%{buildarch}" = "noarch" ] || QA_CHECK_RPATHS=1 ; \
+#    case "${QA_CHECK_RPATHS:-}" in [1yY]*) /usr/lib/rpm/check-rpaths ;; esac \
+#    /usr/lib/rpm/check-buildroot
+ 
+# 또는
+# 일반 user일 경우
+#%__arch_install_post   /usr/lib/rpm/check-rpaths   /usr/lib/rpm/check-buildroot</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<h2 id="RedHatLinux기반커스텀RPM생성방법-(2)패키징을위한소스파일준비">
+ (2) 패키징을 위한 소스 파일 준비
+</h2>
+<ul style="list-style-type: square;">
+ <li>
+  패키징하고자 하는 파일 또는 디렉토리를 tar.gz으로 압축합니다.
+ </li>
+ <li>
+  압축할 디렉토리 명은
+  <strong>
+   {패키지명}-{버전}
+  </strong>
+  으로 하며, 압축 파일명은
+  <strong>
+   {패키지명}-{버전}.tar.gz
+  </strong>
+  으로 합니다.
+ </li>
+</ul>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">패키징할 디렉토리를 생성한다.
+# mkdir /tmp/myapache-1
+
+패키징 할 소프트웨어 디렉토리를 생성한 디렉토리로 복사한다.
+# cp -rp /app/web/apache-2.4.39/* /tmp/myapache-1
+
+배포용 아카이브 파일을 생성한다.
+# cd /tmp
+# tar -zcvf myapache-1.tar.gz myapache-1
+
+아카이브 파일을 패키지 빌드용 파일을 저장하는 SOURCES 디렉토리로 옮긴다.
+# mv myapache-1.tar.gz ~/rpmbuild/SOURCES</pre>
+ </div>
+</div>
+<h2 id="RedHatLinux기반커스텀RPM생성방법-(3)SPEC파일작성">
+ (3) SPEC 파일 작성
+</h2>
+<ul style="list-style-type: square;">
+ <li>
+  SPEC 파일이란
+  <ul style="list-style-type: square;">
+   <li>
+    rpmbuild 유틸리티가 실제 RPM을 빌드하는데 사용하는 파일
+   </li>
+   <li>
+    빌드 시 수행할 작업을 알려주는 역할
+   </li>
+   <li>
+    전문(
+    <em>
+     Preamble
+    </em>
+    )과 본문(
+    <em>
+     Body
+    </em>
+    )으로 구성됩니다.
+   </li>
+   <li>
+    전문(
+    <em>
+     Preamble
+    </em>
+    ) 파트의 주석(#)은 RPM 빌드 시 인식하지 않으므로 제거합니다.
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># cd ~/rpmbuild/SPECS
+
+# vim myapache-1.spec
+-------------------------------------------------------------------
+### 전문 ###
+Name:       myapache 								# 패키지 이름
+Version:    1 										# 패키지 버전
+Release:    1										# 패키지 릴리즈 번호
+Summary:    Basic Apache RPM package				# 패키지에 대한 간단한 설명
+License:    Apache Licence							# 오픈소스 라이센스 (라이센스가 다수일 때는 and, or으로 연이어 기재 가능)
+SOURCE0:    %{_sourcedir}/%{name}-%{version}.tar.gz # 패키징할 소프트웨어의 압축 파일 경로
+
+
+### 본문 ###
+%description
+## RPM에 패키지 된 소프트웨어에 대한 전체 설명
+This is basic apache RPM package, which does nothing.
+
+%prep
+## 빌드 전에 빌드 환경이나 작업 공간을 준비하는 명령
+%setup -q
+# 이전에 발생한 빌드 잔여물 제거, 압축 해제, 권한 설정 작업을 하는 매크로
+
+%build
+## 소프트웨어를 빌드하기 위한 명령
+
+%install
+# build 결과물를 BUILD 디렉토리에서 BUILDROOT 디렉토리로 복사
+rm -rf %{buildroot}
+%{__mkdir_p} %{buildroot}/app/web/apache-2.4.46
+cp -rp ./* %{buildroot}/app/web/apache-2.4.46
+
+%changelog
+## 패키지의 버전 또는 릴리즈를 변경한 기록
+
+%files
+## RPM에서 제공하는 파일 목록과 최종 사용자 시스템의 전체 경로 위치
+/app/web/apache-2.4.46/bin/htpasswd
+/app/web/apache-2.4.46/bin/htdigest
+/app/web/apache-2.4.46/bin/htdbm
+/app/web/apache-2.4.46/bin/ab
+/app/web/apache-2.4.46/bin/logresolve
+/app/web/apache-2.4.46/bin/httxt2dbm
+/app/web/apache-2.4.46/bin/htcacheclean
+/app/web/apache-2.4.46/bin/rotatelogs
+...(이하 생략)
+-------------------------------------------------------------------</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  RPM 매크로(macros)
+  <ul style="list-style-type: square;">
+   <li>
+    빌드 시스템에서는 기본 매크로를 정의하고 있습니다.
+   </li>
+   <li>
+    일반적으로 SPEC 파일에서는 경로를 하드 코딩하기 보다는 일관성을 위해 동일한 매크로를 사용하는 것을 권장합니다.
+   </li>
+   <li>
+    매크로를 정의하는 파일 : /usr/lib/rpm/macros
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul style="list-style-type: square;">
+ <li>
+  spec 빌드 디렉토리에 대해 설정된 매크로
+ </li>
+</ul>
+<div class="table-wrap">
+ <table class="wrapped confluenceTable">
+  <colgroup>
+   <col/>
+   <col/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     매크로
+    </th>
+    <th class="confluenceTh">
+     정의
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     %{buildroot}
+    </td>
+    <td class="confluenceTd">
+     %{_buildrootdir}/%{name}-%{version}-%{release}.%{_arch}
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     %{_topdir}
+    </td>
+    <td class="confluenceTd">
+     %{getenv:HOME}/rpmbuild
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     %{_builddir}
+    </td>
+    <td class="confluenceTd">
+     %{_topdir}/BUILD
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     %{_rpmdir}
+    </td>
+    <td class="confluenceTd">
+     %{_topdir}/RPMS
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     %{_sourcedir}
+    </td>
+    <td class="confluenceTd">
+     %{_topdir}/SOURCES
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     %{_specdir}
+    </td>
+    <td class="confluenceTd">
+     <p class="tableblock">
+      %{_topdir}/SPECS
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     %{_srcrpmdir}
+    </td>
+    <td class="confluenceTd">
+     %{_topdir}/SRPMS
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     %{_buildrootdir}
+    </td>
+    <td class="confluenceTd">
+     %{_topdir}/BUILDROOT
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p>
+ <br/>
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  매크로는
+  <strong>
+   rpm --eval
+  </strong>
+  를 이용하여 동작 값을 확인할 수 있습니다.
+ </li>
+</ul>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight"># rpm --eval %{__mkdir_p}
+/usr/bin/mkdir -p
+
+# rpm --eval %{_sourcedir}
+/root/rpmbuild/SOURCES</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<h2 id="RedHatLinux기반커스텀RPM생성방법-(4)RPMPackaging">
+ (4) RPM Packaging
+</h2>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">압축한 소프트웨어 파일을 spec 파일을 기반으로 RPM 패키징
+(출력 내용이 "exit 0"으로 종료되면 패키징이 정상적으로 완료된 것입니다.)
+# rpmbuild -ba myapache-1.spec
+
+패키징한 RPM 확인
+# ll ~/rpmbuild/RPMS/x86_64/myapache-1-1.x86_64.rpm</pre>
+ </div>
+</div>
+<ul style="list-style-type: square;">
+ <li>
+  rpmbuild 빌드 옵션
+  <br/>
+  <ul style="list-style-type: square;">
+   <li>
+    패키지를 빌드하는데 사용되는 옵션은 -b 이고, 수행할 빌드 및 패키징 단계에 따라 다음 중 하나를 지정합니다.
+   </li>
+  </ul>
+ </li>
+</ul>
+<div class="table-wrap">
+ <table class="wrapped confluenceTable">
+  <colgroup>
+   <col/>
+   <col/>
+  </colgroup>
+  <tbody>
+   <tr>
+    <th class="confluenceTh">
+     옵션
+    </th>
+    <th class="confluenceTh">
+     설명
+    </th>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     -ba
+    </td>
+    <td class="confluenceTd">
+     <p>
+      spec 파일에서 %prep, %build, %install 단계를 실행
+     </p>
+     <p>
+      바이너리 및 소스 패키지를 빌드
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     -bb
+    </td>
+    <td class="confluenceTd">
+     <p>
+      spec 파일에서 %prep, %build, %install 단계를 실행
+     </p>
+     <p>
+      바이너리 패키지를 빌드
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     -bp
+    </td>
+    <td class="confluenceTd">
+     <p>
+      spec 파일에서
+      <strong>
+       %prep
+      </strong>
+      단계를 실행
+     </p>
+     <p>
+      일반적으로 소스의 압축을 풀고, 패치를 적용하는 작업이 포함
+     </p>
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     -bc
+    </td>
+    <td class="confluenceTd">
+     spec 파일에서 %prep,
+     <strong>
+      %build
+     </strong>
+     단계를 실행
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     -bi
+    </td>
+    <td class="confluenceTd">
+     spec 파일에서 %prep, %build,
+     <strong>
+      %install
+     </strong>
+     단계를 실행
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     -bl
+    </td>
+    <td class="confluenceTd">
+     %files 섹션에서 각 파일이 존재하는지 확인
+    </td>
+   </tr>
+   <tr>
+    <td class="confluenceTd">
+     -bs
+    </td>
+    <td class="confluenceTd">
+     소스 패키지만 빌드
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h2 id="RedHatLinux기반커스텀RPM생성방법-(5)생성한RPMRepository에등록">
+ (5) 생성한 RPM Repository에 등록
+</h2>
+<p>
+ 이제 새로 생성한 RPM패키지를 레포지토리에 등록하고, 레포지토리 구성을 업데이트하여 yum 설치가 가능하도록 해봅시다.
+</p>
+<p>
+ 테스트 환경은 로컬 레포지토리로 구성되어 있습니다.
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">레포지토리 서버에서 createrepo 패키지 설치
+# yum install createrepo
+
+레포지토리 경로 확인
+# grep baseurl /etc/yum.repos.d/*
+etc/yum.repos.d/media.repo:baseurl=file:///media
+
+생성한 패키지 레포지토리로 이동
+# mv ~/rpmbuild/RPMS/x86_64/myapache-1-1.x86_64.rpm /media/Packages/
+
+레포지토리 리스트 구성 및 업데이트
+# createrepo /media
+# yum clean all</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<h1 id="RedHatLinux기반커스텀RPM생성방법-7.생성된RPM의테스트">
+ <strong>
+  7. 생성된 RPM의 테스트
+ </strong>
+</h1>
+<p>
+ RPM이 YUM으로 설치가 잘 되는지 테스트 해볼까요?
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">패키지 설치
+# yum install myapache
+# rpm -qa |grep myapache
+myapache-1-1.x86_64</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<p>
+ 자 이제 생성된 RPM을 리포지토리를 원격으로 다운 받아 설치할 수 있도록 하면 좋겠지요? 이를 위해서는 리포지토리를 외부에서 접속이 가능하도록 환경을 구성하는 것이 필요합니다. 이는 로컬과 다르게 리포지토리 원격 환경을 구성하는 작업이 부가적으로 필요합니다.
+</p>
+<p>
+ 다음 편에서는 다른 리눅스 서버에서 지금 생성된 RPM을 다운받아 설치할 수 있도록 하는 원격 리포지토리 구성 방법에 대해서 알아보도록 하겠습니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 궁금하신 점이 있으시면 언제든 오픈소스컨설팅으로 문의하시거나, 본 아티클에 댓글을 남겨주세요.
+ <img src="/assets/images/110396067/0.svg"/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ ### 참고 자료
+</p>
+<ul style="list-style-type: square;">
+ <li>
+  Fedora Project Wiki
+  <br/>
+  <a class="external-link" href="https://fedoraproject.org/wiki/Fedora_Project_Wiki" rel="nofollow">
+   https://fedoraproject.org/wiki/Fedora_Project_Wiki
+  </a>
+  <br/>
+  <br/>
+ </li>
+ <li>
+  라이센스 가이드 라인
+  <br/>
+  <a class="external-link" href="https://fedoraproject.org/wiki/Packaging:LicensingGuidelines" rel="nofollow">
+   https://fedoraproject.org/wiki/Packaging:LicensingGuidelines
+  </a>
+ </li>
+ <li>
+  RPath 패키징
+  <br/>
+  <a class="external-link" href="https://fedoraproject.org/wiki/RPath_Packaging_Draft" rel="nofollow">
+   https://fedoraproject.org/wiki/RPath_Packaging_Draft
+  </a>
+ </li>
+</ul>
+<ul style="list-style-type: square;">
+ <li>
+  fedira does 기본 매크로
+  <br/>
+  <a class="external-link" href="https://docs.fedoraproject.org/en-US/packaging-guidelines/RPMMacros/" rel="nofollow">
+   https://docs.fedoraproject.org/en-US/packaging-guidelines/RPMMacros/
+  </a>
+ </li>
+</ul>
+<ul style="list-style-type: square;">
+ <li>
+  Redhat RPM PACKAGING GUIDE
+  <br/>
+  <a class="external-link" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/rpm_packaging_guide/index" rel="nofollow">
+   https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/rpm_packaging_guide/index
+  </a>
+  <br/>
+  <br/>
+ </li>
+ <li>
+  net 프로젝트 : Linux docs
+  <br/>
+  <a class="external-link" href="https://linux.die.net/" rel="nofollow">
+   https://linux.die.net/
+  </a>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ ### 첨부파일
+</p>
+<p>
+ <a data-linked-resource-container-id="110396067" data-linked-resource-container-version="1" data-linked-resource-content-type="application/octet-stream" data-linked-resource-default-alias="myapache-1.spec" data-linked-resource-id="110396068" data-linked-resource-type="attachment" data-linked-resource-version="1" href="/download/attachments/110396067/myapache-1.spec?version=1&amp;modificationDate=1611642215581&amp;api=v2">
+  myapache-1.spec
+ </a>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
