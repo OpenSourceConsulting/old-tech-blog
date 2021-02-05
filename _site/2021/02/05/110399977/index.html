@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>[checklist 제공] Atlassian Cloud로 마이그레이션하기 전에 꼭 확인하세요!</title>
+<meta name="title" content="[checklist 제공] Atlassian Cloud로 마이그레이션하기 전에 꼭 확인하세요!" />
+<meta name="author" content="soopark"/>
+<meta name="description" content="안녕하세요, Atlassian Platinum Partner 오픈소스컨설팅입니다. 아틀라시안(Atlassian) 인스턴스를 클라우드 (Cloud)로 마이그레이션하는 것은 아틀라시안을 사용하고 있는 모든 조직에게 너무나도 큰 결심입니다. 최종 사용자 (end-user)의 생산성이 걸려 있는 상황에서 마이그레이션의 계획과 실행은 완벽해야만 합니다. 아틀라시안 공식 인증 솔루션 파트너, 오픈소스컨설팅은 아틀라시안의 클라우드 구현을 지원하는 알맞은 솔루션의 도입에 대한 전문적인 컨설팅을 제공합니다. 저희는 팀의 역량과 마이그레이션 복잡성 및 타임라인에 따라, 고객이 비즈니스에 "최소한의" 중단 및 가동 중지 시간으로 Cloud로 성공적 이동을 지원할 수 있도록 트레이닝되어 있습니다. 조직이 아틀라시안 클라우드..."/>
+
+<meta property="fb:app_id" content=""/>
+
+<meta property="og:site_name" content="오픈소스컨설팅 
+기술 블로그
+"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="[checklist 제공] Atlassian Cloud로 마이그레이션하기 전에 꼭 확인하세요!"/>
+<meta property="og:description" content="안녕하세요, Atlassian Platinum Partner 오픈소스컨설팅입니다. 아틀라시안(Atlassian) 인스턴스를 클라우드 (Cloud)로 마이그레이션하는 것은 아틀라시안을 사용하고 있는 모든 조직에게 너무나도 큰 결심입니다. 최종 사용자 (end-user)의 생산성이 걸려 있는 상황에서 마이그레이션의 계획과 실행은 완벽해야만 합니다. 아틀라시안 공식 인증 솔루션 파트너, 오픈소스컨설팅은 아틀라시안의 클라우드 구현을 지원하는 알맞은 솔루션의 도입에 대한 전문적인 컨설팅을 제공합니다. 저희는 팀의 역량과 마이그레이션 복잡성 및 타임라인에 따라, 고객이 비즈니스에 "최소한의" 중단 및 가동 중지 시간으로 Cloud로 성공적 이동을 지원할 수 있도록 트레이닝되어 있습니다. 조직이 아틀라시안 클라우드..."/>
+<meta property="og:url" content="https://tech.osci.kr/2021/02/05/110399977/"/>
+<meta property="og:image" content="/assets/images/110399977/0.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="[checklist 제공] Atlassian Cloud로 마이그레이션하기 전에 꼭 확인하세요!"/>
+<meta name="twitter:description" content="안녕하세요, Atlassian Platinum Partner 오픈소스컨설팅입니다. 아틀라시안(Atlassian) 인스턴스를 클라우드 (Cloud)로 마이그레이션하는 것은 아틀라시안을 사용하고 있는 모든 조직에게 너무나도 큰 결심입니다. 최종 사용자 (end-user)의 생산성이 걸려 있는 상황에서 마이그레이션의 계획과 실행은 완벽해야만 합니다. 아틀라시안 공식 인증 솔루션 파트너, 오픈소스컨설팅은 아틀라시안의 클라우드 구현을 지원하는 알맞은 솔루션의 도입에 대한 전문적인 컨설팅을 제공합니다. 저희는 팀의 역량과 마이그레이션 복잡성 및 타임라인에 따라, 고객이 비즈니스에 "최소한의" 중단 및 가동 중지 시간으로 Cloud로 성공적 이동을 지원할 수 있도록 트레이닝되어 있습니다. 조직이 아틀라시안 클라우드..."/>
+<meta name="twitter:label1" content="Written by"/>
+<meta name="twitter:data1" content="soopark"/>
+<meta name="twitter:image:src" content="https://tech.osci.kr/assets/images/110399977/0.png"/>
+<meta name="naver-site-verification" content="11ec9086ec9292ebc8dc73f6224492f208b2007b"/>
+<meta name="google-site-verification" content="Q5w5X0R32gOG-1lBhFg0UxvXRNoQX-uOSPjxPI4sXH4" />
+
+<meta name="twitter:label2" content="Filed under"/>
+<meta name="twitter:data2" content="아틀라시안,atlassian,cloud,cloud-migration,migration,checklist,jira,confluence"/>
+
+<meta property="article:tag" content="아틀라시안"/>
+
+<meta property="article:tag" content="atlassian"/>
+
+<meta property="article:tag" content="cloud"/>
+
+<meta property="article:tag" content="cloud-migration"/>
+
+<meta property="article:tag" content="migration"/>
+
+<meta property="article:tag" content="checklist"/>
+
+<meta property="article:tag" content="jira"/>
+
+<meta property="article:tag" content="confluence"/>
+
+
+
+<meta property="article:published_time" content="2021-02-05T00:00:00+09:00"/>
+
+
+<meta property="article:author" content="https://tech.osci.kr/authors/soopark"/>
+
+<link href="https://tech.osci.kr/rss/" rel="alternate" type="application/rss+xml" title="RSS"/>
+<link href="/assets/favicon.ico" rel="icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon" type="image/png"/>
+<link href="/assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed" type="image/png"/>
+<link href="/assets/lib/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/monokai.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/lib/magnific-popup.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/screen.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="post-template">
+
+<div id="header">
+    <button id="menu-toggle" type="button">
+        <span class="sr-only">Toggle Navigation Menu</span>
+    </button>
+    <button id="search-toggle" type="button">
+        <span class="sr-only">Toggle Search Form</span>
+    </button>
+    <a href="/" id="logo">
+    </a>
+    <form id="search">
+        <input id="searchQueryEdit" name="q" type="search" placeholder="Search..." value="" />
+    </form>
+
+    <ul id="menu" class="nav">
+        <li class=" active "><a href="/">Blog</a></li>
+        <!--<li class=""><a href="/books/">Books</a></li>-->
+        <li class=""><a href="/about/">About</a></li>
+    </ul>
+</div><!-- #header -->
+
+
+<div id="wrapper">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2&appId=1720005341592310&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="navbar" class="container">
+    <h5><a id="link-back" href="/">Back to Posts</a></h5>
+    
+<ul id="shares">
+    
+    <li>
+        <a id="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://tech.osci.kr/2021/02/05/110399977/"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <span class="sr-only">Share to Facebook</span>
+        </a>
+    </li>
+    
+    
+    
+</ul>
+
+</div>
+
+<div id="cover" class="container"
+     style="background-image: url(/assets/images/110399977/0.png);">
+    <div>
+        <h1>[checklist 제공] Atlassian Cloud로 마이그레이션하기 전에 꼭 확인하세요!</h1>
+        <p> </p>
+        <p class="right" style="opacity: 0.5">
+            
+                아틀라시안
+                ,
+            
+                atlassian
+                ,
+            
+                cloud
+                ,
+            
+                cloud-migration
+                ,
+            
+                migration
+                ,
+            
+                checklist
+                ,
+            
+                jira
+                ,
+            
+                confluence
+                
+            
+        </p>
+        
+
+
+    </div>
+</div>
+<div id="content" class="container post" role="main">
+    <div id="post-content">
+        
+        <p>
+ 안녕하세요, Atlassian Platinum Partner 오픈소스컨설팅입니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 아틀라시안(Atlassian) 인스턴스를 클라우드 (Cloud)로 마이그레이션하는 것은 아틀라시안을 사용하고 있는 모든 조직에게 너무나도 큰 결심입니다.
+</p>
+<p>
+ 최종 사용자 (end-user)의 생산성이 걸려 있는 상황에서 마이그레이션의 계획과 실행은 완벽해야만 합니다.
+</p>
+<p>
+ <br/>
+ 아틀라시안 공식 인증 솔루션 파트너, 오픈소스컨설팅은 아틀라시안의 클라우드 구현을 지원하는 알맞은 솔루션의 도입에 대한 전문적인 컨설팅을 제공합니다.
+</p>
+<p>
+ 저희는 팀의 역량과 마이그레이션 복잡성 및 타임라인에 따라, 고객이 비즈니스에 "최소한의" 중단 및 가동 중지 시간으로 Cloud로 성공적 이동을 지원할 수 있도록 트레이닝되어 있습니다.
+ <br/>
+ 조직이 아틀라시안 클라우드 (Atlassian Cloud)로 마이그레이션을 효과적이고 완벽하게 실행하는 데에, 필요한 사항을 정확하게 이해하려면 아래의 체크리스트를 참조하세요.
+</p>
+<p>
+ (아래 글은 체크리스트의 요약이며, 아틀라시안이 제공하는 더 자세한 내용과 설명을 원하시면 블로그 글 가장 하단의 pdf 파일을 다운로드 받아주세요!)
+</p>
+<p>
+ <br/>
+</p>
+<h3 id="id-[checklist제공]AtlassianCloud로마이그레이션하기전에꼭확인하세요!-Step1.평가(Assessment)">
+ Step 1. 평가 (Assessment)
+</h3>
+<p>
+ 가장 먼저 해야 하는 사항은 현재의 환경을 파악하고, Cloud로 이동하는 것이 적합한지 평가하고, 그 결과에 따라 변경될 수 있는 사항이 무엇인지 알아보는 것입니다.
+</p>
+<p>
+ 지라(Jira) 또는 컨플루언스 (Confluence) 인스턴스의 클라우드로의 마이그레이션은 모든 업그레이드 중에서도 가장 중요한, (그리고 최종적인) 업데이트가 될 것이니까요!
+</p>
+<p>
+ 1) 현재의 Cloud 및 Server 환경 및 앱 파악
+</p>
+<p>
+ 2) 보안 및 규정 준수 요구 사항 검토
+</p>
+<p>
+ 3) Cloud 가격 평가 및 플랜 비교
+</p>
+<h3 id="id-[checklist제공]AtlassianCloud로마이그레이션하기전에꼭확인하세요!-Step2.계획(Plan)">
+ Step 2. 계획 (Plan)
+</h3>
+<p>
+ 이미 마이그레이션하기로 결정했다면, 어떤 단계를 밟으며 어떤 전략을 사용할 것인지 알아볼 시간입니다. 아틀라시안 공식 솔루션 파트너, 오픈소스컨설팅은 보다 완벽한 전략을 세울 수 있도록 컨설팅을 제공하고 지원하여, 여러분께서 가장 적합한 선택을 하실 수 있는 여러가지 옵션을 제공합니다.
+</p>
+<p>
+ 1) 조직 설정
+</p>
+<p>
+ 2) 도메인 확인 및 사용자의 계정 클레임
+</p>
+<p>
+ 3) Access 필요 여부 평가
+</p>
+<p>
+ 4) 데이터의 크기 및 복잡성 평가
+</p>
+<h3 id="id-[checklist제공]AtlassianCloud로마이그레이션하기전에꼭확인하세요!-Step3.준비(ReadytoMigrate)">
+ Step 3. 준비 (Ready to Migrate)
+</h3>
+<p>
+ 사용자, 데이터 및 환경의 마이그레이션을 준비할 시간입니다.
+</p>
+<p>
+ 1) 앱 마이그레이션 경로 결정
+</p>
+<p>
+ 2) 지원되는 Server 버전을 사용하고 있는지 확인
+</p>
+<p>
+ 3) 자체 호스팅 인스턴스 정리
+</p>
+<p>
+ 4) 익명 액세스 설정 검토
+</p>
+<p>
+ 5) SSO(Single Sign on) 설정
+</p>
+<h3 id="id-[checklist제공]AtlassianCloud로마이그레이션하기전에꼭확인하세요!-Step4.테스트(Test)">
+ Step 4. 테스트 (Test)
+</h3>
+<p>
+ 이제 거의 다 끝났습니다! 아틑라시안 파트너사, 오픈소스컨설팅의 지원을 받으면 기본 사항 뿐만 아니라 복잡한 엔터프라이즈 수준의 마이그레이션에 대해 마이그레이션의 가능 여부, 정확한 기간 등을 확인하는 데 도움이 되는 마이그레이션 체크리스트를 제공받을 수 있습니다!
+</p>
+<p>
+ 1) 데이터 백업
+</p>
+<p>
+ 2) 테스트 마이그레이션 실행
+</p>
+<p>
+ 3) 앱 설치 또는 마이그레이션
+</p>
+<p>
+ 4)  사용자 승인 테스트 수행
+</p>
+<p>
+ 5) 계획 커뮤니케이션
+</p>
+<p>
+ <br/>
+</p>
+<p style="text-align: left;">
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+   <img src="/assets/images/110399977/0.png"/>
+  </span>
+ </span>
+ <a class="external-link" href="https://atlas-s3.s3.ap-northeast-2.amazonaws.com/Planning_Checklist_for_Migrating_to_Atlassian_Cloud__v6_KO_%EC%99%84%EB%A3%8C.pdf" rel="nofollow" style="text-decoration: none;">
+  &gt;&gt; Click to download
+ </a>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 더 자세한 사항에 대해 확인하고 싶으시다면, 위 pdf 파일을 눌러 다운로드 받으세요. 추가적인 도움이 필요하다면, 주저말고 오픈소스컨설팅으로 연락주세요.
+</p>
+<p>
+ 저희 오픈소스컨설팅과 함께 클라우드로 향하는 여정에 대해 자세히 알아보고, 가장 완벽한 Team up을 위한 Atlassian을 구축해보십시오.
+</p>
+<p>
+ 아틀라시안 플래티넘 솔루션 파트너사 오픈소스컨설팅이 여러분과 항상 함께 합니다.
+</p>
+<p style="text-align: center;">
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+  <img src="/assets/images/110399977/1.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+        <div class="fb-like" data-href="https://tech.osci.kr/2021/02/05/110399977/"  data-width="300px" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-comments" data-href="https://tech.osci.kr/2021/02/05/110399977/" data-width="100%" data-numposts="5"></div>
+    </div>
+
+    <div id="post-footer">
+        
+        <a id="post-author" href="/authors/soopark/">
+            <div id="author-image" style="background-image:url(/files/authors/soopark);">
+                <span class="sr-only">soopark's profile image</span>
+            </div>
+            <p id="author-name">soopark</p>
+        </a>
+        <p id="post-date">2021-02-05</p>
+        <a id="post-more" href="/authors/soopark/">
+            <span>Read more posts by this author</span>
+        </a>
+    </div>
+</div>
+
+<div id="post-links" class="container">
+    
+    
+        <div id="post-prev"
+             style="background-image: url(/assets/images/110396067/0.svg);">
+            <div>
+                <h3><a href="/2021/01/26/110396067/">Red Hat Linux 기반 커스텀 RPM 생성 방법</a></h3>
+                <p>YOU MIGHT ENJOY</p>
+            </div>
+        </div>
+    
+    
+    
+</div>
+
+<div id="lightbox">
+    <div id="lightbox-image"></div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+    <a href="#" id="back-to-top"></a>
+</div>
+
+<div id="footer" class="container-fluid">
+    <ul id="links">
+        
+        <li>
+            <a id="link-github" href="http://github.com/opensourceconsulting" target="_blank">
+                <span class="sr-only">github</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-facebook" href="http://facebook.com/osckorea" target="_blank">
+                <span class="sr-only">facebook</span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a id="link-rss" href="/rss" target="_blank">
+                <span class="sr-only">rss</span>
+            </a>
+        </li>
+    </ul>
+    <p id="copyright">
+        <a href="https://tech.osci.kr">&copy;2019 OpenSource Consulting</a>
+        All rights reserved.
+    </p>
+</div><!--#footer-->
+
+
+<script src="/assets/lib/jquery-1.12.0.min.js"></script>
+<script src="/assets/lib/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/index.js"></script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-39977834-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+
+
+    
+    <!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.Canvas.getPageInfo(
+            function(info) {
+                alert('Width: ' + info.clientWidth + ' Height: ' + info.clientHeight);
+            }
+        );
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+<!--
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+-->
+
+    
+
+    
+
+    
+
+</body>
+</html>

@@ -9,9 +9,178 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Jan 2021 17:50:57 +0900</pubDate>
-    <lastBuildDate>Tue, 26 Jan 2021 17:50:57 +0900</lastBuildDate>
+    <pubDate>Fri, 05 Feb 2021 17:57:50 +0900</pubDate>
+    <lastBuildDate>Fri, 05 Feb 2021 17:57:50 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>[checklist 제공] Atlassian Cloud로 마이그레이션하기 전에 꼭 확인하세요!</title>
+        <description>&lt;p&gt;
+ 안녕하세요, Atlassian Platinum Partner 오픈소스컨설팅입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 아틀라시안(Atlassian) 인스턴스를 클라우드 (Cloud)로 마이그레이션하는 것은 아틀라시안을 사용하고 있는 모든 조직에게 너무나도 큰 결심입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 최종 사용자 (end-user)의 생산성이 걸려 있는 상황에서 마이그레이션의 계획과 실행은 완벽해야만 합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+ 아틀라시안 공식 인증 솔루션 파트너, 오픈소스컨설팅은 아틀라시안의 클라우드 구현을 지원하는 알맞은 솔루션의 도입에 대한 전문적인 컨설팅을 제공합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 저희는 팀의 역량과 마이그레이션 복잡성 및 타임라인에 따라, 고객이 비즈니스에 &quot;최소한의&quot; 중단 및 가동 중지 시간으로 Cloud로 성공적 이동을 지원할 수 있도록 트레이닝되어 있습니다.
+ &lt;br/&gt;
+ 조직이 아틀라시안 클라우드 (Atlassian Cloud)로 마이그레이션을 효과적이고 완벽하게 실행하는 데에, 필요한 사항을 정확하게 이해하려면 아래의 체크리스트를 참조하세요.
+&lt;/p&gt;
+&lt;p&gt;
+ (아래 글은 체크리스트의 요약이며, 아틀라시안이 제공하는 더 자세한 내용과 설명을 원하시면 블로그 글 가장 하단의 pdf 파일을 다운로드 받아주세요!)
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;h3 id=&quot;id-[checklist제공]AtlassianCloud로마이그레이션하기전에꼭확인하세요!-Step1.평가(Assessment)&quot;&gt;
+ Step 1. 평가 (Assessment)
+&lt;/h3&gt;
+&lt;p&gt;
+ 가장 먼저 해야 하는 사항은 현재의 환경을 파악하고, Cloud로 이동하는 것이 적합한지 평가하고, 그 결과에 따라 변경될 수 있는 사항이 무엇인지 알아보는 것입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 지라(Jira) 또는 컨플루언스 (Confluence) 인스턴스의 클라우드로의 마이그레이션은 모든 업그레이드 중에서도 가장 중요한, (그리고 최종적인) 업데이트가 될 것이니까요!
+&lt;/p&gt;
+&lt;p&gt;
+ 1) 현재의 Cloud 및 Server 환경 및 앱 파악
+&lt;/p&gt;
+&lt;p&gt;
+ 2) 보안 및 규정 준수 요구 사항 검토
+&lt;/p&gt;
+&lt;p&gt;
+ 3) Cloud 가격 평가 및 플랜 비교
+&lt;/p&gt;
+&lt;h3 id=&quot;id-[checklist제공]AtlassianCloud로마이그레이션하기전에꼭확인하세요!-Step2.계획(Plan)&quot;&gt;
+ Step 2. 계획 (Plan)
+&lt;/h3&gt;
+&lt;p&gt;
+ 이미 마이그레이션하기로 결정했다면, 어떤 단계를 밟으며 어떤 전략을 사용할 것인지 알아볼 시간입니다. 아틀라시안 공식 솔루션 파트너, 오픈소스컨설팅은 보다 완벽한 전략을 세울 수 있도록 컨설팅을 제공하고 지원하여, 여러분께서 가장 적합한 선택을 하실 수 있는 여러가지 옵션을 제공합니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 1) 조직 설정
+&lt;/p&gt;
+&lt;p&gt;
+ 2) 도메인 확인 및 사용자의 계정 클레임
+&lt;/p&gt;
+&lt;p&gt;
+ 3) Access 필요 여부 평가
+&lt;/p&gt;
+&lt;p&gt;
+ 4) 데이터의 크기 및 복잡성 평가
+&lt;/p&gt;
+&lt;h3 id=&quot;id-[checklist제공]AtlassianCloud로마이그레이션하기전에꼭확인하세요!-Step3.준비(ReadytoMigrate)&quot;&gt;
+ Step 3. 준비 (Ready to Migrate)
+&lt;/h3&gt;
+&lt;p&gt;
+ 사용자, 데이터 및 환경의 마이그레이션을 준비할 시간입니다.
+&lt;/p&gt;
+&lt;p&gt;
+ 1) 앱 마이그레이션 경로 결정
+&lt;/p&gt;
+&lt;p&gt;
+ 2) 지원되는 Server 버전을 사용하고 있는지 확인
+&lt;/p&gt;
+&lt;p&gt;
+ 3) 자체 호스팅 인스턴스 정리
+&lt;/p&gt;
+&lt;p&gt;
+ 4) 익명 액세스 설정 검토
+&lt;/p&gt;
+&lt;p&gt;
+ 5) SSO(Single Sign on) 설정
+&lt;/p&gt;
+&lt;h3 id=&quot;id-[checklist제공]AtlassianCloud로마이그레이션하기전에꼭확인하세요!-Step4.테스트(Test)&quot;&gt;
+ Step 4. 테스트 (Test)
+&lt;/h3&gt;
+&lt;p&gt;
+ 이제 거의 다 끝났습니다! 아틑라시안 파트너사, 오픈소스컨설팅의 지원을 받으면 기본 사항 뿐만 아니라 복잡한 엔터프라이즈 수준의 마이그레이션에 대해 마이그레이션의 가능 여부, 정확한 기간 등을 확인하는 데 도움이 되는 마이그레이션 체크리스트를 제공받을 수 있습니다!
+&lt;/p&gt;
+&lt;p&gt;
+ 1) 데이터 백업
+&lt;/p&gt;
+&lt;p&gt;
+ 2) 테스트 마이그레이션 실행
+&lt;/p&gt;
+&lt;p&gt;
+ 3) 앱 설치 또는 마이그레이션
+&lt;/p&gt;
+&lt;p&gt;
+ 4)  사용자 승인 테스트 수행
+&lt;/p&gt;
+&lt;p&gt;
+ 5) 계획 커뮤니케이션
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
+   &lt;img src=&quot;/assets/images/110399977/0.png&quot;/&gt;
+  &lt;/span&gt;
+ &lt;/span&gt;
+ &lt;a class=&quot;external-link&quot; href=&quot;https://atlas-s3.s3.ap-northeast-2.amazonaws.com/Planning_Checklist_for_Migrating_to_Atlassian_Cloud__v6_KO_%EC%99%84%EB%A3%8C.pdf&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
+  &amp;gt;&amp;gt; Click to download
+ &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ 더 자세한 사항에 대해 확인하고 싶으시다면, 위 pdf 파일을 눌러 다운로드 받으세요. 추가적인 도움이 필요하다면, 주저말고 오픈소스컨설팅으로 연락주세요.
+&lt;/p&gt;
+&lt;p&gt;
+ 저희 오픈소스컨설팅과 함께 클라우드로 향하는 여정에 대해 자세히 알아보고, 가장 완벽한 Team up을 위한 Atlassian을 구축해보십시오.
+&lt;/p&gt;
+&lt;p&gt;
+ 아틀라시안 플래티넘 솔루션 파트너사 오픈소스컨설팅이 여러분과 항상 함께 합니다.
+&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;span class=&quot;confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size&quot;&gt;
+  &lt;img src=&quot;/assets/images/110399977/1.png&quot;/&gt;
+ &lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;br/&gt;
+&lt;/p&gt;</description>
+        <pubDate>Fri, 05 Feb 2021 00:00:00 +0900</pubDate>
+        <link>https://tech.osci.kr/2021/02/05/110399977/</link>
+        <guid isPermaLink="true">https://tech.osci.kr/2021/02/05/110399977/</guid>
+        
+        <category>아틀라시안</category>
+        
+        <category>atlassian</category>
+        
+        <category>cloud</category>
+        
+        <category>cloud-migration</category>
+        
+        <category>migration</category>
+        
+        <category>checklist</category>
+        
+        <category>jira</category>
+        
+        <category>confluence</category>
+        
+        
+      </item>
     
       <item>
         <title>Red Hat Linux 기반 커스텀 RPM 생성 방법</title>
@@ -6340,604 +6509,6 @@ myapache-1-1.x86_64&lt;/pre&gt;
         <category>confluence</category>
         
         <category>flexibleuserlicense</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>[Interview] 물어보는 용기를 가진 개발자 - 오훈님</title>
-        <description>&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104399500/0.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 안녕하세요, 오픈소스컨설팅입니다.
- &lt;img src=&quot;/assets/images/104399500/1.svg&quot;/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 혹시 오픈소스컨설팅 홈페이지에 업로드 되어 있는, 아래 사진을 본 적이 있으신가요?
-&lt;/p&gt;
-&lt;p&gt;
- 2012년 설립 이후 오픈소스컨설팅이 걸어온 발자취 만큼이나, 식구도 많이 늘어나 60명 가까운 인원이 함께 일하고 있습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper&quot;&gt;
-  &lt;img src=&quot;/assets/images/104399500/2.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 함께 하는 식구가 많아진 만큼 엔지니어, 기획자, 개발자, 영업, 마케팅, 디자이너, 경영지원, PM, 애자일 코치 등
-&lt;/p&gt;
-&lt;p&gt;
- 더욱 다양한 분들이 함께 모여서 생활하고 있는데요.
-&lt;/p&gt;
-&lt;p&gt;
- 과연 오픈소스컨설팅의 식구들은 어떻게 근무하고 있는지, 하루 일과는 어떻게 보내는지 소개하는 시간을 가져보고자 합니다!
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그 첫번째 시간으로,
- &lt;strong&gt;
-  &lt;u&gt;
-   오픈소스컨설팅의 개발자로 일하고 계시는 오훈님
-  &lt;/u&gt;
- &lt;/strong&gt;
- 의 이야기를 전해드리겠습니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;hr/&gt;
-&lt;h1 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-&quot;&gt;
- &lt;strong&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/104399500/3.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/strong&gt;
-&lt;/h1&gt;
-&lt;h1 id='id-[Interview]물어보는용기를가진개발자-오훈님-&quot;오픈소스컨설팅에서백엔드개발을담당하고있는오훈입니다!&quot;'&gt;
- &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
-  &lt;strong&gt;
-   &quot;오픈소스컨설팅에서 백엔드 개발을 담당하고 있는 오훈입니다!&quot;
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/h1&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅에서어떤업무를하고계신가요?👨‍💻&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;strong&gt;
-   &lt;u&gt;
-    Q. 오픈소스컨설팅에서 어떤 업무를 하고 계신가요?
-   &lt;/u&gt;
-  &lt;/strong&gt;
-  👨‍💻
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  안녕하세요? 오픈테크팀 솔루션 개발 파트의 백엔드 개발자 오훈입니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  입사했을 때는 외부 프로젝트의 IoT 솔루션 개발을 담당했었고요,
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  현재는 Playce RoRo라는 클라우드 마이그레이션 자동화 도구의 서버 프로그램 개발을 담당하고 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.PlayceRoRo제품을잘모르시는분들도계실텐데요,어떤제품인지설명해주세요.☁️&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. Playce RoRo 제품을 잘 모르시는 분들도 계실텐데요, 어떤 제품인지 설명해 주세요.
-  &lt;/u&gt;
-  ☁️
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  Playce RoRo는 기존에 리눅스 혹은 유닉스로 구축되어 있는 인프라 환경을 클라우드로 쉽게 전환활 수 있도록 도와주는 제품이에요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  웹 콘솔 기반의 SaaS 서비스와 설치 형태를 모두 제공하여
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  보안을 우선시 하는 고객사 내부망의 서버도 안정적으로 마이그레이션 할 수 있다는 장점이 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅에서의하루일과는어떻게되시나요?⏰&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 오픈소스컨설팅에서의 하루 일과는 어떻게 되시나요?
-  &lt;/u&gt;
-  ⏰
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  출근은 일찍 하는 편인데요, 회사에 보통 30분 전에 도착해서 가장 먼저 Jira의 개발 보드를 확인합니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  개발 보드의 티켓 중에 최신화 할 것들이 있는지 보면서 하루동안 해야할 To-do-list를 확인합니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  티켓은 제품 개발을 시작하는 스프린트 회의 때 생성하구요,
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   티켓만으로도 동료들 간 서로의 업무를 잘 파악할 수 있기 때문에 불필요한 회의가 거의 없다고 보시면 됩니다.
-  &lt;/span&gt;
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  매일 오전 9시 팀 Daily Stand Up 미팅을 진행하고, 이후에는 개발 업무에 집중합니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104399500/4.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.다른팀과의협업이많은편인가요?협업은주로어떻게이루어지나요?🙌🏽&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 다른 팀과의 협업이 많은 편인가요? 협업은 주로 어떻게 이루어지나요?
-  &lt;/u&gt;
-  &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
-   🙌🏽
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(29,28,29);&quot;&gt;
-  타 팀과의 협업은 아직 많지는 않습니다.
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(29,28,29);&quot;&gt;
-  현재 SAFe(Scaled Agile Framework)라는 애자일 프레임워크 방식을 적용하여 업무를 진행하고 있는데요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(29,28,29);&quot;&gt;
-  팀간 협의가 필요한 업무가 있을 땐 DSU(
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   Daily Stand Up)
-  &lt;/span&gt;
-  시간에 SM(Scrum master)에게 이슈사항을 얘기하고
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(29,28,29);&quot;&gt;
-  SM 판단하에 타팀과 협의 미팅을 잡거나, 팀 내에서 처리할 수 있는 내용은 바로바로 처리해 주고 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.개발자로서직업병이란게있으신가요?👨‍⚕️&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 개발자로서 직업병이란게 있으신가요?
-  &lt;/u&gt;
-  &lt;span&gt;
-   👨‍⚕️
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  저만의 개발자 프라이드가 있어서 잘 모르는 코드를 봐도 이해하려고 집착하는
-  &lt;img src=&quot;/assets/images/104399500/5.svg&quot;/&gt;
-  경향이 있는 것 같아요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  그리고 이건 정말 병인데.. 개발을 하다보니 손목 터널 증후군이 생겼어요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   회사 복지제도 중에 하나로, 입사할 때 업무에 필요한 장비를 300만원까지 직접 고를 수가 있는데요,
-  &lt;/span&gt;
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  이 때 노트북에 소위 몰빵! 298만원까지 꽉 맞춰버리는 바람에 주변 장비를 미처 못 산것이 살짝 아쉽네요. ^^;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-  &lt;img src=&quot;/assets/images/104399500/6.png&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h1 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-&amp;quot;개발자에겐무엇보다'물어보는용기'가필요한것같아요.&amp;quot;&quot;&gt;
- &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
-  &lt;strong&gt;
-   &quot;개발자에겐 무엇보다 '물어보는 용기'가 필요한 것 같아요.&quot;
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/h1&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅의채용과정은어땠나요?👨‍💼&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 오픈소스컨설팅의 채용 과정은 어땠나요?
-  &lt;/u&gt;
-  👨‍💼
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  실무 면접과 임원진 면접, 그리고 코딩 테스트를 진행하였는데 이 부분이 특히 인상에 남았어요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   코딩 테스트 과정이 재미있기도 했고, 회사가 기술적인 면을 많이 본다는 생각이 들었습니다.
-  &lt;/span&gt;
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  그리고 최종 합격 통보를 받았을 때, 기술적으로 인정을 받은 것 같아서 기분이 좋고 또 뿌듯하기도 했습니다.
-  &lt;img src=&quot;/assets/images/104399500/7.svg&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.개발자로서필요한역량이나자질이있다면어떤건가요?💪🏻&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 개발자로서 필요한 역량이나 자질이 있다면 어떤건가요?
-  &lt;/u&gt;
-  💪🏻
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  무엇보다 '물어보는 용기'가 필요한 것 같아요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  틀릴 것 같아서 숨기려고 하는 것 보다는,
-  &lt;strong&gt;
-   모르는 것을 부끄러워하지 않는 용기가 있어야 더 성장할 수 있다고 생각해요.
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.새로운동료가들어온다면어떤분과함께일하고싶으신가요?👬🏽&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q.  새로운 동료가 들어온다면 어떤 분과 함께 일하고 싶으신가요?
-  &lt;/u&gt;
-  👬🏽
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  공유를 잘 하는 사람이면 좋을 것 같아요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  회사 내에 서로 아는 기술을 알려주고 배우는 문화가 잘 녹아져 있어서, 공유를 잘 하시는 분이 온다면 서로 시너지가 생길 것 같아요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h1 id='id-[Interview]물어보는용기를가진개발자-오훈님-&quot;개발뿐아니라엔지니어링기술까지경험할수있어서역량개발에큰도움이됩니다.&quot;'&gt;
- &lt;span style=&quot;color: rgb(51,102,255);&quot;&gt;
-  &lt;strong&gt;
-   &quot;개발 뿐 아니라 엔지니어링 기술까지 경험할 수 있어서 역량 개발에 큰 도움이 됩니다.&quot;
-  &lt;/strong&gt;
- &lt;/span&gt;
-&lt;/h1&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅을선택하신이유가궁금합니다.❓&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 오픈소스컨설팅을 선택하신 이유가 궁금합니다.
-  &lt;/u&gt;
-  ❓
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  전회사에서는 개발자가 80% 이상이어서, 실제 서버 환경을 경험하지 못하고 개발에만 집중했었는데요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;strong&gt;
-  &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-   오픈소스컨설팅에서는 개발 뿐 아니라 클라우드 등의 인프라 시스템을 배울 수 있다고 생각해서 선택하게 되었습니다.
-  &lt;/span&gt;
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  실제로 개발 뿐 아니라 엔지니어링 기술까지 경험할 수 있어서 역량 개발에 큰 도움이 됩니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  다만 개발 뿐 아니라 전체적인 시스템을 알아야 하고, 회사에서 다루는 신기술을 따라잡기 위해
- &lt;/span&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  계속해서 스터디를 하고 있습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.입사후기억에남는순간이있다면요?🍺&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 입사 후 기억에 남는 순간이 있다면요?
-  &lt;/u&gt;
-  🍺
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  오픈소스컨설팅에 와서 처음으로 점심 회식이란 것을 해봤습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  술을 강요하는 전형적인 회식 문화가 아니라서 색다르고 새로웠습니다.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅의재택근무는어떠셨나요?힘들거나불편한점은없으셨나요?🏠&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 오픈소스컨설팅의 재택 근무는 어떠셨나요? 힘들거나 불편한 점은 없으셨나요?
-  &lt;/u&gt;
- &lt;/span&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://emojipedia.org/house/&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
-  &lt;span class=&quot;emoji&quot;&gt;
-   🏠
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(29,28,29);&quot;&gt;
-  출/퇴근 시간이 좀 더 여유로웠던 점이 가장 좋았고, 미팅이 필요할 땐 화상으로 협의를 해왔기 때문에 업무에 지장은 없었어요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(29,28,29);&quot;&gt;
-  불편한점은 제가 아침마다 꼭 커피를 마시는데요. 출근 길마다 들렸던 카페를 못가서 아쉬웠습니다..
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.재택근무홍보영상도촬영하셨는데,어떠셨어요?촬영중재미있는에피소드가있다면공유해주세요.🎥&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 재택 근무 홍보 영상도 촬영하셨는데, 어떠셨어요? 촬영 중 재미있는 에피소드가 있다면 공유해 주세요.
-  &lt;/u&gt;
-  &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
-   🎥
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- 촬영 초반엔 너무 어색해서 그냥 걷는것도 몇번을 다시 촬영 했는지...
-&lt;/p&gt;
-&lt;p&gt;
- 그래도 마케팅팀원 분들께서 많이 도와주셔서 즐기면서 했던 기억이 있습니다~
- &lt;img src=&quot;/assets/images/104399500/8.svg&quot;/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 그리고 완성된 영상을 다시 보았는데요. 비대면 미팅을 많이 진행하는 요즘 상황을 잘 녹여 놓은것 같다고 생각이 드네요.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://www.youtube.com/watch?v=GnF_jNhot1k&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/104399500/9.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.오픈소스컨설팅의자랑할만한점은?✏️&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 오픈소스컨설팅의 자랑할 만한 점은?
-  &lt;/u&gt;
-  &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
-   ✏️
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- 아무래도 복지, 그 중에서도
- &lt;strong&gt;
-  격.주.휴.무!
- &lt;/strong&gt;
- 아마 최고의 복지가 아닐까 싶어요. 격주 휴무의 리프레시가 업무에 더 잘 집중할 수 있게끔 해주는 것 같아요.
-&lt;/p&gt;
-&lt;p&gt;
- 그리고 교육에 대해서는 적극적으로 투자한다는 점도 놀라웠어요.
-&lt;/p&gt;
-&lt;p&gt;
- 전직장에서는 비용 때문에 외부 교육을 승인해 주지 않는 경우도 있었는데, 오픈소스컨설팅에서는
- &lt;strong&gt;
-  직원 교육에 대해서는 정말 아낌이 없다는 점이 좋았습니다.
- &lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;h3 id=&quot;id-[Interview]물어보는용기를가진개발자-오훈님-Q.앞으로의목표나계획이있으시다면?📑&quot;&gt;
- &lt;span style=&quot;color: rgb(0,0,0);&quot;&gt;
-  &lt;u&gt;
-   Q. 앞으로의 목표나 계획이 있으시다면?
-  &lt;/u&gt;
-  &lt;span style=&quot;color: rgb(51,51,51);&quot;&gt;
-   📑
-  &lt;/span&gt;
- &lt;/span&gt;
-&lt;/h3&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(29,28,29);&quot;&gt;
-  새롭게 리뉴얼할 Playce RoRo the next 버전이 빨리 상용화 할 수 있도록 열심히 연구하고 개발을 해나갈 거구요.
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;span style=&quot;color: rgb(29,28,29);&quot;&gt;
-  개인적으로는 대용량 데이터 분산처리에 관심이 있어서 해당 분야를 틈틈히 공부해 볼 생각입니다~
-  &lt;img src=&quot;/assets/images/104399500/10.svg&quot;/&gt;
- &lt;/span&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;hr/&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- 모르는 것을 부끄러워하지 않는 용기를 가진 개발자, 오훈님은 다양한 기술 습득을 위해 항상 부지런히 스터디 하시고,
-&lt;/p&gt;
-&lt;p&gt;
- 본인이 터득한 것을 다른 동료와 공유하며 함께 성장하고 계신 것 같네요.
-&lt;/p&gt;
-&lt;p&gt;
- 앞으로도 개발자 오훈님의 성장과 발전을 응원하겠습니다!
- &lt;img src=&quot;/assets/images/104399500/11.svg&quot;/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &amp;lt;오픈소스컨설팅의 식구를 소개합니다!&amp;gt;는 또 다른 분의 이야기를 들고 찾아오겠습니다!
-&lt;/p&gt;
-&lt;p&gt;
- 감사합니다.
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;a class=&quot;external-link&quot; href=&quot;https://osci.kr/page/view.php?m_id=50&quot; rel=&quot;nofollow&quot;&gt;
-  &lt;span class=&quot;confluence-embedded-file-wrapper confluence-embedded-manual-size&quot;&gt;
-   &lt;img src=&quot;/assets/images/104399500/12.png&quot;/&gt;
-  &lt;/span&gt;
- &lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;
-&lt;p&gt;
- &lt;br/&gt;
-&lt;/p&gt;</description>
-        <pubDate>Tue, 22 Sep 2020 00:00:00 +0900</pubDate>
-        <link>https://tech.osci.kr/2020/09/22/104399500/</link>
-        <guid isPermaLink="true">https://tech.osci.kr/2020/09/22/104399500/</guid>
-        
-        <category>오픈소스컨설팅</category>
-        
-        <category>오픈소스컨설팅채용</category>
-        
-        <category>오픈소스컨설팅개발자</category>
-        
-        <category>오픈소스컨설팅면접</category>
-        
-        <category>오픈소스컨설팅복지</category>
         
         
       </item>
