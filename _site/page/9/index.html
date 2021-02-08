@@ -101,6 +101,39 @@ Sharing Tech. Growing Together.<br />
         <ul id="post-list">
     
         <li class="post-item post ">
+    <a href="/2019/12/06/86030002/">
+        <h3 class="post-title">Spinnaker에서 Judgement를 활용한 Rollback 사용해보기</h3>
+        <p class="post-excerpt">  Spinnaker에서 Judgement stage를 활용하여 Rollback을 수행했던 내용에 대하여 알아보도록 하겠습니다. 우선 기존 deploy 방식에 대하여 간단히 알아보겠습니다. Application 배포는 다음과 같은 Deploy(Manifest) stage 구성으로 진행됩니다. 배포 전략은 Red/Black 방식을 사용하여 새로운 Replicaset이 배포되면 기존 Replicaset은 disable 되도록 하였습니다. 위 배포가 진행된 이후 Rollback과 Rollout 선택을 통해 배포를 그대로 진행할지 결정하도록 하였고 그에 따라 Rollback 후 delete가 될지 Rollout 그대로 진행후 오래된 ReplicaSet을 disable 할지 결정하게 됩니다. Judgement stage 를 사용하여 분기시키기 앞서 설명하였던 "Manual Judgement"...</p>
+    </a>
+    <p class="post-tags">
+        
+            <a class="tag tag-spinnaker">spinnaker</a>
+        
+            <a class="tag tag-rollback">rollback</a>
+        
+            <a class="tag tag-kubernetes">kubernetes</a>
+        
+            <a class="tag tag-judgement">judgement</a>
+        
+            <a class="tag tag-stage">stage</a>
+        
+    </p>
+    <div class="post-meta">
+        
+        <a href="/authors/jacobbaek">
+            <div class="author-image"
+                 style="background-image:url(/files/authors/jacobbaek.jpg);">
+                <span class="sr-only">jacobbaek's profile image</span>
+            </div>
+            <p class="author-name">jacobbaek</p>
+        </a>
+        <p class="post-date">2019-12-06</p>
+    </div>
+    <!--<div class="clearfix"></div>-->
+</li>
+
+    
+        <li class="post-item post ">
     <a href="/2019/12/03/86029411/">
         <h3 class="post-title">Jenkinsfile에서 Nexus 사용을 위한 maven settings.xml 과 npmrc 파일 활용하기</h3>
         <p class="post-excerpt">  Spring boot와 React 를 사용하는 application 에 대한 build를 Nexus를 활용해 수행시 maven settings.xml, npmrc 파일이 사전에 해당 경로에 생성되어 있어야 합니다. 이를 Jenkins 상에서는 어떤 방법으로 사전에 생성할수 있는지에 대하여 알아보도록 하겠습니다. 우선 간단히 사용법을 요약해보자면 Jenkins 상에 settings.xml 혹은 npmrc 파일을 업로드하고 해당 파일을 jenkinsfile(pipeline)상에서 사용하거나 Jenkins freestyle project 상에서 선택하여 사용할수 있게 하는 방법입니다. Plugins 먼저 settings.xml과 npmrc를 Jenkins 내에 파일로 등록해 놓고 사용하기 위해서는 별도의 plugin 설치가 필요합니다. 아래 리스트는 Jenkins 상에서...</p>
@@ -207,35 +240,6 @@ Sharing Tech. Growing Together.<br />
             <p class="author-name">cyyoon</p>
         </a>
         <p class="post-date">2019-11-23</p>
-    </div>
-    <!--<div class="clearfix"></div>-->
-</li>
-
-    
-        <li class="post-item post ">
-    <a href="/2019/11/21/86026733/">
-        <h3 class="post-title">Kubernetes 상의 application빌드를 위한 Jenkins pipeline 작성법</h3>
-        <p class="post-excerpt">  kubernetes상에 동작하는 application에 대한 Build 를 위한 pipeline 작성방법에 대하여 알아보도록 하겠습니다. 가정사항 다음과 같은 상황을 가정하고 Pipeline을 작성할 예정입니다. kubernetes 상에서 Jenkins가 배포되어있고 jenkins slave가 pod로 동작되며 job완료시 Termination React을 사용하여 build 되는 환경 maven으로 package되며 war 파일 생성 Dockerfile을 통해 Docker build 가능 INFO 해당 pipeline은 scripted 방식으로 작성되었습니다. 이유는 아직 kubernetes 상에서 Declarative pipeline은 지원안되는 기능들이 있기 때문입니다. ( https://issues.jenkins-ci.org/browse/JENKINS-48421 ) Pipeline 작성법 우선 첫째로 kubernetes 상에서 jenkins slave를 pod 형태로 띄우기...</p>
-    </a>
-    <p class="post-tags">
-        
-            <a class="tag tag-jenkins">jenkins</a>
-        
-            <a class="tag tag-kubernetes">kubernetes</a>
-        
-            <a class="tag tag-jenkinsfile">jenkinsfile</a>
-        
-    </p>
-    <div class="post-meta">
-        
-        <a href="/authors/jacobbaek">
-            <div class="author-image"
-                 style="background-image:url(/files/authors/jacobbaek.jpg);">
-                <span class="sr-only">jacobbaek's profile image</span>
-            </div>
-            <p class="author-name">jacobbaek</p>
-        </a>
-        <p class="post-date">2019-11-21</p>
     </div>
     <!--<div class="clearfix"></div>-->
 </li>
