@@ -9,8 +9,8 @@ Sharing Tech. Growing Together.
 </description>
     <link>https://tech.osci.kr/</link>
     <atom:link href="https://tech.osci.kr/rss" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 08 Feb 2021 16:06:47 +0900</pubDate>
-    <lastBuildDate>Mon, 08 Feb 2021 16:06:47 +0900</lastBuildDate>
+    <pubDate>Mon, 08 Feb 2021 16:30:54 +0900</pubDate>
+    <lastBuildDate>Mon, 08 Feb 2021 16:30:54 +0900</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -73,7 +73,7 @@ Sharing Tech. Growing Together.
  Advanced Roadmap을 사용하면 여러 팀과 프로젝트에 걸친 작업을 계획하고 추적할 수 있습니다.
  &lt;span&gt;
  &lt;/span&gt;
- 규모에 맞는 팀의 역량을 강화할 수 있도록 설계되었으며, Capacity에 따라 계획을 수립, 종속성을 추적하고, 경쟁 우선순위를 관리하여, 대체할 수 있는 시나리오를 검토할 수 있습니다.
+ 규모에 맞는 팀의 역량을 강화할 수 있도록 설계되었으며, Capacity에 따라 계획을 수립, 종속성을 추적하고, 경쟁 우선순위를 관리하여, 대체가능한 시나리오를 검토할 수 있습니다.
  &lt;span&gt;
  &lt;/span&gt;
  &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/jirasoftwareserver/plan-your-work-1044784164.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
@@ -96,8 +96,8 @@ Sharing Tech. Growing Together.
   &lt;/span&gt;
  &lt;/span&gt;
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-샌드박스환경에서JiraSoftware데이터실험&quot;&gt;
- 샌드박스 환경에서 Jira Software 데이터 실험
+&lt;h3 id=&quot;ReleaseNote2021-02월-[샌드박스환경에서JiraSoftware데이터실험]&quot;&gt;
+ [샌드박스 환경에서 Jira Software 데이터 실험]
 &lt;/h3&gt;
 &lt;p&gt;
  Advanced Roadmaps는 Jira Software의 보드, 프로젝트 및 필터를 사용하여 사용자 정의 가능한 인터페이스에서 데이터를 시각화합니다.
@@ -105,8 +105,8 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
  Jira Software에서 원본 데이터를 업데이트하기 전에 이 샌드박스 환경에서 계획하고 테스트해보세요.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-더큰bigpicture설정&quot;&gt;
- 더 큰 big picture 설정
+&lt;h3 id=&quot;ReleaseNote2021-02월-[더큰bigpicture설정]&quot;&gt;
+ [더 큰 big picture 설정]
 &lt;/h3&gt;
 &lt;p&gt;
  업무를 전사적 목표에 연결하여 프로젝트의 중요한 경로를 설정하세요.
@@ -118,8 +118,8 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
  프로세스 기반 작업을 팀 작업 산출물에 연결하고, 이를 전사적 이니셔티브에 래더링 하여 높은 시각에서 바라보세요.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-대안시나리오탐색&quot;&gt;
- 대안 시나리오 탐색
+&lt;h3 id=&quot;ReleaseNote2021-02월-[대안시나리오탐색]&quot;&gt;
+ [대안 시나리오 탐색]
 &lt;/h3&gt;
 &lt;p&gt;
  대안 시나리오를 탐색하여 중요한 경로의 변화를 고려하세요.
@@ -130,8 +130,8 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
  최선의 경우를 목표로, 최악의 경우를 대비하며, 그 사이에 일어날 수 있는 어떤 것이든 대비하세요.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-종속성시각화&quot;&gt;
- 종속성 시각화
+&lt;h3 id=&quot;ReleaseNote2021-02월-[종속성시각화]&quot;&gt;
+ [종속성 시각화]
 &lt;/h3&gt;
 &lt;p&gt;
  계획에서 문제 간의 관계를 매핑하여 만일의 상황이나 차단요인을 식별하세요.
@@ -142,8 +142,8 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
  시간 표시줄에서 직접 종속성을 확인하거나 종속성 리포트로 전환하여 포괄적인 보기를 확인하십시오.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-팀의Capacity관리&quot;&gt;
- 팀의 Capacity 관리
+&lt;h3 id=&quot;ReleaseNote2021-02월-[팀의Capacity관리]&quot;&gt;
+ [팀의 Capacity 관리]
 &lt;/h3&gt;
 &lt;p&gt;
  팀의 작업량과 Capacity을 관리하여 프로젝트를 정상 궤도에 올리십시오.
@@ -152,8 +152,8 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
  팀에 직접 작업을 할당하고 Scrum 팀을 위한 스프린트 계획 기능을 잠금 해제하세오.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-AdvancedRoadmap가져오기&quot;&gt;
- Advanced Roadmap 가져오기
+&lt;h3 id=&quot;ReleaseNote2021-02월-[AdvancedRoadmap가져오기]&quot;&gt;
+ [Advanced Roadmap 가져오기]
 &lt;/h3&gt;
 &lt;p&gt;
  강력한 Roadmap 솔루션을 원하지만 아직 업그레이드할 수 없으세요?
@@ -226,7 +226,7 @@ Sharing Tech. Growing Together.
    마인드빌 인사이트(Mindville Insight)는 IT 및 비즈니스 자산을 생성 및 관리하고 요청, 인시던트, 변경 등의 상호 작용을 통해 자산 및 구성 관리가 가능한 강력한 앱입니다.
    &lt;span&gt;
    &lt;/span&gt;
-   하드웨어든 소프트웨어든 사무용 장비든 자신이 소유한 모든 것을 한눈에 볼 수 있으며, 명확한 방법으로 분류할 수 있수습니다.
+   하드웨어든 소프트웨어든 사무용 장비든 자신이 소유한 모든 것을 한눈에 볼 수 있으며, 명확한 방법으로 분류할 수 있습니다.
   &lt;/span&gt;
  &lt;/span&gt;
  &lt;a class=&quot;external-link&quot; href=&quot;https://confluence.atlassian.com/servicemanagementserver/insight-documentation-1044784291.html&quot; rel=&quot;nofollow&quot; style=&quot;text-decoration: none;&quot;&gt;
@@ -241,8 +241,8 @@ Sharing Tech. Growing Together.
   &lt;/span&gt;
  &lt;/span&gt;
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-소유한항목을한눈에보기&quot;&gt;
- 소유한 항목을 한 눈에 보기
+&lt;h3 id=&quot;ReleaseNote2021-02월-[소유한항목을한눈에보기]&quot;&gt;
+ [소유한 항목을 한 눈에 보기]
 &lt;/h3&gt;
 &lt;p&gt;
  특정 직원에게 휴대폰, 노트북 및 기타 장비를 할당하고 해당 직원의 위치에 연결하여 신속하게 요청을 처리할 수 있도록 해보세요.
@@ -252,16 +252,16 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  전체 인프라를 보고 자세히 이해할 수 있도록 비즈니스 서비스와 호스트, 데이터베이스, 애플리케이션 소프트웨어 등의 종속성을 정의하세요.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-자산과상호작용&quot;&gt;
- 자산과 상호 작용
+&lt;h3 id=&quot;ReleaseNote2021-02월-[자산과상호작용]&quot;&gt;
+ [자산과 상호 작용]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
-  주요 인시던트가 발생하거나 서비스 요청이 들어와 변경점이 필요할 때마다 언제든지 이슈의 자산을 연결하여 작업 중인 사람들이 즉각적인 컨텍스트를 얻어 관련 세부 정보를 모두 알 수 있도록 하세요.
+  주요 인시던트가 발생하거나 서비스 요청이 들어와 변경점이 필요할 때마다, 언제든지 이슈의 자산을 연결하여 작업 중인 사람들이 즉각적인 컨텍스트를 얻어 관련 세부 정보를 모두 알 수 있도록 하세요.
  &lt;/span&gt;
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-InsightDiscoveryonthehouse&quot;&gt;
- Insight Discovery on the house
+&lt;h3 id=&quot;ReleaseNote2021-02월-[InsightDiscoveryonthehouse]&quot;&gt;
+ [Insight Discovery on the house]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
@@ -283,8 +283,8 @@ Sharing Tech. Growing Together.
  &lt;/a&gt;
  에서 다운로드 받으실 수 있습니다.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-GetInsight-자산관리&quot;&gt;
- Get Insight - 자산 관리
+&lt;h3 id=&quot;ReleaseNote2021-02월-[GetInsight-자산관리]&quot;&gt;
+ [Get Insight - 자산 관리]
 &lt;/h3&gt;
 &lt;p&gt;
  Insight - 자산 관리는 Jira Service Management Data Center 4.15에 포함되어 있습니다. 또한
@@ -328,8 +328,8 @@ Sharing Tech. Growing Together.
   | Customer portal improvements / 고객 포털 개선
  &lt;/strong&gt;
 &lt;/h2&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-새로운도움말센터를통한스타일향상&quot;&gt;
- 새로운 도움말 센터를 통한 스타일 향상
+&lt;h3 id=&quot;ReleaseNote2021-02월-[새로운도움말센터를통한스타일향상]&quot;&gt;
+ [새로운 도움말 센터를 통한 스타일 향상]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
@@ -367,8 +367,8 @@ Sharing Tech. Growing Together.
   자세히 알아보기
  &lt;/a&gt;
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-요구사항에대해더잘표현해보세요.&quot;&gt;
- 요구 사항에 대해 더 잘 표현해 보세요.
+&lt;h3 id=&quot;ReleaseNote2021-02월-[요구사항에대해더잘표현해보세요.]&quot;&gt;
+ [요구 사항에 대해 더 잘 표현해 보세요.]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(23,43,77);&quot;&gt;
@@ -389,8 +389,8 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  입력하는 내용에 대한 즉각적인 시각적 피드백으로 요청이 올바르게 나타나도록 할 수 있습니다.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-작업이끝나면투표를시작하자!&quot;&gt;
- 작업이 끝나면 투표를 시작하자!
+&lt;h3 id=&quot;ReleaseNote2021-02월-[작업이끝나면투표를시작]&quot;&gt;
+ [작업이 끝나면 투표를 시작]
 &lt;/h3&gt;
 &lt;p&gt;
  고객이 선호하는 요청에 대해 고객 포털에서 직접 투표할 수 있도록 허용할 수도 있습니다.
@@ -578,11 +578,11 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  커뮤니케이션의 범위를 모니터링하고, 자주 보지않는 공간을 식별하고, 누가 가장 많은 콘텐츠를 만드는지 궁금할 뿐 아니라, Analytics에는 올바른 결정을 내리는 데 필요한 데이터를 가지고 있습니다.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-전체사이트에대한통찰력얻기&quot;&gt;
- 전체 사이트에 대한 통찰력 얻기
+&lt;h3 id=&quot;ReleaseNote2021-02월-[전체사이트에대한통찰력얻기]&quot;&gt;
+ [전체 사이트에 대한 통찰력 얻기]
 &lt;/h3&gt;
 &lt;p&gt;
- 사이트 분석 보고서를 통해 사이트에 있는 모든 콘텐츠츠에 대한 참여도를 한눈에 볼 수 있다.
+ 사이트 분석 보고서를 통해 사이트에 있는 모든 콘텐츠에 대한 참여도를 한눈에 볼 수 있습니다.
  &lt;span&gt;
  &lt;/span&gt;
  날짜 및 콘텐츠 유형별로 보고서를 필터링하고(1) 사이트 전체에서 보기, 만들기 및 업데이트 추세를 시각화하며(2) 인기 있는 공간을 식별하고(3) 가장 활동적인 뷰어 및 기여자(4)를 확인해보세요.
@@ -594,8 +594,8 @@ Sharing Tech. Growing Together.
   &lt;/span&gt;
  &lt;/span&gt;
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-단순한페이지뷰그이상&quot;&gt;
- 단순한 페이지 뷰 그 이상
+&lt;h3 id=&quot;ReleaseNote2021-02월-[단순한페이지뷰그이상]&quot;&gt;
+ [단순한 페이지 뷰 그 이상]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
@@ -619,8 +619,8 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  데이터를 Excel(6)로 내보내서 더욱 심층적으로 분석하고 분석해보세요.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-개인정보보호를염두에두고제작&quot;&gt;
- 개인 정보 보호를 염두에 두고 제작
+&lt;h3 id=&quot;ReleaseNote2021-02월-[개인정보보호를염두에두고제작]&quot;&gt;
+ [개인 정보 보호를 염두에 두고 제작]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(32,33,36);&quot;&gt;
@@ -660,11 +660,11 @@ Sharing Tech. Growing Together.
   &lt;/span&gt;
  &lt;/span&gt;
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-데이터가많으세요?문제없어요.&quot;&gt;
- 데이터가 많으세요?
+&lt;h3 id=&quot;ReleaseNote2021-02월-[데이터가많으세요?문제없어요.]&quot;&gt;
+ [데이터가 많으세요?
  &lt;span&gt;
  &lt;/span&gt;
- 문제 없어요.
+ 문제 없어요.]
 &lt;/h3&gt;
 &lt;p&gt;
  세분화 된 보관 규칙 및 속도 제한 옵션을 사용하면 분석 데이터의 양을 통제하고 사이트 성능을 저하시키지 않고 인사이트에 액세스 할 수 있습니다. 조직의 요구에 맞게 다음 설정을 미세 조정해보세요.:
@@ -705,8 +705,8 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  팀 캘린더를 사용하여 자신과 팀을 위해 달력을 만들고 조직의 다른 캘린더들을 한 곳에서 볼 수 있습니다.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-이벤트날짜를바로확인할수있음&quot;&gt;
- 이벤트 날짜를 바로 확인할 수 있음
+&lt;h3 id=&quot;ReleaseNote2021-02월-[이벤트날짜를바로확인할수있음]&quot;&gt;
+ [이벤트 날짜를 바로 확인할 수 있음]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
@@ -738,8 +738,8 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
  일정관리를 더 제한하도록 선택할 수 있으며, 이벤트를 보고 편집할 수 있는 사용자를 정확하게 정의할 수 있다.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-다른앱및캘린더와통합&quot;&gt;
- 다른 앱 및 캘린더와 통합
+&lt;h3 id=&quot;ReleaseNote2021-02월-[다른앱및캘린더와통합]&quot;&gt;
+ [다른 앱 및 캘린더와 통합]
 &lt;/h3&gt;
 &lt;p&gt;
  자신의 캘린더 이벤트를 추가할 뿐만 아니라 다음 데이터로 캘린더를 자동으로 채울 수 있다.
@@ -773,8 +773,8 @@ Sharing Tech. Growing Together.
  &lt;/span&gt;
  만약 당신의 앱이 CalDava를 지원한다면, 앱에서 이벤트를 만들고 편집할 수도 있다.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-높은임팩트버그타겟팅&quot;&gt;
- 높은 임팩트 버그 타겟팅
+&lt;h3 id=&quot;ReleaseNote2021-02월-[큰영향을미치던버그수정]&quot;&gt;
+ [큰 영향을 미치던 버그 수정]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
@@ -786,8 +786,8 @@ Sharing Tech. Growing Together.
   버그 수정 및 개선 사항의 전체 목록 보기
  &lt;/a&gt;
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-팀일정관리가져오기&quot;&gt;
- 팀 일정관리 가져오기
+&lt;h3 id=&quot;ReleaseNote2021-02월-[팀일정관리가져오기]&quot;&gt;
+ [팀 일정관리 가져오기]
 &lt;/h3&gt;
 &lt;p&gt;
  Team Calendar을 원하지만 아직 업그레이드할 수 없으십니까?
@@ -817,8 +817,8 @@ Sharing Tech. Growing Together.
 &lt;p&gt;
  이 릴리스에서는 문제를 훨씬 쉽게 식별하고 해결하는 방법을 목표로했습니다. 이러한 권장 사항은 지원 팀과 귀하가 직접 제공한 것입니다.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-문제해결시로그표시&quot;&gt;
- 문제 해결 시 로그 표시
+&lt;h3 id=&quot;ReleaseNote2021-02월-[문제해결시로그표시]&quot;&gt;
+ [문제 해결 시 로그 표시]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;strong&gt;
@@ -863,8 +863,8 @@ Sharing Tech. Growing Together.
  &lt;/strong&gt;
  으로 이동하여 시도해 보세요.
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-보다명확성을높이기위한전용로그파일&quot;&gt;
- 보다 명확성을 높이기 위한 전용 로그 파일
+&lt;h3 id=&quot;ReleaseNote2021-02월-[보다직관성을높이기위한전용로그파일]&quot;&gt;
+ [보다 직관성을 높이기 위한 전용 로그 파일]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;strong&gt;
@@ -916,8 +916,8 @@ Sharing Tech. Growing Together.
   Confluence 로그에 대해 자세히 알아보기
  &lt;/a&gt;
 &lt;/p&gt;
-&lt;h3 id=&quot;ReleaseNote2021-02월-액세스로깅이기본적으로사용됨&quot;&gt;
- 액세스 로깅이 기본적으로 사용됨
+&lt;h3 id=&quot;ReleaseNote2021-02월-[액세스로깅이기본적으로사용됨]&quot;&gt;
+ [액세스 로깅이 기본적으로 사용됨]
 &lt;/h3&gt;
 &lt;p&gt;
  &lt;strong&gt;
@@ -980,8 +980,10 @@ Sharing Tech. Growing Together.
   &lt;/span&gt;
  &lt;/span&gt;
 &lt;/p&gt;
-&lt;h2 id=&quot;ReleaseNote2021-02월-사용중지&quot;&gt;
- 사용 중지
+&lt;h2 id=&quot;ReleaseNote2021-02월-[지원만료버전안내]&quot;&gt;
+ &lt;strong&gt;
+  [지원 만료 버전 안내]
+ &lt;/strong&gt;
 &lt;/h2&gt;
 &lt;p&gt;
  &lt;span style=&quot;color: rgb(48,48,48);&quot;&gt;
