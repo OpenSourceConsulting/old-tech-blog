@@ -1,0 +1,1152 @@
+---
+layout: post
+title: "클라우드 마이그레이션을 위한 AS-IS 시스템 분석 방법"
+description: " " 
+author: jchoi
+date: 2021-03-09
+tags: ['클라우드', '마이그레이션', 'u2l', 'u2c', 'cloud']
+category: 
+image: /assets/images/111612589/0.jpeg 
+---
+<h2 class="auto-cursor-target" id="id-클라우드마이그레이션을위한AS-IS시스템분석방법-들어가기에앞서">
+ <strong>
+  들어가기에 앞서
+ </strong>
+</h2>
+<p class="auto-cursor-target">
+ 본 아티클은 유닉스
+ <span>
+  /
+ </span>
+ 리눅스
+ <span>
+  /
+ </span>
+ 윈도우의 프로세스와 포트의 정보를 활용하여 클라우드로의 서버 전환 시 필수로 필요한 시스템의 정보인 파일 데이터
+ <span>
+  , WAS(Web Application Server)
+ </span>
+ 정보
+ <span>
+  ,
+ </span>
+ 서버간 네트워크 상관 관계
+ <span>
+  ,
+ </span>
+ 프로세스와 포트 맵핑 등의 상관 관계를 추적함으로써 휴먼 에러를 줄이고
+ <span>
+  ,
+ </span>
+ 마이그레이션 속도를 높일 수 있는 방법에 대해 설명합니다.
+</p>
+<p class="auto-cursor-target">
+ 다양한 운영체제가 혼재하는 데이터 센터 내의 다수의 서버 운영 환경 내에서는 업무 애플리케이션을 구동하기 위하여 많은 종류의 소프트웨어가 설치되어 있습니다
+ <span>
+  .
+ </span>
+ 이를 관리하기 위해
+ <span>
+  EAMS
+ </span>
+ 솔루션
+ <span>
+  , CMDB,
+ </span>
+ 인벤토리 관리 시스템 등을 도입하고 있으나 현실적으로 서버 관리자
+ <span>
+  ,
+ </span>
+ 네트워크 관리자
+ <span>
+  ,
+ </span>
+ 애플리케이션 관리자
+ <span>
+  ,
+ </span>
+ 데이터베이스 관리자로 관리 영역을 나누고 업무 기준 단위의 시스템 분석 정보 자동으로 수집하는 방법이 없어 관리되는 시스템 정보와 실제 시스템 정보의 차이가 발생하는 것이 일반적입니다. 이로 인해 업무에 대한 사일로가 발생하고 C 레벨의 임원 입장에서는 IT와 비즈니스가 마치 분리된 것과 같은 현상과 부딪히게 됩니다.
+</p>
+<p class="auto-cursor-target">
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/111612589/0.jpeg"/>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림&gt; 업무 시스템의 분리 , 이미지 출처:
+ <a class="external-link" href="https://hive.com/blog/break-down-team-silo/" rel="nofollow">
+  https://hive.com/blog/break-down-team-silo
+ </a>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 또한 하나의 서버를 다수의 관리자가 공유하며 작업을 함으로써 시스템에 추가적인 소프트웨어의 설치
+ <span>
+  ,
+ </span>
+ 업무 애플리케이션 추가 등의 변화에 대해 시스템 현행화가 발생하지 않아 실제 클라우드로 전환하고자 하는 경우 이를 파악하고 분석하기 위한 많은 리소스를 추가적으로 투입하는 상황이 발생함으로써 많은 비용과 시간이 추가적으로 소요되고 있는 게 일반적인 현실입니다. 많은 엔터프라이즈가 기존의 유닉스 환경에서
+ <span>
+  X86
+ </span>
+ 환경으로 전환됨에 따라 시스템의 복잡도가 증가하고 업무 담당자의 변경으로 인한 시스템 분석 작업을 더욱 어려워지는 상황이 되고 있습니다.
+ <span>
+ </span>
+ 인벤토리 솔루션을 활용하여 마이그레이션을 진행한다 해도 별도의 소프트웨어 정보와 업무 시스템 정보를 맵핑하는 과정이 추가적으로 필요합니다.
+</p>
+<h2 id="id-클라우드마이그레이션을위한AS-IS시스템분석방법-기존의분석방법">
+ <strong>
+  기존의 분석 방법
+ </strong>
+</h2>
+<p>
+ <br/>
+</p>
+<p>
+ 클라우드 마이그레이션 시 시스템 프로세스 정보와 포트 정보의 환경을 분석하여 단순히 서버 시스템 간의 통신 인터페이스에 대한 연관 관계 분석으로 한정된 것이었습니다. 시스템 포트 정보에서 발생하는 소스 서버와 타켓 서버의 연결 포트 정보를 활용하여 한 서버에서 다른 서버로 통신하는 시스템 인터페이스 정보를 추출하여 시스템 간 정보를 보여주고 서버를 별도로 관리하는 방식을 사용하고 있는게 일반적입니다. 또 다른 방법의 경우는 기존의 로그 분석을 통한 마이그레이션 일 수 있는데 현재 사용 중인 시스템 프로세스가 아닌 후처리된 결과로써 단순히 호출된 클라이언트
+ <span>
+  IP
+ </span>
+ 또는 호출 대상
+ <span>
+  IP
+ </span>
+ 를 추적하고 있어 인터페이스 연관 관계를 표현하는 데 한계점을 가지고 있습니다.
+</p>
+<p>
+ 별도의
+ <span>
+  CMDB(Configuration Management DB)
+ </span>
+ 를 통해  IT 서비스 운영에 필요한 서비스의 절차나 문서, 소스, 구성, 토폴로지, 애플리케이션 등을 보관하고 이를 효율적으로 사용하기 위한 데이터 저장소를 구축하여 가지고 있으나 담당자가 해당 내용을 업로드 하고 관리하여야 하지만 시스템의 변화를 반영하지 못해 현행화되지 않는 문제점을 가지고 있습니다. 이러한 시스템은 시간이 지남에 따라 관리자에 의해 설치되고
+ <span>
+  ,
+ </span>
+ 변경되는 시스템적인 상황 변화를 변화시키지 못하므로 실제 시스템의 분석 후 클라우드 환경으로 전환하게 되는 경우 전체 시스템을 다시 분석을 해야 하는 상황이 빈번하게 발생하게 됩니다.
+</p>
+<p>
+ 따라서 종전의 시스템 인벤토리를 관리하는 방식으로는 업무 시스템 서버를 클라우드로 전환하는데 있어 많은 어려움이 발생을 하며
+ <span>
+  ,
+ </span>
+ 이를 분석하는데 상당한 비용이 발생하게 됩니다.
+ <span>
+ </span>
+ 본 아티클은 다수의 서버를 실시간으로 분석하고 누적되는 데이터를 통해 인터페이스에 대한 신뢰성을 증가시키고
+ <span>
+  ,
+ </span>
+ 다수의 데이터 센터 시스템의 연관 관계를 항상 최신으로 유지시킴으로써 마이그레이션 시 나타날 수 있는 문제를 빠르게 파악하는 방법을 알려드립니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 일반적인 마이그레이션을 위해 데이터 센터 내의 다수의 서버를 클라우드 환경으로 이전하기 위해 발생하는 비용을 줄이기 위한 효과적인 시스템 분석 관리가 필요합니다. 또한 다양한 퍼블릭
+ <span>
+  /
+ </span>
+ 프라이빗 클라우드 환경으로 서버를 전환하는 경우 발생하는 오류 최소화 및 속도를 증가시키는 것도 매우 중요합니다.
+</p>
+<p>
+ 앞서 기술한 과제를 달성하기 위한 방법으로 업무 시스템을 만들기 위해 구성된 다수의 서버와
+ <span>
+  WEB/WAS/DB
+ </span>
+ 솔루션
+ <span>
+  ,
+ </span>
+ 프로그램 작동에 필요한 보안
+ <span>
+  ,
+ </span>
+ 라이브러리 등의 서드파티 솔루션들을 포함하는 것들의 상관 관계 분석을 통해 마이그레이션 속도를 높일 수 있습니다. 일반적인 서버 관리 시스템은 업무 시스템 구동을 위해 필요한 서버들의 업무 도메인 정보
+ <span>
+  ,
+ </span>
+ 시스템 정보
+ <span>
+  ,
+ </span>
+ 서버 인벤토리 정보
+ <span>
+  ,
+ </span>
+ 시스템 인터페이스 정보
+ <span>
+  ,
+ </span>
+ 설치 솔루션들의 정보를 파악하는 기능을 수행하며
+ <span>
+  ,
+ </span>
+ 서버간 프로세스와 시스템 상관 관계를 표현하는 데이터를 저장하는 그래프
+ <span>
+  DB
+ </span>
+ 로 구성되어 있습니다.
+</p>
+<p>
+ 관리 서버를 만들어 마이그레이션 대상 시스템을 등록하거나 자동 발견에 의해 등록되는 경우 시스템의 정보를 수집하게 되는 모듈을 포함하도록 구성하면 자동으로 시스템을 확장할 수 있도록 만들 수 있습니다. 또한
+ <span>
+ </span>
+ 등록된 시스템 정보를 활용하여 지정된 주기로 시스템의 상태를 실시간으로 추출하여 추가된 인터페이스
+ <span>
+  ,
+ </span>
+ 소프트웨어
+ <span>
+  ,
+ </span>
+ 서드 파티 솔루션
+ <span>
+  ,
+ </span>
+ 미들웨어를 찾게 되고 이에 대한 상관 관계를 분석하는 단계를 포함하여 항상 최신의 분석 데이터를 유지하도록 할 수 있습니다.
+</p>
+<p>
+ 서버에서 실시간으로 출력된 실시간 정보는 서버가 외부 서버로부터 수신하고 있는 포트 정보
+ <span>
+  ,
+ </span>
+ 특정 프로세스가 외부 서버와 통신 중인 서버의
+ <span>
+  IP
+ </span>
+ 와
+ <span>
+  Port
+ </span>
+ 정보를 활용하게 되는 경우 사용자가 인벤토리로 등록하지 않은 시스템의 정보를 추가적으로 식별하게 만들면 지속적으로 연결된 시스템을 확장하여 분석할 수 있는 기반을 마련하게 됩니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/111612589/1.png"/>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt;
+ </span>
+ 네트워크 실시간 정보를 통한 서버 인벤토리 추적
+</p>
+<p>
+ 현재의 추세를 기준으로 따지면 서버에 별도의 소프트웨어 설치를 기피하는 성향이 있기 때문에 서버 분석 시스템은 에이전트가 설치되지 않고 시스템을 분석하도록 만들면 좋습니다.
+ <span>
+ </span>
+ 시스템 분석 모듈은 서버 정보 등록과 동시에 서버가 기동되는 운영체제
+ <span>
+  (OS)
+ </span>
+ 의 시스템 정보를 분석 후 인벤토리에 저장하고,
+ <span>
+ </span>
+ 저장된 서버에서는 사용자의 요청에 의해 시작되는 마이그레이션 연관 관계 파악을 위한 상세 분석은 프로세스 정보와 연결된
+ <span>
+  IP/Port
+ </span>
+ 정보를 수집으로 시작되게 하면 됩니다.
+ <span>
+ </span>
+ 이는 대상 시스템 상태 정보를 분석하는 일반적인 방법인 로그를 활용한 분석이 아닌 시스템 실시간 구동 정보를 활용하게 됩니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 로그를 활용하여 분석하는 경우 서버 간 인터페이스의 상관 관계가 애플리케이션의 로그를 개발 레벨에서 변경하지 않는 이상 추적이 불가능하다는 약점을 가지고 있습니다
+ <span>
+  .
+ </span>
+ 반면
+ <strong>
+  <u>
+   서버 내 프로세스를 통해 인터페이스를 확인하는 경우라면 이를 통해 얻을 수 있는 특정 데몬을 사용하는 프로세스
+   <span>
+    ,
+   </span>
+   특정 포트를 사용하는 프로그램
+   <span>
+    ,
+   </span>
+   소스
+   <span>
+    /
+   </span>
+   목적지
+   <span>
+    IP
+   </span>
+   의 통신 방향성을 파악하게 됨으로써 네트워크 시각화를 보다 효과적으로 트리거링을 하게 됩니다.
+  </u>
+ </strong>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/111612589/2.png"/>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt;
+ </span>
+ 명령어를 활용한 네트워크 인터페이스 대상 서버 추출
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 운영체제에 의해 오픈된 소켓 정보를 활용하여 현재 운영체제에서 오픈된 포트 정보를 파악하게 되고
+ <span>
+  ,
+ </span>
+ 이를 활용하여 현재 사용 중인 프로그램 목록과 연결 대상 시스템을 파악할 수 있습니다
+ <span>
+  .
+ </span>
+ 이 중 상태가
+ <span>
+  LISTEN
+ </span>
+ 인 정보는 해당 포트를 사용하는 데몬을 구동하는 프로그램의 프로세스 아이디를 확인하며
+ <span>
+  ,
+ </span>
+ 이를 통해 웹서버
+ <span>
+  ,
+ </span>
+ 웹 애플리케이션 서버
+ <span>
+  (WAS),
+ </span>
+ 데이터베이스 서버의 파악을 수행하는 것이 가능하게 됩니다.
+</p>
+<p>
+ 네트워크에서 추출된
+ <span>
+  PID(Process ID)
+ </span>
+ 목록을 활용하여 프로세스 정보를 기준으로 다시 기동 중인 마이그레이션 대상 소프트웨어를 파악하게 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/111612589/3.png"/>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt;
+ </span>
+ 네트워크에서 추출된
+ <span>
+  PID
+ </span>
+ 를 이용한 프로세스 정보의 획득
+ <span>
+  (
+ </span>
+ 예시
+ <span>
+  :
+ </span>
+ 자바 런타임
+ <span>
+  )
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 사용하는 포트를 통해 프로세스 파악이 완료되면 그 프로세스를 사용하는 소프트웨어의 프로세스 상태 정보를 조회하고 이 소프트웨어에 대한 역추적 작업을 수행하게 된다
+ <span>
+  .
+ </span>
+ 예를 들어 해당 프로세스가 자바로 판명이 되는 경우 웹 애플리케이션 서버를 활용하는 데몬의 경우 이를 기동하기 위해 필요한 자바 런타임 버전
+ <span>
+  ,
+ </span>
+ 소프트웨어를 구동하기 위한 클래스 정보
+ <span>
+  ,
+ </span>
+ 필요한 라이브러리의 목록을 파악하게 됩니다.
+</p>
+<p>
+ 운영체제에서 사용하는 시스템 프로세스 중 네트워크를 사용하는
+ <span>
+  SSH, FTP, Telnet
+ </span>
+ 등의 프로세스의 경우 어떤 클라이언트에서 접속을 했는지 여부도 동일한 방법으로 파악하게 되며 대상 시스템이 마이그레이션 인벤토리 내의 서버인지 확인 후 알려지지 않은
+ <span>
+  (Unknown)
+ </span>
+ 서버인 경우 등록 작업을 루틴을 다시 수행하도록 합니다.  이러한 분석 대상 시스템의 사용자
+ <span>
+  /
+ </span>
+ 프로세스
+ <span>
+  /
+ </span>
+ 네트워크 상태 정보의 분석에 따라 사용하고 있는 소프트웨어의 정보를 역으로 추출하는 정보가 되며
+ <span>
+  ,
+ </span>
+ 이는 아래의 도식처럼 상호 연관 관계를 가지게 됩니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/111612589/4.png"/>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt; OS
+ </span>
+ 내의 사용자
+ <span>
+  /
+ </span>
+ 프로세스
+ <span>
+  /
+ </span>
+ 네트워크의 상관 관계
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 구체적인 예로 업무 시스템에 오픈소스 웹 서버를 통해 데이터베이스의 연관 관계를 찾아내는 경우 웹 서버 프로세스를 통해 웹 서버가 기동되는 서버의 위치를 파악하게 되고
+ <span>
+  ,
+ </span>
+ 해당 위치를 설정 파일이 존재하는 파일들을 자동으로 찾게 됩니다.
+ <span>
+ </span>
+ 웹 서버의 설정 파일은 사용하는 포트
+ <span>
+  ,
+ </span>
+ 인증서 정보
+ <span>
+  ,
+ </span>
+ 도큐먼트 루트
+ <span>
+  ,
+ </span>
+ 사용 중인 라이브러리
+ <span>
+  ,
+ </span>
+ 로그 위치 등의 내용 파악이 수행하게 됩니다
+ <span>
+  .
+ </span>
+ 이 때 사용하는 백엔드의 웹 애플리케이션 서버의 정보를 설정 파일 내에서 파악이 가능합니다.
+</p>
+<p>
+ <strong>
+  <u>
+   트리거링을 통한 정보 수집의 장점은 위 도식에서 보는 바와 같이 운영체제에 구성된 사용자
+   <span>
+    /
+   </span>
+   프로세스
+   <span>
+    /
+   </span>
+   네트워크
+   <span>
+    /
+   </span>
+   서버간 연관 관계를 효과적으로 파악이 가능하다는데 있습니다.
+  </u>
+ </strong>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/111612589/5.png"/>
+  </span>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt;
+ </span>
+ 운영체제 명령을 통한 솔루션 역추적의 방법
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <strong>
+  <u>
+   트리거링된 정보의 유형은 다음과 같습니다
+   <span>
+    .
+   </span>
+  </u>
+ </strong>
+</p>
+<ul>
+ <li>
+  웹 서버 트리거링
+  <span>
+   :
+  </span>
+  웹 서버는 다양한 종류의 솔루션으로 나뉘며 각 솔루션이 가진 프로세스와 해당하는 환경 설정 정보를 운영체제에 기동중인 프로세스 내에서 설정을 추출하게 된다
+  <span>
+   .
+  </span>
+  예를 들면 서버 프로세스에 아파치 웹 서버가 실시간으로 구동된 상태이고 프로세스를 분석하게 되면
+  <span>
+   RPM
+  </span>
+  기반으로 설치 또는 사용자 컴파일 여부를 파악하게 되고
+  <span>
+   ,
+  </span>
+  해당 프로세스를 기동하는 설정 파일의 위치의 역추적이 가능하다
+  <span>
+   .
+  </span>
+ </li>
+ <li>
+  <p>
+   웹 애플리케이션 서버 정보 트리거링
+   <span>
+    :
+   </span>
+   웹 서버에 기술된 백엔드 웹 애플리케이션 서버의 정보가 동일 서버 내 또는 다른 서버에서 기동되는 것을 파악하게 된다
+   <span>
+    .
+   </span>
+   이를 활용해 해당 서버에서 특정 포트로 기동되는 자바 프로세스를 확인이 진행되며
+   <span>
+    ,
+   </span>
+   이 자바 프로세스의 상태 메시지로 표현되는 특정 문자열을 통해 해당 웹 애플리케이션 소프트웨어의 기동 자바 버전
+   <span>
+    ,
+   </span>
+   설정 파일의 위치
+   <span>
+    ,
+   </span>
+   소켓 정보
+   <span>
+    ,
+   </span>
+   설정 파일의 위치
+   <span>
+    ,
+   </span>
+   언어 정보를 파악하게 된다
+   <span>
+    .
+   </span>
+   단 웹 애플리케이션 서버의 제조사가 다양하므로 각 제조사별 설정 파일들을 가진 파싱 리포지토리를 통해 분석 정보를 추출하는 정책을 포함한다
+   <span>
+    .
+   </span>
+  </p>
+ </li>
+</ul>
+<p>
+ 웹 애플리케이션 서버들을 서버를 기동하게 하는 기본적인 정보를 모두
+ <span>
+  XML
+ </span>
+ 파일로 구성하게 되며
+ <span>
+  ,
+ </span>
+ 프로세스 기동에 필요한 메인
+ <span>
+  XML
+ </span>
+ 파일의 분석이 시작되면
+ <span>
+  ,
+ </span>
+ 서버가 기동하는 포트
+ <span>
+  ,
+ </span>
+ 사용하는 클래스 라이브러리
+ <span>
+  ,
+ </span>
+ 서버명
+ <span>
+  ,
+ </span>
+ 데이터베이스 연결에 필요한 정보
+ <span>
+  ,
+ </span>
+ 배포되는 애플리케이션 이름 및 디렉토리 위치와 상세한 튜닝 정보를 파악하게 됩니다. 상기 웹 서버
+ <span>
+  ,
+ </span>
+ 웹 애플리케이션 서버의 분석은 업무 시스템을 기동하게 되는 상관관계를 그래프를 구성하게 되며
+ <span>
+  ,
+ </span>
+ 이를 시각적으로 표현하는 컴포넌트의 입력으로 구성됩니다.
+</p>
+<p>
+ <br/>
+</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code" style="border-width: 1px;">
+ <div class="codeContent panelContent pdl">
+  <pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Midnight" data-theme="Midnight">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;jdbc-data-source xmlns="http://xmlns.oracle.com/weblogic/jdbc-data-source"&gt;
+  &lt;name&gt;tmDataSource&lt;/name&gt;
+  &lt;jdbc-driver-params&gt;
+    &lt;url&gt;jdbc:oracle:thin:@10.10.9.129:1531/BSI1OSB&lt;/url&gt;
+    &lt;driver-name&gt;oracle.jdbc.OracleDriver&lt;/driver-name&gt;
+    &lt;properties&gt;
+      &lt;property&gt;
+        &lt;name&gt;user&lt;/name&gt;
+        &lt;value&gt;DEV_SOAINFRA&lt;/value&gt;
+      &lt;/property&gt;
+    &lt;/properties&gt;
+    &lt;password-encrypted&gt;{AES}kQrktyFKsl2y6NHpUvX2WpPBUpgEM8Ncdl2X+wrMr5A=&lt;/password-encrypted&gt;
+  &lt;/jdbc-driver-params&gt;
+  &lt;jdbc-connection-pool-params&gt;
+    &lt;initial-capacity&gt;5&lt;/initial-capacity&gt;
+    &lt;max-capacity&gt;20&lt;/max-capacity&gt;
+  &lt;/jdbc-connection-pool-params&gt;
+  &lt;jdbc-data-source-params&gt;
+    &lt;jndi-name&gt;tmDataSource&lt;/jndi-name&gt;
+    &lt;global-transactions-protocol&gt;LoggingLastResource&lt;/global-transactions-protocol&gt;
+  &lt;/jdbc-data-source-params&gt;
+&lt;/jdbc-data-source&gt;
+
+</pre>
+ </div>
+</div>
+<p>
+ <br/>
+</p>
+<ul>
+ <li>
+  데이터베이스 정보 트리거링
+  <span>
+   :
+  </span>
+  웹 애플리케이션 서버에서 등록된 연결 정보를 파악하고 대상 서버의 관리자 등록이 이루어지면 해당 데이터베이스 서버의 데이터 사용량
+  <span>
+   ,
+  </span>
+  테이블 스페이스
+  <span>
+   ,
+  </span>
+  아카이브 정보
+  <span>
+   ,
+  </span>
+  테이블별 데이터 건수 등의 데이터 분석이 이루어진다
+  <span>
+   .
+  </span>
+ </li>
+ <li>
+  애플리케이션 정보 트리거링
+  <span>
+   :
+  </span>
+  <span>
+   애플리케이션은 프로세스 정보를 통해 얻어진 정보를 기반으로 분석된
+  </span>
+  <span>
+   WAS
+  </span>
+  <span>
+   를 활용하여 애플리케이션이 배포된 위치 정보를 역으로 추적하게 된다
+  </span>
+  <span>
+   .
+  </span>
+  <span>
+   위치가 파악된 자바 애플리케이션은 그 유형에 따라 패키징된 방법
+  </span>
+  <span>
+   (JAR, WAR, EAR)
+  </span>
+  <span>
+   에 따라 표준화된 구조를 가지고 있으며
+  </span>
+  <span>
+   ,
+  </span>
+  <span>
+   하위 디렉토리 내의 파일 분석을 통해 화면 수
+  </span>
+  <span>
+   ,
+  </span>
+  <span>
+   비즈니스 로직 처리 파일
+  </span>
+  <span>
+   ,
+  </span>
+  <span>
+   환경 설정 파일을 추출하게 된다
+  </span>
+  <span>
+   .
+  </span>
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ 이 때 애플리케이션은 아래의 도식과 같은 형태로 분석
+ <span>
+  /
+ </span>
+ 변환되어 마이그레이션되도록 구성합니다.
+ <span>
+  .
+ </span>
+ 분석 대상 시스템이 웹 애플리케이션인 경우 소프트웨어 제조사의 벤더별 속성을 활용하는 분석과 디렉토리 표준 분석 방법을 아래의 도식과 같이 병행합니다.
+</p>
+<p>
+ <span>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper">
+<img src="/assets/images/111612589/6.png"/>
+  </span>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt;
+ </span>
+ 웹 애플리케이션 프로그램의 분석 기법
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 분석된 애플리케이션의 디렉토리의 하위 디렉토리는 표준 기반으로 구성하여야 기동이 되므로
+ <span>
+  ,
+ </span>
+ 해당 디렉토리의 파일 인코딩 분석
+ <span>
+  ,
+ </span>
+ 배포 디스크립터 분석
+ <span>
+  ,
+ </span>
+ 라이브러리 연관 관계 분석
+ <span>
+  ,
+ </span>
+ 의존성 내용 분석
+ <span>
+  ,
+ </span>
+ 특정 프로퍼티 파일 분석을 수행하여 마이그레이션 시 발생 가능한 문제점을 사전에 파악하게 됩니다.  아래의 도식과 같은 방식으로
+ <u>
+  <strong>
+   애플리케이션이 엔터프라이즈 자바빈즈(EJB 자바표준)인 경우의 분석 후 변경된 결과로 재패키징을 수행하면 리플랫폼하는 것이 가능합니다.
+  </strong>
+ </u>
+</p>
+<p>
+ <span>
+  <span class="confluence-embedded-file-wrapper image-center-wrapper">
+<img src="/assets/images/111612589/7.png"/>
+  </span>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt;
+ </span>
+ 엔터프라이즈 자바빈즈 애플리케이션 프로그램의 분석 및 변환
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<ul>
+ <li>
+  종합상관 관계의 분석
+  <span>
+   :
+  </span>
+  가장 중요한 영역으로 상기한 운영체제 분석 정보
+  <span>
+   ,
+  </span>
+  웹서버 분석 정보
+  <span>
+   ,
+  </span>
+  웹 애플리케이션 서버 분석 정보
+  <span>
+   ,
+  </span>
+  데이터베이스 분석 정보를 각 시스템 간의 상관관계 그래프 표현이 가능한 형태의 메타 정보로 연결되게 된다.
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<p>
+ 최초 분석 이후 서버 소프트웨어는 관리자에 의해 추가적으로 설치되거나 추가적인 모듈이 설치되어 기동되는 경우
+ <span>
+  1
+ </span>
+ 회의 분석으로는 변경된 시스템 현행화가 불가능하게 되므로
+ <span>
+  ,
+ </span>
+ <strong>
+  <u>
+   관리 서버에 설정된 정책 주기에 따라 시스템 정보를 새롭게 분석하여 관리 서버에 연관 관계 그래프를 업데이트함으로써 항상 최신으로 정보를 유지
+  </u>
+ </strong>
+ 하게 하면 최신 정보의 현행화가 가능합니다.  시스템에서 분석되고 프로세스에 의해 트리거링된 정보를 기반으로 상기 분석된 각 정보들과 조합하여 엑셀과 워드 파일로 사용자가 다운로드 받게 되고 이를 통해 마이그레이션 시 발생하는 문제의 사전 파악이 가능한 정보를 제공하게 하는 것도 고려해볼 수 있습니다.  운영체제 프로세스를 기반으로 처리하는 역추적으로 경우 사용하는 소프트웨어의 종류에 따라 운영체제 기본 프로세스
+ <span>
+  ,
+ </span>
+ 웹 애플리케이션 서버
+ <span>
+  ,
+ </span>
+ 웹 서버 데몬
+ <span>
+  ,
+ </span>
+ 모니터링 솔루션의 확인이 가능하다는 결론에 이르겠네요.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/111612589/8.png"/>
+ </span>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt;
+ </span>
+ 시스템 자원 분석 도구 블록도
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 클라우드 전환 분석을 위한 기술적 과제를 달성하기 위한 각 영역의 구성은
+ <span>
+  1)
+ </span>
+ 다수의 서버로 구성된 분석 대상 업무를 처리하는 대상 서버들을 식별하고 각 대상 서버가 가진 프로세스의 유형에 따라 분석을 처리하는
+ <span>
+  2)
+ </span>
+ 서버 분석 모듈
+ <span>
+  , 3)
+ </span>
+ 미들웨어 분석 모듈
+ <span>
+  , 4)
+ </span>
+ 데이터베이스 분석 모듈
+ <span>
+  , 5)
+ </span>
+ 애플리케이션 분석 모듈로 나뉘게 됩니다.
+ <span>
+ </span>
+ 이러한 분석 모듈에서 수집된 정보를 저장하고 주기적인 작업을 실행시켜 정보를 지속적으로 수집하여 관리하는
+ <span>
+  6)
+ </span>
+ 관리 모듈이 존재하며
+ <span>
+  ,
+ </span>
+ 이 정보를 엑셀
+ <span>
+  ,
+ </span>
+ 워드의 오피스 문서로 산출물화 시켜주는
+ <span>
+  7)
+ </span>
+ 애플리케이션 결과 모듈과 화면으로 송출해 주는
+ <span>
+  8) REST API
+ </span>
+ 서버 모듈로 구성하면 하나의 큰 소프트웨어를 만들 수 있습니다.
+</p>
+<p>
+ 운영체제는
+ <span>
+  2)
+ </span>
+ 서버 분석 모듈을 통해 이루어지면 핵심적인 프로세스 역추적을 통한 분석이 되게 하는 영역으로 접근 사용자 계정 등록을 통해 상기 기술한 시스템 정보와 프로세스를 분석을 진행하여 그 대상 운영체제는 기존의 마이그레이션이나 인벤토리 관리를 목적으로 하는 유닉스
+ <span>
+  ,
+ </span>
+ 리눅스
+ <span>
+  ,
+ </span>
+ 윈도우 서버를 분석하게 됩니다.
+</p>
+<p>
+ 프로세스 분석에 의해 역추적 대상이 미들웨어로 분석되는 경우 현재 업계에서 판매되고 있는 특정 솔루션 벤더의 서버인지 파악하게 되고
+ <span>
+  ,
+ </span>
+ 이를 활용하여 각 서버가 가지고 있는 서버 설정 정보를 디렉토리 기반으로 역추적하여 각 서버의
+ <span>
+  XML
+ </span>
+ 기반의 설정 정보를 분석하게 된다
+ <span>
+  .
+ </span>
+ 이 때 각 솔루션별로 사용되는
+ <span>
+  IP,
+ </span>
+ 포트
+ <span>
+  ,
+ </span>
+ 대상 시스템의 인터페이스 정보
+ <span>
+  ,
+ </span>
+ 연결된 데이터베이스 정보 등을 추적하게 되며 이를 활용하여 시스템의 상관관계를 추적하게 됩니다.
+</p>
+<p>
+ 위
+ <span>
+  3)
+ </span>
+ 의 프로세스에 의해 추적된 데이터베이스 정보는
+ <span>
+  4)
+ </span>
+ 분석 모듈을 통하여 해당 데이터베이스의 사용자
+ <span>
+  ,
+ </span>
+ 데이터베이스 정보
+ <span>
+  ,
+ </span>
+ 용량
+ <span>
+  ,
+ </span>
+ 프로시저
+ <span>
+  ,
+ </span>
+ 함수 등을 추적하게 되며 추가적으로 데이터파일
+ <span>
+  ,
+ </span>
+ 컨트롤 파일
+ <span>
+  ,
+ </span>
+ 세그먼트
+ <span>
+  , DB Links
+ </span>
+ 등의 정보를 파악하게 됩니다. 위 흐름도에서 미들웨어가 추적되는 경우 설정 분석을 통하여 배포된 애플리케이션에 대한 추적 실시가 가능해지며
+ <span>
+  ,
+ </span>
+ 자바의 경우 사용하는 프레임워크 정보
+ <span>
+  ,
+ </span>
+ 프로퍼티 내의 외부 시스템 인터페이스
+ <span>
+  IP, Port
+ </span>
+ 정보
+ <span>
+  ,
+ </span>
+ 사용하는 쿼리 분석을 통해 마이그레이션 시 발생하는 문제점을 사전에 파악하는 기능을 수행하는 모듈을 포함한다
+ <span>
+  .
+ </span>
+ 자바 프로그램은 소스가 아닌 클래스 파일로 진행하는 경우
+ <span>
+  BCI(ByteCode Instrument)
+ </span>
+ 기술을 활용하여 이진 파일 내의 아이피와 포트를 추적하게 되며 이는 서버간 인터페이스 상관 관계를 파악하는 중요한 도구가 됩니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <strong>
+  <u>
+   프로세스와 네트워크 정보에 의해 역추적되어 수집된 프로세스 정보는 기본적인 항목의 구성이므로 이의 연관 관계 데이터를 맵핑하고 시각화 표현을 위한 메타 데이터를 구성
+   <span>
+    ,
+   </span>
+   처리하는 상기
+   <span>
+    6)
+   </span>
+   의 모듈이 반드시 필요하게 됩니다.
+  </u>
+ </strong>
+</p>
+<p>
+ <strong>
+  <u>
+   이 과정을 통해야만 상기 도식에서 진행된 연결된 정보를 활용하여 메타데이터를 축적하여 시스템 간의 인터페이스 관계도를 만들어내는 것이 가능하며 그래프 라이브러리를 통해 웹 기반 화면에서 상기 도식
+   <span>
+    “
+   </span>
+   서버간 상관 관계 구조도의
+   <span>
+    WEB
+   </span>
+   기반 표현
+   <span>
+    ”
+   </span>
+   을 수행하게 됩니다.
+  </u>
+ </strong>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ 예를 들어 특정 포트를 사용하여 외부 서버로 연결하게 되는
+ <span>
+  A
+ </span>
+ 업무라 가정하는 경우
+ <span>
+  A
+ </span>
+ 업무와 연관된 서버들의 목록과 상호 연관 인터페이스 구성 정보를 획득하게 됩니다
+ <span>
+  .
+ </span>
+ 예를 들면 아래의 도식도와 같은 시스템간 상관 관계의 토폴로지를 자바스크립트를 활용하여 화면에서 그려주면 시각화가 가능합니다.
+ <span>
+  <strong>
+   (
+  </strong>
+ </span>
+ <strong>
+  편집주
+  <span>
+   :
+  </span>
+  아래는 별도의 소프트웨어가 아니나 자바스크립트로 브라우저에 보여주는 코딩임
+  <span>
+   )
+  </span>
+ </strong>
+</p>
+<p>
+ <strong>
+  <span>
+   <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/111612589/9.png"/>
+   </span>
+  </span>
+ </strong>
+</p>
+<p style="text-align: center;">
+ &lt;그림
+ <span>
+  &gt;
+ </span>
+ 서버간 상관 관계 구조도의
+ <span>
+  WEB
+ </span>
+ 기반 표현
+</p>
+<h2 id="id-클라우드마이그레이션을위한AS-IS시스템분석방법-시스템분석의효과">
+ <strong>
+  시스템 분석의 효과
+ </strong>
+</h2>
+<p>
+ 시스템 프로세스를 통한 업무 및 인터페이스 역추적 방법에 의하면
+ <span>
+  ,
+ </span>
+ 다수의 데이터센터에서 관리하는 서버의 분석과 마이그레이션 비용을 최소화할 수 있으며 실시간으로 분석되는 정보를 통해 수많은 서버에 대한 인벤토리 관리가 가능해집니다.
+ <span>
+ </span>
+ 분석된 정보는 마이그레이션 시 업무 시스템의 이관
+ <span>
+  ,
+ </span>
+ 변경 사항 반영이 빨라지게 되므로 기존에 사람에 의해 분석되고 관리되던 작업을 시스템화하여 실수를 줄이고 정확한 관리 업무를 수행할 수 있습니다.
+</p>
+<p>
+ 또한 기존의 로그 레벨의 분석이 아닌 현재 기동 중인 프로세스 분석을 진행함으로써 마이그레이션 대상 서버
+ <span>
+  ,
+ </span>
+ 프로세스
+ <span>
+  ,
+ </span>
+ 소프트웨어의 신뢰성을 높이게 되고
+ <span>
+  ,
+ </span>
+ 업무 서비스 간의 인터페이스를 효과적으로 파악하게 됨으로써 연관관계를 관리자가 별도로 그리는 것이 아닌 분석의 자동화와 마이그레이션의 효율화를 진행할 수 있게 될 것입니다.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <br/>
+</p>
