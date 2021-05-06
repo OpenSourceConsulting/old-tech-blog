@@ -1,0 +1,646 @@
+---
+layout: post
+title: "Atlassian 2021년 5월 Release Note"
+description: " " 
+author: soohyeonlee
+date: 2021-05-06
+tags: ['releasenote', 'atlassian']
+category: 
+image: /assets/images/114443969/0.png 
+---
+<p style="text-align: justify;">
+ <span style="color: rgb(23,43,77);">
+  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ </span>
+ <br/>
+ <span style="color: rgb(23,43,77);">
+  이번 포스팅에서는 아틀라시안 제품군의 Confluence 7.12 , Crowd 4.3, Bibucket 7.12.x 의 최신 Release Note를 전해드리고자 합니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<h2 id="Atlassian2021년5월ReleaseNote-⛔서버라이선스중단안내" style="text-align: justify;">
+ <strong>
+  ⛔서버 라이선스 중단 안내
+ </strong>
+</h2>
+<p style="text-align: justify;">
+ <br/>
+ 아틀라시안의 발표 이후, 오픈소스컨설팅이 구매 고객 대상으로 발송한 아틀라시안 신규 라이선스 제공 중단에 대한 안내를 구독자분들께도 공개합니다. 서버 라이선스의 중단에 대비하여, 3가지 선택 사항에 대한 설명과 가이드를 제시하고 있으니, 자세한 내용은 아래 버튼을 눌러 확인해주세요!
+ <br/>
+ <a class="external-link" href="https://widgets.ziftsolutions.com/8a998249756176d3017563df435a1b41" rel="nofollow" style="text-decoration: none;">
+  서버 라이센스 중단 안내
+ </a>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<h1 id="Atlassian2021년5월ReleaseNote-Confluence7.12.x릴리즈노트" style="text-align: justify;">
+ <strong>
+  Confluence 7.12.x 릴리즈 노트
+ </strong>
+</h1>
+<h2 id="Atlassian2021년5월ReleaseNote-|Unlockdataandinsightsaboutyoursite-사이트에대한데이터및통찰력확보">
+ <strong>
+  | Unlock data and insights about your site - 사이트에 대한 데이터 및 통찰력 확보
+ </strong>
+</h2>
+<h2 id="Atlassian2021년5월ReleaseNote-[DataCenter]">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ 이제 Confluence에서 현재 상태 데이터를 내보낸 다음 즐겨찾는 비즈니스 인텔리전스 플랫폼(예: Tableau 또는 PowerBI)) 에 전달해 확인해 보세요. 이 데이터를 사용하여 다음을 수행할 수 있습니다.
+</p>
+<ul>
+ <li>
+  사용자 활동에 대한 보고서 및 시각화 생성
+ </li>
+ <li>
+  조직 리더들에게 팀이 어떻게 Confluence를 사용하고 있는지에 대한 더 나은 이해를 제공
+ </li>
+ <li>
+  Confluence를 최적화하거나 정화하는 것에 대해 결정을 내리실 수 있습니다.
+ </li>
+</ul>
+<p>
+ 원시 데이터에는 제목, URL, 사용자, 페이지, 첨부 파일 및 주석에 대한 작성 및 수정 날짜 등이 포함됩니다.
+</p>
+<p>
+ REST API를 통해 컨플루언스에서
+ <strong>
+  현재 상태 데이터의 Export
+ </strong>
+ 를 트리거할 수 있으며, &lt;
+ <span class="conf-macro output-inline">
+  <strong>
+   일반 구성
+  </strong>
+ </span>
+ <span>
+ </span>
+ &gt;
+ <span>
+ </span>
+ <strong>
+  데이터 파이프라인
+ </strong>
+ 에서 Export 상태를 확인 할 수 있습니다.
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/114443969/0.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ 초기 Export에는 시간이 걸릴 수 있으며, 첫 Export을 시작하기 전에 알아야 할 성능과 보안에 대한 고려 사항도 확인 할 수 있습니다.
+</p>
+<p>
+ <a class="external-link" href="https://confluence.atlassian.com/confeap/data-pipeline-1044798274.html" rel="nofollow" style="text-decoration: none;">
+  데이터 파이프라인에 대해 자세히 알아보기
+ </a>
+</p>
+<h2 id="Atlassian2021년5월ReleaseNote-|Diagnosticinformationnowincludedinthreaddumps-스레드덤프에진단정보포함">
+ <strong>
+  | Diagnostic information now included in thread dumps - 스레드 덤프에 진단 정보 포함
+ </strong>
+</h2>
+<h2 id="Atlassian2021년5월ReleaseNote-[DataCenter].1">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ Confluence에 문제가 있는 경우, Atlassian Support는 문제를 진단하는 데 도움이 되는 일련의 스레드 덤프를 요청할 수 있었습니다.
+</p>
+<p>
+ 이제 스레드 이름에 사용자 이름과 요청 URL이 포함되어 문제를 더 빨리 발견하고 해결할 수 있습니다.
+</p>
+<p>
+ 기본적으로 해당기능이 사용되도록 되어 있으며
+ <span>
+ </span>
+ 이러한 세부사항의 내용을 스레드 덤프에 포함시키지 않으려면 &gt;
+ <span>
+ </span>
+ <span class="conf-macro output-inline">
+  <strong>
+   일반 구성
+  </strong>
+ </span>
+ &gt;
+ <span>
+ </span>
+ <span class="conf-macro output-inline">
+  <strong>
+   문제
+  </strong>
+ </span>
+ <span>
+ </span>
+ 해결 및
+ <span>
+ </span>
+ <span class="conf-macro output-inline">
+  <strong>
+   지원 도구
+  </strong>
+ </span>
+ <span>
+ </span>
+ &gt;
+ <span>
+ </span>
+ <strong>
+  스레드 진단
+ </strong>
+ 에서 진단 기능을 끄시면 됩니다.
+</p>
+<p>
+ <a class="external-link" href="https://confluence.atlassian.com/doc/generating-a-thread-dump-188095.html" rel="nofollow" style="text-decoration: none;">
+  스레드 진단에 대해 자세히 알아보기
+ </a>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<h1 id="Atlassian2021년5월ReleaseNote-Crowd4.3릴리즈노트" style="text-align: justify;">
+ <strong>
+  Crowd 4.3 릴리즈노트
+ </strong>
+</h1>
+<h2 id="Atlassian2021년5월ReleaseNote-|Schedulingwithcronexpressions-Cron식을사용한예약">
+ <strong>
+  | Scheduling with cron expressions - Cron 식을 사용한 예약
+ </strong>
+</h2>
+<p>
+ Crows 4.3부터는 cron 식을 사용하여 디렉토리 동기화를 예약할 수 있습니다.
+ <span>
+ </span>
+ <span style="color: rgb(23,43,77);">
+  크론 식을 사용하면 폴링 간격을 사용하는 것보다 디렉토리 동기화를 예약
+ </span>
+ 할 때 더
+ <span>
+ </span>
+ <span style="color: rgb(23,43,77);">
+  많은 제어
+ </span>
+ <span>
+ </span>
+ 권한을 얻을 수 있습니다
+ <span style="color: rgb(23,43,77);">
+  .
+ </span>
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  이제 동기화가 시작되는 시간을 매우 구체적으로 정하여 동작하게 할 수 있습니다.
+ </span>
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  예
+ </span>
+ 를 들어,
+ <span>
+ </span>
+ <span style="color: rgb(23,43,77);">
+  매달 둘째
+ </span>
+ <span>
+ </span>
+ 주
+ <span>
+ </span>
+ <span style="color: rgb(23,43,77);">
+  금요일 오전
+ </span>
+ <span>
+ </span>
+ 8시
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  15분
+ </span>
+ 에
+ <span>
+ </span>
+ <span style="color: rgb(23,43,77);">
+  동기화를 실행하는 크론 식을 통한 방식으로 작동 가능합니다
+ </span>
+ <span style="color: rgb(23,43,77);">
+  .
+ </span>
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  <span style="color: rgb(77,81,86);">
+   이 기능
+  </span>
+  은
+  <span>
+   Crowd
+  </span>
+  <span style="color: rgb(95,99,104);">
+   데이터 센터
+  </span>
+  에만
+  <span>
+  </span>
+  <span style="color: rgb(77,81,86);">
+   사용하실 수
+  </span>
+  있습니다.
+ </span>
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  Crowd에서 크론 식을 만드는 방법에 대한 자세한 내용은
+  <span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/crowd/constructing-cron-expressions-in-crowd-1027120059.html" rel="nofollow" style="text-decoration: none;">
+   설명서를
+  </a>
+  확인해 보세요.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(23,43,77);">
+  <br/>
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/114443969/1.png"/>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="Atlassian2021년5월ReleaseNote-|Pruningdelegateddirectories-위임된디렉터리의사용자를정리">
+ <strong>
+  | Pruning delegated directories - 위임된 디렉터리의 사용자를 정리
+ </strong>
+</h2>
+<p>
+ <span style="color: rgb(9,30,66);">
+  위임된 디렉토리에서 비활성 사용자
+ </span>
+ 를 정리하여 사용자 데이터베이스를 최적화 하세요
+ <span style="color: rgb(9,30,66);">
+  .
+ </span>
+ <span style="color: rgb(9,30,66);">
+  <span>
+  </span>
+  위임된 디렉토리에 대해 정리 작업을 구성하시면 , Crowd는 주기적으로 해당 디렉토리에서 비활성 되거나 원격 디렉토리에서 제거된 사용자가 있는지 확인합니다.
+  <span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/crowd/pruning-delegated-directories-1055690249.html" rel="nofollow" style="text-decoration: none;">
+   위임된 디렉토리 정리
+  </a>
+  <span>
+  </span>
+  관련 문서를 확인해보세요.
+  <br/>
+ </span>
+</p>
+<p style="margin-left: 0.0px;">
+ <span style="color: rgb(9,30,66);">
+  위임된 디렉토리 삭제 기능은 Crowd 4.3버전부터 생성된 기본 기능입니다
+ </span>
+ <span style="color: rgb(9,30,66);">
+  . 4.3보다 낮은 Crowd 버전을 사용하시는 경우 다음에서 위임된 디렉터리 제거 플러그인을 설치하여 사용하실 수 있으며,
+ </span>
+ <a class="external-link" href="https://marketplace.atlassian.com/apps/1218630/delegated-directory-pruning-for-crowd?hosting=server&amp;tab=overview" rel="nofollow" style="text-decoration: none;">
+  아틀라시안 마켓플레이스
+ </a>
+ <span style="color: rgb(9,30,66);">
+  이 기능을 설치하여 이용하실 수 있습니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/114443969/2.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="Atlassian2021년5월ReleaseNote-|ActiveObjectsupport-활성개체지원">
+ <strong>
+  | Active Object support - 활성 개체 지원
+ </strong>
+</h2>
+<p>
+ Crowd 4.3은 Active Object에 대한 지원을 제공합니다.
+ <span>
+ </span>
+ <span style="color: rgb(23,43,77);">
+  Active Object는 Atlassian 제품의 ORM(객체 관계 매핑) 계층으로, Atlassian 애플리케이션에 플러그인으로 구현됩니다.
+ </span>
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  기존 Bandana 및 PluginSettings API보다 쉽고, 빠르고, 확장성이 뛰어난 데이터 액세스와 스토리지 사용을 가능하게 합니다.
+ </span>
+ <span style="color: rgb(23,43,77);">
+  <span>
+  </span>
+  자세한 내용은
+  <span>
+  </span>
+  <a class="external-link" href="https://developer.atlassian.com/server/framework/atlassian-sdk/active-objects/" rel="nofollow" style="text-decoration: none;">
+   Atlassian 개발자 설명서
+  </a>
+  를 확인해보세요.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="Atlassian2021년5월ReleaseNote-|Newsupportedplatforms-지원되는새로운플랫폼">
+ <strong>
+  | New supported platforms - 지원되는 새로운 플랫폼
+ </strong>
+</h2>
+<p>
+ 다음과 같은 새로운 플랫폼에 대한 지원을 도입했습니다.
+</p>
+<ul class="ak-ul">
+ <li>
+  <p>
+   PostgreSQL 12
+  </p>
+ </li>
+ <li>
+  <p>
+   Microsoft SQL Server 2019
+  </p>
+ </li>
+</ul>
+<p>
+ Crows 4.3에서 지원되는 전체 환경 목록은
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/crowd/supported-platforms-191851.html" rel="nofollow" style="text-decoration: none;">
+  지원되는 플랫폼
+ </a>
+ 을 확인해보세요.
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr/>
+<h1 id="Atlassian2021년5월ReleaseNote-BitbucketDataCenterandServer7.12.x릴리즈노트" style="text-align: justify;">
+ <strong>
+  Bitbucket Data Center and Server 7.12.x 릴리즈노트
+ </strong>
+</h1>
+<h2 id="Atlassian2021년5월ReleaseNote-|ConfiguremultipleIdPs-여러IdP구성">
+ <strong>
+  | Configure multiple IdPs - 여러 IdP 구성
+ </strong>
+</h2>
+<h2 id="Atlassian2021년5월ReleaseNote-[DataCenter].2">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span>
+  지금부터 SAML 및 Open에서 다중 ID 제공자(IdP)를 구성할 수 있음을 알려드리게 되어 기쁘게 생각합니다.
+  <span>
+  </span>
+  이 기능은  Atlassian Data Center 제품에서 사용할 수 있습니다.
+ </span>
+</p>
+<ul>
+ <li>
+  <span>
+   Jira 8.16 이상 및 Jira Service Management 4.16 이상
+  </span>
+ </li>
+ <li>
+  <span>
+   Bitbucket 7.12 이상
+  </span>
+ </li>
+</ul>
+<p>
+ <span>
+  자세한 내용은
+  <span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/enterprise/using-multiple-identity-providers-1044779993.html" rel="nofollow" style="text-decoration: none;">
+   다중 ID 공급자 사용 설명서
+  </a>
+  를 확인해보세요.
+ </span>
+</p>
+<h2 id="Atlassian2021년5월ReleaseNote-|Disablebasicauthentication-기본인증사용하지않기">
+ <strong>
+  | Disable basic authentication - 기본 인증 사용 하지 않기
+ </strong>
+</h2>
+<h2 id="Atlassian2021년5월ReleaseNote-[DataCenter][Server]">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Server ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ 복수의 ID 제공자를 추가하는 작업을 진행하면서 로그인 페이지와 API 호출에 기본 인증을 비활성화 하는 방법도 포함 시켰습니다.
+ <span>
+ </span>
+ 기본 인증은 Single Sign-On에 비해 보안성이 낮으므로 SSO으로 전환하고 기본 인증을 완전히 사용하지 않도록 설정하는 것이 좋습니다.
+ <span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/enterprise/disabling-basic-authentication-1044776464.html" rel="nofollow" style="text-decoration: none;">
+  기본 인증을 사용하지 않도록 설정하는 방법
+ </a>
+ 에 대해
+ <span>
+  확인해보세요.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<h2 id="Atlassian2021년5월ReleaseNote-|Whatelseisnew?-또새롭게업데이트된내용은무엇일까요?">
+ <strong>
+  | What else is new? - 또 새롭게 업데이트 된 내용은 무엇일까요?
+ </strong>
+</h2>
+<ul>
+ <li>
+  pull request diff에서 이제 컨텍스트 버튼을 위쪽 또는 아래쪽 방향으로 확장할 수 있습니다.
+  <span>
+  </span>
+  적재 시간을 줄이기 위해 한 번에 25개 라인으로 제한하여 확장되는 모든 라인에 대한 통제도 할 수 있습니다.
+ </li>
+ <li>
+  끌어오기 요청에 대한 설명을 추가할 때 편집기에 추가한 새로운 형식 지정 도구 모음을 활용하여보세요.
+  <span>
+  </span>
+  <strong>
+   굵게
+  </strong>
+  ,
+  <span>
+  </span>
+  <em>
+   기울임꼴
+  </em>
+  로,
+  <span>
+  </span>
+  <code>
+   inline code,
+  </code>
+  <s>
+   취소선
+  </s>
+  등을
+  <span style="font-family: SFMono-Medium , SF Mono , Segoe UI Mono , Roboto Mono , Ubuntu Mono , Menlo , Courier , monospace;">
+  </span>
+  단추 또는 바로 가기 키를 클릭하여 제거하실 수 있습니다.
+ </li>
+</ul>
+<p>
+ <br/>
+</p>
+<h3 id="Atlassian2021년5월ReleaseNote-지원되는플랫폼업데이트">
+ 지원되는 플랫폼 업데이트
+</h3>
+<p>
+ Bitbucket 7.12에는
+ <span>
+ </span>
+ <strong>
+  이제 서버용 Git 2.31
+ </strong>
+ <span>
+  이 지원 됩니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  앞으로도 오픈소스컨설팅 기술 블로그에서 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  아틀라시안 전문가 팀에게 문의하기 &gt;&gt;
+  <a class="external-link" href="https://bit.ly/3tol84O" rel="nofollow">
+   https://bit.ly/3tol84O
+  </a>
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  감사합니다!
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  <a class="external-link" href="mailto:atlassian@osci.kr" rel="nofollow" style="text-decoration: none;">
+   atlassian@osci.kr
+  </a>
+ </span>
+</p>
