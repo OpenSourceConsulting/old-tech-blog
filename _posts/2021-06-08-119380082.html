@@ -1,0 +1,655 @@
+---
+layout: post
+title: "Atlassian 2021년 6월 Release Note"
+description: " " 
+author: soohyeonlee
+date: 2021-06-08
+tags: ['releasenote', 'atlassian']
+category: 
+image: /assets/images/119380082/0.png 
+---
+<p style="text-align: justify;">
+ <span style="color: rgb(23,43,77);">
+  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ </span>
+ <br/>
+ <span style="color: rgb(23,43,77);">
+  이번 포스팅에서는 아틀라시안 제품군의 Jira 8.17.x , Bitbucket 7.13.x 의 최신 Release Note를 전해드리고자 합니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<h2 id="Atlassian2021년6월ReleaseNote-⛔서버라이선스중단안내" style="text-align: justify;">
+ <strong>
+  ⛔서버 라이선스 중단 안내
+ </strong>
+</h2>
+<p style="text-align: justify;">
+ <br/>
+ 아틀라시안의 발표 이후, 오픈소스컨설팅이 구매 고객 대상으로 발송한 아틀라시안 신규 라이선스 제공 중단에 대한 안내를 구독자분들께도 공개합니다. 서버 라이선스의 중단에 대비하여, 3가지 선택 사항에 대한 설명과 가이드를 제시하고 있으니, 자세한 내용은 아래 버튼을 눌러 확인해주세요!
+ <br/>
+ <a class="external-link" href="https://widgets.ziftsolutions.com/8a998249756176d3017563df435a1b41" rel="nofollow" style="text-decoration: none;">
+  서버 라이센스 중단 안내
+ </a>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<h1 id="Atlassian2021년6월ReleaseNote-Jira8.17.x릴리즈노트" style="text-align: justify;">
+ <strong>
+  Jira 8.17.x 릴리즈 노트
+ </strong>
+</h1>
+<h2 id="Atlassian2021년6월ReleaseNote-|FlexibleTerminologyforJira-지라를위한유연한용어변환">
+ <strong>
+  |
+ </strong>
+ <span>
+  <strong>
+   Flexible Terminology for Jira
+  </strong>
+ </span>
+ <strong>
+  - 지라를 위한 유연한 용어 변환
+ </strong>
+</h2>
+<h2 id="Atlassian2021년6월ReleaseNote-[DataCenter]">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span style="color: rgb(0,0,0);">
+  관리자가 일반적인 Jira 용어를 변경할 수 있게 되었습니다. 이 기능을 통해 Jira와 SAFe 및 LeSS를 포함한 Agile at Scale Framework 간에 스프린트와 에픽을 일관되게 지정할 수 있습니다. 용어 변경은 영어의 모든 변형에 적용됩니다. Advanced Roadmap 및 Jira Align 관리자는 새로운 Jira 용어를 인스턴스에 쉽게 적용할 수 있습니다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  이 기능을 사용하면 사용자 정의 필드 이름 및 이슈 유형, Jira의 다른 모든 곳(예: 보고서, 이슈 및 검색 결과)에서도 용어가 바뀝니다. 지라는 가능할 때마다 원래의 용어의 첫 문자에 대한 대문자 사용을 유지할 것입니다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  관리자가 새로운 용어를 정의할 수 있도록 새 페이지를 추가했습니다. 사용자가 따르는 framework나 선택한 용어에 관계없이 인스턴스 전체에서 신속하게 변경사항을 구현할 수 있습니다.
+ </span>
+</p>
+<p>
+ <span>
+  <span style="color: rgb(23,43,77);">
+   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline">
+    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119380082/0.png"/>
+    </span>
+   </span>
+  </span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  다음 규칙에 따라 새 항의 단일 및 복수 형식을 정의할 수 있습니다. :
+ </span>
+</p>
+<ul>
+ <li>
+  에픽과 스프린트의 이름은 서로 바꿀 수 없습니다.
+ </li>
+ <li>
+  40자 한도가 있다.
+ </li>
+ <li>
+  <span style="color: rgb(48,48,48);">
+   용어는 고유해야 하며(예: 에픽과 스프린트는 모두 "감자"라고 할 수 없음) 문자, 숫자 및 공백만 포함할 수 있습니다.
+  </span>
+ </li>
+ <li>
+  <span style="color: rgb(48,48,48);">
+   모든 필드에는 값이 하나 이상 있어야 합니다.
+  </span>
+ </li>
+</ul>
+<p>
+ <span style="color: rgb(48,48,48);">
+  원래 이름으로 되돌리려면 텍스트 필드에 원래 이름을 입력하셔야 합니다.
+  <a class="external-link" href="https://docs.atlassian.com/jira/jadm-docs-0817/Configuring+terminology" rel="nofollow">
+   더 알아보기
+  </a>
+ </span>
+</p>
+<h2 id="Atlassian2021년6월ReleaseNote-|Refreshedcommentingexperience-새로워진코멘팅경험">
+ <strong>
+  | Refreshed commenting experience - 새로워진 코멘팅 경험
+ </strong>
+</h2>
+<p>
+ <span style="color: rgb(48,48,48);">
+  접근성을 염두에 두고 있습니다. 이번 릴리스에서는 키보드 네비게이션 및 주석 관련 보조 기술 지원이 향상되었습니다. 댓글 영역의 모양도 새로 고쳤습니다.
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119380082/1.png"/>
+  </span>
+ </span>
+</p>
+<h2 id="Atlassian2021년6월ReleaseNote-|CostomfieldsnowincludedindatapiplineexportsDataCenter-이제데이터파이프라인내보내기에포함된사용자지정필드" style="text-align: justify;">
+ <strong>
+  | Costom fields now included in data pipline exports DataCenter - 이제 데이터 파이프라인 내보내기에 포함된 사용자 지정 필드
+ </strong>
+</h2>
+<h2 id="Atlassian2021년6월ReleaseNote-[DataCenter].1">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span style="color: rgb(48,48,48);">
+  사용자가 생성한 사용자 정의 필드 및 앱에서 제공하는 필드는 내보낼 수 있는 유형(ExportableCustomFieldsType을 구현하는 필드)인 경우 데이터 파이프라인 내보내기에 포함됩니다.
+ </span>
+</p>
+<p>
+ <span>
+  사용자 정의 필드에 데이터가 없으면 내보내지 않습니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<h2 id="Atlassian2021년6월ReleaseNote-|SteppingupJirasecurity-지라보안강화" style="text-align: justify;">
+ <strong>
+  | Stepping up Jira security - 지라 보안 강화
+ </strong>
+</h2>
+<p>
+ <span style="color: rgb(32,33,36);">
+  우리는 항상 서버 및 데이터 센터 제품의 보안을 중요하게 생각합니다. 취약성 관리 프로그램은 보안 문제를 찾고 수정하기 위해 다양한 접근 방식을 사용하며, 특히 보안 공격이 점점 더 보편화되고 정교 해지면서 더 빠르게 개선하기 위해 이 보안 강화에 대한 노력을 두 배로 기울이고 있습니다.
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119380082/2.png"/>
+  </span>
+ </span>
+</p>
+<h3 id="Atlassian2021년6월ReleaseNote-업그레이드된구성요소및라이브러리">
+ 업그레이드된 구성 요소 및 라이브러리
+</h3>
+<p>
+ <span style="color: rgb(0,0,0);">
+  최신 보안 버전으로 업그레이드하려는 핵심 구성 요소와 타사 라이브러리를 파악했으며, 다음 몇 가지 릴리스에서 이러한 작업에 주력하고 있습니다. Jira 8.17에서는 서로 다른 구성 요소와 라이브러리를 업그레이드하거나 Jira의 코드베이스를 개선하여 약 100개의 취약성을 해결되었고 또한 이
+  <span style="color: rgb(48,48,48);">
+   미 더 많은 부분이 수정 되어 버그픽스 릴리스 또는 다음 Jira 버전을 기다리고 있습니다.
+  </span>
+  업그레이드 된 가장 중요한 라이브러리에
+  <span style="color: rgb(23,43,77);">
+   대하여 자세히 알아보려면
+   <span>
+   </span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/jiracore/preparing-for-jira-8-17-1047551150.html" rel="nofollow" style="text-decoration: none;">
+   Jira 8.
+  </a>
+  <span style="color: rgb(23,43,77);">
+   17
+   <span>
+   </span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/jiracore/preparing-for-jira-8-17-1047551150.html" rel="nofollow" style="text-decoration: none;">
+   준비를
+  </a>
+  확인해 보세요.
+ </span>
+</p>
+<h3 id="Atlassian2021년6월ReleaseNote-LTS릴리스로백포트">
+ LTS 릴리스로 백포트
+</h3>
+<p>
+ <span style="color: rgb(48,48,48);">
+  LTS 릴리스의 안정성을 유지하는 것이 최우선 과제이지만, 이 때문에 이러한 모든 수정 사항을 모두 백포트하기엔 어렵습니다. 최신 버전에 초점을 맞추고 있지만, 중요 수정사항을 완료하면서 검토, 테스트, 재 테스트 및 백포트하기 위해 최선을 다하고 있습니다. 또한 Jira 8.5 LTS 및 Jira 8.13 LTS에 대한 버그픽스 릴리스에서도 이를 예상할 수 있습니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<h2 id="Atlassian2021년6월ReleaseNote-지원되는새로운플랫폼">
+ <strong>
+  지원되는 새로운 플랫폼
+ </strong>
+</h2>
+<p>
+ <span>
+  지원되는 플랫폼 목록에 새로운 데이터베이스와 브라우저가 추가되었습니다.
+ </span>
+</p>
+<ul>
+ <li>
+  <strong>
+   데이터베이스:
+  </strong>
+  <span>
+  </span>
+  <span>
+   Microsoft SQL Server 2019
+  </span>
+ </li>
+ <li>
+  <strong>
+   브라우저:
+  </strong>
+  <span>
+  </span>
+  <span>
+   Microsoft Edge(크롬)
+  </span>
+ </li>
+</ul>
+<p>
+ <span style="color: rgb(23,43,77);">
+  이 Jira 버전에서 지원되는 항목에 대한 자세한 내용을 확인해보세요.
+  <span>
+  </span>
+ </span>
+ <a class="external-link" href="https://confluence.atlassian.com/adminjiraserver/supported-platforms-938846830.html" rel="nofollow" style="text-decoration: none;">
+  지원되는 플랫폼
+ </a>
+ <span style="color: rgb(23,43,77);">
+  .
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr/>
+<h1 id="Atlassian2021년6월ReleaseNote-BitbucketDataCenterandServer7.13.x릴리즈노트" style="text-align: justify;">
+ <strong>
+  Bitbucket Data Center and Server 7.13.x 릴리즈노트
+ </strong>
+</h1>
+<h2 id="Atlassian2021년6월ReleaseNote-|Reviewergroupsforpullrequests-pullrequests에대한Reviewer그룹">
+ <strong>
+  | Reviewer groups for pull requests -
+ </strong>
+ <strong>
+  pull requests
+ </strong>
+ <strong>
+  에 대한
+  <span style="color: rgb(48,48,48);">
+   Reviewer 그룹
+  </span>
+ </strong>
+</h2>
+<h2 id="Atlassian2021년6월ReleaseNote-[DataCenter].2">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span style="color: rgb(48,48,48);">
+  Pull Request에서 한 번에 한 명의 사용자 Reviewer에 추가하는 것은 시간이 오래 걸리는 일입니다.
+  <strong>
+   Reviewer 그룹
+  </strong>
+  은 코드 검토와 관련된 올바른 Reviewer들을 한번에 빠르게 추가할 수 있도록 도와줍니다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span class="fabric-editor-annotation">
+   <span style="color: rgb(48,48,48);">
+    Pull Request를
+   </span>
+   만드는 동안
+  </span>
+  <span>
+  </span>
+  Reviewer 필드에 그룹 이름을 입력한 다음 추가할 Reviewer 그룹을 선택하세요.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p style="margin-left: 720.0px;">
+ <div class="embeddedObject conf-macro output-block" data-hasbody="false" data-macro-name="multimedia">
+  <video controls="" height="500" src="/download/attachments/119380082/grouppullrequesst.mov" width="500">
+   Your browser does not support the HTML5 video element
+  </video>
+ </div>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  프로젝트 및 repository 관리자는 Reviewer 그룹을 만들고 관리할 수 있습니다. 이를 통해 개발 팀은 해당 그룹을 보다 쉽게 자체 관리할 수 있습니다. 프로젝트 또는 repository에 액세스할 수 있는 기존 Bitbucket 사용자의 그룹 구성원을 선택하여 등록 하시면 됩니다.
+ </span>
+</p>
+<p>
+ <br/>
+</p>
+<p style="margin-left: 720.0px;">
+ <br/>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+   <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119380082/3.png"/>
+   </span>
+  </span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <strong>
+   Reviewer 그룹
+  </strong>
+  에 대한 내용이 어떻게 코드 검토 워크플로우를 가속화하는 데 도움이 되는지
+  <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/reviewer-groups-for-pull-requests-1064084872.html" rel="nofollow">
+   자세한 정보
+  </a>
+  에서 확인해보세요.
+ </span>
+</p>
+<h2 id="Atlassian2021년6월ReleaseNote-|PullRequestdescriptiontemplates-PullRequest설명템플릿">
+ <br/>
+ <strong>
+  <span style="color: rgb(48,48,48);">
+   | Pull Request description templates - Pull Request
+  </span>
+  설명 템플릿
+ </strong>
+</h2>
+<h2 id="Atlassian2021년6월ReleaseNote-[DataCenter].3">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span style="color: rgb(48,48,48);">
+   Pull Request
+  </span>
+  설명에 대한 템플릿을 사용하면 시간이 절약되고 코드 검토를 수행하는 동안 Reviewer가 예상할 수 있는 사항을 알 수 있습니다. 검토 지침을 전달하거나 작성자에게 수행해야 하는 일반적인 작업에 대해 상기시켜 주기도 합니다. 새
+  <span style="color: rgb(48,48,48);">
+   Pull Request
+  </span>
+  이 생성되면 기본 설명 템플릿의 내용이 사용되고 자동으로 적용됩니다.
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119380082/4.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span style="color: rgb(48,48,48);">
+   Pull Request
+  </span>
+  에 대한 새 설명 템플릿은
+  <span>
+  </span>
+  <strong>
+   프로젝트 설정
+  </strong>
+  <span>
+  </span>
+  페이지에서 찾을 수 있다.
+ </span>
+</p>
+<h2 id="Atlassian2021년6월ReleaseNote-|Manageallrepositoriesfromonelocation-한위치에서모든repository관리">
+ <strong>
+  | Manage all repositories from one location - 한 위치에서 모든 repository 관리
+ </strong>
+</h2>
+<h2 id="Atlassian2021년6월ReleaseNote-[DataCenter].4">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span style="color: rgb(0,0,0);">
+  새로운 글로벌 repository 페이지에서 Bitbucket Data Center의 모든 repository를 관리세요.
+  <span>
+  </span>
+  활성 상태인 repository를 빠르게 찾고 어떤
+  <span>
+  </span>
+  <span class="fabric-editor-annotation">
+   비활성 repository
+  </span>
+  가 공간을
+  <span>
+  </span>
+  <span class="fabric-editor-annotation">
+   차지
+  </span>
+  하고 있는지
+  <span>
+  </span>
+  <span class="fabric-editor-annotation">
+   확인해보세요
+  </span>
+  .
+  <span>
+  </span>
+  또한 여러 repository를 한꺼번에 삭제하여 혼잡을 줄이실 수 있습니다.
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119380082/5.png"/>
+  </span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  이 새로운 기능에 대한 자세한 내용은
+  <span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/advanced-repository-management-1064084889.html" rel="nofollow" style="text-decoration: none;">
+   Advanced repository 관리 설명서
+  </a>
+  를 확인해 보세요.
+ </span>
+</p>
+<h2 id="Atlassian2021년6월ReleaseNote-">
+ <span>
+  <br/>
+ </span>
+</h2>
+<h2 id="Atlassian2021년6월ReleaseNote-|Unlockdataandinsightsaboutyourinstance-인스턴스에대한데이터및통찰력확보">
+ <strong>
+  | Unlock data and insights about your instance - 인스턴스에 대한 데이터 및 통찰력 확보
+ </strong>
+</h2>
+<h2 id="Atlassian2021년6월ReleaseNote-[DataCenter].5">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span style="color: rgb(48,48,48);">
+  이제 Bitbucket Data Center에서 현재 상태 데이터를 내보낸 다음 즐겨 사용하는 비즈니스 인텔리전스 플랫폼(예: Tableau 또는 Power BI)으로 데이터를 전송할 수 있습니다.BI) 이 데이터로 다음을 수행할 수 있습니다.
+ </span>
+</p>
+<ul class="ak-ul">
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    사용자 활동에 대한 보고서 및 시각화 생성
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    조직 리더에게 소속 팀이 Bitbucket을 어떻게 사용하는 지 더 잘 이해하도록 제공 합니다.
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(48,48,48);">
+    프로젝트 및 repository의 최적화 또는 정리에 대한 결정을 내릴 수 있습니다.
+   </span>
+  </p>
+ </li>
+</ul>
+<p>
+ <span style="color: rgb(0,0,0);">
+  Raw 데이터에는 repository 세부 정보, 커밋, 빌드 상태,
+  <span style="color: rgb(48,48,48);">
+   Pull Request
+  </span>
+  활동 등이 포함됩니다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  REST API를 통해 현재 상태 데이터의 Export를 트리거할 수 있으며,
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size conf-macro output-inline conf-macro output-block" style="color: rgb(0,0,0);">
+   <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119380082/6.png"/>
+   </span>
+  </span>
+  &gt;
+  <span>
+  </span>
+  <strong>
+   시스템
+  </strong>
+  <span>
+  </span>
+  &gt;
+  <span>
+  </span>
+  <strong>
+   데이터 파이프라인
+  </strong>
+  에서 Export Status를 보실 수 있습니다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+   <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119380082/7.png"/>
+   </span>
+  </span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  초기 Export에는 시간이 걸릴 수 있으며, 첫 Export를 시작하기 전에 알아야 할 성능 및 보안 고려 사항이 있습니다.
+ </span>
+ <span style="color: rgb(0,0,0);">
+  데이터 파이프라인에 대한 자세한
+  <span>
+  </span>
+  내용은
+  <span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/data-pipeline-1064085003.html" rel="nofollow" style="text-decoration: none;">
+   설명서
+  </a>
+  를 확인해 보세요.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  앞으로도 오픈소스컨설팅 기술 블로그에서 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  아틀라시안 전문가 팀에게 문의하기 &gt;&gt;
+  <a class="external-link" href="https://bit.ly/3tol84O" rel="nofollow">
+   https://bit.ly/3tol84O
+  </a>
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  감사합니다!
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  <a class="external-link" href="mailto:atlassian@osci.kr" rel="nofollow" style="text-decoration: none;">
+   atlassian@osci.kr
+  </a>
+ </span>
+</p>
