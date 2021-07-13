@@ -1,0 +1,443 @@
+---
+layout: post
+title: "Atlassian 2021년 7월 Release Note"
+description: " " 
+author: soohyeonlee
+date: 2021-07-05
+tags: ['atlassian', 'releasenote']
+category: 
+image: /assets/images/119385928/0.png 
+---
+<p style="text-align: justify;">
+ <span style="color: rgb(23,43,77);">
+  안녕하세요. 아틀라시안 플래티넘 파트너, 오픈소스컨설팅 입니다.
+ </span>
+ <br/>
+ <span style="color: rgb(23,43,77);">
+  이번 포스팅에서는 아틀라시안 제품군의 Jira 8.18.x , Bitbucket 7.14 의 최신 Release Note를 전해드리고자 합니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<h2 id="Atlassian2021년7월ReleaseNote-⛔서버라이선스중단안내" style="text-align: justify;">
+ <strong>
+  ⛔서버 라이선스 중단 안내
+ </strong>
+</h2>
+<p style="text-align: justify;">
+ <br/>
+ 아틀라시안의 발표 이후, 오픈소스컨설팅이 구매 고객 대상으로 발송한 아틀라시안 신규 라이선스 제공 중단에 대한 안내를 구독자분들께도 공개합니다. 서버 라이선스의 중단에 대비하여, 3가지 선택 사항에 대한 설명과 가이드를 제시하고 있으니, 자세한 내용은 아래 버튼을 눌러 확인해주세요!
+ <br/>
+ <a class="external-link" href="https://widgets.ziftsolutions.com/8a998249756176d3017563df435a1b41" rel="nofollow" style="text-decoration: none;">
+  서버 라이센스 중단 안내
+ </a>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<h1 id="Atlassian2021년7월ReleaseNote-Jira8.18.x릴리즈노트" style="text-align: justify;">
+ <strong>
+  Jira 8.18.x 릴리즈 노트
+ </strong>
+</h1>
+<h2 id="Atlassian2021년7월ReleaseNote-|Commentsreactions-코멘트에반응하기">
+ <strong>
+  | Comments reactions - 코멘트에 반응하기
+ </strong>
+</h2>
+<h2 id="Atlassian2021년7월ReleaseNote-[DataCenter]">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119385928/0.png"/>
+    </span>
+   </span>
+  </strong>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  Jira의 Comment에 대한 경험을 계속 개선하고 있습니다. 이 릴리스부터는 문제에 게시된 의견에 반응을 붙이실 수 있습니다. 해당 이슈에 대한 관심 표현, 피드백 또는 승인 프로세스 속도를 높이기 위해 이모티콘을 사용해보세요.
+ </span>
+</p>
+<h2 id="Atlassian2021년7월ReleaseNote-|Analyzehowyourissuechangeovertime-시간이지남에따라이슈가어떻게변경되는지분석">
+ <strong>
+  | Analyze how your issue change over time - 시간이 지남에 따라 이슈가 어떻게 변경되는지 분석
+ </strong>
+</h2>
+<h2 id="Atlassian2021년7월ReleaseNote-[DataCenter].1">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  또한 Jira 데이터를 데이터 파이프라인을 통해 자주 사용하는 비즈니스 인텔리전스 툴로 내보내어 더 나은 사용자 경험을 제공할 수 있습니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<h3 id="Atlassian2021년7월ReleaseNote-이슈히스토리Export" style="text-align: justify;">
+ <strong>
+  이슈 히스토리 Export
+ </strong>
+</h3>
+<p style="text-align: justify;">
+ <span style="color: rgb(32,33,36);">
+  데이터를 더 깊게 분석할 수 있도록 이제 과거 이슈 데이터를 Export하실 수 있습니다. 새 이슈 내역 파일에는 내역 탭에 표시되는 모든 정보들이 포함되어 있습니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(32,33,36);">
+  설정 범위 바깥으로 발생된 변경 사항은 Export 시에 포함되지 않습니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ 모든 이슈에 대한 기록들을 Export 할 시에는 Export에 걸리는 시간이 크게 증가하므로 주말 혹은 사용자가 적은 시간에 Export를 수행하시는 편이 좋습니다. 이 데이터가 필요하지 않는 경우 선택하여 제외할 수 있습니다.
+</p>
+<p style="text-align: justify;">
+ <a class="external-link" href="https://confluence.atlassian.com/docm/latest/data-pipeline-1044786269.html" rel="nofollow">
+  데이터파이프라인에 대하여 더 알아보기
+ </a>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<h3 id="Atlassian2021년7월ReleaseNote-Export지점변경" style="text-align: justify;">
+ Export 지점 변경
+</h3>
+<p style="text-align: justify;">
+ <span style="color: rgb(48,48,48);">
+  REST API를 사용하여 데이터 파이프라인이 파일을 내보낼 사용자 지정 위치를 설정할 수 있습니다. 이 기능은 Amazon S3 또는 Azure Blob 스토리지와 같은 데이터 레이크 관련 스토리지로 직접 파일을 전송하려는 경우에 특히 유용합니다.
+ </span>
+</p>
+<h2 id="Atlassian2021년7월ReleaseNote-|SteppingupJirasecurity-지라보안강화" style="text-align: justify;">
+ <strong>
+  | Stepping up Jira security - 지라 보안 강화
+ </strong>
+</h2>
+<p>
+ <span style="color: rgb(32,33,36);">
+  우리는 항상 서버 및 데이터 센터 제품의 보안을 중요하게 생각합니다. 취약성 관리 프로그램은 보안 문제를 찾고 수정하기 위해 다양한 접근 방식을 사용하며, 특히 보안 공격이 점점 더 보편화되고 정교해짐에 따라 더 빠르게 보완하기 위해 이러한 보안 강화에 대한 노력을 두 배로 기울이고 있습니다.
+ </span>
+</p>
+<p>
+ <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+   <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119385928/1.png"/>
+   </span>
+  </span>
+ </span>
+</p>
+<h3 id="Atlassian2021년7월ReleaseNote-업그레이드된구성요소및라이브러리">
+ 업그레이드된 구성 요소 및 라이브러리
+</h3>
+<p>
+ <span style="color: rgb(0,0,0);">
+  최신 보안 버전으로 업그레이드하려는 핵심 구성 요소와 타사 라이브러리를 파악했으며, 다음 몇 가지 릴리스에서 이러한 작업에 주력하고 있습니다. Jira 8.18에서는 서로 다른 구성 요소와 라이브러리를 업그레이드하거나 Jira의 코드베이스를 개선하여 약 100개의 취약성을 해결되었고 또한 이
+  <span style="color: rgb(48,48,48);">
+   미 더 많은 부분을 수정 하여 버그픽스 릴리스 또는 다음 Jira 버전에의 적용을 기다리고 있습니다.
+   <span>
+   </span>
+  </span>
+  업그레이드 된 라이브러리에
+  <span>
+  </span>
+  <span style="color: rgb(23,43,77);">
+   대하여 자세히 알아보려면
+   <span>
+   </span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/jiracore/preparing-for-jira-8-18-1063178694.html" rel="nofollow">
+   Jira 8.
+   <span style="color: rgb(23,43,77);">
+    18
+   </span>
+  </a>
+  <span style="color: rgb(23,43,77);">
+   <span>
+   </span>
+  </span>
+  준비를 확인해 보세요.
+ </span>
+</p>
+<h3 id="Atlassian2021년7월ReleaseNote-LTS릴리스로백포트">
+ LTS 릴리스로 백포트
+</h3>
+<p>
+ <span style="color: rgb(48,48,48);">
+  LTS 릴리스의 안정성을 유지하는 것이 최우선 과제이지만, 이 때문에 이러한 모든 수정 사항을 다시 백포트 하기엔 어렵습니다. 최신 버전에 초점을 맞추고 있지만, 중요 수정 사항을 완료하면서 검토, 테스트, 다시 테스트 및 백포트하기 위해 최선을 다하고 있으며 해당 내용은  Jira 8.5 LTS 및 Jira 8.13 LTS에 대한 버그픽스 릴리스로 적용될 수 있습니다.
+ </span>
+</p>
+<hr/>
+<h1 id="Atlassian2021년7월ReleaseNote-BitbucketDataCenterandServer7.14.x릴리즈노트" style="text-align: justify;">
+ <strong>
+  Bitbucket Data Center and Server 7.14.x 릴리즈노트
+ </strong>
+</h1>
+<h2 id="Atlassian2021년7월ReleaseNote-|EnhancedintegrationwithJiraSoftwareCloud-JiraSoftwareCloud와의통합강화">
+ <strong>
+  | Enhanced integration with Jira Software Cloud -
+ </strong>
+ <strong>
+  Jira Software Cloud와의 통합 강화
+ </strong>
+</h2>
+<h2 id="Atlassian2021년7월ReleaseNote-[DataCenter].2">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span style="color: rgb(0,0,0);">
+  Bitbucket 데이터 센터는 이제 향상된 개발 정보를 Jira Software Cloud 사이트로 전송할 수 있다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  Bitbucket은 Jira Software Cloud와의 새로운 통합으로 지점, 커밋, 요청 꺼내기 등의 개발 정보를 전송할 뿐만 아니라 다음과 같은 Jira Software Cloud의 새로운 자동화 및 보고 기능에 액세스할 수 있게 되었다.
+ </span>
+</p>
+<ul class="ak-ul">
+ <li>
+  <p>
+   <a class="external-link" href="https://support.atlassian.com/jira-software-cloud/docs/view-and-understand-your-deployment-insights/" rel="nofollow" style="text-decoration: none;" title="https://support.atlassian.com/jira-software-cloud/docs/view-and-understand-your-deployment-insights/">
+    <span>
+     Time metric 주기 계산
+    </span>
+   </a>
+   <span>
+   </span>
+   <span style="color: rgb(0,0,0);">
+    - 지점의 첫 번째 커밋에서 생산까지의 작업 시간.
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <span style="color: rgb(0,0,0);">
+    연결된 Bitbucket 리포지토리가 표시됨
+   </span>
+   <a class="external-link" href="https://support.atlassian.com/jira-software-cloud/docs/link-repositories-to-a-project/" rel="nofollow" style="text-decoration: none;" title="https://support.atlassian.com/jira-software-cloud/docs/link-repositories-to-a-project/">
+    <span>
+    </span>
+    Jira Software Cloud의 코드 탭
+   </a>
+   <span>
+   </span>
+   <span style="color: rgb(0,0,0);">
+    빠르고 쉬운 접근을 위해.
+   </span>
+  </p>
+ </li>
+ <li>
+  <p>
+   <a class="external-link" href="https://support.atlassian.com/jira-software-cloud/docs/automation-triggers/" rel="nofollow">
+    Jira 이벤트 자동화
+   </a>
+   트리거링
+   <span style="color: rgb(0,0,0);">
+    - Branch 작성, 커밋 작성, Pull request 작성, Pull request 거부, Pull request merge 등이 해당.
+    <span>
+    </span>
+    Jira와 Bitbucket 계정을 연결하지 않은 경우 이러한 트리거를 처음 사용할 때 연결하라는 메시지가 표시됨.
+   </span>
+  </p>
+ </li>
+</ul>
+<p>
+ <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/link-bitbucket-with-jira-776640408.html" rel="nofollow" style="text-decoration: none;">
+  Jira Software Cloud와 통합에 대해 자세히 알아보기
+ </a>
+</p>
+<h2 id="Atlassian2021년7월ReleaseNote-|Requiredbuildsmergecheck-필수빌드merge검사">
+ <strong>
+  | Required builds merge check - 필수 빌드 merge 검사
+ </strong>
+</h2>
+<h2 id="Atlassian2021년7월ReleaseNote-[DataCenter].3">
+ <span>
+  <strong>
+   <span style="color: rgb(51,102,255);">
+    [ Data Center ]
+   </span>
+  </strong>
+ </span>
+</h2>
+<p>
+ <span style="color: rgb(0,0,0);">
+  지속적인 통합(CI)은 코드 품질을 보장하고 생산에 들어갈 수 있는 것을 둘러싼 거버넌스 정책을 시행하기 위한 기본적인 과정입니다. 거버넌스 규칙을 유지하는 것은 까다로울 수 있습니다.
+  <span>
+  </span>
+  이는 관련 내용에 관한 컨트롤이 서로 다른 툴에 있기 때문에 통합된 컨트롤을 제공하기 위해 사용자 정의 툴링, 스크립트 또는 플러그인의 조합이 추가로 필요하기 때문이다.
+  <span>
+  </span>
+  그렇게 된다면 개발팀의 운영 및 유지보수 비용의 증가 될 것입니다.
+  <span>
+  </span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  이제 Bitbucket Data Center 저장소 관리자는 새로 필요한 빌드 merge 검사를 통해 중요한 타깃 branch로 merge되는 pull request를 보다 유연하게 제어할 수 있습니다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  지정된 Branch에 merge하기 위해 통과해야 하는 빌드를 선택하고 이러한 검사에서 제외해야 하는 원본 Branch를 선택하십시오.
+  <span>
+   예를 들어, hotfix-*로 시작하는 모든 branch를 빌드하지 않고 병합할 수 있는 branch 패턴 hotfix-를 추가하여 긴급 픽스를 통해 빌드 검사를 건너뛸 수 있습니다.
+  </span>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(48,48,48);">
+  필수 빌드를 사용하면 간편하면서도 강력한 인터페이스를 통해 거버넌스를 보장할 수 있습니다. 또한 이러한 규칙은 개발 팀쪽으로 더 가깝기 때문에 이러한 조건이 충족되지 않을 경우 이를 확인할 수 있는 가시성이 향상됩니다. 이로 인해 관련 문제를 보다 신속하게 해결할 수 있습니다.
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size conf-macro output-inline">
+   <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size">
+<img src="/assets/images/119385928/2.png"/>
+   </span>
+  </span>
+  <br/>
+ </span>
+</p>
+<p>
+ <span style="color: rgb(0,0,0);">
+  <span style="color: rgb(23,43,77);">
+   필요한 빌드 merge 검사를 추가하는 방법에 대한 자세한 내용은 을 참조하십시오.
+   <span>
+   </span>
+  </span>
+  <a class="external-link" href="https://confluence.atlassian.com/bitbucketserver/checks-for-merging-pull-requests-776640039.html" rel="nofollow" style="text-decoration: none;">
+   Pull request merge 확인
+  </a>
+  <span style="color: rgb(23,43,77);">
+   .
+  </span>
+ </span>
+</p>
+<h2 id="Atlassian2021년7월ReleaseNote-또무엇이변경되었을까요?">
+ 또 무엇이 변경 되었을까요?
+</h2>
+<ul>
+ <li>
+  이제 원하지 않는 데이터를 하나의 편리한 페이지에서 처리하는 데 도움이 되는 도구와 팁에 액세스할 수 있습니다.
+  <span>
+   Setting
+  </span>
+  &gt;
+  <span>
+   Clean Up 으로 이동하
+  </span>
+  셔서 확인해 보세요.
+ </li>
+ <li>
+  Bitbucket Data Center 7.13에서는 인스턴스에 있는 전체 리포지토리 목록에 액세스할 수 있는 고급 리포지토리 관리 기능을 제공했습니다.
+  <span>
+  </span>
+  이번 릴리스에서는
+  <span style="color: rgb(48,48,48);">
+   관리자가 보다 쉽게 관리할 수 있도록 저장소 페이지에 사이즈와 사이즈 필터를 추가했습니다.
+  </span>
+ </li>
+</ul>
+<h3 id="Atlassian2021년7월ReleaseNote-지원되는새로운플랫폼">
+ 지원되는 새로운 플랫폼
+</h3>
+<p>
+ Bitbucket 7.14에 새로운 데이터베이스와 Git version이 추가 되었습니다.
+</p>
+<ul>
+ <li>
+  PostgreSQL 13
+ </li>
+ <li>
+  Git 2.32 for server
+ </li>
+</ul>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<hr style="text-align: justify;"/>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  앞으로도 오픈소스컨설팅 기술 블로그에서 아틀라시안 제품군의 Release Note를 지속적으로 전해드릴 수 있도록 하겠습니다.
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  Jira, Confluence 사용에 불편함을 느끼시거나, 향상된 팀 협업이 필요하십니까?
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  업무를 가속화하고 최상의 품질로 시장을 선점하는데 도움을 주는 Atlassian 솔루션에 대해
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  궁금한 점이 있으시다면 언제든지 오픈소스컨설팅 아틀라시안팀에게 문의해 주세요!
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  아틀라시안 전문가 팀에게 문의하기 &gt;&gt;
+  <a class="external-link" href="https://bit.ly/3tol84O" rel="nofollow">
+   https://bit.ly/3tol84O
+  </a>
+ </span>
+</p>
+<p style="text-align: justify;">
+ <br/>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  감사합니다!
+ </span>
+</p>
+<p style="text-align: justify;">
+ <span style="color: rgb(0,0,0);">
+  <a class="external-link" href="mailto:atlassian@osci.kr" rel="nofollow" style="text-decoration: none;">
+   atlassian@osci.kr
+  </a>
+ </span>
+</p>
